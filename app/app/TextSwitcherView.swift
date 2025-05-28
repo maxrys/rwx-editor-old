@@ -17,7 +17,7 @@ struct TextSwitcherView: View {
     }
 
     var body: some View {
-        let isOn: (UInt8) -> Bool = { bitPosition in
+        let isOn: (UInt) -> Bool = { bitPosition in
             self.rights.wrappedValue.bitGet(
                 position: bitPosition
             ) == 1

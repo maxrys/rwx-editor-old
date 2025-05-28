@@ -16,7 +16,7 @@ struct ColoredSwitcherView: View {
 
     private var color: MainColor
     private var rights: Binding<UInt>
-    private var bitPosition: UInt8
+    private var bitPosition: UInt
 
     private let iconR: CGFloat = 25
     private var isOn: Bool {
@@ -25,7 +25,7 @@ struct ColoredSwitcherView: View {
         ) == 1
     }
 
-    init(_ color: MainColor, _ rights: Binding<UInt>, bitPosition: UInt8) {
+    init(_ color: MainColor, _ rights: Binding<UInt>, bitPosition: UInt) {
         self.color       = color
         self.rights      = rights
         self.bitPosition = bitPosition

@@ -15,6 +15,9 @@
     "%@" : {
 
     },
+    "%llu" : {
+
+    },
     "apply" : {
       "localizations" : {
         "en" : {

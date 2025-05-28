@@ -23,16 +23,16 @@ extension UInt {
         String(self, radix: 8)
     }
 
-    func bitGet(position: UInt8) -> UInt8 {
-        return UInt8(self >> position & 0b1)
+    func bitGet(position: UInt) -> UInt {
+        return UInt(self >> position & 0b1)
     }
 
-    mutating func bitSet(position: UInt8, isOn: Bool = false) {
+    mutating func bitSet(position: UInt, isOn: Bool = false) {
         if (isOn) { self = self |  (0b1 << position) }
         else      { self = self & ~(0b1 << position) }
     }
 
-    mutating func bitToggle(position: UInt8) {
+    mutating func bitToggle(position: UInt) {
         self = self ^ (0b1 << position)
     }
 
