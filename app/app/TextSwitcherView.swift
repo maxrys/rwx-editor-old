@@ -16,16 +16,22 @@ struct TextSwitcherView: View {
         self.rights = rights
     }
 
+    let isOn: (UInt, UInt) -> Bool = { rightsValue, bitPosition in
+        rightsValue.bitGet(
+            position: bitPosition
+        ) == 1
+    }
+
     var body: some View {
-        let isOn: (UInt) -> Bool = { bitPosition in
-            self.rights.wrappedValue.bitGet(
-                position: bitPosition
-            ) == 1
-        }
+        let rightsValue = self.rights.wrappedValue
+        let symbolR = Permission.r.rawValue
+        let symbolW = Permission.w.rawValue
+        let symbolX = Permission.x.rawValue
+        let symbolE = "-"
         let text = String(
-            "\(isOn(8) ? Permission.r.rawValue : "-")\(isOn(7) ? Permission.w.rawValue : "-")\(isOn(6) ? Permission.x.rawValue : "-")" +
-            "\(isOn(5) ? Permission.r.rawValue : "-")\(isOn(4) ? Permission.w.rawValue : "-")\(isOn(3) ? Permission.x.rawValue : "-")" +
-            "\(isOn(2) ? Permission.r.rawValue : "-")\(isOn(1) ? Permission.w.rawValue : "-")\(isOn(0) ? Permission.x.rawValue : "-")"
+            "\( self.isOn(rightsValue, 8) ? symbolR : symbolE )\( self.isOn(rightsValue, 7) ? symbolW : symbolE )\( self.isOn(rightsValue, 6) ? symbolX : symbolE )" +
+            "\( self.isOn(rightsValue, 5) ? symbolR : symbolE )\( self.isOn(rightsValue, 4) ? symbolW : symbolE )\( self.isOn(rightsValue, 3) ? symbolX : symbolE )" +
+            "\( self.isOn(rightsValue, 2) ? symbolR : symbolE )\( self.isOn(rightsValue, 1) ? symbolW : symbolE )\( self.isOn(rightsValue, 0) ? symbolX : symbolE )"
         )
         let textView = {
             Text(text)

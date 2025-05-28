@@ -13,22 +13,27 @@ struct NumericSwitcherView: View {
         self.rights = rights
     }
 
+    let valueExtract: (UInt, Subject) -> UInt = { rightsValue, subject in
+        let bitR = rightsValue.bitGet(position: subject.offset + Permission.r.offset)
+        let bitW = rightsValue.bitGet(position: subject.offset + Permission.w.offset)
+        let bitX = rightsValue.bitGet(position: subject.offset + Permission.x.offset)
+        var result: UInt = 0
+            result.bitSet(position: 2, isOn: bitR == 1)
+            result.bitSet(position: 1, isOn: bitW == 1)
+            result.bitSet(position: 0, isOn: bitX == 1)
+        return result
+    }
+
     var body: some View {
-        let valueGet: (Subject) -> UInt = { subject in
-            let bitR = self.rights.wrappedValue.bitGet(position: subject.offset + Permission.r.offset)
-            let bitW = self.rights.wrappedValue.bitGet(position: subject.offset + Permission.w.offset)
-            let bitX = self.rights.wrappedValue.bitGet(position: subject.offset + Permission.x.offset)
-            var result: UInt = 0
-                result.bitSet(position: 2, isOn: bitR == 1)
-                result.bitSet(position: 1, isOn: bitW == 1)
-                result.bitSet(position: 0, isOn: bitX == 1)
-            return result
-        }
         HStack(spacing: 0) {
-            Text("\(valueGet(.owner))")
-            Text("\(valueGet(.group))")
-            Text("\(valueGet(.other))")
+            self.switcher(self.valueExtract(self.rights.wrappedValue, .owner))
+            self.switcher(self.valueExtract(self.rights.wrappedValue, .group))
+            self.switcher(self.valueExtract(self.rights.wrappedValue, .other))
         }
+    }
+
+    @ViewBuilder func switcher(_ value: UInt) -> some View {
+        Text("\(value)")
     }
 
 }
