@@ -24,9 +24,11 @@ struct NumericSwitcherView: View {
                 result.bitSet(position: 0, isOn: bitX == 1)
             return result
         }
-        Text("\(valueGet(.owner))")
-        Text("\(valueGet(.group))")
-        Text("\(valueGet(.other))")
+        HStack(spacing: 0) {
+            Text("\(valueGet(.owner))")
+            Text("\(valueGet(.group))")
+            Text("\(valueGet(.other))")
+        }
     }
 
 }

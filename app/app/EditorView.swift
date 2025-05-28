@@ -60,7 +60,11 @@ struct EditorView: View {
             /* MARK: rules via text */
             VStack(spacing: 10) {
                 TextSwitcherView($rights)
-                Text("oct: \(self.rights.oct)")
+            }
+
+            /* MARK: rules via numeric */
+            VStack(spacing: 10) {
+                NumericSwitcherView($rights)
             }
 
             /* MARK: cancel/apply buttons */
@@ -72,7 +76,7 @@ struct EditorView: View {
                 .onHover { isInView in
                     if (isInView) { NSCursor.pointingHand.push() }
                     else          { NSCursor.pop() }
-                }
+                }.disabled(self.rights == self.rightsOriginal)
 
                 Button {
                     self.onApplyRights(

@@ -28,7 +28,7 @@ struct TextSwitcherView: View {
             "\(isOn(2) ? Permission.r.rawValue : "-")\(isOn(1) ? Permission.w.rawValue : "-")\(isOn(0) ? Permission.x.rawValue : "-")"
         )
         let textView = {
-            Text("\(text)")
+            Text(text)
                 .padding(.horizontal, 9)
                 .padding(.top, 3)
                 .padding(.bottom, 4)

@@ -12,9 +12,6 @@
       },
       "shouldTranslate" : false
     },
-    "%@" : {
-
-    },
     "%llu" : {
 
     },
@@ -78,22 +75,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Группа"
-          }
-        }
-      }
-    },
-    "oct: %@" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "oct: %@"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "oct: %@"
           }
         }
       }
