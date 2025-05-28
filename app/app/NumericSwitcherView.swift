@@ -18,9 +18,9 @@ struct NumericSwitcherView: View {
         let bitW = rightsValue.bitGet(position: subject.offset + Permission.w.offset)
         let bitX = rightsValue.bitGet(position: subject.offset + Permission.x.offset)
         var result: UInt = 0
-            result.bitSet(position: 2, isOn: bitR == 1)
-            result.bitSet(position: 1, isOn: bitW == 1)
-            result.bitSet(position: 0, isOn: bitX == 1)
+            result.bitSet(position: Permission.r.offset, isOn: bitR == 1)
+            result.bitSet(position: Permission.w.offset, isOn: bitW == 1)
+            result.bitSet(position: Permission.x.offset, isOn: bitX == 1)
         return result
     }
 

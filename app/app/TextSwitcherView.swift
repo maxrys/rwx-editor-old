@@ -29,9 +29,9 @@ struct TextSwitcherView: View {
         let symbolX = Permission.x.rawValue
         let symbolE = "-"
         let text = String(
-            "\( self.isOn(rightsValue, 8) ? symbolR : symbolE )\( self.isOn(rightsValue, 7) ? symbolW : symbolE )\( self.isOn(rightsValue, 6) ? symbolX : symbolE )" +
-            "\( self.isOn(rightsValue, 5) ? symbolR : symbolE )\( self.isOn(rightsValue, 4) ? symbolW : symbolE )\( self.isOn(rightsValue, 3) ? symbolX : symbolE )" +
-            "\( self.isOn(rightsValue, 2) ? symbolR : symbolE )\( self.isOn(rightsValue, 1) ? symbolW : symbolE )\( self.isOn(rightsValue, 0) ? symbolX : symbolE )"
+            "\( self.isOn(rightsValue, Subject.owner.offset + Permission.r.offset) ? symbolR : symbolE )\( self.isOn(rightsValue, Subject.owner.offset + Permission.w.offset) ? symbolW : symbolE )\( self.isOn(rightsValue, Subject.owner.offset + Permission.x.offset) ? symbolX : symbolE )" +
+            "\( self.isOn(rightsValue, Subject.group.offset + Permission.r.offset) ? symbolR : symbolE )\( self.isOn(rightsValue, Subject.group.offset + Permission.w.offset) ? symbolW : symbolE )\( self.isOn(rightsValue, Subject.group.offset + Permission.x.offset) ? symbolX : symbolE )" +
+            "\( self.isOn(rightsValue, Subject.other.offset + Permission.r.offset) ? symbolR : symbolE )\( self.isOn(rightsValue, Subject.other.offset + Permission.w.offset) ? symbolW : symbolE )\( self.isOn(rightsValue, Subject.other.offset + Permission.x.offset) ? symbolX : symbolE )"
         )
         let textView = {
             Text(text)
