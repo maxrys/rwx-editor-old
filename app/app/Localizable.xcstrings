@@ -12,6 +12,9 @@
       },
       "shouldTranslate" : false
     },
+    "%lld" : {
+
+    },
     "%llu" : {
 
     },
