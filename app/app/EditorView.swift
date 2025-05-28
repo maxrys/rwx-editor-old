@@ -36,23 +36,23 @@ struct EditorView: View {
 
                 VStack(spacing: 10) {
                     Text(NSLocalizedString("Read", comment: "")).frame(width: textW, height: textH)
-                    ColoredSwitcherView(.owner, self.$rights, bitPosition: 8)
-                    ColoredSwitcherView(.group, self.$rights, bitPosition: 5)
-                    ColoredSwitcherView(.other, self.$rights, bitPosition: 2)
+                    ColoredSwitcherView(.owner, self.$rights, bitPosition: Subject.owner.offset + Permission.r.offset)
+                    ColoredSwitcherView(.group, self.$rights, bitPosition: Subject.group.offset + Permission.r.offset)
+                    ColoredSwitcherView(.other, self.$rights, bitPosition: Subject.other.offset + Permission.r.offset)
                 }
 
                 VStack(spacing: 10) {
                     Text(NSLocalizedString("Write", comment: "")).frame(width: textW, height: textH)
-                    ColoredSwitcherView(.owner, self.$rights, bitPosition: 7)
-                    ColoredSwitcherView(.group, self.$rights, bitPosition: 4)
-                    ColoredSwitcherView(.other, self.$rights, bitPosition: 1)
+                    ColoredSwitcherView(.owner, self.$rights, bitPosition: Subject.owner.offset + Permission.w.offset)
+                    ColoredSwitcherView(.group, self.$rights, bitPosition: Subject.group.offset + Permission.w.offset)
+                    ColoredSwitcherView(.other, self.$rights, bitPosition: Subject.other.offset + Permission.w.offset)
                 }
 
                 VStack(spacing: 10) {
                     Text(NSLocalizedString("Execute", comment: "")).frame(width: textW, height: textH)
-                    ColoredSwitcherView(.owner, self.$rights, bitPosition: 6)
-                    ColoredSwitcherView(.group, self.$rights, bitPosition: 3)
-                    ColoredSwitcherView(.other, self.$rights, bitPosition: 0)
+                    ColoredSwitcherView(.owner, self.$rights, bitPosition: Subject.owner.offset + Permission.x.offset);
+                    ColoredSwitcherView(.group, self.$rights, bitPosition: Subject.group.offset + Permission.x.offset);
+                    ColoredSwitcherView(.other, self.$rights, bitPosition: Subject.other.offset + Permission.x.offset);
                 }
 
             }.frame(width: 250)

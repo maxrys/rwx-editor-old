@@ -15,13 +15,13 @@ struct NumericSwitcherView: View {
 
     var body: some View {
         let valueGet: (Subject) -> UInt = { subject in
-            let bit2 = self.rights.wrappedValue.bitGet(position: 3 * subject.offset + 2)
-            let bit1 = self.rights.wrappedValue.bitGet(position: 3 * subject.offset + 1)
-            let bit0 = self.rights.wrappedValue.bitGet(position: 3 * subject.offset + 0)
+            let bitR = self.rights.wrappedValue.bitGet(position: subject.offset + Permission.r.offset)
+            let bitW = self.rights.wrappedValue.bitGet(position: subject.offset + Permission.w.offset)
+            let bitX = self.rights.wrappedValue.bitGet(position: subject.offset + Permission.x.offset)
             var result: UInt = 0
-                result.bitSet(position: 2, isOn: bit2 == 1 ? true : false)
-                result.bitSet(position: 1, isOn: bit1 == 1 ? true : false)
-                result.bitSet(position: 0, isOn: bit0 == 1 ? true : false)
+                result.bitSet(position: 2, isOn: bitR == 1)
+                result.bitSet(position: 1, isOn: bitW == 1)
+                result.bitSet(position: 0, isOn: bitX == 1)
             return result
         }
         Text("\(valueGet(.owner))")

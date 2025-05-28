@@ -23,9 +23,9 @@ struct TextSwitcherView: View {
             ) == 1
         }
         let text = String(
-            "\(isOn(8) ? "r" : "-")\(isOn(7) ? "w" : "-")\(isOn(6) ? "x" : "-")" +
-            "\(isOn(5) ? "r" : "-")\(isOn(4) ? "w" : "-")\(isOn(3) ? "x" : "-")" +
-            "\(isOn(2) ? "r" : "-")\(isOn(1) ? "w" : "-")\(isOn(0) ? "x" : "-")"
+            "\(isOn(8) ? Permission.r.rawValue : "-")\(isOn(7) ? Permission.w.rawValue : "-")\(isOn(6) ? Permission.x.rawValue : "-")" +
+            "\(isOn(5) ? Permission.r.rawValue : "-")\(isOn(4) ? Permission.w.rawValue : "-")\(isOn(3) ? Permission.x.rawValue : "-")" +
+            "\(isOn(2) ? Permission.r.rawValue : "-")\(isOn(1) ? Permission.w.rawValue : "-")\(isOn(0) ? Permission.x.rawValue : "-")"
         )
         let textView = {
             Text("\(text)")

@@ -29,8 +29,8 @@ enum Subject {
 
     var offset: UInt {
         switch self {
-            case .owner: return 2
-            case .group: return 1
+            case .owner: return 6
+            case .group: return 3
             case .other: return 0
         }
     }

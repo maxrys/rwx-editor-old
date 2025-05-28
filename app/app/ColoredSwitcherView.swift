@@ -64,8 +64,8 @@ struct ColoredSwitcherView: View {
 @available(macOS 14.0, *) #Preview {
     @Previewable @State var rights: UInt = 0o7
     HStack(spacing: 10) {
-        ColoredSwitcherView(.group, $rights, bitPosition: 0)
-        ColoredSwitcherView(.other, $rights, bitPosition: 1)
-        ColoredSwitcherView(.owner, $rights, bitPosition: 2)
+        ColoredSwitcherView(.group, $rights, bitPosition: Permission.x.offset)
+        ColoredSwitcherView(.other, $rights, bitPosition: Permission.w.offset)
+        ColoredSwitcherView(.owner, $rights, bitPosition: Permission.r.offset)
     }.padding(20)
 }
