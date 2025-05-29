@@ -17,12 +17,12 @@ struct CustomPicker: View {
     @State private var isOpened: Bool = false
     @State private var hoverIndex: Int = -1
 
-    private var selection: Binding<UInt>
+    private var selectedIndex: Binding<UInt>
     private var values: [String]
 
-    init(selection: Binding<UInt>, values: [String]) {
-        self.selection = selection
-        self.values    = values
+    init(selectedIndex: Binding<UInt>, values: [String]) {
+        self.selectedIndex = selectedIndex
+        self.values        = values
     }
 
     var body: some View {
@@ -31,7 +31,7 @@ struct CustomPicker: View {
         Button {
             self.isOpened = true
         } label: {
-            Text(self.values[Int(self.selection.wrappedValue)])
+            Text(self.values[Int(self.selectedIndex.wrappedValue)])
                 .lineLimit(1)
                 .padding(.horizontal, 9)
                 .padding(.vertical  , 5)
@@ -48,7 +48,7 @@ struct CustomPicker: View {
                 VStack(spacing: 6) {
                     ForEach(self.values.indices, id: \.self) { index in
                         Button {
-                            self.selection.wrappedValue = UInt(index)
+                            self.selectedIndex.wrappedValue = UInt(index)
                             self.isOpened = false
                         } label: {
                             Text("\(self.values[index])")
@@ -57,9 +57,11 @@ struct CustomPicker: View {
                                 .padding(.vertical  , 5)
                                 .frame(maxWidth: .infinity)
                                 .color(Color(Self.MainColor.text.rawValue))
-                                .background(self.hoverIndex == index ?
+                                .background(
+                                    self.hoverIndex == index || self.selectedIndex.wrappedValue == index ?
                                     Color(Self.MainColor.item___SelectedBackground.rawValue) :
-                                    Color(Self.MainColor.itemNotSelectedBackground.rawValue) )
+                                    Color(Self.MainColor.itemNotSelectedBackground.rawValue)
+                                )
                                 .cornerRadius(10)
                                 .onHover { isHovered in
                                     self.hoverIndex = isHovered ? index : -1
@@ -76,7 +78,7 @@ struct CustomPicker: View {
 }
 
 @available(macOS 14.0, *) #Preview {
-    @Previewable @State var selection: UInt = 0
+    @Previewable @State var selectedIndex: UInt = 0
     let values: [String] = {
         var result: [String] = []
         for i in 1 ... 100 {
@@ -87,7 +89,7 @@ struct CustomPicker: View {
     }()
     HStack {
         CustomPicker(
-            selection: $selection,
+            selectedIndex: $selectedIndex,
             values: values
         ).frame(maxWidth: 100)
     }
