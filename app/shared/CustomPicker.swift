@@ -8,11 +8,11 @@ import SwiftUI
 struct CustomPicker: View {
 
     private var selection: Binding<UInt>
-    private var values: [UInt]
+    private var values: [String]
 
     @State var isOpened: Bool = false
 
-    init(selection: Binding<UInt>, values: [UInt]) {
+    init(selection: Binding<UInt>, values: [String]) {
         self.selection = selection
         self.values    = values
     }
@@ -50,7 +50,7 @@ struct CustomPicker: View {
             Button {
                 self.isOpened.toggle()
             } label: {
-                Text("\(self.selection.wrappedValue)")
+                Text(self.values[Int(self.selection.wrappedValue)])
                     .padding(5)
                     .background(Color(.white))
                     .color(Color(.black))
@@ -70,10 +70,15 @@ struct CustomPicker: View {
 @available(macOS 14.0, *) #Preview {
     @Previewable @State var selection: UInt = 0
     HStack {
-        let values: [UInt] = [0, 1, 2, 3, 4, 5, 6, 7]
         CustomPicker(
             selection: $selection,
-            values: values
+            values: [
+                "value 1",
+                "value 2",
+                "value 3",
+                "value 4",
+                "value 5",
+            ]
         )
     }
     .padding(20)
