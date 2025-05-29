@@ -23,12 +23,12 @@ struct CustomPicker: View {
             /* MARK: value list */
             if (self.isOpened) {
                 VStack(spacing: 2) {
-                    ForEach(0 ... 7, id: \.self) { value in
+                    ForEach(self.values.indices, id: \.self) { index in
                         Button {
-                            self.selection.wrappedValue = UInt(value)
+                            self.selection.wrappedValue = UInt(index)
                             self.isOpened = false
                         } label: {
-                            Text("\(value)")
+                            Text("\(self.values[index])")
                         }
                         .buttonStyle(.plain)
                         .onHover { isInView in
@@ -38,12 +38,12 @@ struct CustomPicker: View {
                     }
                 }
                 .padding(5)
-                .background(Color(.gray))
-                .color(Color(.white))
+                .background(Color(.white))
+                .color(Color(.black))
                 .cornerRadius(5)
                 .shadow(color: .black.opacity(0.5), radius: 2.0)
                 .frame(width: 20)
-                .offset(y: -90)
+                .offset(y: -100)
             }
 
             /* MARK: selected value */
@@ -51,6 +51,10 @@ struct CustomPicker: View {
                 self.isOpened.toggle()
             } label: {
                 Text("\(self.selection.wrappedValue)")
+                    .padding(5)
+                    .background(Color(.white))
+                    .color(Color(.black))
+                    .cornerRadius(5)
             }
             .buttonStyle(.plain)
             .onHover { isInView in
