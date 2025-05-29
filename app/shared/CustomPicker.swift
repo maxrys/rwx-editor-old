@@ -8,9 +8,10 @@ import SwiftUI
 struct CustomPicker: View {
 
     enum MainColor: String {
-        case text       = "color CustomPicker Text"
-        case background = "color CustomPicker Background"
-        case selected   = "color CustomPicker Selected Background"
+        case text                      = "color CustomPicker Text"
+        case background                = "color CustomPicker Background"
+        case item___SelectedBackground = "color CustomPicker Item Selected Background"
+        case itemNotSelectedBackground = "color CustomPicker Item Not Selected Background"
     }
 
     @State private var isOpened: Bool = false
@@ -44,7 +45,7 @@ struct CustomPicker: View {
         /* MARK: value list */
         .popover(isPresented: self.$isOpened) {
             ScrollView(.vertical) {
-                VStack(spacing: 0) {
+                VStack(spacing: 6) {
                     ForEach(self.values.indices, id: \.self) { index in
                         Button {
                             self.selection.wrappedValue = UInt(index)
@@ -52,17 +53,19 @@ struct CustomPicker: View {
                         } label: {
                             Text("\(self.values[index])")
                                 .lineLimit(1)
-                                .padding(5)
+                                .padding(.horizontal, 9)
+                                .padding(.vertical  , 5)
                                 .frame(maxWidth: .infinity)
                                 .color(Color(Self.MainColor.text.rawValue))
-                                .background(self.hoverIndex == index ? Color(Self.MainColor.selected.rawValue) : Color(.clear))
+                                .background(self.hoverIndex == index ?
+                                    Color(Self.MainColor.item___SelectedBackground.rawValue) :
+                                    Color(Self.MainColor.itemNotSelectedBackground.rawValue) )
                                 .cornerRadius(10)
                                 .onHover { isHovered in
                                     self.hoverIndex = isHovered ? index : -1
                                 }
                         }
                         .buttonStyle(.plain)
-                        .onHoverCursor()
                     }
                 }.padding(10)
             }.frame(maxHeight: 300)
