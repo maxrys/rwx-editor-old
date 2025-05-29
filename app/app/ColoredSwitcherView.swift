@@ -53,10 +53,7 @@ struct ColoredSwitcherView: View {
             }
         }
         .buttonStyle(.plain)
-        .onHover { isInView in
-            if (isInView) { NSCursor.pointingHand.push() }
-            else          { NSCursor.pop() }
-        }
+        .onHoverCursor()
     }
 
 }

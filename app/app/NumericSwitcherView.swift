@@ -32,8 +32,8 @@ struct NumericSwitcherView: View {
     }
 
     var body: some View {
-        let values: [UInt] = [0, 1, 2, 3, 4, 5, 6, 7]
-        HStack(spacing: 10) {
+        let values: [String] = ["0", "1", "2", "3", "4", "5", "6", "7"]
+        HStack(spacing: 3) {
             CustomPicker(selection: self.$selectedOwnerValue, values: values)
             CustomPicker(selection: self.$selectedGroupValue, values: values)
             CustomPicker(selection: self.$selectedOtherValue, values: values)
@@ -48,5 +48,4 @@ struct NumericSwitcherView: View {
         NumericSwitcherView($rights)
     }
     .padding(20)
-    .frame(maxHeight: 400)
 }

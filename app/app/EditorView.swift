@@ -73,20 +73,15 @@ struct EditorView: View {
                 Button {
                     self.rights = self.rightsOriginal
                 } label: { Text(NSLocalizedString("cancel", comment: "")) }
-                .onHover { isInView in
-                    if (isInView) { NSCursor.pointingHand.push() }
-                    else          { NSCursor.pop() }
-                }.disabled(self.rights == self.rightsOriginal)
+                .disabled(self.rights == self.rightsOriginal)
+                .onHoverCursor()
 
                 Button {
                     self.onApplyRights(
                         self.rights
                     )
                 } label: { Text(NSLocalizedString("apply", comment: "")) }
-                .onHover { isInView in
-                    if (isInView) { NSCursor.pointingHand.push() }
-                    else          { NSCursor.pop() }
-                }
+                .onHoverCursor()
 
             }
 

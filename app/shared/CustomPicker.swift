@@ -18,51 +18,44 @@ struct CustomPicker: View {
     }
 
     var body: some View {
-        ZStack {
 
-            /* MARK: value list */
-            if (self.isOpened) {
-                VStack(spacing: 2) {
-                    ForEach(self.values.indices, id: \.self) { index in
-                        Button {
-                            self.selection.wrappedValue = UInt(index)
-                            self.isOpened = false
-                        } label: {
-                            Text("\(self.values[index])")
-                        }
-                        .buttonStyle(.plain)
-                        .onHover { isInView in
-                            if (isInView) { NSCursor.pointingHand.push() }
-                            else          { NSCursor.pop() }
-                        }
-                    }
-                }
-                .padding(5)
+        /* MARK: selected value */
+        Button {
+            self.isOpened = true
+        } label: {
+            Text(self.values[Int(self.selection.wrappedValue)])
+                .lineLimit(1)
+                .padding(.horizontal, 9)
+                .padding(.vertical  , 5)
                 .background(Color(.white))
                 .color(Color(.black))
-                .cornerRadius(5)
-                .shadow(color: .black.opacity(0.5), radius: 2.0)
-                .frame(width: 20)
-                .offset(y: -100)
-            }
-
-            /* MARK: selected value */
-            Button {
-                self.isOpened.toggle()
-            } label: {
-                Text(self.values[Int(self.selection.wrappedValue)])
-                    .padding(5)
-                    .background(Color(.white))
-                    .color(Color(.black))
-                    .cornerRadius(5)
-            }
-            .buttonStyle(.plain)
-            .onHover { isInView in
-                if (isInView) { NSCursor.pointingHand.push() }
-                else          { NSCursor.pop() }
-            }
-
+                .cornerRadius(10)
         }
+        .buttonStyle(.plain)
+        .onHoverCursor()
+
+        /* MARK: value list */
+        .popover(isPresented: self.$isOpened) {
+            VStack(spacing: 2) {
+                ForEach(self.values.indices, id: \.self) { index in
+                    Button {
+                        self.selection.wrappedValue = UInt(index)
+                        self.isOpened = false
+                    } label: {
+                        Text("\(self.values[index])")
+                            .lineLimit(1)
+                    }
+                    .buttonStyle(.plain)
+                    .onHover { _ in
+                        print("\(index)")
+                    }
+                }
+            }
+            .padding(10)
+            .background(Color(.white))
+            .color(Color(.black))
+        }
+
     }
 
 }
@@ -73,14 +66,14 @@ struct CustomPicker: View {
         CustomPicker(
             selection: $selection,
             values: [
-                "value 1",
-                "value 2",
-                "value 3",
-                "value 4",
-                "value 5",
+                "Value 1",
+                "Value 2",
+                "Value 3",
+                "Value 4",
+                "Value 5 (long)",
             ]
         )
     }
-    .padding(20)
+    .padding(100)
     .frame(maxHeight: 400)
 }
