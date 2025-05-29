@@ -8,10 +8,11 @@ import SwiftUI
 struct CustomPicker: View {
 
     enum MainColor: String {
-        case text                      = "color CustomPicker Text"
-        case background                = "color CustomPicker Background"
-        case item___SelectedBackground = "color CustomPicker Item Selected Background"
-        case itemNotSelectedBackground = "color CustomPicker Item Not Selected Background"
+        case text                   = "color CustomPicker Text"
+        case background             = "color CustomPicker Background"
+        case itemBackground         = "color CustomPicker Item Background"
+        case itemSelectedBackground = "color CustomPicker Item Selected Background"
+        case itemHoveredBackground  = "color CustomPicker Item Hovered Background"
     }
 
     @State private var isOpened: Bool = false
@@ -47,6 +48,11 @@ struct CustomPicker: View {
             ScrollView(.vertical) {
                 VStack(spacing: 6) {
                     ForEach(self.values.indices, id: \.self) { index in
+                        var background: Color {
+                            if (self.selectedIndex.wrappedValue == index) { return Color(Self.MainColor.itemSelectedBackground.rawValue) }
+                            if (self.hoverIndex                 == index) { return Color(Self.MainColor.itemHoveredBackground .rawValue) }
+                            return Color(Self.MainColor.itemBackground.rawValue)
+                        }
                         Button {
                             self.selectedIndex.wrappedValue = UInt(index)
                             self.isOpened = false
@@ -57,11 +63,7 @@ struct CustomPicker: View {
                                 .padding(.vertical  , 5)
                                 .frame(maxWidth: .infinity)
                                 .color(Color(Self.MainColor.text.rawValue))
-                                .background(
-                                    self.hoverIndex == index || self.selectedIndex.wrappedValue == index ?
-                                    Color(Self.MainColor.item___SelectedBackground.rawValue) :
-                                    Color(Self.MainColor.itemNotSelectedBackground.rawValue)
-                                )
+                                .background(background)
                                 .cornerRadius(10)
                                 .onHover { isHovered in
                                     self.hoverIndex = isHovered ? index : -1
