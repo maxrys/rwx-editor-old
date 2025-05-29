@@ -7,10 +7,11 @@ import SwiftUI
 
 struct CustomPicker: View {
 
+    @State private var isOpened: Bool = false
+    @State private var hovers: [UInt: Bool] = [:]
+
     private var selection: Binding<UInt>
     private var values: [String]
-
-    @State var isOpened: Bool = false
 
     init(selection: Binding<UInt>, values: [String]) {
         self.selection = selection
@@ -36,24 +37,31 @@ struct CustomPicker: View {
 
         /* MARK: value list */
         .popover(isPresented: self.$isOpened) {
-            VStack(spacing: 2) {
-                ForEach(self.values.indices, id: \.self) { index in
-                    Button {
-                        self.selection.wrappedValue = UInt(index)
-                        self.isOpened = false
-                    } label: {
-                        Text("\(self.values[index])")
-                            .lineLimit(1)
-                    }
-                    .buttonStyle(.plain)
-                    .onHover { _ in
-                        print("\(index)")
+            ScrollView(.vertical) {
+                VStack(spacing: 0) {
+                    ForEach(self.values.indices, id: \.self) { index in
+                        Button {
+                            self.selection.wrappedValue = UInt(index)
+                            self.isOpened = false
+                        } label: {
+                            Text("\(self.values[index])")
+                                .lineLimit(1)
+                                .padding(5)
+                                .frame(maxWidth: .infinity)
+                                .background(Color(self.hovers[UInt(index)] == true ? .gray : .clear))
+                                .cornerRadius(10)
+                                .onHover { isHovered in
+                                    self.hovers[UInt(index)] = isHovered
+                                }
+                        }
+                        .buttonStyle(.plain)
+                        .onHoverCursor()
                     }
                 }
-            }
-            .padding(10)
-            .background(Color(.white))
-            .color(Color(.black))
+                .padding(10)
+                .background(Color(.white))
+                .color(Color(.black))
+            }.frame(maxHeight: 300)
         }
 
     }
@@ -62,18 +70,19 @@ struct CustomPicker: View {
 
 @available(macOS 14.0, *) #Preview {
     @Previewable @State var selection: UInt = 0
+    let values: [String] = {
+        var result: [String] = []
+        for i in 1 ... 100 {
+            if (i == 5) { result.append("Value \(i) long long long long long long") }
+            else        { result.append("Value \(i)") }
+        }
+        return result
+    }()
     HStack {
         CustomPicker(
             selection: $selection,
-            values: [
-                "Value 1",
-                "Value 2",
-                "Value 3",
-                "Value 4",
-                "Value 5 (long)",
-            ]
-        )
+            values: values
+        ).frame(maxWidth: 100)
     }
-    .padding(100)
-    .frame(maxHeight: 400)
+    .frame(width: 200, height: 200)
 }
