@@ -23,6 +23,8 @@
 		507318512DE7939D005E26F9 /* NumericSwitcherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507318502DE7939D005E26F9 /* NumericSwitcherView.swift */; };
 		507318532DE82BDB005E26F9 /* CustomPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507318522DE82BDB005E26F9 /* CustomPicker.swift */; };
 		507318542DE82BDB005E26F9 /* CustomPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507318522DE82BDB005E26F9 /* CustomPicker.swift */; };
+		507318582DE865C3005E26F9 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 507318572DE865C3005E26F9 /* Media.xcassets */; };
+		507318592DE865C3005E26F9 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 507318572DE865C3005E26F9 /* Media.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,7 @@
 		507318452DE71047005E26F9 /* TextSwitcherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextSwitcherView.swift; sourceTree = "<group>"; };
 		507318502DE7939D005E26F9 /* NumericSwitcherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumericSwitcherView.swift; sourceTree = "<group>"; };
 		507318522DE82BDB005E26F9 /* CustomPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPicker.swift; sourceTree = "<group>"; };
+		507318572DE865C3005E26F9 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +101,7 @@
 				50624C602DE5D6B500794BC8 /* UInt.swift */,
 				50624C532DE5C2BA00794BC8 /* View.swift */,
 				507318522DE82BDB005E26F9 /* CustomPicker.swift */,
+				507318572DE865C3005E26F9 /* Media.xcassets */,
 			);
 			path = shared;
 			sourceTree = "<group>";
@@ -211,6 +215,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				50624C502DE5BA8200794BC8 /* Assets.xcassets in Resources */,
+				507318582DE865C3005E26F9 /* Media.xcassets in Resources */,
 				50624C5D2DE5CD1A00794BC8 /* Localizable.xcstrings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -219,6 +224,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				507318592DE865C3005E26F9 /* Media.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,8 +7,10 @@ import SwiftUI
 
 struct TextSwitcherView: View {
 
-    static let COLORNAME_SWITCHER_TEXT       = "color TextSwitcher Text"
-    static let COLORNAME_SWITCHER_BACKGROUND = "color TextSwitcher Background"
+    enum MainColor: String {
+        case text       = "color TextSwitcher Text"
+        case background = "color TextSwitcher Background"
+    }
 
     private var rights: Binding<UInt>
 
@@ -39,8 +41,8 @@ struct TextSwitcherView: View {
                 .padding(.top, 3)
                 .padding(.bottom, 4)
                 .font(.system(size: 13, weight: .regular, design: .monospaced))
-                .color(Color(Self.COLORNAME_SWITCHER_TEXT))
-                .background(Color(Self.COLORNAME_SWITCHER_BACKGROUND))
+                .color(Color(Self.MainColor.text.rawValue))
+                .background(Color(Self.MainColor.background.rawValue))
                 .cornerRadius(5)
         }()
         if #available(macOS 12.0, *) { textView.textSelection(.enabled) }

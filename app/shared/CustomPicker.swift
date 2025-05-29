@@ -7,6 +7,12 @@ import SwiftUI
 
 struct CustomPicker: View {
 
+    enum MainColor: String {
+        case text       = "color CustomPicker Text"
+        case background = "color CustomPicker Background"
+        case selected   = "color CustomPicker Selected Background"
+    }
+
     @State private var isOpened: Bool = false
     @State private var hovers: [UInt: Bool] = [:]
 
@@ -28,8 +34,8 @@ struct CustomPicker: View {
                 .lineLimit(1)
                 .padding(.horizontal, 9)
                 .padding(.vertical  , 5)
-                .background(Color(.white))
-                .color(Color(.black))
+                .background(Color(Self.MainColor.background.rawValue))
+                .color(Color(Self.MainColor.text.rawValue))
                 .cornerRadius(10)
         }
         .buttonStyle(.plain)
@@ -48,7 +54,8 @@ struct CustomPicker: View {
                                 .lineLimit(1)
                                 .padding(5)
                                 .frame(maxWidth: .infinity)
-                                .background(Color(self.hovers[UInt(index)] == true ? .gray : .clear))
+                                .color(Color(Self.MainColor.text.rawValue))
+                                .background(self.hovers[UInt(index)] == true ? Color(Self.MainColor.selected.rawValue) : Color(.clear))
                                 .cornerRadius(10)
                                 .onHover { isHovered in
                                     self.hovers[UInt(index)] = isHovered

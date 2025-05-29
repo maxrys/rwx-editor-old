@@ -48,7 +48,7 @@ struct ColoredSwitcherView: View {
                 }
             } else {
                 Circle()
-                    .fill(Color(MainColor.empty.rawValue))
+                    .fill(Color(Self.MainColor.empty.rawValue))
                     .frame(width: self.iconR, height: self.iconR)
             }
         }
