@@ -14,7 +14,7 @@ struct CustomPicker: View {
     }
 
     @State private var isOpened: Bool = false
-    @State private var hovers: [UInt: Bool] = [:]
+    @State private var hoverIndex: Int = -1
 
     private var selection: Binding<UInt>
     private var values: [String]
@@ -55,19 +55,16 @@ struct CustomPicker: View {
                                 .padding(5)
                                 .frame(maxWidth: .infinity)
                                 .color(Color(Self.MainColor.text.rawValue))
-                                .background(self.hovers[UInt(index)] == true ? Color(Self.MainColor.selected.rawValue) : Color(.clear))
+                                .background(self.hoverIndex == index ? Color(Self.MainColor.selected.rawValue) : Color(.clear))
                                 .cornerRadius(10)
                                 .onHover { isHovered in
-                                    self.hovers[UInt(index)] = isHovered
+                                    self.hoverIndex = isHovered ? index : -1
                                 }
                         }
                         .buttonStyle(.plain)
                         .onHoverCursor()
                     }
-                }
-                .padding(10)
-                .background(Color(.white))
-                .color(Color(.black))
+                }.padding(10)
             }.frame(maxHeight: 300)
         }
 
