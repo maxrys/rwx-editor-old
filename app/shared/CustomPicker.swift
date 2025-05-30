@@ -45,36 +45,37 @@ struct CustomPicker: View {
 
         /* MARK: value list */
         .popover(isPresented: self.$isOpened) {
-            ScrollView(.vertical) {
-                VStack(spacing: 6) {
-                    ForEach(self.values.indices, id: \.self) { index in
-                        var background: Color {
-                            if (self.selectedIndex.wrappedValue == index) { return Color(Self.MainColor.itemSelectedBackground.rawValue) }
-                            if (self.hoverIndex                 == index) { return Color(Self.MainColor.itemHoveredBackground .rawValue) }
-                            return Color(Self.MainColor.itemBackground.rawValue)
-                        }
-                        Button {
-                            self.selectedIndex.wrappedValue = UInt(index)
-                            self.isOpened = false
-                        } label: {
-                            Text("\(self.values[index])")
-                                .lineLimit(1)
-                                .padding(.horizontal, 9)
-                                .padding(.vertical  , 5)
-                                .frame(maxWidth: .infinity)
-                                .color(Color(Self.MainColor.text.rawValue))
-                                .background(background)
-                                .cornerRadius(10)
-                                .onHover { isHovered in
-                                    self.hoverIndex = isHovered ? index : -1
-                                }
-                        }
-                        .buttonStyle(.plain)
-                    }
-                }.padding(10)
-            }.frame(maxHeight: 300)
+            if (self.values.count <= 10) { VStack(spacing: 6) { self.list }.padding(10) }
+            else { ScrollView(.vertical) { VStack(spacing: 6) { self.list }.padding(10) }.frame(maxHeight: 370) }
         }
 
+    }
+
+    @ViewBuilder var list: some View {
+        ForEach(self.values.indices, id: \.self) { index in
+            var background: Color {
+                if (self.selectedIndex.wrappedValue == index) { return Color(Self.MainColor.itemSelectedBackground.rawValue) }
+                if (self.hoverIndex                 == index) { return Color(Self.MainColor.itemHoveredBackground .rawValue) }
+                return Color(Self.MainColor.itemBackground.rawValue)
+            }
+            Button {
+                self.selectedIndex.wrappedValue = UInt(index)
+                self.isOpened = false
+            } label: {
+                Text("\(self.values[index])")
+                    .lineLimit(1)
+                    .padding(.horizontal, 9)
+                    .padding(.vertical  , 5)
+                    .frame(maxWidth: .infinity)
+                    .color(Color(Self.MainColor.text.rawValue))
+                    .background(background)
+                    .cornerRadius(10)
+                    .onHover { isHovered in
+                        self.hoverIndex = isHovered ? index : -1
+                    }
+            }
+            .buttonStyle(.plain)
+        }
     }
 
 }
