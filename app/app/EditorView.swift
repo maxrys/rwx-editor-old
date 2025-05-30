@@ -57,15 +57,15 @@ struct EditorView: View {
 
             }.frame(width: 250)
 
-            /* MARK: rules via text */
-            VStack(spacing: 10) {
-                TextSwitcherView($rights)
-            }
+            HStack(spacing: 20) {
 
-            /* MARK: rules via numeric */
-            VStack(spacing: 10) {
+                /* MARK: rules via text */
+                TextSwitcherView($rights)
+
+                /* MARK: rules via numeric */
                 NumericSwitcherView($rights)
-            }
+
+            }.padding(.vertical, 20)
 
             /* MARK: cancel/apply buttons */
             HStack(spacing: 10) {

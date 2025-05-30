@@ -56,7 +56,7 @@ struct CustomPicker: View {
             var background: Color {
                 if (self.selectedIndex.wrappedValue == index) { return Color(Self.MainColor.itemSelectedBackground.rawValue) }
                 if (self.hoverIndex                 == index) { return Color(Self.MainColor.itemHoveredBackground .rawValue) }
-                return Color(Self.MainColor.itemBackground.rawValue)
+                return                                                 Color(Self.MainColor.itemBackground        .rawValue)
             }
             Button {
                 self.selectedIndex.wrappedValue = UInt(index)
