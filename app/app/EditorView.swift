@@ -70,18 +70,17 @@ struct EditorView: View {
             /* MARK: cancel/apply buttons */
             HStack(spacing: 10) {
 
-                Button {
+                CustomButton(NSLocalizedString("cancel", comment: "")) {
                     self.rights = self.rightsOriginal
-                } label: { Text(NSLocalizedString("cancel", comment: "")) }
+                }
                 .disabled(self.rights == self.rightsOriginal)
-                .onHoverCursor()
+                .frame(width: 110)
 
-                Button {
+                CustomButton(NSLocalizedString("apply", comment: "")) {
                     self.onApplyRights(
                         self.rights
                     )
-                } label: { Text(NSLocalizedString("apply", comment: "")) }
-                .onHoverCursor()
+                }.frame(width: 110)
 
             }
 

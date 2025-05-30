@@ -25,6 +25,8 @@
 		507318542DE82BDB005E26F9 /* CustomPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507318522DE82BDB005E26F9 /* CustomPicker.swift */; };
 		507318582DE865C3005E26F9 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 507318572DE865C3005E26F9 /* Media.xcassets */; };
 		507318592DE865C3005E26F9 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 507318572DE865C3005E26F9 /* Media.xcassets */; };
+		507318762DE9EB32005E26F9 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507318752DE9EB32005E26F9 /* CustomButton.swift */; };
+		507318772DE9EB32005E26F9 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507318752DE9EB32005E26F9 /* CustomButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +56,7 @@
 		507318502DE7939D005E26F9 /* NumericSwitcherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumericSwitcherView.swift; sourceTree = "<group>"; };
 		507318522DE82BDB005E26F9 /* CustomPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPicker.swift; sourceTree = "<group>"; };
 		507318572DE865C3005E26F9 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
+		507318752DE9EB32005E26F9 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +104,7 @@
 				50624C602DE5D6B500794BC8 /* UInt.swift */,
 				50624C532DE5C2BA00794BC8 /* View.swift */,
 				507318522DE82BDB005E26F9 /* CustomPicker.swift */,
+				507318752DE9EB32005E26F9 /* CustomButton.swift */,
 				507318572DE865C3005E26F9 /* Media.xcassets */,
 			);
 			path = shared;
@@ -239,6 +243,7 @@
 				507318442DE70C27005E26F9 /* ColoredSwitcherView.swift in Sources */,
 				50624C4E2DE5BA8200794BC8 /* App.swift in Sources */,
 				507318512DE7939D005E26F9 /* NumericSwitcherView.swift in Sources */,
+				507318762DE9EB32005E26F9 /* CustomButton.swift in Sources */,
 				507318462DE71047005E26F9 /* TextSwitcherView.swift in Sources */,
 				50624C742DE5E2E600794BC8 /* String.swift in Sources */,
 				50624C4F2DE5BA8200794BC8 /* EditorView.swift in Sources */,
@@ -253,6 +258,7 @@
 			files = (
 				507318542DE82BDB005E26F9 /* CustomPicker.swift in Sources */,
 				50624C752DE5E30E00794BC8 /* View.swift in Sources */,
+				507318772DE9EB32005E26F9 /* CustomButton.swift in Sources */,
 				50624C732DE5E2E600794BC8 /* String.swift in Sources */,
 				50624C702DE5DD3000794BC8 /* UInt.swift in Sources */,
 				50624C6A2DE5DCD500794BC8 /* Test.swift in Sources */,
