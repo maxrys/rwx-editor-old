@@ -7,7 +7,7 @@ import SwiftUI
 
 struct CustomPicker: View {
 
-    enum MainColor: String {
+    enum Colors: String {
         case text                   = "color CustomPicker Text"
         case background             = "color CustomPicker Background"
         case itemBackground         = "color CustomPicker Item Background"
@@ -36,8 +36,8 @@ struct CustomPicker: View {
                 .lineLimit(1)
                 .padding(.horizontal, 9)
                 .padding(.vertical  , 5)
-                .background(Color(Self.MainColor.background.rawValue))
-                .color(Color(Self.MainColor.text.rawValue))
+                .background(Color(Self.Colors.background.rawValue))
+                .color(Color(Self.Colors.text.rawValue))
                 .cornerRadius(10)
         }
         .buttonStyle(.plain)
@@ -54,9 +54,9 @@ struct CustomPicker: View {
     @ViewBuilder var list: some View {
         ForEach(self.values.indices, id: \.self) { index in
             var background: Color {
-                if (self.selectedIndex.wrappedValue == index) { return Color(Self.MainColor.itemSelectedBackground.rawValue) }
-                if (self.hoverIndex                 == index) { return Color(Self.MainColor.itemHoveredBackground .rawValue) }
-                return                                                 Color(Self.MainColor.itemBackground        .rawValue)
+                if (self.selectedIndex.wrappedValue == index) { return Color(Self.Colors.itemSelectedBackground.rawValue) }
+                if (self.hoverIndex                 == index) { return Color(Self.Colors.itemHoveredBackground .rawValue) }
+                return                                                 Color(Self.Colors.itemBackground        .rawValue)
             }
             Button {
                 self.selectedIndex.wrappedValue = UInt(index)
@@ -67,7 +67,7 @@ struct CustomPicker: View {
                     .padding(.horizontal, 9)
                     .padding(.vertical  , 5)
                     .frame(maxWidth: .infinity)
-                    .color(Color(Self.MainColor.text.rawValue))
+                    .color(Color(Self.Colors.text.rawValue))
                     .background(background)
                     .cornerRadius(10)
                     .onHover { isHovered in

@@ -7,17 +7,16 @@ import SwiftUI
 
 struct ColoredSwitcherView: View {
 
-    enum MainColor: String {
+    enum Colors: String {
         case empty = "color ColoredSwitcherView Empty"
         case owner = "color ColoredSwitcherView Owner"
         case group = "color ColoredSwitcherView Group"
         case other = "color ColoredSwitcherView Other"
     }
 
-    private var color: MainColor
+    private var color: Colors
     private var rights: Binding<UInt>
     private var bitPosition: UInt
-
     private let iconR: CGFloat = 25
     private var isOn: Bool {
         self.rights.wrappedValue.bitGet(
@@ -25,7 +24,7 @@ struct ColoredSwitcherView: View {
         ) == 1
     }
 
-    init(_ color: MainColor, _ rights: Binding<UInt>, bitPosition: UInt) {
+    init(_ color: Colors, _ rights: Binding<UInt>, bitPosition: UInt) {
         self.color       = color
         self.rights      = rights
         self.bitPosition = bitPosition
@@ -48,7 +47,7 @@ struct ColoredSwitcherView: View {
                 }
             } else {
                 Circle()
-                    .fill(Color(Self.MainColor.empty.rawValue))
+                    .fill(Color(Self.Colors.empty.rawValue))
                     .frame(width: self.iconR, height: self.iconR)
             }
         }
