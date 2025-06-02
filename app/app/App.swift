@@ -60,5 +60,7 @@ enum Subject {
 
 @available(macOS 14.0, *) #Preview {
     @Previewable @State var rights: UInt = 0o644
-    ThisApp().mainScene
+    ThisApp()
+        .mainScene
+        .frame(width: 300, height: 350)
 }
