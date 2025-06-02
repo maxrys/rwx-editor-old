@@ -7,7 +7,7 @@ import SwiftUI
 
 struct CustomButton: View {
 
-    enum Colors: String {
+    enum ColorNames: String {
         case text           = "color CustomButton Text"
         case backgroundFrom = "color CustomButton Background From"
         case backgroundTo   = "color CustomButton Background To"
@@ -26,7 +26,7 @@ struct CustomButton: View {
             Text(self.text)
                 .frame(maxWidth: .infinity)
                 .font(.system(size: 12, weight: .bold))
-                .color(Color(Self.Colors.text.rawValue))
+                .color(Color(Self.ColorNames.text.rawValue))
                 .lineLimit(1)
                 .padding(.horizontal, 7)
                 .padding(.vertical  , 6)
@@ -35,8 +35,8 @@ struct CustomButton: View {
                         .fill(
                             LinearGradient(
                                 colors: [
-                                    Color(Self.Colors.backgroundFrom.rawValue),
-                                    Color(Self.Colors.backgroundTo.rawValue)],
+                                    Color(Self.ColorNames.backgroundFrom.rawValue),
+                                    Color(Self.ColorNames.backgroundTo.rawValue)],
                                 startPoint: .top,
                                 endPoint: .bottom
                             )
