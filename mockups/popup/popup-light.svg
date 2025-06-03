@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg viewBox="0 0 1000 1050" xmlns="http://www.w3.org/2000/svg" xmlns:bx="https://boxy-svg.com">
+  <defs>
+    <filter id="drop-shadow-filter-1" color-interpolation-filters="sRGB" x="-50%" y="-50%" width="200%" height="200%" bx:preset="drop-shadow 1 0 0 10 0.4 rgba(0,0,0,0.3)">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="10"/>
+      <feOffset dx="0" dy="0"/>
+      <feComponentTransfer result="offsetblur">
+        <feFuncA id="spread-ctrl" type="linear" slope="0.8"/>
+      </feComponentTransfer>
+      <feFlood flood-color="rgba(0,0,0,0.3)"/>
+      <feComposite in2="offsetblur" operator="in"/>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <linearGradient gradientUnits="userSpaceOnUse" x1="1684.79" y1="705.258" x2="1684.79" y2="759.258" id="gradient-0" gradientTransform="matrix(1, 0, 0, 1, -1064.457954, 142.742004)">
+      <stop offset="0" style="stop-color: rgb(95, 144, 186);"/>
+      <stop offset="1" style="stop-color: rgb(82, 125, 162);"/>
+    </linearGradient>
+    <linearGradient gradientUnits="userSpaceOnUse" x1="1684.79" y1="705.258" x2="1684.79" y2="759.258" id="gradient-1" gradientTransform="matrix(1, 0, 0, 1, -1305.121094, 142.742004)">
+      <stop offset="0" style="stop-color: rgb(95, 144, 186);"/>
+      <stop offset="1" style="stop-color: rgb(82, 125, 162);"/>
+    </linearGradient>
+  </defs>
+  <rect width="1000" height="1050" style="fill: rgb(227, 228, 229);"/>
+  <g style="filter: url('#drop-shadow-filter-1');" transform="matrix(1, 0, 0, 1, 0.882995, 25)">
+    <path d="M 219.117 50 L 779.117 50 C 790.163 50 799.117 58.954 799.117 70 L 799.117 930 C 799.117 941.046 790.163 950 779.117 950 L 219.117 950 C 208.071 950 199.117 941.046 199.117 930 L 199.093 161.175 C 199.093 147.175 175.093 139.785 175.093 133.175 C 175.093 126.535 199.093 119.175 199.093 105.175 L 199.117 70 C 199.117 58.954 208.071 50 219.117 50 Z" style="stroke-width: 2px; filter: none; fill: rgb(238, 238, 238); stroke: rgb(198, 198, 198);"/>
+    <rect style="stroke-width: 2px; filter: none; fill: rgb(227, 232, 238);" x="199.117" y="50" width="600" height="900" rx="20" ry="20"/>
+    <g>
+      <g>
+        <text style="fill: rgb(36, 36, 36); font-family: &quot;SF Pro&quot;; font-size: 27px; letter-spacing: 0.3px; white-space: pre; stroke-width: 1;" x="410.31" y="375.763">Read</text>
+        <text style="fill: rgb(36, 36, 36); font-family: &quot;SF Pro&quot;; font-size: 27px; letter-spacing: 0.3px; white-space: pre;" transform="matrix(1, 0, 0, 1, -1060.322144, 107.970757)"><tspan x="1589.71" y="267.793">Write</tspan><tspan x="1589.71" dy="1em">​</tspan></text>
+        <text style="fill: rgb(36, 36, 36); font-family: &quot;SF Pro&quot;; font-size: 27px; letter-spacing: 0.3px; white-space: pre;" transform="matrix(1, 0, 0, 1, -955.534546, 107.970757)"><tspan x="1589.71" y="267.793">Execute</tspan><tspan x="1589.71" dy="1em">​</tspan></text>
+      </g>
+      <g>
+        <text style="fill: rgb(36, 36, 36); font-family: &quot;SF Pro&quot;; font-size: 27px; letter-spacing: 0.3px; white-space: pre; stroke-width: 1;" x="281.11" y="446.8">Owner</text>
+        <text style="fill: rgb(36, 36, 36); font-family: &quot;SF Pro&quot;; font-size: 27px; letter-spacing: 0.3px; white-space: pre; stroke-width: 1;" x="285.15" y="516.094">Group</text>
+        <text style="fill: rgb(36, 36, 36); font-family: &quot;SF Pro&quot;; font-size: 27px; letter-spacing: 0.3px; white-space: pre; stroke-width: 1;" x="287.79" y="585.972">Other</text>
+      </g>
+      <g>
+        <g>
+          <ellipse style="fill: color(display-p3 0.196 0.663 0.054); stroke-width: 1;" cx="440.67" cy="435.221" rx="25" ry="25"/>
+          <path style="stroke-linecap: round; stroke-linejoin: round; stroke-width: 4; stroke: rgb(255, 255, 255); fill: none;" d="M 430.9 436.08 L 438.1 444.529 L 450.05 425.913"/>
+        </g>
+        <g>
+          <ellipse style="fill: color(display-p3 0.196 0.663 0.054); stroke-width: 1;" cx="560.6" cy="435.221" rx="25" ry="25"/>
+          <path style="stroke-linecap: round; stroke-linejoin: round; stroke-width: 4; stroke: rgb(255, 255, 255); fill: none;" d="M 550.83 436.08 L 558.03 444.529 L 569.98 425.913"/>
+        </g>
+        <ellipse style="fill: color(display-p3 0.816 0.816 0.816); stroke-width: 1;" cx="680.99" cy="435.221" rx="25" ry="25"/>
+        <g>
+          <ellipse style="fill: color(display-p3 0.837 0.461 0.047); stroke-width: 1;" cx="440.85" cy="505.409" rx="25" ry="25"/>
+          <path style="stroke-linecap: round; stroke-linejoin: round; stroke-width: 4; stroke: rgb(255, 255, 255); fill: none;" d="M 431.08 506.268 L 438.28 514.717 L 450.23 496.101"/>
+        </g>
+        <ellipse style="fill: color(display-p3 0.816 0.816 0.816); stroke-width: 1;" cx="560.6" cy="505.409" rx="25" ry="25"/>
+        <ellipse style="fill: color(display-p3 0.816 0.816 0.816); stroke-width: 1;" cx="680.99" cy="505.409" rx="25" ry="25"/>
+        <g>
+          <ellipse style="fill: color(display-p3 0.765 0.201 0.057); stroke-width: 1;" cx="440.85" cy="575.859" rx="25" ry="25"/>
+          <path style="stroke-linecap: round; stroke-linejoin: round; stroke-width: 4; stroke: rgb(255, 255, 255); fill: none;" d="M 431.08 576.718 L 438.28 585.167 L 450.23 566.551"/>
+        </g>
+        <ellipse style="fill: color(display-p3 0.816 0.816 0.816); stroke-width: 1;" cx="560.6" cy="575.859" rx="25" ry="25"/>
+        <ellipse style="fill: color(display-p3 0.816 0.816 0.816); stroke-width: 1;" cx="680.99" cy="575.859" rx="25" ry="25"/>
+      </g>
+      <g>
+        <rect style="fill: rgb(201, 223, 244); stroke-width: 1;" x="305.1" y="680.293" width="181" height="52" rx="10" ry="10"/>
+        <text style="fill: rgb(1, 1, 1); font-family: &quot;PT Mono&quot;; font-size: 29px; letter-spacing: -1.5px; white-space: pre; stroke-width: 1;" x="322.69" y="714.704">rw-r--r--</text>
+      </g>
+      <g>
+        <g>
+          <rect style="fill: rgb(255, 255, 255); stroke-width: 1;" x="526.7" y="680.687" width="52" height="52" rx="18" ry="18"/>
+          <text style="font-family: &quot;SF Pro&quot;; font-size: 27px; letter-spacing: 0.3px; white-space: pre; stroke-width: 1;" x="543.55" y="716.577">6</text>
+        </g>
+        <g>
+          <rect style="fill: rgb(255, 255, 255); stroke-width: 1;" x="585.7" y="680.687" width="52" height="52" rx="18" ry="18"/>
+          <text style="font-family: &quot;SF Pro&quot;; font-size: 27px; letter-spacing: 0.3px; white-space: pre; stroke-width: 1;" x="602.79" y="717.254">4</text>
+        </g>
+        <g>
+          <rect style="fill: rgb(255, 255, 255); stroke-width: 1;" x="644.7" y="680.687" width="52" height="52" rx="18" ry="18"/>
+          <text style="font-family: &quot;SF Pro&quot;; font-size: 27px; letter-spacing: 0.3px; white-space: pre; stroke-width: 1;" x="661.8" y="716.577">4</text>
+        </g>
+      </g>
+    </g>
+    <g>
+      <path style="stroke-width: 2px; filter: none; fill: rgb(210, 220, 228);" d="M 199.117 800 H 799.117 V 930 A 20 20 0 0 1 779.117 950 H 219.117 A 20 20 0 0 1 199.117 930 V 800 Z" bx:shape="rect 199.117 800 600 150 0 0 20 20 1@fb2a5d03"/>
+      <g style="opacity: 0.5;">
+        <rect x="269.67" y="848" width="220" height="54" style="fill: url(&quot;#gradient-1&quot;); stroke-width: 1;" rx="14.031" ry="14.031"/>
+        <text style="fill: rgb(255, 255, 255); font-family: &quot;SF Pro&quot;; font-size: 26px; font-weight: 700; letter-spacing: -0.3px; white-space: pre; stroke-width: 1;" x="340.48" y="883.905">cancel</text>
+      </g>
+      <g>
+        <rect x="510.33" y="848" width="220" height="54" style="fill: url(&quot;#gradient-0&quot;); stroke-width: 1;" rx="14.031" ry="14.031"/>
+        <text style="fill: rgb(255, 255, 255); font-family: &quot;SF Pro&quot;; font-size: 26px; font-weight: 700; letter-spacing: -0.3px; white-space: pre; stroke-width: 1;" x="587.32" y="883.905">apply</text>
+      </g>
+    </g>
+  </g>
+</svg>
