@@ -39,6 +39,9 @@ enum Subject {
 
 @main struct ThisApp: App {
 
+    var owners: [String] = []
+    var groups: [String] = []
+
     var body: some Scene {
         WindowGroup {
             self.mainScene
@@ -52,6 +55,12 @@ enum Subject {
             group: 0,
             onApply: self.onApply
         )
+    }
+
+    init() {
+        self.owners = []
+        self.groups = Process.getGroups()
+        dump(self.groups)
     }
 
     func onApply(rights: UInt, owner: UInt, group: UInt) {
