@@ -47,23 +47,23 @@ struct EditorView: View {
 
                     VStack(spacing: 10) {
                         Text(NSLocalizedString("Read", comment: "")).frame(width: textW, height: textH)
-                        ColoredSwitcherView(.owner, self.$rights, bitPosition: Subject.owner.offset + Permission.r.offset)
-                        ColoredSwitcherView(.group, self.$rights, bitPosition: Subject.group.offset + Permission.r.offset)
-                        ColoredSwitcherView(.other, self.$rights, bitPosition: Subject.other.offset + Permission.r.offset)
+                        ColoredToggleView(.owner, self.$rights, bitPosition: Subject.owner.offset + Permission.r.offset)
+                        ColoredToggleView(.group, self.$rights, bitPosition: Subject.group.offset + Permission.r.offset)
+                        ColoredToggleView(.other, self.$rights, bitPosition: Subject.other.offset + Permission.r.offset)
                     }
 
                     VStack(spacing: 10) {
                         Text(NSLocalizedString("Write", comment: "")).frame(width: textW, height: textH)
-                        ColoredSwitcherView(.owner, self.$rights, bitPosition: Subject.owner.offset + Permission.w.offset)
-                        ColoredSwitcherView(.group, self.$rights, bitPosition: Subject.group.offset + Permission.w.offset)
-                        ColoredSwitcherView(.other, self.$rights, bitPosition: Subject.other.offset + Permission.w.offset)
+                        ColoredToggleView(.owner, self.$rights, bitPosition: Subject.owner.offset + Permission.w.offset)
+                        ColoredToggleView(.group, self.$rights, bitPosition: Subject.group.offset + Permission.w.offset)
+                        ColoredToggleView(.other, self.$rights, bitPosition: Subject.other.offset + Permission.w.offset)
                     }
 
                     VStack(spacing: 10) {
                         Text(NSLocalizedString("Execute", comment: "")).frame(width: textW, height: textH)
-                        ColoredSwitcherView(.owner, self.$rights, bitPosition: Subject.owner.offset + Permission.x.offset);
-                        ColoredSwitcherView(.group, self.$rights, bitPosition: Subject.group.offset + Permission.x.offset);
-                        ColoredSwitcherView(.other, self.$rights, bitPosition: Subject.other.offset + Permission.x.offset);
+                        ColoredToggleView(.owner, self.$rights, bitPosition: Subject.owner.offset + Permission.x.offset);
+                        ColoredToggleView(.group, self.$rights, bitPosition: Subject.group.offset + Permission.x.offset);
+                        ColoredToggleView(.other, self.$rights, bitPosition: Subject.other.offset + Permission.x.offset);
                     }
 
                 }.frame(width: 250)
@@ -72,14 +72,16 @@ struct EditorView: View {
                 HStack(spacing: 20) {
                     TextSwitcherView($rights)
                     NumericSwitcherView($rights)
-                }.padding(.vertical, 20)
+                }
 
                 /* MARK: owner */
-                HStack(spacing: 0) {
+                HStack(spacing: 10) {
+                    Text(NSLocalizedString("Owner", comment: ""))
                     OwnerPickerView(self.$owner)
                 }
 
             }
+            .padding(.vertical, 20)
             .frame(maxWidth: .infinity)
             .background(Color(Self.ColorNames.body.rawValue))
 
@@ -116,5 +118,5 @@ struct EditorView: View {
         onApplyRights: { rights in
             print("rights: \(String(rights, radix: 8))")
         }
-    ).frame(width: 300, height: 350)
+    ).frame(width: 300)
 }

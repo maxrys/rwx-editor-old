@@ -62,5 +62,5 @@ enum Subject {
     @Previewable @State var rights: UInt = 0o644
     ThisApp()
         .mainScene
-        .frame(width: 300, height: 350)
+        .frame(width: 300)
 }

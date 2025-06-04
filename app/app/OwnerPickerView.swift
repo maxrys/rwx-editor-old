@@ -24,6 +24,5 @@ struct OwnerPickerView: View {
     @Previewable @State var selected: UInt = 0
     HStack {
         OwnerPickerView($selected)
-    }
-    .padding(20)
+    }.padding(20)
 }

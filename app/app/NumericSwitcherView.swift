@@ -53,6 +53,5 @@ struct NumericSwitcherView: View {
     @Previewable @State var rights: UInt = 0o644
     HStack {
         NumericSwitcherView($rights)
-    }
-    .padding(20)
+    }.padding(20)
 }

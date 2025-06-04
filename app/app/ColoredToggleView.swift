@@ -5,7 +5,7 @@
 
 import SwiftUI
 
-struct ColoredSwitcherView: View {
+struct ColoredToggleView: View {
 
     enum ColorNames: String {
         case empty = "color ColoredSwitcherView Empty"
@@ -60,8 +60,8 @@ struct ColoredSwitcherView: View {
 @available(macOS 14.0, *) #Preview {
     @Previewable @State var rights: UInt = 0o7
     HStack(spacing: 10) {
-        ColoredSwitcherView(.group, $rights, bitPosition: Permission.x.offset)
-        ColoredSwitcherView(.other, $rights, bitPosition: Permission.w.offset)
-        ColoredSwitcherView(.owner, $rights, bitPosition: Permission.r.offset)
+        ColoredToggleView(.group, $rights, bitPosition: Permission.x.offset)
+        ColoredToggleView(.other, $rights, bitPosition: Permission.w.offset)
+        ColoredToggleView(.owner, $rights, bitPosition: Permission.r.offset)
     }.padding(20)
 }

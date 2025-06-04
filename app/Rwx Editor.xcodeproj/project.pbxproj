@@ -18,7 +18,7 @@
 		50624C732DE5E2E600794BC8 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50624C722DE5E2E300794BC8 /* String.swift */; };
 		50624C742DE5E2E600794BC8 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50624C722DE5E2E300794BC8 /* String.swift */; };
 		50624C752DE5E30E00794BC8 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50624C532DE5C2BA00794BC8 /* View.swift */; };
-		507318442DE70C27005E26F9 /* ColoredSwitcherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507318432DE70C27005E26F9 /* ColoredSwitcherView.swift */; };
+		507318442DE70C27005E26F9 /* ColoredToggleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507318432DE70C27005E26F9 /* ColoredToggleView.swift */; };
 		507318462DE71047005E26F9 /* TextSwitcherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507318452DE71047005E26F9 /* TextSwitcherView.swift */; };
 		507318512DE7939D005E26F9 /* NumericSwitcherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507318502DE7939D005E26F9 /* NumericSwitcherView.swift */; };
 		507318532DE82BDB005E26F9 /* CustomPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507318522DE82BDB005E26F9 /* CustomPicker.swift */; };
@@ -52,7 +52,7 @@
 		50624C672DE5DCD500794BC8 /* RWX Editor Test.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "RWX Editor Test.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		50624C692DE5DCD500794BC8 /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
 		50624C722DE5E2E300794BC8 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
-		507318432DE70C27005E26F9 /* ColoredSwitcherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColoredSwitcherView.swift; sourceTree = "<group>"; };
+		507318432DE70C27005E26F9 /* ColoredToggleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColoredToggleView.swift; sourceTree = "<group>"; };
 		507318452DE71047005E26F9 /* TextSwitcherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextSwitcherView.swift; sourceTree = "<group>"; };
 		507318502DE7939D005E26F9 /* NumericSwitcherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumericSwitcherView.swift; sourceTree = "<group>"; };
 		507318522DE82BDB005E26F9 /* CustomPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPicker.swift; sourceTree = "<group>"; };
@@ -117,7 +117,7 @@
 			children = (
 				50624C4D2DE5BA8200794BC8 /* App.swift */,
 				50624C4B2DE5BA8200794BC8 /* EditorView.swift */,
-				507318432DE70C27005E26F9 /* ColoredSwitcherView.swift */,
+				507318432DE70C27005E26F9 /* ColoredToggleView.swift */,
 				507318452DE71047005E26F9 /* TextSwitcherView.swift */,
 				507318502DE7939D005E26F9 /* NumericSwitcherView.swift */,
 				507318902DF05374005E26F9 /* OwnerPickerView.swift */,
@@ -243,7 +243,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				50624C612DE5D6B500794BC8 /* UInt.swift in Sources */,
-				507318442DE70C27005E26F9 /* ColoredSwitcherView.swift in Sources */,
+				507318442DE70C27005E26F9 /* ColoredToggleView.swift in Sources */,
 				50624C4E2DE5BA8200794BC8 /* App.swift in Sources */,
 				507318512DE7939D005E26F9 /* NumericSwitcherView.swift in Sources */,
 				507318762DE9EB32005E26F9 /* CustomButton.swift in Sources */,
