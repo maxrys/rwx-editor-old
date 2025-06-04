@@ -43,8 +43,7 @@ extension Process {
         }
     }
 
-    static func getGroups() -> [String] {
-        var result: [String] = []
+    static func systemGroups() -> [String] {
 
         let (status, output, error) = Process.shell(
             path: "/usr/bin/env",
@@ -70,12 +69,13 @@ extension Process {
                     #endif
                     return []
                 }
+                var result: [String] = []
                 output.split(separator: " ").forEach { value in
                     result.append(String(value))
                 }
+                return result
         }
 
-        return result
     }
 
 }

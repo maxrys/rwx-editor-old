@@ -59,7 +59,7 @@ enum Subject {
 
     init() {
         self.owners = []
-        self.groups = Process.getGroups()
+        self.groups = Process.systemGroups()
         dump(self.groups)
     }
 
