@@ -15,6 +15,7 @@ struct EditorView: View {
 
     @State private var rights: UInt
            private var rightsOriginal: UInt
+    @State private var owner: UInt
 
     private let onApplyRights: (UInt) -> Void
 
@@ -22,6 +23,7 @@ struct EditorView: View {
         self.rights         = rights
         self.rightsOriginal = rights
         self.onApplyRights  = onApplyRights
+        self.owner          = 0
     }
 
     var body: some View {
@@ -66,15 +68,16 @@ struct EditorView: View {
 
                 }.frame(width: 250)
 
+                /* MARK: rules via text/numeric */
                 HStack(spacing: 20) {
-
-                    /* MARK: rules via text */
                     TextSwitcherView($rights)
-
-                    /* MARK: rules via numeric */
                     NumericSwitcherView($rights)
-
                 }.padding(.vertical, 20)
+
+                /* MARK: owner */
+                HStack(spacing: 0) {
+                    OwnerPickerView(self.$owner)
+                }
 
             }
             .frame(maxWidth: .infinity)

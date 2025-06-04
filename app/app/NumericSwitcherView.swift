@@ -9,6 +9,10 @@ struct NumericSwitcherView: View {
 
     private var rights: Binding<UInt>
 
+    init(_ rights: Binding<UInt>) {
+        self.rights = rights
+    }
+
     let valueUnpack: (UInt, Subject) -> UInt = { rightsValue, subject in
         let bitR = rightsValue.bitGet(position: subject.offset + Permission.r.offset)
         let bitW = rightsValue.bitGet(position: subject.offset + Permission.w.offset)
@@ -29,10 +33,6 @@ struct NumericSwitcherView: View {
             result.bitSet(position: subject.offset + Permission.w.offset, isOn: bitW == 1)
             result.bitSet(position: subject.offset + Permission.x.offset, isOn: bitX == 1)
         return result
-    }
-
-    init(_ rights: Binding<UInt>) {
-        self.rights = rights
     }
 
     var body: some View {

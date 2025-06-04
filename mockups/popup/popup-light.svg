@@ -149,8 +149,8 @@
           <text style="font-family: &quot;SF Pro&quot;; font-size: 27px; letter-spacing: 0.3px; white-space: pre; stroke-width: 1;" x="661.8" y="716.577">4</text>
         </g>
       </g>
-      <g transform="matrix(1, 0, 0, 1, -165.21199, 531.548035)">
-        <text style="fill: rgb(36, 36, 36); font-family: &quot;SF Pro&quot;; font-size: 27px; letter-spacing: 0.3px; white-space: pre; stroke-width: 1;" x="446.709" y="214.897">User</text>
+      <g transform="matrix(1, 0, 0, 1, -154.467957, 531.548035)">
+        <text style="fill: rgb(36, 36, 36); font-family: &quot;SF Pro&quot;; font-size: 27px; letter-spacing: 0.3px; white-space: pre; stroke-width: 1;" x="428.709" y="214.897">Owner</text>
         <g transform="matrix(1, 0, 0, 1, -2.431541, -501.390411)">
           <rect style="fill: rgb(255, 255, 255); stroke-width: 1;" x="326.965" y="680.686" width="81.253" height="52" rx="18.307" ry="18.307" transform="matrix(0.999998, -0.001887, 0, 1.000002, 199.734848, 0.740573)"/>
           <text style="font-family: &quot;SF Pro&quot;; font-size: 27px; letter-spacing: 0.3px; white-space: pre; stroke-width: 1;" x="543.55" y="716.577">max</text>
