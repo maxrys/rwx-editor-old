@@ -5,7 +5,7 @@
 
 import SwiftUI
 
-struct TextSwitcherView: View {
+struct TextRwxView: View {
 
     enum ColorNames: String {
         case text       = "color TextSwitcher Text"
@@ -54,6 +54,6 @@ struct TextSwitcherView: View {
 @available(macOS 14.0, *) #Preview {
     @Previewable @State var rights: UInt = 0o644
     HStack {
-        TextSwitcherView($rights)
+        TextRwxView($rights)
     }.padding(20)
 }

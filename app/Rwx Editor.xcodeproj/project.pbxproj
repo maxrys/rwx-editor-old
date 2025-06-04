@@ -19,8 +19,8 @@
 		50624C742DE5E2E600794BC8 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50624C722DE5E2E300794BC8 /* String.swift */; };
 		50624C752DE5E30E00794BC8 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50624C532DE5C2BA00794BC8 /* View.swift */; };
 		507318442DE70C27005E26F9 /* ColoredToggleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507318432DE70C27005E26F9 /* ColoredToggleView.swift */; };
-		507318462DE71047005E26F9 /* TextSwitcherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507318452DE71047005E26F9 /* TextSwitcherView.swift */; };
-		507318512DE7939D005E26F9 /* NumericSwitcherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507318502DE7939D005E26F9 /* NumericSwitcherView.swift */; };
+		507318462DE71047005E26F9 /* TextRwxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507318452DE71047005E26F9 /* TextRwxView.swift */; };
+		507318512DE7939D005E26F9 /* NumericRwxToggleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507318502DE7939D005E26F9 /* NumericRwxToggleView.swift */; };
 		507318532DE82BDB005E26F9 /* CustomPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507318522DE82BDB005E26F9 /* CustomPicker.swift */; };
 		507318542DE82BDB005E26F9 /* CustomPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507318522DE82BDB005E26F9 /* CustomPicker.swift */; };
 		507318582DE865C3005E26F9 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 507318572DE865C3005E26F9 /* Media.xcassets */; };
@@ -53,8 +53,8 @@
 		50624C692DE5DCD500794BC8 /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
 		50624C722DE5E2E300794BC8 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		507318432DE70C27005E26F9 /* ColoredToggleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColoredToggleView.swift; sourceTree = "<group>"; };
-		507318452DE71047005E26F9 /* TextSwitcherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextSwitcherView.swift; sourceTree = "<group>"; };
-		507318502DE7939D005E26F9 /* NumericSwitcherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumericSwitcherView.swift; sourceTree = "<group>"; };
+		507318452DE71047005E26F9 /* TextRwxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextRwxView.swift; sourceTree = "<group>"; };
+		507318502DE7939D005E26F9 /* NumericRwxToggleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumericRwxToggleView.swift; sourceTree = "<group>"; };
 		507318522DE82BDB005E26F9 /* CustomPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPicker.swift; sourceTree = "<group>"; };
 		507318572DE865C3005E26F9 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		507318752DE9EB32005E26F9 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
@@ -118,8 +118,8 @@
 				50624C4D2DE5BA8200794BC8 /* App.swift */,
 				50624C4B2DE5BA8200794BC8 /* EditorView.swift */,
 				507318432DE70C27005E26F9 /* ColoredToggleView.swift */,
-				507318452DE71047005E26F9 /* TextSwitcherView.swift */,
-				507318502DE7939D005E26F9 /* NumericSwitcherView.swift */,
+				507318452DE71047005E26F9 /* TextRwxView.swift */,
+				507318502DE7939D005E26F9 /* NumericRwxToggleView.swift */,
 				507318902DF05374005E26F9 /* OwnerPickerView.swift */,
 				50624C4A2DE5BA8200794BC8 /* Assets.xcassets */,
 				50624C5C2DE5CD1A00794BC8 /* Localizable.xcstrings */,
@@ -245,10 +245,10 @@
 				50624C612DE5D6B500794BC8 /* UInt.swift in Sources */,
 				507318442DE70C27005E26F9 /* ColoredToggleView.swift in Sources */,
 				50624C4E2DE5BA8200794BC8 /* App.swift in Sources */,
-				507318512DE7939D005E26F9 /* NumericSwitcherView.swift in Sources */,
+				507318512DE7939D005E26F9 /* NumericRwxToggleView.swift in Sources */,
 				507318762DE9EB32005E26F9 /* CustomButton.swift in Sources */,
 				507318912DF05375005E26F9 /* OwnerPickerView.swift in Sources */,
-				507318462DE71047005E26F9 /* TextSwitcherView.swift in Sources */,
+				507318462DE71047005E26F9 /* TextRwxView.swift in Sources */,
 				50624C742DE5E2E600794BC8 /* String.swift in Sources */,
 				50624C4F2DE5BA8200794BC8 /* EditorView.swift in Sources */,
 				50624C542DE5C2BA00794BC8 /* View.swift in Sources */,

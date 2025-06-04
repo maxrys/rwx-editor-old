@@ -70,8 +70,8 @@ struct EditorView: View {
 
                 /* MARK: rules via text/numeric */
                 HStack(spacing: 20) {
-                    TextSwitcherView($rights)
-                    NumericSwitcherView($rights)
+                    TextRwxView($rights)
+                    NumericRwxToggleView($rights)
                 }
 
                 /* MARK: owner */

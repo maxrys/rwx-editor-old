@@ -5,7 +5,7 @@
 
 import SwiftUI
 
-struct NumericSwitcherView: View {
+struct NumericRwxToggleView: View {
 
     private var rights: Binding<UInt>
 
@@ -52,6 +52,6 @@ struct NumericSwitcherView: View {
 @available(macOS 14.0, *) #Preview {
     @Previewable @State var rights: UInt = 0o644
     HStack {
-        NumericSwitcherView($rights)
+        NumericRwxToggleView($rights)
     }.padding(20)
 }
