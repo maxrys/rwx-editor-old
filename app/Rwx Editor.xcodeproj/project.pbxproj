@@ -28,6 +28,7 @@
 		507318762DE9EB32005E26F9 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507318752DE9EB32005E26F9 /* CustomButton.swift */; };
 		507318772DE9EB32005E26F9 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507318752DE9EB32005E26F9 /* CustomButton.swift */; };
 		507318912DF05375005E26F9 /* OwnerPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507318902DF05374005E26F9 /* OwnerPicker.swift */; };
+		507318942DF05B7E005E26F9 /* GroupPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507318932DF05B7E005E26F9 /* GroupPicker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		507318572DE865C3005E26F9 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		507318752DE9EB32005E26F9 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		507318902DF05374005E26F9 /* OwnerPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnerPicker.swift; sourceTree = "<group>"; };
+		507318932DF05B7E005E26F9 /* GroupPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupPicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +140,7 @@
 				507318432DE70C27005E26F9 /* ToggleRwxColored.swift */,
 				507318502DE7939D005E26F9 /* ToggleRwxNumeric.swift */,
 				507318902DF05374005E26F9 /* OwnerPicker.swift */,
+				507318932DF05B7E005E26F9 /* GroupPicker.swift */,
 				507318572DE865C3005E26F9 /* Media.xcassets */,
 			);
 			path = controls;
@@ -251,6 +254,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				50624C612DE5D6B500794BC8 /* UInt.swift in Sources */,
+				507318942DF05B7E005E26F9 /* GroupPicker.swift in Sources */,
 				507318442DE70C27005E26F9 /* ToggleRwxColored.swift in Sources */,
 				50624C4E2DE5BA8200794BC8 /* App.swift in Sources */,
 				507318512DE7939D005E26F9 /* ToggleRwxNumeric.swift in Sources */,

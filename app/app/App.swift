@@ -48,12 +48,14 @@ enum Subject {
     @ViewBuilder var mainScene: some View {
         EditorView(
             rights: 0o644,
-            onApplyRights: self.onApplyRights
+            owner: 0,
+            group: 0,
+            onApply: self.onApply
         )
     }
 
-    func onApplyRights(rights: UInt) {
-        print("rights: \(String(rights, radix: 8))")
+    func onApply(rights: UInt, owner: UInt, group: UInt) {
+        print("rights: \(String(rights, radix: 8)) | owner: \(owner) | group: \(group)")
     }
 
 }

@@ -16,14 +16,16 @@ struct EditorView: View {
     @State private var rights: UInt
            private var rightsOriginal: UInt
     @State private var owner: UInt
+    @State private var group: UInt
 
-    private let onApplyRights: (UInt) -> Void
+    private let onApply: (UInt, UInt, UInt) -> Void
 
-    init(rights: UInt, onApplyRights: @escaping (UInt) -> Void) {
+    init(rights: UInt, owner: UInt, group: UInt, onApply: @escaping (UInt, UInt, UInt) -> Void) {
         self.rights         = rights
         self.rightsOriginal = rights
-        self.onApplyRights  = onApplyRights
-        self.owner          = 0
+        self.owner          = owner
+        self.group          = group
+        self.onApply        = onApply
     }
 
     var body: some View {
@@ -74,10 +76,16 @@ struct EditorView: View {
                     ToggleRwxNumeric($rights)
                 }
 
-                /* MARK: owner */
+                /* MARK: owner picker */
                 HStack(spacing: 10) {
                     Text(NSLocalizedString("Owner", comment: ""))
                     OwnerPicker(self.$owner)
+                }
+
+                /* MARK: group picker */
+                HStack(spacing: 10) {
+                    Text(NSLocalizedString("Group", comment: ""))
+                    GroupPicker(self.$group)
                 }
 
             }
@@ -97,8 +105,10 @@ struct EditorView: View {
 
                 /* MARK: apply button */
                 CustomButton(NSLocalizedString("apply", comment: "")) {
-                    self.onApplyRights(
-                        self.rights
+                    self.onApply(
+                        self.rights,
+                        self.owner,
+                        self.group
                     )
                 }.frame(width: 110)
 
@@ -115,8 +125,10 @@ struct EditorView: View {
 #Preview {
     EditorView(
         rights: 0o644,
-        onApplyRights: { rights in
-            print("rights: \(String(rights, radix: 8))")
+        owner: 0,
+        group: 0,
+        onApply: { rights, owner, group in
+            print("rights: \(String(rights, radix: 8)) | owner: \(owner) | group: \(group)")
         }
     ).frame(width: 300)
 }
