@@ -14,8 +14,10 @@ struct OwnerPicker: View {
     }
 
     var body: some View {
-        let values: [String] = ["user 1", "user 2", "user 3"]
-        CustomPicker(selectedIndex: self.selected, values: values)
+        CustomPicker(
+            selectedIndex: self.selected,
+            values: ThisApp.owners
+        )
     }
 
 }

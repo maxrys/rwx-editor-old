@@ -43,6 +43,42 @@ extension Process {
         }
     }
 
+    static func systemUsers() -> [String] {
+
+        let (status, output, error) = Process.shell(
+            path: "/usr/bin/env",
+            args: ["zsh", "-c", "dscl . list /Users"]
+        )
+
+        switch status {
+            case .fatal:
+                #if DEBUG
+                    print("Shell fatal")
+                #endif
+                return []
+            case .error(let code):
+                #if DEBUG
+                    print("Shell error code: \(code)")
+                    print("Shell error: \(String(describing: error))")
+                #endif
+                return []
+            case .ok:
+                guard let output else {
+                    #if DEBUG
+                        print("shell output result == nil")
+                    #endif
+                    return []
+                }
+                var result: [String] = []
+                output.split(separator: "\n").forEach { value in
+                    result.append(String(value))
+                }
+                return result
+        }
+
+    }
+
+
     static func systemGroups() -> [String] {
 
         let (status, output, error) = Process.shell(

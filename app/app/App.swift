@@ -39,8 +39,8 @@ enum Subject {
 
 @main struct ThisApp: App {
 
-    var owners: [String] = []
-    var groups: [String] = []
+    static var owners: [String] = []
+    static var groups: [String] = []
 
     var body: some Scene {
         WindowGroup {
@@ -58,13 +58,14 @@ enum Subject {
     }
 
     init() {
-        self.owners = []
-        self.groups = Process.systemGroups()
-        dump(self.groups)
+        if (Self.owners.isEmpty) { Self.owners = Process.systemUsers ().sorted() }
+        if (Self.groups.isEmpty) { Self.groups = Process.systemGroups().sorted() }
     }
 
     func onApply(rights: UInt, owner: UInt, group: UInt) {
-        print("rights: \(String(rights, radix: 8)) | owner: \(owner) | group: \(group)")
+        let ownerValue = Self.owners[Int(owner)]
+        let groupValue = Self.groups[Int(group)]
+        print("rights: \(String(rights, radix: 8)) | owner: \(ownerValue) | group: \(groupValue)")
     }
 
 }

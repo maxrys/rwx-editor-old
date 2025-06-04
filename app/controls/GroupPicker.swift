@@ -14,8 +14,10 @@ struct GroupPicker: View {
     }
 
     var body: some View {
-        let values: [String] = ["group 1", "group 2", "group 3"]
-        CustomPicker(selectedIndex: self.selected, values: values)
+        CustomPicker(
+            selectedIndex: self.selected,
+            values: ThisApp.groups
+        )
     }
 
 }
