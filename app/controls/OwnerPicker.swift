@@ -5,7 +5,7 @@
 
 import SwiftUI
 
-struct OwnerPickerView: View {
+struct OwnerPicker: View {
 
     private var selected: Binding<UInt>
 
@@ -23,6 +23,6 @@ struct OwnerPickerView: View {
 @available(macOS 14.0, *) #Preview {
     @Previewable @State var selected: UInt = 0
     HStack {
-        OwnerPickerView($selected)
+        OwnerPicker($selected)
     }.padding(20)
 }

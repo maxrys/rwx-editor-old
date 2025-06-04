@@ -18,16 +18,16 @@
 		50624C732DE5E2E600794BC8 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50624C722DE5E2E300794BC8 /* String.swift */; };
 		50624C742DE5E2E600794BC8 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50624C722DE5E2E300794BC8 /* String.swift */; };
 		50624C752DE5E30E00794BC8 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50624C532DE5C2BA00794BC8 /* View.swift */; };
-		507318442DE70C27005E26F9 /* ColoredToggleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507318432DE70C27005E26F9 /* ColoredToggleView.swift */; };
-		507318462DE71047005E26F9 /* TextRwxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507318452DE71047005E26F9 /* TextRwxView.swift */; };
-		507318512DE7939D005E26F9 /* NumericRwxToggleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507318502DE7939D005E26F9 /* NumericRwxToggleView.swift */; };
+		507318442DE70C27005E26F9 /* ToggleRwxColored.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507318432DE70C27005E26F9 /* ToggleRwxColored.swift */; };
+		507318462DE71047005E26F9 /* RwxTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507318452DE71047005E26F9 /* RwxTextView.swift */; };
+		507318512DE7939D005E26F9 /* ToggleRwxNumeric.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507318502DE7939D005E26F9 /* ToggleRwxNumeric.swift */; };
 		507318532DE82BDB005E26F9 /* CustomPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507318522DE82BDB005E26F9 /* CustomPicker.swift */; };
 		507318542DE82BDB005E26F9 /* CustomPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507318522DE82BDB005E26F9 /* CustomPicker.swift */; };
 		507318582DE865C3005E26F9 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 507318572DE865C3005E26F9 /* Media.xcassets */; };
 		507318592DE865C3005E26F9 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 507318572DE865C3005E26F9 /* Media.xcassets */; };
 		507318762DE9EB32005E26F9 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507318752DE9EB32005E26F9 /* CustomButton.swift */; };
 		507318772DE9EB32005E26F9 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507318752DE9EB32005E26F9 /* CustomButton.swift */; };
-		507318912DF05375005E26F9 /* OwnerPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507318902DF05374005E26F9 /* OwnerPickerView.swift */; };
+		507318912DF05375005E26F9 /* OwnerPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507318902DF05374005E26F9 /* OwnerPicker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,13 +52,13 @@
 		50624C672DE5DCD500794BC8 /* RWX Editor Test.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "RWX Editor Test.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		50624C692DE5DCD500794BC8 /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
 		50624C722DE5E2E300794BC8 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
-		507318432DE70C27005E26F9 /* ColoredToggleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColoredToggleView.swift; sourceTree = "<group>"; };
-		507318452DE71047005E26F9 /* TextRwxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextRwxView.swift; sourceTree = "<group>"; };
-		507318502DE7939D005E26F9 /* NumericRwxToggleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumericRwxToggleView.swift; sourceTree = "<group>"; };
+		507318432DE70C27005E26F9 /* ToggleRwxColored.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleRwxColored.swift; sourceTree = "<group>"; };
+		507318452DE71047005E26F9 /* RwxTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RwxTextView.swift; sourceTree = "<group>"; };
+		507318502DE7939D005E26F9 /* ToggleRwxNumeric.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleRwxNumeric.swift; sourceTree = "<group>"; };
 		507318522DE82BDB005E26F9 /* CustomPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPicker.swift; sourceTree = "<group>"; };
 		507318572DE865C3005E26F9 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		507318752DE9EB32005E26F9 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
-		507318902DF05374005E26F9 /* OwnerPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnerPickerView.swift; sourceTree = "<group>"; };
+		507318902DF05374005E26F9 /* OwnerPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OwnerPicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +84,7 @@
 			children = (
 				50624C4C2DE5BA8200794BC8 /* app.entitlements */,
 				50624C552DE5C2BF00794BC8 /* shared */,
+				507318922DF05A3B005E26F9 /* controls */,
 				50624C562DE5C2C800794BC8 /* app */,
 				50624C712DE5DD8300794BC8 /* test */,
 				50624C352DE5B96100794BC8 /* Products */,
@@ -105,9 +106,6 @@
 				50624C722DE5E2E300794BC8 /* String.swift */,
 				50624C602DE5D6B500794BC8 /* UInt.swift */,
 				50624C532DE5C2BA00794BC8 /* View.swift */,
-				507318522DE82BDB005E26F9 /* CustomPicker.swift */,
-				507318752DE9EB32005E26F9 /* CustomButton.swift */,
-				507318572DE865C3005E26F9 /* Media.xcassets */,
 			);
 			path = shared;
 			sourceTree = "<group>";
@@ -117,10 +115,7 @@
 			children = (
 				50624C4D2DE5BA8200794BC8 /* App.swift */,
 				50624C4B2DE5BA8200794BC8 /* EditorView.swift */,
-				507318432DE70C27005E26F9 /* ColoredToggleView.swift */,
-				507318452DE71047005E26F9 /* TextRwxView.swift */,
-				507318502DE7939D005E26F9 /* NumericRwxToggleView.swift */,
-				507318902DF05374005E26F9 /* OwnerPickerView.swift */,
+				507318452DE71047005E26F9 /* RwxTextView.swift */,
 				50624C4A2DE5BA8200794BC8 /* Assets.xcassets */,
 				50624C5C2DE5CD1A00794BC8 /* Localizable.xcstrings */,
 			);
@@ -133,6 +128,19 @@
 				50624C692DE5DCD500794BC8 /* Test.swift */,
 			);
 			path = test;
+			sourceTree = "<group>";
+		};
+		507318922DF05A3B005E26F9 /* controls */ = {
+			isa = PBXGroup;
+			children = (
+				507318522DE82BDB005E26F9 /* CustomPicker.swift */,
+				507318752DE9EB32005E26F9 /* CustomButton.swift */,
+				507318432DE70C27005E26F9 /* ToggleRwxColored.swift */,
+				507318502DE7939D005E26F9 /* ToggleRwxNumeric.swift */,
+				507318902DF05374005E26F9 /* OwnerPicker.swift */,
+				507318572DE865C3005E26F9 /* Media.xcassets */,
+			);
+			path = controls;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -243,12 +251,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				50624C612DE5D6B500794BC8 /* UInt.swift in Sources */,
-				507318442DE70C27005E26F9 /* ColoredToggleView.swift in Sources */,
+				507318442DE70C27005E26F9 /* ToggleRwxColored.swift in Sources */,
 				50624C4E2DE5BA8200794BC8 /* App.swift in Sources */,
-				507318512DE7939D005E26F9 /* NumericRwxToggleView.swift in Sources */,
+				507318512DE7939D005E26F9 /* ToggleRwxNumeric.swift in Sources */,
 				507318762DE9EB32005E26F9 /* CustomButton.swift in Sources */,
-				507318912DF05375005E26F9 /* OwnerPickerView.swift in Sources */,
-				507318462DE71047005E26F9 /* TextRwxView.swift in Sources */,
+				507318912DF05375005E26F9 /* OwnerPicker.swift in Sources */,
+				507318462DE71047005E26F9 /* RwxTextView.swift in Sources */,
 				50624C742DE5E2E600794BC8 /* String.swift in Sources */,
 				50624C4F2DE5BA8200794BC8 /* EditorView.swift in Sources */,
 				50624C542DE5C2BA00794BC8 /* View.swift in Sources */,

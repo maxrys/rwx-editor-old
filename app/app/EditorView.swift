@@ -47,37 +47,37 @@ struct EditorView: View {
 
                     VStack(spacing: 10) {
                         Text(NSLocalizedString("Read", comment: "")).frame(width: textW, height: textH)
-                        ColoredToggleView(.owner, self.$rights, bitPosition: Subject.owner.offset + Permission.r.offset)
-                        ColoredToggleView(.group, self.$rights, bitPosition: Subject.group.offset + Permission.r.offset)
-                        ColoredToggleView(.other, self.$rights, bitPosition: Subject.other.offset + Permission.r.offset)
+                        ToggleRwxColored(.owner, self.$rights, bitPosition: Subject.owner.offset + Permission.r.offset)
+                        ToggleRwxColored(.group, self.$rights, bitPosition: Subject.group.offset + Permission.r.offset)
+                        ToggleRwxColored(.other, self.$rights, bitPosition: Subject.other.offset + Permission.r.offset)
                     }
 
                     VStack(spacing: 10) {
                         Text(NSLocalizedString("Write", comment: "")).frame(width: textW, height: textH)
-                        ColoredToggleView(.owner, self.$rights, bitPosition: Subject.owner.offset + Permission.w.offset)
-                        ColoredToggleView(.group, self.$rights, bitPosition: Subject.group.offset + Permission.w.offset)
-                        ColoredToggleView(.other, self.$rights, bitPosition: Subject.other.offset + Permission.w.offset)
+                        ToggleRwxColored(.owner, self.$rights, bitPosition: Subject.owner.offset + Permission.w.offset)
+                        ToggleRwxColored(.group, self.$rights, bitPosition: Subject.group.offset + Permission.w.offset)
+                        ToggleRwxColored(.other, self.$rights, bitPosition: Subject.other.offset + Permission.w.offset)
                     }
 
                     VStack(spacing: 10) {
                         Text(NSLocalizedString("Execute", comment: "")).frame(width: textW, height: textH)
-                        ColoredToggleView(.owner, self.$rights, bitPosition: Subject.owner.offset + Permission.x.offset);
-                        ColoredToggleView(.group, self.$rights, bitPosition: Subject.group.offset + Permission.x.offset);
-                        ColoredToggleView(.other, self.$rights, bitPosition: Subject.other.offset + Permission.x.offset);
+                        ToggleRwxColored(.owner, self.$rights, bitPosition: Subject.owner.offset + Permission.x.offset);
+                        ToggleRwxColored(.group, self.$rights, bitPosition: Subject.group.offset + Permission.x.offset);
+                        ToggleRwxColored(.other, self.$rights, bitPosition: Subject.other.offset + Permission.x.offset);
                     }
 
                 }.frame(width: 250)
 
                 /* MARK: rules via text/numeric */
                 HStack(spacing: 20) {
-                    TextRwxView($rights)
-                    NumericRwxToggleView($rights)
+                    RwxTextView($rights)
+                    ToggleRwxNumeric($rights)
                 }
 
                 /* MARK: owner */
                 HStack(spacing: 10) {
                     Text(NSLocalizedString("Owner", comment: ""))
-                    OwnerPickerView(self.$owner)
+                    OwnerPicker(self.$owner)
                 }
 
             }
