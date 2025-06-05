@@ -13,6 +13,9 @@ struct MainView: View {
         case foot = "color MainView Foot Background"
     }
 
+    @State private var file: String
+    @State private var path: String
+    @State private var size: UInt
     @State private var created: Date
     @State private var createdIsISO: Bool = false
     @State private var updated: Date
@@ -24,7 +27,10 @@ struct MainView: View {
     private let rightsOriginal: UInt
     private let onApply: (UInt, UInt, UInt) -> Void
 
-    init(created: Date, updated: Date, rights: UInt, owner: UInt, group: UInt, onApply: @escaping (UInt, UInt, UInt) -> Void) {
+    init(file: String, path: String, size: UInt, created: Date, updated: Date, rights: UInt, owner: UInt, group: UInt, onApply: @escaping (UInt, UInt, UInt) -> Void) {
+        self.file           = file
+        self.path           = path
+        self.size           = size
         self.created        = created
         self.updated        = updated
         self.rights         = rights
@@ -182,8 +188,11 @@ struct MainView: View {
 
 #Preview {
     MainView(
-        created: Date(),
-        updated: Date(),
+        file: "Rwx Editor.icns",
+        path: "/usr/local/bin/some/long/path",
+        size: 1_234_567,
+        created: try! Date(fromISO8601: "2025-01-02 03:04:05 +0000"),
+        updated: try! Date(fromISO8601: "2025-01-02 03:04:05 +0000"),
         rights: 0o644,
         owner: 0,
         group: 0,

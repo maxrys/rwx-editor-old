@@ -50,6 +50,9 @@ enum Subject {
 
     @ViewBuilder var mainScene: some View {
         MainView(
+            file: "Rwx Editor.icns",
+            path: "/usr/local/bin/some/long/path",
+            size: 1_234_567,
             created: try! Date(fromISO8601: "2025-01-02 03:04:05 +0000"),
             updated: try! Date(fromISO8601: "2025-01-02 03:04:05 +0000"),
             rights: 0o644,
