@@ -24,7 +24,9 @@ struct MainView: View {
     @State private var owner: UInt
     @State private var group: UInt
 
-    private let rightsOriginal: UInt
+    private let originalRights: UInt
+    private let originalOwner: UInt
+    private let originalGroup: UInt
     private let onApply: (UInt, UInt, UInt) -> Void
     private let frameWidth: CGFloat = 300
 
@@ -35,10 +37,12 @@ struct MainView: View {
         self.created        = created
         self.updated        = updated
         self.rights         = rights
-        self.rightsOriginal = rights
         self.owner          = owner
         self.group          = group
         self.onApply        = onApply
+        self.originalRights = rights
+        self.originalOwner  = owner
+        self.originalGroup  = group
     }
 
     var body: some View {
@@ -167,9 +171,15 @@ struct MainView: View {
 
                 /* MARK: cancel button */
                 ButtonCustom(NSLocalizedString("cancel", comment: "")) {
-                    self.rights = self.rightsOriginal
+                    self.rights = self.originalRights
+                    self.owner  = self.originalOwner
+                    self.group  = self.originalGroup
                 }
-                .disabled(self.rights == self.rightsOriginal)
+                .disabled(
+                    self.rights == self.originalRights &&
+                    self.owner  == self.originalOwner  &&
+                    self.group  == self.originalGroup
+                )
                 .frame(width: 110)
 
                 /* MARK: apply button */
