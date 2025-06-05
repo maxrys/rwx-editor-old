@@ -16,7 +16,8 @@ struct OwnerPicker: View {
     var body: some View {
         PickerCustom(
             selectedIndex: self.selected,
-            values: ThisApp.owners
+            values: ThisApp.owners,
+            isPlainListStyle: true
         )
     }
 

@@ -16,7 +16,8 @@ struct GroupPicker: View {
     var body: some View {
         PickerCustom(
             selectedIndex: self.selected,
-            values: ThisApp.groups
+            values: ThisApp.groups,
+            isPlainListStyle: true
         )
     }
 

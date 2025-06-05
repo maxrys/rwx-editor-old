@@ -20,10 +20,12 @@ struct PickerCustom: View {
 
     private var selectedIndex: Binding<UInt>
     private var values: [String]
+    private var isPlainListStyle: Bool
 
-    init(selectedIndex: Binding<UInt>, values: [String]) {
-        self.selectedIndex = selectedIndex
-        self.values        = values
+    init(selectedIndex: Binding<UInt>, values: [String], isPlainListStyle: Bool = false) {
+        self.selectedIndex    = selectedIndex
+        self.values           = values
+        self.isPlainListStyle = isPlainListStyle
     }
 
     var body: some View {
@@ -45,44 +47,54 @@ struct PickerCustom: View {
 
         /* MARK: value list */
         .popover(isPresented: self.$isOpened) {
-            if (self.values.count <= 10) { VStack(spacing: 6) { self.list }.padding(10) }
-            else { ScrollView(.vertical) { VStack(spacing: 6) { self.list }.padding(10) }.frame(maxHeight: 370) }
+            if (self.values.count <= 10) { self.list }
+            else { ScrollView(.vertical) { self.list }.frame(maxHeight: 370) }
         }
 
     }
 
     @ViewBuilder var list: some View {
-        ForEach(self.values.indices, id: \.self) { index in
-            var background: Color {
-                if (self.selectedIndex.wrappedValue == index) { return Color(Self.ColorNames.itemSelectedBackground.rawValue) }
-                if (self.hoverIndex                 == index) { return Color(Self.ColorNames.itemHoveredBackground .rawValue) }
-                return                                                 Color(Self.ColorNames.itemBackground        .rawValue)
-            }
-            Button {
-                self.selectedIndex.wrappedValue = UInt(index)
-                self.isOpened = false
-            } label: {
-                Text("\(self.values[index])")
-                    .lineLimit(1)
-                    .padding(.horizontal, 9)
-                    .padding(.vertical  , 5)
-                    .frame(maxWidth: .infinity)
-                    .color(Color(Self.ColorNames.text.rawValue))
-                    .background(background)
-                    .cornerRadius(10)
-                    .onHover { isHovered in
-                        self.hoverIndex = isHovered ? index : -1
+        VStack (alignment: .leading, spacing: 6) {
+            ForEach(self.values.indices, id: \.self) { index in
+                Button {
+                    self.selectedIndex.wrappedValue = UInt(index)
+                    self.isOpened = false
+                } label: {
+                    var background: Color {
+                        if (self.selectedIndex.wrappedValue == index) { return Color(Self.ColorNames.itemSelectedBackground.rawValue) }
+                        if (self.hoverIndex                 == index) { return Color(Self.ColorNames.itemHoveredBackground .rawValue) }
+                        return self.isPlainListStyle ? Color(.clear) : Color(Self.ColorNames.itemBackground.rawValue)
                     }
+                    Text("\(self.values[index])")
+                        .lineLimit(1)
+                        .padding(.horizontal, 9)
+                        .padding(.vertical  , 5)
+                        .frame(maxWidth: .infinity, alignment: self.isPlainListStyle ? .leading : .center)
+                        .color(Color(Self.ColorNames.text.rawValue))
+                        .background(background)
+                        .cornerRadius(10)
+                        .onHover { isHovered in
+                            self.hoverIndex = isHovered ? index : -1
+                        }
+                }.buttonStyle(.plain)
             }
-            .buttonStyle(.plain)
-        }
+        }.padding(10)
     }
 
 }
 
 @available(macOS 14.0, *) #Preview {
-    @Previewable @State var selectedIndex: UInt = 0
-    let values: [String] = {
+    @Previewable @State var selectedIndexV1: UInt = 0
+    @Previewable @State var selectedIndexV2: UInt = 0
+
+    let valuesV1: [String] = ["Single value"]
+
+    VStack {
+        PickerCustom(selectedIndex: $selectedIndexV1, values: valuesV1, isPlainListStyle: true).frame(maxWidth: 100)
+        PickerCustom(selectedIndex: $selectedIndexV1, values: valuesV1                        ).frame(maxWidth: 100)
+    }.padding(10)
+
+    let valuesV2: [String] = {
         var result: [String] = []
         for i in 1 ... 100 {
             if (i == 5) { result.append("Value \(i) long long long long long long") }
@@ -90,11 +102,9 @@ struct PickerCustom: View {
         }
         return result
     }()
-    HStack {
-        PickerCustom(
-            selectedIndex: $selectedIndex,
-            values: values
-        ).frame(maxWidth: 100)
-    }
-    .frame(width: 200, height: 200)
+
+    VStack {
+        PickerCustom(selectedIndex: $selectedIndexV2, values: valuesV2, isPlainListStyle: true).frame(maxWidth: 100)
+        PickerCustom(selectedIndex: $selectedIndexV2, values: valuesV2                        ).frame(maxWidth: 100)
+    }.padding(10)
 }
