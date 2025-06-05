@@ -97,14 +97,14 @@ struct MainView: View {
             HStack(spacing: 10) {
 
                 /* MARK: cancel button */
-                CustomButton(NSLocalizedString("cancel", comment: "")) {
+                ButtonCustom(NSLocalizedString("cancel", comment: "")) {
                     self.rights = self.rightsOriginal
                 }
                 .disabled(self.rights == self.rightsOriginal)
                 .frame(width: 110)
 
                 /* MARK: apply button */
-                CustomButton(NSLocalizedString("apply", comment: "")) {
+                ButtonCustom(NSLocalizedString("apply", comment: "")) {
                     self.onApply(
                         self.rights,
                         self.owner,

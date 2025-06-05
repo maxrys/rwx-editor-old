@@ -58,8 +58,8 @@ enum Subject {
     }
 
     init() {
-        if (Self.owners.isEmpty) { Self.owners = Process.systemUsers ().sorted() }
-        if (Self.groups.isEmpty) { Self.groups = Process.systemGroups().sorted() }
+        if (Self.owners.isEmpty) { Self.owners = Process.systemUsers ().filter{ $0.first != "_" }.sorted() }
+        if (Self.groups.isEmpty) { Self.groups = Process.systemGroups().filter{ $0.first != "_" }.sorted() }
     }
 
     func onApply(rights: UInt, owner: UInt, group: UInt) {

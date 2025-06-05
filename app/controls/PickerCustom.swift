@@ -5,14 +5,14 @@
 
 import SwiftUI
 
-struct CustomPicker: View {
+struct PickerCustom: View {
 
     enum ColorNames: String {
-        case text                   = "color CustomPicker Text"
-        case background             = "color CustomPicker Background"
-        case itemBackground         = "color CustomPicker Item Background"
-        case itemSelectedBackground = "color CustomPicker Item Selected Background"
-        case itemHoveredBackground  = "color CustomPicker Item Hovered Background"
+        case text                   = "color PickerCustom Text"
+        case background             = "color PickerCustom Background"
+        case itemBackground         = "color PickerCustom Item Background"
+        case itemSelectedBackground = "color PickerCustom Item Selected Background"
+        case itemHoveredBackground  = "color PickerCustom Item Hovered Background"
     }
 
     @State private var isOpened: Bool = false
@@ -91,7 +91,7 @@ struct CustomPicker: View {
         return result
     }()
     HStack {
-        CustomPicker(
+        PickerCustom(
             selectedIndex: $selectedIndex,
             values: values
         ).frame(maxWidth: 100)

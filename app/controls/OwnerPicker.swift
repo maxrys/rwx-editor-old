@@ -14,7 +14,7 @@ struct OwnerPicker: View {
     }
 
     var body: some View {
-        CustomPicker(
+        PickerCustom(
             selectedIndex: self.selected,
             values: ThisApp.owners
         )

@@ -5,12 +5,12 @@
 
 import SwiftUI
 
-struct CustomButton: View {
+struct ButtonCustom: View {
 
     enum ColorNames: String {
-        case text           = "color CustomButton Text"
-        case backgroundFrom = "color CustomButton Background From"
-        case backgroundTo   = "color CustomButton Background To"
+        case text           = "color ButtonCustom Text"
+        case backgroundFrom = "color ButtonCustom Background From"
+        case backgroundTo   = "color ButtonCustom Background To"
     }
 
     private let text: String
@@ -51,8 +51,8 @@ struct CustomButton: View {
 
 @available(macOS 14.0, *) #Preview {
     VStack {
-        CustomButton()
-        CustomButton().frame(width: 100)
+        ButtonCustom()
+        ButtonCustom().frame(width: 100)
     }
     .frame(width: 200, height: 200)
     .padding(20)
