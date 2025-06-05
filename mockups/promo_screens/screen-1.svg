@@ -100,11 +100,11 @@
         <feMergeNode in="SourceGraphic"/>
       </feMerge>
     </filter>
-    <filter id="filter-2" color-interpolation-filters="sRGB" x="-50%" y="-50%" width="200%" height="200%" bx:preset="drop-shadow 1 0 0 10 0.4 rgba(0,0,0,0.3)">
+    <filter id="filter-1" color-interpolation-filters="sRGB" x="-50%" y="-50%" width="200%" height="200%" bx:preset="drop-shadow 1 0 0 10 0.4 rgba(0,0,0,0.3)">
       <feGaussianBlur in="SourceAlpha" stdDeviation="10"/>
       <feOffset dx="0" dy="0"/>
       <feComponentTransfer result="offsetblur">
-        <feFuncA id="feFuncA-2" type="linear" slope="0.8"/>
+        <feFuncA id="feFuncA-3" type="linear" slope="0.8"/>
       </feComponentTransfer>
       <feFlood flood-color="rgba(0,0,0,0.3)"/>
       <feComposite in2="offsetblur" operator="in"/>
@@ -113,7 +113,15 @@
         <feMergeNode in="SourceGraphic"/>
       </feMerge>
     </filter>
-    <filter id="filter-3" bx:preset="inner-shadow 1 0 0 5 0.1 #000" color-interpolation-filters="sRGB" x="-50%" y="-50%" width="200%" height="200%">
+    <linearGradient gradientUnits="userSpaceOnUse" x1="499.117" y1="50" x2="499.117" y2="285" id="gradient-2" gradientTransform="matrix(1, 0, 0, 0.99149, 0, 0.425532)">
+      <stop offset="0" style="stop-color: rgb(89.02% 90.98% 94.118%)"/>
+      <stop offset="1" style="stop-color: rgb(210, 220, 228);"/>
+    </linearGradient>
+    <linearGradient gradientUnits="userSpaceOnUse" x1="499.117" y1="50" x2="499.117" y2="285" id="gradient-1" gradientTransform="matrix(0.360511, 0, 0, 0.991489, 127.333107, 0.425532)">
+      <stop offset="0" style="stop-color: rgb(214, 219, 227);"/>
+      <stop offset="1" style="stop-color: rgb(201, 210, 218);"/>
+    </linearGradient>
+    <filter id="inner-shadow-filter-0" bx:preset="inner-shadow 1 0 0 5 0.1 #000" color-interpolation-filters="sRGB" x="-50%" y="-50%" width="200%" height="200%">
       <feOffset dx="0" dy="0"/>
       <feGaussianBlur stdDeviation="5"/>
       <feComposite operator="out" in="SourceGraphic"/>
@@ -124,7 +132,7 @@
       <feComposite operator="in" in="color" in2="choke" result="shadow"/>
       <feComposite operator="over" in="shadow" in2="SourceGraphic"/>
     </filter>
-    <filter id="filter-4" bx:preset="inner-shadow 1 0 0 5 0.1 rgba(0,0,0,0.7)" color-interpolation-filters="sRGB" x="-50%" y="-50%" width="200%" height="200%">
+    <filter id="inner-shadow-filter-1" bx:preset="inner-shadow 1 0 0 5 0.1 rgba(0,0,0,0.7)" color-interpolation-filters="sRGB" x="-50%" y="-50%" width="200%" height="200%">
       <feOffset dx="0" dy="0"/>
       <feGaussianBlur stdDeviation="5"/>
       <feComposite operator="out" in="SourceGraphic"/>
@@ -135,7 +143,7 @@
       <feComposite operator="in" in="color" in2="choke" result="shadow"/>
       <feComposite operator="over" in="shadow" in2="SourceGraphic"/>
     </filter>
-    <filter id="filter-5" bx:preset="inner-shadow 1 0 0 5 0.1 rgba(0,0,0,0.7)" color-interpolation-filters="sRGB" x="-50%" y="-50%" width="200%" height="200%">
+    <filter id="inner-shadow-filter-2" bx:preset="inner-shadow 1 0 0 5 0.1 rgba(0,0,0,0.7)" color-interpolation-filters="sRGB" x="-50%" y="-50%" width="200%" height="200%">
       <feOffset dx="0" dy="0"/>
       <feGaussianBlur stdDeviation="5"/>
       <feComposite operator="out" in="SourceGraphic"/>
@@ -146,7 +154,7 @@
       <feComposite operator="in" in="color" in2="choke" result="shadow"/>
       <feComposite operator="over" in="shadow" in2="SourceGraphic"/>
     </filter>
-    <filter id="filter-6" bx:preset="inner-shadow 1 0 0 5 0.1 rgba(0,0,0,0.7)" color-interpolation-filters="sRGB" x="-50%" y="-50%" width="200%" height="200%">
+    <filter id="inner-shadow-filter-3" bx:preset="inner-shadow 1 0 0 5 0.1 rgba(0,0,0,0.7)" color-interpolation-filters="sRGB" x="-50%" y="-50%" width="200%" height="200%">
       <feOffset dx="0" dy="0"/>
       <feGaussianBlur stdDeviation="5"/>
       <feComposite operator="out" in="SourceGraphic"/>
@@ -157,7 +165,7 @@
       <feComposite operator="in" in="color" in2="choke" result="shadow"/>
       <feComposite operator="over" in="shadow" in2="SourceGraphic"/>
     </filter>
-    <filter id="filter-7" bx:preset="inner-shadow 1 0 0 5 0.1 rgba(0,0,0,0.7)" color-interpolation-filters="sRGB" x="-50%" y="-50%" width="200%" height="200%">
+    <filter id="inner-shadow-filter-4" bx:preset="inner-shadow 1 0 0 5 0.1 rgba(0,0,0,0.7)" color-interpolation-filters="sRGB" x="-50%" y="-50%" width="200%" height="200%">
       <feOffset dx="0" dy="0"/>
       <feGaussianBlur stdDeviation="5"/>
       <feComposite operator="out" in="SourceGraphic"/>
@@ -168,14 +176,43 @@
       <feComposite operator="in" in="color" in2="choke" result="shadow"/>
       <feComposite operator="over" in="shadow" in2="SourceGraphic"/>
     </filter>
-    <linearGradient gradientUnits="userSpaceOnUse" x1="1684.79" y1="705.258" x2="1684.79" y2="759.258" id="gradient-3" gradientTransform="matrix(0.772725, 0.002515, -0.00181, 1, -936.836413, 138.504913)">
-      <stop offset="0" style="stop-color: rgb(0, 128, 237);"/>
-      <stop offset="1" style="stop-color: rgb(0, 91, 198);"/>
-    </linearGradient>
-    <linearGradient gradientUnits="userSpaceOnUse" x1="1684.79" y1="705.258" x2="1684.79" y2="759.258" id="gradient-4" gradientTransform="matrix(0.77269, -0.010649, 0.007679, 1.002299, -681.761902, 159.061386)">
-      <stop offset="0" style="stop-color: lch(41.3 135 218);"/>
-      <stop offset="1" style="stop-color: lch(27.6 135 218);"/>
-    </linearGradient>
+    <filter id="inner-shadow-filter-5" bx:preset="inner-shadow 1 0 0 3 0.85 #fff" color-interpolation-filters="sRGB" x="-50%" y="-50%" width="200%" height="200%">
+      <feOffset dx="0" dy="0"/>
+      <feGaussianBlur stdDeviation="3"/>
+      <feComposite operator="out" in="SourceGraphic"/>
+      <feComponentTransfer result="choke">
+        <feFuncA type="linear" slope="1.7"/>
+      </feComponentTransfer>
+      <feFlood flood-color="#fff" result="color"/>
+      <feComposite operator="in" in="color" in2="choke" result="shadow"/>
+      <feComposite operator="over" in="shadow" in2="SourceGraphic"/>
+    </filter>
+    <filter id="filter-9" bx:preset="drop-shadow 1 0 0 1 0.56 #fff" color-interpolation-filters="sRGB" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="1"/>
+      <feOffset dx="0" dy="0"/>
+      <feComponentTransfer result="offsetblur">
+        <feFuncA id="feFuncA-1" type="linear" slope="1.12"/>
+      </feComponentTransfer>
+      <feFlood flood-color="#fff"/>
+      <feComposite in2="offsetblur" operator="in"/>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="filter-10" bx:preset="drop-shadow 1 0 0 1 0.56 #fff" color-interpolation-filters="sRGB" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="1"/>
+      <feOffset dx="0" dy="0"/>
+      <feComponentTransfer result="offsetblur">
+        <feFuncA id="feFuncA-3" type="linear" slope="1.12"/>
+      </feComponentTransfer>
+      <feFlood flood-color="#fff"/>
+      <feComposite in2="offsetblur" operator="in"/>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
   </defs>
   <g>
     <rect width="1280" height="1600" style="fill: rgb(227, 228, 229);"/>
@@ -221,23 +258,24 @@
       </g>
       <text style="fill: rgb(255, 255, 255); font-family: Arial, sans-serif; font-size: 30px; font-weight: 700; letter-spacing: 0.6px; white-space: pre; filter: url(&quot;#drop-shadow-filter-6&quot;); stroke-width: 1;" x="170.273" y="550.346">rwx.icon</text>
     </g>
-    <g style="filter: url(&quot;#filter-2&quot;);" transform="matrix(1, 0, 0, 1, 140.906982, 295)">
+    <g style="filter: url(&quot;#filter-1&quot;);" transform="matrix(1, 0, 0, 1, 140.906982, 295)">
       <path d="M 219.117 50 L 779.117 50 C 790.163 50 799.117 58.954 799.117 70 L 799.117 930 C 799.117 941.046 790.163 950 779.117 950 L 219.117 950 C 208.071 950 199.117 941.046 199.117 930 L 199.093 161.175 C 199.093 147.175 175.093 139.785 175.093 133.175 C 175.093 126.535 199.093 119.175 199.093 105.175 L 199.117 70 C 199.117 58.954 208.071 50 219.117 50 Z" style="stroke-width: 2px; filter: none; fill: rgb(238, 238, 238); stroke: rgb(198, 198, 198);"/>
       <g>
-        <path style="stroke-width: 2px; filter: none; fill: rgb(238, 238, 238);" d="M 219.117 50 H 779.117 A 20 20 0 0 1 799.117 70 V 285 H 199.117 V 70 A 20 20 0 0 1 219.117 50 Z" bx:shape="rect 199.117 50 600 235 20 20 0 0 1@cb1a31f6"/>
-        <g transform="matrix(1, -0.000916, 0, 1, 140.253998, -593.664246)" style="">
-          <text style="fill: rgb(36, 36, 36); font-family: &quot;SF Pro&quot;; font-size: 27px; letter-spacing: 0.3px; white-space: pre; stroke-width: 1;" x="206.863" y="710.918">Path:</text>
-          <g transform="matrix(1, 0, 0, 1, 2, -0.115061)">
-            <rect style="fill: rgb(201, 223, 244); stroke-width: 1;" x="278.863" y="681.293" width="280" height="42.209" rx="10" ry="10"/>
-            <text style="fill: rgb(1, 1, 1); font-family: &quot;PT Mono&quot;; font-size: 22px; letter-spacing: -1.5px; white-space: pre;" x="291.807" y="709.543">/usr/local/bin/some/…</text>
-          </g>
-        </g>
-        <text style="fill: rgb(36, 36, 36); font-family: &quot;SF Pro&quot;; font-size: 27px; letter-spacing: 0.3px; white-space: pre; stroke-width: 1;" x="350.491" y="172.112">Size:  12 345 678</text>
-        <text style="fill: rgb(36, 36, 36); font-family: &quot;SF Pro&quot;; font-size: 27px; letter-spacing: 0.3px; white-space: pre; stroke-width: 1;" x="305.499" y="209.526">Created:  1 Jan 2025 at 00:00:00</text>
-        <text style="fill: rgb(36, 36, 36); font-family: &quot;SF Pro&quot;; font-size: 27px; letter-spacing: 0.3px; white-space: pre; stroke-width: 1;" x="295.317" y="246.941">Updated:  1 Jan 2025 at 00:00:00</text>
+        <path style="stroke-width: 2px; filter: none; fill: url(&quot;#gradient-2&quot;);" d="M 219.117 50 H 779.117 A 20 20 0 0 1 799.117 70 V 283 H 199.117 V 70 A 20 20 0 0 1 219.117 50 Z" bx:shape="rect 199.117 50 600 233 20 20 0 0 1@6dea6812"/>
+        <path style="stroke-width: 2px; filter: none; fill: url(&quot;#gradient-1&quot;);" d="M 219.117 50 H 415.424 V 283 H 199.117 V 70 A 20 20 0 0 1 219.117 50 Z" bx:shape="rect 199.117 50 216.307 233 20 0 0 0 1@0b134950"/>
+        <text style="fill: rgb(103, 124, 142); font-family: &quot;SF Pro&quot;; font-size: 27px; letter-spacing: 0.3px; white-space: pre;" transform="matrix(1, -0.000916, 0, 1, 145.0233, -603.378479)" x="206.863" y="710.918">File</text>
+        <text style="fill: rgb(36, 36, 36); font-family: &quot;SF Pro&quot;; font-size: 24px; letter-spacing: 0.3px; white-space: pre;" transform="matrix(1, -0.000916, 0, 1, 237.571991, -603.378479)" x="206.863" y="710.918">Rwx Editor.icns</text>
+        <text style="fill: rgb(103, 124, 142); font-family: &quot;SF Pro&quot;; font-size: 27px; letter-spacing: 0.3px; white-space: pre;" transform="matrix(1, -0.000916, 0, 1, 133.456085, -568.444092)" x="206.863" y="710.918">Path</text>
+        <text style="fill: rgb(36, 36, 36); font-family: &quot;SF Pro&quot;; font-size: 24px; letter-spacing: 0.3px; white-space: pre;" transform="matrix(1, -0.000916, 0, 1, 237.571991, -568.289001)" x="206.863" y="710.918">/usr/local/bin/some/path/…</text>
+        <text style="fill: rgb(103, 124, 142); font-family: &quot;SF Pro&quot;; font-size: 27px; letter-spacing: 0.3px; white-space: pre;" x="343.491" y="177.17">Size</text>
+        <text style="fill: rgb(36, 36, 36); font-family: &quot;SF Pro&quot;; font-size: 24px; letter-spacing: 0.3px; white-space: pre;" transform="matrix(1, 0, 0, 1, 93.94397, 5.161386)"><tspan x="350.491" y="172.112">12 345 678 (Bytes)</tspan><tspan x="350.491" dy="1em">​</tspan></text>
+        <text style="fill: rgb(103, 124, 142); font-family: &quot;SF Pro&quot;; font-size: 27px; letter-spacing: 0.3px; white-space: pre;" x="298.876" y="212.056">Created</text>
+        <text style="fill: rgb(36, 36, 36); font-family: &quot;SF Pro&quot;; font-size: 24px; letter-spacing: 0.3px; white-space: pre;" x="444.435" y="212.107">1 Jan 2025 at 00:00:00</text>
+        <text style="fill: rgb(103, 124, 142); font-family: &quot;SF Pro&quot;; font-size: 27px; letter-spacing: 0.3px; white-space: pre;" x="290.309" y="246.941">Updated</text>
+        <text style="fill: rgb(36, 36, 36); font-family: &quot;SF Pro&quot;; font-size: 24px; letter-spacing: 0.3px; white-space: pre;" x="444.435" y="246.941">1 Jan 2025 at 00:00:00</text>
       </g>
       <g>
-        <rect style="stroke-width: 2; filter: none; fill: rgb(227, 232, 239);" x="199.117" y="282.438" width="600" height="517.562"/>
+        <rect style="stroke-width: 2; filter: none; fill: color(xyz-d65 0.763 0.804 0.939);" x="199.117" y="283" width="600" height="517"/>
         <g transform="matrix(1, 0, 0, 1, 0, -36.088406)">
           <g>
             <text style="fill: rgb(36, 36, 36); font-family: &quot;SF Pro&quot;; font-size: 27px; letter-spacing: 0.3px; white-space: pre; stroke-width: 1;" x="410.31" y="375.763">Read</text>
@@ -258,19 +296,19 @@
               <ellipse style="fill: color(display-p3 0.196 0.663 0.054); stroke-width: 1;" cx="560.6" cy="435.221" rx="25" ry="25"/>
               <path style="stroke-linecap: round; stroke-linejoin: round; stroke-width: 4; stroke: rgb(255, 255, 255); fill: none;" d="M 550.83 436.08 L 558.03 444.529 L 569.98 425.913"/>
             </g>
-            <ellipse style="stroke-width: 1; fill: color(display-p3 0.811 0.827 0.852); filter: url(&quot;#filter-3&quot;);" cx="680.99" cy="435.221" rx="25" ry="25"/>
+            <ellipse style="stroke-width: 1; filter: url(&quot;#inner-shadow-filter-0&quot;); fill: color(display-p3 0.811 0.827 0.852);" cx="680.99" cy="435.221" rx="25" ry="25"/>
             <g>
               <ellipse style="fill: color(display-p3 0.837 0.461 0.047); stroke-width: 1;" cx="440.85" cy="505.409" rx="25" ry="25"/>
               <path style="stroke-linecap: round; stroke-linejoin: round; stroke-width: 4; stroke: rgb(255, 255, 255); fill: none;" d="M 431.08 506.268 L 438.28 514.717 L 450.23 496.101"/>
             </g>
-            <ellipse style="stroke-width: 1; fill: color(display-p3 0.811 0.827 0.852); filter: url(&quot;#filter-4&quot;);" cx="560.6" cy="505.409" rx="25" ry="25"/>
-            <ellipse style="stroke-width: 1; fill: color(display-p3 0.811 0.827 0.852); filter: url(&quot;#filter-5&quot;);" cx="680.99" cy="505.409" rx="25" ry="25"/>
+            <ellipse style="stroke-width: 1; fill: color(display-p3 0.811 0.827 0.852); filter: url(&quot;#inner-shadow-filter-1&quot;);" cx="560.6" cy="505.409" rx="25" ry="25"/>
+            <ellipse style="stroke-width: 1; fill: color(display-p3 0.811 0.827 0.852); filter: url(&quot;#inner-shadow-filter-2&quot;);" cx="680.99" cy="505.409" rx="25" ry="25"/>
             <g>
               <ellipse style="fill: color(display-p3 0.765 0.201 0.057); stroke-width: 1;" cx="440.85" cy="575.859" rx="25" ry="25"/>
               <path style="stroke-linecap: round; stroke-linejoin: round; stroke-width: 4; stroke: rgb(255, 255, 255); fill: none;" d="M 431.08 576.718 L 438.28 585.167 L 450.23 566.551"/>
             </g>
-            <ellipse style="stroke-width: 1; fill: color(display-p3 0.811 0.827 0.852); filter: url(&quot;#filter-6&quot;);" cx="560.6" cy="575.859" rx="25" ry="25"/>
-            <ellipse style="stroke-width: 1; fill: color(display-p3 0.811 0.827 0.852); filter: url(&quot;#filter-7&quot;);" cx="680.99" cy="575.859" rx="25" ry="25"/>
+            <ellipse style="stroke-width: 1; fill: color(display-p3 0.811 0.827 0.852); filter: url(&quot;#inner-shadow-filter-3&quot;);" cx="560.6" cy="575.859" rx="25" ry="25"/>
+            <ellipse style="stroke-width: 1; fill: color(display-p3 0.811 0.827 0.852); filter: url(&quot;#inner-shadow-filter-4&quot;);" cx="680.99" cy="575.859" rx="25" ry="25"/>
           </g>
         </g>
         <g transform="matrix(1, 0, 0, 1, -34.697239, -57.851223)">
@@ -291,8 +329,8 @@
             <text style="font-family: &quot;SF Pro&quot;; font-size: 27px; letter-spacing: 0.3px; white-space: pre; stroke-width: 1;" x="661.8" y="716.577">4</text>
           </g>
         </g>
-        <g transform="matrix(1, 0, 0, 1, -165.21199, 531.548035)">
-          <text style="fill: rgb(36, 36, 36); font-family: &quot;SF Pro&quot;; font-size: 27px; letter-spacing: 0.3px; white-space: pre; stroke-width: 1;" x="446.709" y="214.897">User</text>
+        <g transform="matrix(1, 0, 0, 1, -154.467957, 531.548035)">
+          <text style="fill: rgb(36, 36, 36); font-family: &quot;SF Pro&quot;; font-size: 27px; letter-spacing: 0.3px; white-space: pre; stroke-width: 1;" x="428.709" y="214.897">Owner</text>
           <g transform="matrix(1, 0, 0, 1, -2.431541, -501.390411)">
             <rect style="fill: rgb(255, 255, 255); stroke-width: 1;" x="326.965" y="680.686" width="81.253" height="52" rx="18.307" ry="18.307" transform="matrix(0.999998, -0.001887, 0, 1.000002, 199.734848, 0.740573)"/>
             <text style="font-family: &quot;SF Pro&quot;; font-size: 27px; letter-spacing: 0.3px; white-space: pre; stroke-width: 1;" x="543.55" y="716.577">max</text>
@@ -308,13 +346,13 @@
       </g>
       <g>
         <path style="stroke-width: 2px; filter: none; fill: rgb(210, 220, 228);" d="M 199.117 800 H 799.117 V 930 A 20 20 0 0 1 779.117 950 H 219.117 A 20 20 0 0 1 199.117 930 V 800 Z" bx:shape="rect 199.117 800 600 150 0 0 20 20 1@fb2a5d03"/>
-        <g transform="matrix(1, 0, 0, 1, -1.251377, 0)" style="opacity: 0.5;">
-          <rect style="stroke-width: 1; fill: url(&quot;#gradient-3&quot;);" x="278.67" y="848" width="170" height="54" rx="15" ry="15"/>
-          <text style="fill: rgb(255, 255, 255); font-family: &quot;SF Pro&quot;; font-size: 26px; letter-spacing: -0.3px; white-space: pre;" x="327.816" y="884.062">cancel</text>
+        <g transform="matrix(1, 0, 0, 1, -281.504028, -25)">
+          <rect x="516.504" y="862.5" width="250" height="75" style="filter: url(&quot;#drop-shadow-filter-0&quot;) url(&quot;#inner-shadow-filter-5&quot;); stroke-width: 1; fill: rgb(210, 220, 228);" rx="37.5" ry="37.5"/>
+          <text style="fill: rgb(103, 124, 142); font-family: Arial, sans-serif; font-size: 28px; font-weight: 700; white-space: pre; filter: url(&quot;#filter-9&quot;);" x="595.596" y="911.885">Cancel</text>
         </g>
-        <g transform="matrix(1, 0, 0, 1, 12.64502, 0)">
-          <rect style="stroke-width: 1; fill: url(&quot;#gradient-4&quot;);" x="540.472" y="848" width="170" height="54" rx="15" ry="15"/>
-          <text style="fill: rgb(255, 255, 255); font-family: &quot;SF Pro&quot;; font-size: 26px; letter-spacing: -0.3px; white-space: pre;" x="595.579" y="883.26">apply</text>
+        <g transform="matrix(1, 0, 0, 1, -1.504028, -25)">
+          <rect x="516.504" y="862.5" width="250" height="75" style="filter: url(&quot;#drop-shadow-filter-0&quot;) url(&quot;#inner-shadow-filter-5&quot;); stroke-width: 1; fill: rgb(210, 220, 228);" rx="37.5" ry="37.5"/>
+          <text style="fill: rgb(103, 124, 142); font-family: Arial, sans-serif; font-size: 28px; font-weight: 700; white-space: pre; filter: url(&quot;#filter-10&quot;);" x="602.618" y="911.833">Apply</text>
         </g>
       </g>
     </g>
