@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		50624C4E2DE5BA8200794BC8 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50624C4D2DE5BA8200794BC8 /* App.swift */; };
-		50624C4F2DE5BA8200794BC8 /* EditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50624C4B2DE5BA8200794BC8 /* EditorView.swift */; };
+		50624C4F2DE5BA8200794BC8 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50624C4B2DE5BA8200794BC8 /* MainView.swift */; };
 		50624C502DE5BA8200794BC8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50624C4A2DE5BA8200794BC8 /* Assets.xcassets */; };
 		50624C542DE5C2BA00794BC8 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50624C532DE5C2BA00794BC8 /* View.swift */; };
 		50624C5D2DE5CD1A00794BC8 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 50624C5C2DE5CD1A00794BC8 /* Localizable.xcstrings */; };
@@ -46,7 +46,7 @@
 /* Begin PBXFileReference section */
 		50624C342DE5B96100794BC8 /* RWX Editor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "RWX Editor.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		50624C4A2DE5BA8200794BC8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		50624C4B2DE5BA8200794BC8 /* EditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditorView.swift; sourceTree = "<group>"; };
+		50624C4B2DE5BA8200794BC8 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		50624C4C2DE5BA8200794BC8 /* app.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = app.entitlements; sourceTree = "<group>"; };
 		50624C4D2DE5BA8200794BC8 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		50624C532DE5C2BA00794BC8 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
@@ -120,7 +120,7 @@
 			isa = PBXGroup;
 			children = (
 				50624C4D2DE5BA8200794BC8 /* App.swift */,
-				50624C4B2DE5BA8200794BC8 /* EditorView.swift */,
+				50624C4B2DE5BA8200794BC8 /* MainView.swift */,
 				507318452DE71047005E26F9 /* RwxTextView.swift */,
 				50624C4A2DE5BA8200794BC8 /* Assets.xcassets */,
 				50624C5C2DE5CD1A00794BC8 /* Localizable.xcstrings */,
@@ -266,7 +266,7 @@
 				507318912DF05375005E26F9 /* OwnerPicker.swift in Sources */,
 				507318462DE71047005E26F9 /* RwxTextView.swift in Sources */,
 				50624C742DE5E2E600794BC8 /* String.swift in Sources */,
-				50624C4F2DE5BA8200794BC8 /* EditorView.swift in Sources */,
+				50624C4F2DE5BA8200794BC8 /* MainView.swift in Sources */,
 				50624C542DE5C2BA00794BC8 /* View.swift in Sources */,
 				507318992DF05F62005E26F9 /* Process.swift in Sources */,
 				507318532DE82BDB005E26F9 /* CustomPicker.swift in Sources */,

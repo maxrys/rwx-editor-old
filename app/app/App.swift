@@ -49,7 +49,7 @@ enum Subject {
     }
 
     @ViewBuilder var mainScene: some View {
-        EditorView(
+        MainView(
             rights: 0o644,
             owner: 0,
             group: 0,

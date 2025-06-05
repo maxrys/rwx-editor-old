@@ -5,12 +5,12 @@
 
 import SwiftUI
 
-struct EditorView: View {
+struct MainView: View {
 
     enum ColorNames: String {
-        case head = "color EditorView Head Background"
-        case body = "color EditorView Body Background"
-        case foot = "color EditorView Foot Background"
+        case head = "color MainView Head Background"
+        case body = "color MainView Body Background"
+        case foot = "color MainView Foot Background"
     }
 
     @State private var rights: UInt
@@ -123,7 +123,7 @@ struct EditorView: View {
 }
 
 #Preview {
-    EditorView(
+    MainView(
         rights: 0o644,
         owner: 0,
         group: 0,

@@ -8,10 +8,10 @@ import SwiftUI
 struct ToggleRwxColored: View {
 
     enum ColorNames: String {
-        case empty = "color ColoredSwitcherView Empty"
-        case owner = "color ColoredSwitcherView Owner"
-        case group = "color ColoredSwitcherView Group"
-        case other = "color ColoredSwitcherView Other"
+        case empty = "color ToggleRwxColored Empty"
+        case owner = "color ToggleRwxColored Owner"
+        case group = "color ToggleRwxColored Group"
+        case other = "color ToggleRwxColored Other"
     }
 
     private var color: ColorNames

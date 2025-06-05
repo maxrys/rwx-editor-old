@@ -8,8 +8,8 @@ import SwiftUI
 struct RwxTextView: View {
 
     enum ColorNames: String {
-        case text       = "color TextSwitcher Text"
-        case background = "color TextSwitcher Background"
+        case text       = "color RwxTextView Text"
+        case background = "color RwxTextView Background"
     }
 
     private var rights: Binding<UInt>
