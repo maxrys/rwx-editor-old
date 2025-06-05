@@ -14,7 +14,9 @@ struct MainView: View {
     }
 
     @State private var created: Date
+    @State private var createdIsISO: Bool = false
     @State private var updated: Date
+    @State private var updatedIsISO: Bool = false
     @State private var rights: UInt
     @State private var owner: UInt
     @State private var group: UInt
@@ -42,19 +44,31 @@ struct MainView: View {
             VStack(spacing: 6) {
                 HStack(spacing: 10) {
                     Text(NSLocalizedString("Created", comment: ""))
-                    Text(self.created.ISO8601)
-                }
-                HStack(spacing: 10) {
-                    Text(NSLocalizedString("Created", comment: ""))
-                    Text(self.created.convenient)
+                    Button {
+                        self.createdIsISO.toggle()
+                    } label: {
+                        Text(
+                            self.createdIsISO ?
+                            self.created.ISO8601 :
+                            self.created.convenient
+                        )
+                    }
+                    .buttonStyle(.plain)
+                    .onHoverCursor()
                 }
                 HStack(spacing: 10) {
                     Text(NSLocalizedString("Updated", comment: ""))
-                    Text(self.updated.ISO8601)
-                }
-                HStack(spacing: 10) {
-                    Text(NSLocalizedString("Updated", comment: ""))
-                    Text(self.updated.convenient)
+                    Button {
+                        self.updatedIsISO.toggle()
+                    } label: {
+                        Text(
+                            self.updatedIsISO ?
+                            self.updated.ISO8601 :
+                            self.updated.convenient
+                        )
+                    }
+                    .buttonStyle(.plain)
+                    .onHoverCursor()
                 }
             }
             .padding(.vertical, 20)

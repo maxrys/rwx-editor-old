@@ -15,6 +15,22 @@
     "%@" : {
       "shouldTranslate" : false
     },
+    "%@ 'at' %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@ 'at' %2$@"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ 'в' %@"
+          }
+        }
+      }
+    },
     "apply" : {
       "localizations" : {
         "en" : {
