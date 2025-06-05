@@ -12,6 +12,9 @@
       },
       "shouldTranslate" : false
     },
+    "*" : {
+      "shouldTranslate" : false
+    },
     "%@" : {
       "shouldTranslate" : false
     },
@@ -30,6 +33,9 @@
           }
         }
       }
+    },
+    "%llu" : {
+
     },
     "apply" : {
       "localizations" : {
@@ -95,6 +101,22 @@
         }
       }
     },
+    "File" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "File"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Файл"
+          }
+        }
+      }
+    },
     "Group" : {
       "localizations" : {
         "en" : {
@@ -143,6 +165,22 @@
         }
       }
     },
+    "Path" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Path"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Путь"
+          }
+        }
+      }
+    },
     "Read" : {
       "localizations" : {
         "en" : {
@@ -155,6 +193,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Чтение"
+          }
+        }
+      }
+    },
+    "Size" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Size"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Размер"
           }
         }
       }

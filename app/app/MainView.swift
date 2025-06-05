@@ -26,6 +26,7 @@ struct MainView: View {
 
     private let rightsOriginal: UInt
     private let onApply: (UInt, UInt, UInt) -> Void
+    private let frameWidth: CGFloat = 300
 
     init(file: String, path: String, size: UInt, created: Date, updated: Date, rights: UInt, owner: UInt, group: UInt, onApply: @escaping (UInt, UInt, UInt) -> Void) {
         self.file           = file
@@ -47,38 +48,42 @@ struct MainView: View {
             /* MARK: head */
             /* ########## */
 
-            VStack(spacing: 6) {
+            VStack(alignment: .leading, spacing: 6) {
+                let titleColumnWidth: CGFloat = 80
+                HStack(spacing: 10) {
+                    Text(NSLocalizedString("File", comment: ""))
+                        .frame(width: titleColumnWidth, alignment: .trailing)
+                    Text("\(self.file)")
+                }
+                HStack(spacing: 10) {
+                    Text(NSLocalizedString("Path", comment: ""))
+                        .frame(width: titleColumnWidth, alignment: .trailing)
+                    Text("\(self.path)")
+                }
+                HStack(spacing: 10) {
+                    Text(NSLocalizedString("Size", comment: ""))
+                        .frame(width: titleColumnWidth, alignment: .trailing)
+                    Text("\(self.size)")
+                }
                 HStack(spacing: 10) {
                     Text(NSLocalizedString("Created", comment: ""))
-                    Button {
-                        self.createdIsISO.toggle()
-                    } label: {
-                        Text(
-                            self.createdIsISO ?
-                            self.created.ISO8601 :
-                            self.created.convenient
-                        )
-                    }
-                    .buttonStyle(.plain)
-                    .onHoverCursor()
+                        .frame(width: titleColumnWidth, alignment: .trailing)
+                    Text(self.createdIsISO ? self.created.ISO8601 : self.created.convenient)
+                    Button { self.createdIsISO.toggle() } label: { Text("*") }
+                        .buttonStyle(.plain)
+                        .onHoverCursor()
                 }
                 HStack(spacing: 10) {
                     Text(NSLocalizedString("Updated", comment: ""))
-                    Button {
-                        self.updatedIsISO.toggle()
-                    } label: {
-                        Text(
-                            self.updatedIsISO ?
-                            self.updated.ISO8601 :
-                            self.updated.convenient
-                        )
-                    }
-                    .buttonStyle(.plain)
-                    .onHoverCursor()
+                        .frame(width: titleColumnWidth, alignment: .trailing)
+                    Text(self.updatedIsISO ? self.updated.ISO8601 : self.updated.convenient)
+                    Button { self.updatedIsISO.toggle() } label: { Text("*") }
+                        .buttonStyle(.plain)
+                        .onHoverCursor()
                 }
             }
             .padding(.vertical, 20)
-            .frame(maxWidth: .infinity)
+            .frame(width: self.frameWidth)
             .background(Color(Self.ColorNames.head.rawValue))
 
             /* ########## */
@@ -121,7 +126,7 @@ struct MainView: View {
                         ToggleRwxColored(.other, self.$rights, bitPosition: Subject.other.offset + Permission.x.offset);
                     }
 
-                }.frame(width: 250)
+                }
 
                 /* MARK: rules via text/numeric */
                 HStack(spacing: 20) {
@@ -151,7 +156,7 @@ struct MainView: View {
 
             }
             .padding(.vertical, 20)
-            .frame(maxWidth: .infinity)
+            .frame(width: self.frameWidth)
             .background(Color(Self.ColorNames.body.rawValue))
 
             /* ########## */
@@ -178,7 +183,7 @@ struct MainView: View {
 
             }
             .padding(20)
-            .frame(maxWidth: .infinity)
+            .frame(width: self.frameWidth)
             .background(Color(Self.ColorNames.foot.rawValue))
 
         }

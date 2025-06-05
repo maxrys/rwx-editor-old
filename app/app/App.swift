@@ -45,6 +45,7 @@ enum Subject {
     var body: some Scene {
         WindowGroup {
             self.mainScene
+                .environment(\.layoutDirection, .leftToRight)
         }
     }
 
