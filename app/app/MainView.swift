@@ -79,13 +79,21 @@ struct MainView: View {
                 /* MARK: owner picker */
                 HStack(spacing: 10) {
                     Text(NSLocalizedString("Owner", comment: ""))
-                    OwnerPicker(self.$owner)
+                    PickerCustom(
+                        selectedIndex: self.$owner,
+                        values: ThisApp.owners,
+                        isPlainListStyle: true
+                    )
                 }
 
                 /* MARK: group picker */
                 HStack(spacing: 10) {
                     Text(NSLocalizedString("Group", comment: ""))
-                    GroupPicker(self.$group)
+                    PickerCustom(
+                        selectedIndex: self.$group,
+                        values: ThisApp.groups,
+                        isPlainListStyle: true
+                    )
                 }
 
             }
