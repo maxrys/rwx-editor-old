@@ -50,8 +50,8 @@ enum Subject {
 
     @ViewBuilder var mainScene: some View {
         MainView(
-            created: Date(),
-            updated: Date(),
+            created: Date(fromISO8601: "2025-01-02 03:04:05 +0000"),
+            updated: Date(fromISO8601: "2025-01-02 03:04:05 +0000"),
             rights: 0o644,
             owner: 0,
             group: 0,

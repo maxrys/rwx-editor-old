@@ -35,22 +35,36 @@ struct MainView: View {
     var body: some View {
         VStack(spacing: 0) {
 
+            /* ########## */
             /* MARK: head */
+            /* ########## */
+
             VStack(spacing: 6) {
                 HStack(spacing: 10) {
                     Text(NSLocalizedString("Created", comment: ""))
-                    Text(self.created.formatCustom())
+                    Text(self.created.ISO8601)
+                }
+                HStack(spacing: 10) {
+                    Text(NSLocalizedString("Created", comment: ""))
+                    Text(self.created.convenient)
                 }
                 HStack(spacing: 10) {
                     Text(NSLocalizedString("Updated", comment: ""))
-                    Text(self.updated.formatCustom())
+                    Text(self.updated.ISO8601)
+                }
+                HStack(spacing: 10) {
+                    Text(NSLocalizedString("Updated", comment: ""))
+                    Text(self.updated.convenient)
                 }
             }
             .padding(.vertical, 20)
             .frame(maxWidth: .infinity)
             .background(Color(Self.ColorNames.head.rawValue))
 
+            /* ########## */
             /* MARK: body */
+            /* ########## */
+
             VStack(spacing: 20) {
 
                 /* MARK: rules via toggles */
@@ -120,7 +134,10 @@ struct MainView: View {
             .frame(maxWidth: .infinity)
             .background(Color(Self.ColorNames.body.rawValue))
 
+            /* ########## */
             /* MARK: foot */
+            /* ########## */
+
             HStack(spacing: 10) {
 
                 /* MARK: cancel button */
