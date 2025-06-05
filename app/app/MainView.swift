@@ -13,14 +13,18 @@ struct MainView: View {
         case foot = "color MainView Foot Background"
     }
 
+    @State private var created: Date
+    @State private var updated: Date
     @State private var rights: UInt
-           private var rightsOriginal: UInt
     @State private var owner: UInt
     @State private var group: UInt
 
+    private let rightsOriginal: UInt
     private let onApply: (UInt, UInt, UInt) -> Void
 
-    init(rights: UInt, owner: UInt, group: UInt, onApply: @escaping (UInt, UInt, UInt) -> Void) {
+    init(created: Date, updated: Date, rights: UInt, owner: UInt, group: UInt, onApply: @escaping (UInt, UInt, UInt) -> Void) {
+        self.created        = created
+        self.updated        = updated
         self.rights         = rights
         self.rightsOriginal = rights
         self.owner          = owner
@@ -30,6 +34,21 @@ struct MainView: View {
 
     var body: some View {
         VStack(spacing: 0) {
+
+            /* MARK: head */
+            VStack(spacing: 6) {
+                HStack(spacing: 10) {
+                    Text(NSLocalizedString("Created", comment: ""))
+                    Text(self.created.formatCustom())
+                }
+                HStack(spacing: 10) {
+                    Text(NSLocalizedString("Updated", comment: ""))
+                    Text(self.updated.formatCustom())
+                }
+            }
+            .padding(.vertical, 20)
+            .frame(maxWidth: .infinity)
+            .background(Color(Self.ColorNames.head.rawValue))
 
             /* MARK: body */
             VStack(spacing: 20) {
@@ -132,6 +151,8 @@ struct MainView: View {
 
 #Preview {
     MainView(
+        created: Date(),
+        updated: Date(),
         rights: 0o644,
         owner: 0,
         group: 0,

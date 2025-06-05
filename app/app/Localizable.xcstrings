@@ -47,6 +47,22 @@
         }
       }
     },
+    "Created" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Created"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Создано"
+          }
+        }
+      }
+    },
     "Execute" : {
       "localizations" : {
         "en" : {
@@ -123,6 +139,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Чтение"
+          }
+        }
+      }
+    },
+    "Updated" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Updated"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Обновлено"
           }
         }
       }
