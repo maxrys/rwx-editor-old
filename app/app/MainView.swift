@@ -18,6 +18,7 @@ struct MainView: View {
     @State private var rights: UInt
     @State private var owner: String
     @State private var group: String
+    @State private var sizeMode: BytesState = .bytes
 
     private let kind: Kind
     private let name: String
@@ -57,6 +58,17 @@ struct MainView: View {
         .onHoverCursor()
     }
 
+    @ViewBuilder func iconRoll(/* value: Binding<any CaseIterable & Equatable> */) -> some View {
+        Button {
+            self.sizeMode.roll()
+        } label: {
+            Image(systemName: "arcade.stick")
+                .font(.system(size: 10, weight: .regular))
+        }
+        .buttonStyle(.plain)
+        .onHoverCursor()
+    }
+
     var body: some View {
         VStack(spacing: 0) {
 
@@ -64,7 +76,7 @@ struct MainView: View {
             /* MARK: head */
             /* ########## */
 
-            VStack(alignment: .leading, spacing: 6) {
+            VStack(alignment: .leading, spacing: 10) {
                 let titleColumnWidth: CGFloat = 90
                 let valueColumnWidth: CGFloat = 180
                 /* kind */
@@ -99,9 +111,16 @@ struct MainView: View {
                 HStack(spacing: 10) {
                     HStack(spacing: 5) {
                         Text(NSLocalizedString("Size", comment: ""))
+                        self.iconRoll()
                     }.frame(width: titleColumnWidth, alignment: .trailing)
                     HStack(spacing: 5) {
-                        Text("\(self.size)")
+                        switch self.sizeMode {
+                            case  .bytes: Text("\(self.size.format(state:  .bytes))")
+                            case .kbytes: Text("\(self.size.format(state: .kbytes))")
+                            case .mbytes: Text("\(self.size.format(state: .mbytes))")
+                            case .gbytes: Text("\(self.size.format(state: .gbytes))")
+                            case .tbytes: Text("\(self.size.format(state: .tbytes))")
+                        }
                     }.frame(width: valueColumnWidth, alignment: .leading)
                 }
                 /* created */

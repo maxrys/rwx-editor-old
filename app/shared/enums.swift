@@ -51,3 +51,17 @@ enum Flexibility {
     case none
 
 }
+
+enum BytesState: String, CaseIterable, Equatable {
+
+    case bytes  = "Bytes"
+    case kbytes = "KBytes"
+    case mbytes = "MBytes"
+    case gbytes = "GBytes"
+    case tbytes = "TBytes"
+
+    static func == (lhs: Self, rhs: Self) -> Bool {
+        lhs.rawValue == rhs.rawValue
+    }
+
+}

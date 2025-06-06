@@ -31,9 +31,6 @@
         }
       }
     },
-    "%llu" : {
-      "shouldTranslate" : false
-    },
     "apply" : {
       "localizations" : {
         "en" : {

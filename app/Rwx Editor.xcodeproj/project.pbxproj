@@ -33,6 +33,10 @@
 		5073189D2DF1BA3D005E26F9 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5073189B2DF1BA3D005E26F9 /* Date.swift */; };
 		507318A02DF31F20005E26F9 /* enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5073189F2DF31F1C005E26F9 /* enums.swift */; };
 		507318A12DF31F20005E26F9 /* enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5073189F2DF31F1C005E26F9 /* enums.swift */; };
+		507318A32DF3758E005E26F9 /* CaseIterable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507318A22DF3758B005E26F9 /* CaseIterable.swift */; };
+		507318A42DF3758E005E26F9 /* CaseIterable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507318A22DF3758B005E26F9 /* CaseIterable.swift */; };
+		507318A62DF37FB9005E26F9 /* ByteCountFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507318A52DF37FB8005E26F9 /* ByteCountFormatter.swift */; };
+		507318A72DF37FB9005E26F9 /* ByteCountFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507318A52DF37FB8005E26F9 /* ByteCountFormatter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +70,8 @@
 		507318972DF05F60005E26F9 /* Process.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Process.swift; sourceTree = "<group>"; };
 		5073189B2DF1BA3D005E26F9 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		5073189F2DF31F1C005E26F9 /* enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = enums.swift; sourceTree = "<group>"; };
+		507318A22DF3758B005E26F9 /* CaseIterable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaseIterable.swift; sourceTree = "<group>"; };
+		507318A52DF37FB8005E26F9 /* ByteCountFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ByteCountFormatter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +121,8 @@
 				50624C602DE5D6B500794BC8 /* UInt.swift */,
 				5073189B2DF1BA3D005E26F9 /* Date.swift */,
 				50624C532DE5C2BA00794BC8 /* View.swift */,
+				507318A22DF3758B005E26F9 /* CaseIterable.swift */,
+				507318A52DF37FB8005E26F9 /* ByteCountFormatter.swift */,
 				507318972DF05F60005E26F9 /* Process.swift */,
 			);
 			path = shared;
@@ -263,11 +271,13 @@
 				507318442DE70C27005E26F9 /* ToggleRwxColored.swift in Sources */,
 				50624C4E2DE5BA8200794BC8 /* App.swift in Sources */,
 				507318512DE7939D005E26F9 /* ToggleRwxNumeric.swift in Sources */,
+				507318A32DF3758E005E26F9 /* CaseIterable.swift in Sources */,
 				507318762DE9EB32005E26F9 /* ButtonCustom.swift in Sources */,
 				507318A12DF31F20005E26F9 /* enums.swift in Sources */,
 				507318462DE71047005E26F9 /* RwxTextView.swift in Sources */,
 				50624C742DE5E2E600794BC8 /* String.swift in Sources */,
 				5073189D2DF1BA3D005E26F9 /* Date.swift in Sources */,
+				507318A72DF37FB9005E26F9 /* ByteCountFormatter.swift in Sources */,
 				50624C4F2DE5BA8200794BC8 /* MainView.swift in Sources */,
 				50624C542DE5C2BA00794BC8 /* View.swift in Sources */,
 				507318992DF05F62005E26F9 /* Process.swift in Sources */,
@@ -284,9 +294,11 @@
 				507318772DE9EB32005E26F9 /* ButtonCustom.swift in Sources */,
 				5073189C2DF1BA3D005E26F9 /* Date.swift in Sources */,
 				50624C732DE5E2E600794BC8 /* String.swift in Sources */,
+				507318A62DF37FB9005E26F9 /* ByteCountFormatter.swift in Sources */,
 				50624C702DE5DD3000794BC8 /* UInt.swift in Sources */,
 				50624C6A2DE5DCD500794BC8 /* Test.swift in Sources */,
 				507318A02DF31F20005E26F9 /* enums.swift in Sources */,
+				507318A42DF3758E005E26F9 /* CaseIterable.swift in Sources */,
 				507318982DF05F62005E26F9 /* Process.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
