@@ -16,7 +16,7 @@ struct PickerCustom<Key>: View where Key: Hashable & Comparable {
     }
 
     @State private var isOpened: Bool = false
-    @State private var hoverIndex: Key?
+    @State private var hovered: Key?
 
     private var selected: Binding<Key>
     private var values: [Key: String]
@@ -62,7 +62,7 @@ struct PickerCustom<Key>: View where Key: Hashable & Comparable {
                 } label: {
                     var background: Color {
                         if (self.selected.wrappedValue == key) { return Color(Self.ColorNames.itemSelectedBackground.rawValue) }
-                        if (self.hoverIndex            == key) { return Color(Self.ColorNames.itemHoveredBackground .rawValue) }
+                        if (self.hovered               == key) { return Color(Self.ColorNames.itemHoveredBackground .rawValue) }
                         return  self.isPlainListStyle ? Color(.clear) : Color(Self.ColorNames.itemBackground        .rawValue)
                     }
                     Text("\(value)")
@@ -74,7 +74,7 @@ struct PickerCustom<Key>: View where Key: Hashable & Comparable {
                         .background(background)
                         .cornerRadius(10)
                         .onHover { isHovered in
-                            self.hoverIndex = isHovered ? key : nil
+                            self.hovered = isHovered ? key : nil
                         }
                 }.buttonStyle(.plain)
             }
@@ -86,17 +86,31 @@ struct PickerCustom<Key>: View where Key: Hashable & Comparable {
 @available(macOS 14.0, *) #Preview {
     @Previewable @State var selectedV1: UInt = 0
     @Previewable @State var selectedV2: UInt = 0
+    @Previewable @State var selectedV3: UInt = 0
 
-    let valuesV1: [UInt: String] = [
+    /* n/a */
+
+    let valuesV1: [UInt: String] = [:]
+
+    VStack {
+        PickerCustom<UInt>(selected: $selectedV1, values: valuesV1, isPlainListStyle: true).frame(maxWidth: 150)
+        PickerCustom<UInt>(selected: $selectedV1, values: valuesV1                        ).frame(maxWidth: 150)
+    }.padding(10)
+
+    /* single value */
+
+    let valuesV2: [UInt: String] = [
         0: "Single value"
     ]
 
     VStack {
-        PickerCustom<UInt>(selected: $selectedV1, values: valuesV1, isPlainListStyle: true).frame(maxWidth: 100)
-        PickerCustom<UInt>(selected: $selectedV1, values: valuesV1                        ).frame(maxWidth: 100)
+        PickerCustom<UInt>(selected: $selectedV2, values: valuesV2, isPlainListStyle: true).frame(maxWidth: 150)
+        PickerCustom<UInt>(selected: $selectedV2, values: valuesV2                        ).frame(maxWidth: 150)
     }.padding(10)
 
-    let valuesV2 = {
+    /* multiple values */
+
+    let valuesV3 = {
         var result: [UInt: String] = [:]
         for i in 0 ..< 100 {
             if (i == 5) { result[UInt(i)] = "Value \(i) long long long long long long" }
@@ -106,7 +120,7 @@ struct PickerCustom<Key>: View where Key: Hashable & Comparable {
     }()
 
     VStack {
-        PickerCustom<UInt>(selected: $selectedV2, values: valuesV2, isPlainListStyle: true).frame(maxWidth: 100)
-        PickerCustom<UInt>(selected: $selectedV2, values: valuesV2                        ).frame(maxWidth: 100)
+        PickerCustom<UInt>(selected: $selectedV3, values: valuesV3, isPlainListStyle: true).frame(maxWidth: 150)
+        PickerCustom<UInt>(selected: $selectedV3, values: valuesV3                        ).frame(maxWidth: 150)
     }.padding(10)
 }
