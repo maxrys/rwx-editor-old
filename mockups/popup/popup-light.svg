@@ -127,6 +127,9 @@
       <stop offset="0" style="stop-color: rgb(214, 219, 227);"/>
       <stop offset="1" style="stop-color: rgb(201, 210, 218);"/>
     </linearGradient>
+    <bx:export>
+      <bx:file format="png" path="popup-light.png"/>
+    </bx:export>
   </defs>
   <rect width="1000" height="1050" style="fill: rgb(227, 228, 229);"/>
   <g style="filter: url('#drop-shadow-filter-1');" transform="matrix(1, 0, 0, 1, 0.882995, 25)">

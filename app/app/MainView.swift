@@ -13,22 +13,21 @@ struct MainView: View {
         case foot = "color MainView Foot Background"
     }
 
-    @State private var file: String
-    @State private var path: String
-    @State private var size: UInt
-    @State private var created: Date
-    @State private var createdIsISO: Bool = false
-    @State private var updated: Date
-    @State private var updatedIsISO: Bool = false
+    @State private var isISOcreated: Bool = false
+    @State private var isISOupdated: Bool = false
     @State private var rights: UInt
     @State private var owner: UInt
     @State private var group: UInt
 
+    private var file: String
+    private var path: String
+    private var size: UInt
+    private var created: Date
+    private var updated: Date
     private let originalRights: UInt
     private let originalOwner: UInt
     private let originalGroup: UInt
     private let onApply: (UInt, UInt, UInt) -> Void
-    private let frameWidth: CGFloat = 300
 
     init(file: String, path: String, size: UInt, created: Date, updated: Date, rights: UInt, owner: UInt, group: UInt, onApply: @escaping (UInt, UInt, UInt) -> Void) {
         self.file           = file
@@ -43,6 +42,17 @@ struct MainView: View {
         self.originalRights = rights
         self.originalOwner  = owner
         self.originalGroup  = group
+    }
+
+    @ViewBuilder func iconToggle(value: Binding<Bool>) -> some View {
+        Button {
+            value.wrappedValue.toggle()
+        } label: {
+            Image(systemName: "arcade.stick")
+                .font(.system(size: 10, weight: .regular))
+        }
+        .buttonStyle(.plain)
+        .onHoverCursor()
     }
 
     var body: some View {
@@ -72,22 +82,18 @@ struct MainView: View {
                 HStack(spacing: 10) {
                     Text(NSLocalizedString("Created", comment: ""))
                         .frame(width: titleColumnWidth, alignment: .trailing)
-                    Text(self.createdIsISO ? self.created.ISO8601 : self.created.convenient)
-                    Button { self.createdIsISO.toggle() } label: { Text("*") }
-                        .buttonStyle(.plain)
-                        .onHoverCursor()
+                    Text(self.isISOcreated ? self.created.ISO8601 : self.created.convenient)
+                    self.iconToggle(value: self.$isISOcreated)
                 }
                 HStack(spacing: 10) {
                     Text(NSLocalizedString("Updated", comment: ""))
                         .frame(width: titleColumnWidth, alignment: .trailing)
-                    Text(self.updatedIsISO ? self.updated.ISO8601 : self.updated.convenient)
-                    Button { self.updatedIsISO.toggle() } label: { Text("*") }
-                        .buttonStyle(.plain)
-                        .onHoverCursor()
+                    Text(self.isISOupdated ? self.updated.ISO8601 : self.updated.convenient)
+                    self.iconToggle(value: self.$isISOupdated)
                 }
             }
             .padding(.vertical, 20)
-            .frame(width: self.frameWidth)
+            .frame(maxWidth: .infinity)
             .background(Color(Self.ColorNames.head.rawValue))
 
             /* ########## */
@@ -160,7 +166,7 @@ struct MainView: View {
 
             }
             .padding(.vertical, 20)
-            .frame(width: self.frameWidth)
+            .frame(maxWidth: .infinity)
             .background(Color(Self.ColorNames.body.rawValue))
 
             /* ########## */
@@ -193,10 +199,10 @@ struct MainView: View {
 
             }
             .padding(20)
-            .frame(width: self.frameWidth)
+            .frame(maxWidth: .infinity)
             .background(Color(Self.ColorNames.foot.rawValue))
 
-        }
+        }.frame(width: 300)
     }
 
 }

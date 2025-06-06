@@ -12,9 +12,6 @@
       },
       "shouldTranslate" : false
     },
-    "*" : {
-      "shouldTranslate" : false
-    },
     "%@" : {
       "shouldTranslate" : false
     },
