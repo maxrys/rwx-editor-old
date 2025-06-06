@@ -181,7 +181,7 @@ struct MainView: View {
                 /* MARK: owner picker */
                 HStack(spacing: 10) {
                     Text(NSLocalizedString("Owner", comment: ""))
-                    PickerCustom(
+                    PickerCustom<UInt>(
                         selectedIndex: self.$owner,
                         values: ThisApp.owners,
                         isPlainListStyle: true
@@ -191,7 +191,7 @@ struct MainView: View {
                 /* MARK: group picker */
                 HStack(spacing: 10) {
                     Text(NSLocalizedString("Group", comment: ""))
-                    PickerCustom(
+                    PickerCustom<UInt>(
                         selectedIndex: self.$group,
                         values: ThisApp.groups,
                         isPlainListStyle: true

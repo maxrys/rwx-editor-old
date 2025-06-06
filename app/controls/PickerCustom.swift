@@ -5,7 +5,7 @@
 
 import SwiftUI
 
-struct PickerCustom: View {
+struct PickerCustom<Key>: View where Key: Hashable & Comparable {
 
     enum ColorNames: String {
         case text                   = "color PickerCustom Text"
@@ -16,13 +16,13 @@ struct PickerCustom: View {
     }
 
     @State private var isOpened: Bool = false
-    @State private var hoverIndex: Int = -1
+    @State private var hoverIndex: Key?
 
-    private var selectedIndex: Binding<UInt>
-    private var values: [UInt: String]
+    private var selectedIndex: Binding<Key>
+    private var values: [Key: String]
     private var isPlainListStyle: Bool
 
-    init(selectedIndex: Binding<UInt>, values: [UInt: String], isPlainListStyle: Bool = false) {
+    init(selectedIndex: Binding<Key>, values: [Key: String], isPlainListStyle: Bool = false) {
         self.selectedIndex    = selectedIndex
         self.values           = values
         self.isPlainListStyle = isPlainListStyle
@@ -34,7 +34,7 @@ struct PickerCustom: View {
         Button {
             self.isOpened = true
         } label: {
-            Text(self.values[UInt(self.selectedIndex.wrappedValue)] ?? "n/a")
+            Text(self.values[self.selectedIndex.wrappedValue] ?? "n/a")
                 .lineLimit(1)
                 .padding(.horizontal, 9)
                 .padding(.vertical  , 5)
@@ -74,7 +74,7 @@ struct PickerCustom: View {
                         .background(background)
                         .cornerRadius(10)
                         .onHover { isHovered in
-                            self.hoverIndex = isHovered ? Int(key) : -1
+                            self.hoverIndex = isHovered ? key : nil
                         }
                 }.buttonStyle(.plain)
             }
@@ -87,11 +87,13 @@ struct PickerCustom: View {
     @Previewable @State var selectedIndexV1: UInt = 0
     @Previewable @State var selectedIndexV2: UInt = 0
 
-    let valuesV1: [UInt: String] = [0: "Single value"]
+    let valuesV1: [UInt: String] = [
+        0: "Single value"
+    ]
 
     VStack {
-        PickerCustom(selectedIndex: $selectedIndexV1, values: valuesV1, isPlainListStyle: true).frame(maxWidth: 100)
-        PickerCustom(selectedIndex: $selectedIndexV1, values: valuesV1                        ).frame(maxWidth: 100)
+        PickerCustom<UInt>(selectedIndex: $selectedIndexV1, values: valuesV1, isPlainListStyle: true).frame(maxWidth: 100)
+        PickerCustom<UInt>(selectedIndex: $selectedIndexV1, values: valuesV1                        ).frame(maxWidth: 100)
     }.padding(10)
 
     let valuesV2 = {
@@ -104,7 +106,7 @@ struct PickerCustom: View {
     }()
 
     VStack {
-        PickerCustom(selectedIndex: $selectedIndexV2, values: valuesV2, isPlainListStyle: true).frame(maxWidth: 100)
-        PickerCustom(selectedIndex: $selectedIndexV2, values: valuesV2                        ).frame(maxWidth: 100)
+        PickerCustom<UInt>(selectedIndex: $selectedIndexV2, values: valuesV2, isPlainListStyle: true).frame(maxWidth: 100)
+        PickerCustom<UInt>(selectedIndex: $selectedIndexV2, values: valuesV2                        ).frame(maxWidth: 100)
     }.padding(10)
 }
