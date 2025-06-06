@@ -32,7 +32,7 @@
       }
     },
     "%llu" : {
-
+      "shouldTranslate" : false
     },
     "apply" : {
       "localizations" : {
@@ -82,6 +82,22 @@
         }
       }
     },
+    "dirrectory" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "dirrectory"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Директория"
+          }
+        }
+      }
+    },
     "Execute" : {
       "localizations" : {
         "en" : {
@@ -94,6 +110,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Запуск"
+          }
+        }
+      }
+    },
+    "file" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "file"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "файл"
           }
         }
       }
@@ -126,6 +158,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Группа"
+          }
+        }
+      }
+    },
+    "Kind" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kind"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Тип"
           }
         }
       }

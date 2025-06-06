@@ -19,6 +19,7 @@ struct MainView: View {
     @State private var owner: UInt
     @State private var group: UInt
 
+    private var kind: Kind
     private var file: String
     private var path: String
     private var size: UInt
@@ -29,7 +30,8 @@ struct MainView: View {
     private let originalGroup: UInt
     private let onApply: (UInt, UInt, UInt) -> Void
 
-    init(file: String, path: String, size: UInt, created: Date, updated: Date, rights: UInt, owner: UInt, group: UInt, onApply: @escaping (UInt, UInt, UInt) -> Void) {
+    init(kind: Kind, file: String, path: String, size: UInt, created: Date, updated: Date, rights: UInt, owner: UInt, group: UInt, onApply: @escaping (UInt, UInt, UInt) -> Void) {
+        self.kind           = kind
         self.file           = file
         self.path           = path
         self.size           = size
@@ -64,6 +66,17 @@ struct MainView: View {
 
             VStack(alignment: .leading, spacing: 6) {
                 let titleColumnWidth: CGFloat = 90
+                /* kind */
+                HStack(spacing: 10) {
+                    HStack(spacing: 5) {
+                        Text(NSLocalizedString("Kind", comment: ""))
+                    }.frame(width: titleColumnWidth, alignment: .trailing)
+                    HStack(spacing: 5) {
+                        if (self.kind == .dirrectory) { Text(NSLocalizedString("dirrectory", comment: "")) }
+                        if (self.kind == .file      ) { Text(NSLocalizedString("file"      , comment: "")) }
+                    }
+                }
+                /* name */
                 HStack(spacing: 10) {
                     HStack(spacing: 5) {
                         Text(NSLocalizedString("File", comment: ""))
@@ -72,6 +85,7 @@ struct MainView: View {
                         Text("\(self.file)")
                     }
                 }
+                /* path */
                 HStack(spacing: 10) {
                     HStack(spacing: 5) {
                         Text(NSLocalizedString("Path", comment: ""))
@@ -80,6 +94,7 @@ struct MainView: View {
                         Text("\(self.path)")
                     }
                 }
+                /* size */
                 HStack(spacing: 10) {
                     HStack(spacing: 5) {
                         Text(NSLocalizedString("Size", comment: ""))
@@ -88,6 +103,7 @@ struct MainView: View {
                         Text("\(self.size)")
                     }
                 }
+                /* created */
                 HStack(spacing: 10) {
                     HStack(spacing: 5) {
                         Text(NSLocalizedString("Created", comment: ""))
@@ -97,6 +113,7 @@ struct MainView: View {
                         Text(self.isISOcreated ? self.created.ISO8601 : self.created.convenient)
                     }
                 }
+                /* updated */
                 HStack(spacing: 10) {
                     HStack(spacing: 5) {
                         Text(NSLocalizedString("Updated", comment: ""))
@@ -224,6 +241,7 @@ struct MainView: View {
 
 #Preview {
     MainView(
+        kind: .file,
         file: "Rwx Editor.icns",
         path: "/usr/local/bin/some/long/path",
         size: 1_234_567,

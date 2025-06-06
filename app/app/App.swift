@@ -37,6 +37,13 @@ enum Subject {
 
 }
 
+enum Kind {
+
+    case dirrectory
+    case file
+
+}
+
 @main struct ThisApp: App {
 
     static var owners: [String] = []
@@ -51,6 +58,7 @@ enum Subject {
 
     @ViewBuilder var mainScene: some View {
         MainView(
+            kind: .file,
             file: "Rwx Editor.icns",
             path: "/usr/local/bin/some/long/path",
             size: 1_234_567,
