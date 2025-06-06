@@ -20,7 +20,7 @@ struct MainView: View {
     @State private var group: UInt
 
     private var kind: Kind
-    private var file: String
+    private var name: String
     private var path: String
     private var size: UInt
     private var created: Date
@@ -30,9 +30,9 @@ struct MainView: View {
     private let originalGroup: UInt
     private let onApply: (UInt, UInt, UInt) -> Void
 
-    init(kind: Kind, file: String, path: String, size: UInt, created: Date, updated: Date, rights: UInt, owner: UInt, group: UInt, onApply: @escaping (UInt, UInt, UInt) -> Void) {
+    init(kind: Kind, name: String, path: String, size: UInt, created: Date, updated: Date, rights: UInt, owner: UInt, group: UInt, onApply: @escaping (UInt, UInt, UInt) -> Void) {
         self.kind           = kind
-        self.file           = file
+        self.name           = name
         self.path           = path
         self.size           = size
         self.created        = created
@@ -79,10 +79,10 @@ struct MainView: View {
                 /* name */
                 HStack(spacing: 10) {
                     HStack(spacing: 5) {
-                        Text(NSLocalizedString("File", comment: ""))
+                        Text(NSLocalizedString("Name", comment: ""))
                     }.frame(width: titleColumnWidth, alignment: .trailing)
                     HStack(spacing: 5) {
-                        Text("\(self.file)")
+                        Text("\(self.name)")
                     }
                 }
                 /* path */
@@ -242,7 +242,7 @@ struct MainView: View {
 #Preview {
     MainView(
         kind: .file,
-        file: "Rwx Editor.icns",
+        name: "Rwx Editor.icns",
         path: "/usr/local/bin/some/long/path",
         size: 1_234_567,
         created: try! Date(fromISO8601: "2025-01-02 03:04:05 +0000"),

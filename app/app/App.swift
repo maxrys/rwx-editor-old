@@ -59,7 +59,7 @@ enum Kind {
     @ViewBuilder var mainScene: some View {
         MainView(
             kind: .file,
-            file: "Rwx Editor.icns",
+            name: "Rwx Editor.icns",
             path: "/usr/local/bin/some/long/path",
             size: 1_234_567,
             created: try! Date(fromISO8601: "2025-01-02 03:04:05 +0000"),
