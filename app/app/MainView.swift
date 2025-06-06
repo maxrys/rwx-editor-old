@@ -63,33 +63,48 @@ struct MainView: View {
             /* ########## */
 
             VStack(alignment: .leading, spacing: 6) {
-                let titleColumnWidth: CGFloat = 80
+                let titleColumnWidth: CGFloat = 90
                 HStack(spacing: 10) {
-                    Text(NSLocalizedString("File", comment: ""))
-                        .frame(width: titleColumnWidth, alignment: .trailing)
-                    Text("\(self.file)")
+                    HStack(spacing: 5) {
+                        Text(NSLocalizedString("File", comment: ""))
+                    }.frame(width: titleColumnWidth, alignment: .trailing)
+                    HStack(spacing: 5) {
+                        Text("\(self.file)")
+                    }
                 }
                 HStack(spacing: 10) {
-                    Text(NSLocalizedString("Path", comment: ""))
-                        .frame(width: titleColumnWidth, alignment: .trailing)
-                    Text("\(self.path)")
+                    HStack(spacing: 5) {
+                        Text(NSLocalizedString("Path", comment: ""))
+                    }.frame(width: titleColumnWidth, alignment: .trailing)
+                    HStack(spacing: 5) {
+                        Text("\(self.path)")
+                    }
                 }
                 HStack(spacing: 10) {
-                    Text(NSLocalizedString("Size", comment: ""))
-                        .frame(width: titleColumnWidth, alignment: .trailing)
-                    Text("\(self.size)")
+                    HStack(spacing: 5) {
+                        Text(NSLocalizedString("Size", comment: ""))
+                    }.frame(width: titleColumnWidth, alignment: .trailing)
+                    HStack(spacing: 5) {
+                        Text("\(self.size)")
+                    }
                 }
                 HStack(spacing: 10) {
-                    Text(NSLocalizedString("Created", comment: ""))
-                        .frame(width: titleColumnWidth, alignment: .trailing)
-                    Text(self.isISOcreated ? self.created.ISO8601 : self.created.convenient)
-                    self.iconToggle(value: self.$isISOcreated)
+                    HStack(spacing: 5) {
+                        Text(NSLocalizedString("Created", comment: ""))
+                        self.iconToggle(value: self.$isISOcreated)
+                    }.frame(width: titleColumnWidth, alignment: .trailing)
+                    HStack(spacing: 5) {
+                        Text(self.isISOcreated ? self.created.ISO8601 : self.created.convenient)
+                    }
                 }
                 HStack(spacing: 10) {
-                    Text(NSLocalizedString("Updated", comment: ""))
-                        .frame(width: titleColumnWidth, alignment: .trailing)
-                    Text(self.isISOupdated ? self.updated.ISO8601 : self.updated.convenient)
-                    self.iconToggle(value: self.$isISOupdated)
+                    HStack(spacing: 5) {
+                        Text(NSLocalizedString("Updated", comment: ""))
+                        self.iconToggle(value: self.$isISOupdated)
+                    }.frame(width: titleColumnWidth, alignment: .trailing)
+                    HStack(spacing: 5) {
+                        Text(self.isISOupdated ? self.updated.ISO8601 : self.updated.convenient)
+                    }
                 }
             }
             .padding(.vertical, 20)
