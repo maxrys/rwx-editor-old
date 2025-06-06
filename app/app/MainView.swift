@@ -66,6 +66,7 @@ struct MainView: View {
 
             VStack(alignment: .leading, spacing: 6) {
                 let titleColumnWidth: CGFloat = 90
+                let valueColumnWidth: CGFloat = 180
                 /* kind */
                 HStack(spacing: 10) {
                     HStack(spacing: 5) {
@@ -74,7 +75,7 @@ struct MainView: View {
                     HStack(spacing: 5) {
                         if (self.kind == .dirrectory) { Text(NSLocalizedString("dirrectory", comment: "")) }
                         if (self.kind == .file      ) { Text(NSLocalizedString("file"      , comment: "")) }
-                    }
+                    }.frame(width: valueColumnWidth, alignment: .leading)
                 }
                 /* name */
                 HStack(spacing: 10) {
@@ -83,7 +84,7 @@ struct MainView: View {
                     }.frame(width: titleColumnWidth, alignment: .trailing)
                     HStack(spacing: 5) {
                         Text("\(self.name)")
-                    }
+                    }.frame(width: valueColumnWidth, alignment: .leading)
                 }
                 /* path */
                 HStack(spacing: 10) {
@@ -92,7 +93,7 @@ struct MainView: View {
                     }.frame(width: titleColumnWidth, alignment: .trailing)
                     HStack(spacing: 5) {
                         Text("\(self.path)")
-                    }
+                    }.frame(width: valueColumnWidth, alignment: .leading)
                 }
                 /* size */
                 HStack(spacing: 10) {
@@ -101,7 +102,7 @@ struct MainView: View {
                     }.frame(width: titleColumnWidth, alignment: .trailing)
                     HStack(spacing: 5) {
                         Text("\(self.size)")
-                    }
+                    }.frame(width: valueColumnWidth, alignment: .leading)
                 }
                 /* created */
                 HStack(spacing: 10) {
@@ -111,7 +112,7 @@ struct MainView: View {
                     }.frame(width: titleColumnWidth, alignment: .trailing)
                     HStack(spacing: 5) {
                         Text(self.isISOcreated ? self.created.ISO8601 : self.created.convenient)
-                    }
+                    }.frame(width: valueColumnWidth, alignment: .leading)
                 }
                 /* updated */
                 HStack(spacing: 10) {
@@ -121,12 +122,13 @@ struct MainView: View {
                     }.frame(width: titleColumnWidth, alignment: .trailing)
                     HStack(spacing: 5) {
                         Text(self.isISOupdated ? self.updated.ISO8601 : self.updated.convenient)
-                    }
+                    }.frame(width: valueColumnWidth, alignment: .leading)
                 }
             }
             .padding(.vertical, 20)
             .frame(maxWidth: .infinity)
             .background(Color(Self.ColorNames.head.rawValue))
+            .font(.system(size: 12, weight: .regular))
 
             /* ########## */
             /* MARK: body */
@@ -230,7 +232,7 @@ struct MainView: View {
                 }.frame(width: 110)
 
             }
-            .padding(20)
+            .padding(25)
             .frame(maxWidth: .infinity)
             .background(Color(Self.ColorNames.foot.rawValue))
 
@@ -243,7 +245,7 @@ struct MainView: View {
     MainView(
         kind: .file,
         name: "Rwx Editor.icns",
-        path: "/usr/local/bin/some/long/path",
+        path: "/usr/local/bin/some/long/long/path",
         size: 1_234_567,
         created: try! Date(fromISO8601: "2025-01-02 03:04:05 +0000"),
         updated: try! Date(fromISO8601: "2025-01-02 03:04:05 +0000"),
@@ -253,5 +255,5 @@ struct MainView: View {
         onApply: { rights, owner, group in
             print("rights: \(String(rights, radix: 8)) | owner: \(owner) | group: \(group)")
         }
-    ).frame(width: 300)
+    )
 }
