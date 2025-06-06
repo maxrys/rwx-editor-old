@@ -50,10 +50,12 @@ enum Kind {
     static var groups: [String] = []
 
     var body: some Scene {
-        WindowGroup {
+        let window = WindowGroup {
             self.mainScene
                 .environment(\.layoutDirection, .leftToRight)
         }
+        if #available(macOS 13.0, *) { return window.windowResizability(.contentSize) }
+        else                         { return window }
     }
 
     @ViewBuilder var mainScene: some View {

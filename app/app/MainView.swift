@@ -19,12 +19,12 @@ struct MainView: View {
     @State private var owner: UInt
     @State private var group: UInt
 
-    private var kind: Kind
-    private var name: String
-    private var path: String
-    private var size: UInt
-    private var created: Date
-    private var updated: Date
+    private let kind: Kind
+    private let name: String
+    private let path: String
+    private let size: UInt
+    private let created: Date
+    private let updated: Date
     private let originalRights: UInt
     private let originalOwner: UInt
     private let originalGroup: UInt
