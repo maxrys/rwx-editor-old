@@ -13,11 +13,11 @@ struct MainView: View {
         case foot = "color MainView Foot Background"
     }
 
-    @State private var isISOcreated: Bool = false
-    @State private var isISOupdated: Bool = false
     @State private var rights: UInt
     @State private var owner: String
     @State private var group: String
+    @State private var createdMode: DateState = .convenient
+    @State private var updatedMode: DateState = .convenient
     @State private var sizeMode: BytesState = .bytes
 
     private let kind: Kind
@@ -45,17 +45,6 @@ struct MainView: View {
         self.originalRights = rights
         self.originalOwner  = owner
         self.originalGroup  = group
-    }
-
-    @ViewBuilder func iconToggle(value: Binding<Bool>) -> some View {
-        Button {
-            value.wrappedValue.toggle()
-        } label: {
-            Image(systemName: "arcade.stick")
-                .font(.system(size: 10, weight: .regular))
-        }
-        .buttonStyle(.plain)
-        .onHoverCursor()
     }
 
     @ViewBuilder func iconRoll<T: CaseIterable & Equatable>(value: Binding<T>) -> some View {
@@ -127,20 +116,26 @@ struct MainView: View {
                 HStack(spacing: 10) {
                     HStack(spacing: 5) {
                         Text(NSLocalizedString("Created", comment: ""))
-                        self.iconToggle(value: self.$isISOcreated)
+                        self.iconRoll(value: self.$createdMode)
                     }.frame(width: titleColumnWidth, alignment: .trailing)
                     HStack(spacing: 5) {
-                        Text(self.isISOcreated ? self.created.ISO8601 : self.created.convenient)
+                        switch self.createdMode {
+                            case .convenient: Text(self.created.convenient)
+                            case .iso8601   : Text(self.created.ISO8601)
+                        }
                     }.frame(width: valueColumnWidth, alignment: .leading)
                 }
                 /* updated */
                 HStack(spacing: 10) {
                     HStack(spacing: 5) {
                         Text(NSLocalizedString("Updated", comment: ""))
-                        self.iconToggle(value: self.$isISOupdated)
+                        self.iconRoll(value: self.$updatedMode)
                     }.frame(width: titleColumnWidth, alignment: .trailing)
                     HStack(spacing: 5) {
-                        Text(self.isISOupdated ? self.updated.ISO8601 : self.updated.convenient)
+                        switch self.updatedMode {
+                            case .convenient: Text(self.updated.convenient)
+                            case .iso8601   : Text(self.updated.ISO8601)
+                        }
                     }.frame(width: valueColumnWidth, alignment: .leading)
                 }
             }

@@ -52,6 +52,17 @@ enum Flexibility {
 
 }
 
+enum DateState: Int, CaseIterable, Equatable {
+
+    case iso8601    = 0
+    case convenient = 1
+
+    static func == (lhs: Self, rhs: Self) -> Bool {
+        lhs.rawValue == rhs.rawValue
+    }
+
+}
+
 enum BytesState: String, CaseIterable, Equatable {
 
     case bytes  = "Bytes"
