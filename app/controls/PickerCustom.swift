@@ -17,11 +17,11 @@ struct PickerCustom<Key>: View where Key: Hashable & Comparable {
 
     @State private var isOpened: Bool = false
     @State private var hovered: Key?
+           private var selected: Binding<Key>
 
-    private var selected: Binding<Key>
-    private var values: [Key: String]
-    private var isPlainListStyle: Bool
-    private var flexibility: Flexibility
+    private let values: [Key: String]
+    private let isPlainListStyle: Bool
+    private let flexibility: Flexibility
 
     init(selected: Binding<Key>, values: [Key: String], isPlainListStyle: Bool = false, flexibility: Flexibility = .none) {
         self.selected         = selected

@@ -216,7 +216,7 @@ struct MainView: View {
             HStack(spacing: 10) {
 
                 /* MARK: cancel button */
-                ButtonCustom(NSLocalizedString("cancel", comment: "")) {
+                ButtonCustom(NSLocalizedString("cancel", comment: ""), flexibility: .size(100)) {
                     self.rights = self.originalRights
                     self.owner  = self.originalOwner
                     self.group  = self.originalGroup
@@ -226,16 +226,15 @@ struct MainView: View {
                     self.owner  == self.originalOwner  &&
                     self.group  == self.originalGroup
                 )
-                .frame(width: 110)
 
                 /* MARK: apply button */
-                ButtonCustom(NSLocalizedString("apply", comment: "")) {
+                ButtonCustom(NSLocalizedString("apply", comment: ""), flexibility: .size(100)) {
                     self.onApply(
                         self.rights,
                         self.owner,
                         self.group
                     )
-                }.frame(width: 110)
+                }
 
             }
             .padding(25)
