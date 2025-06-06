@@ -58,9 +58,9 @@ struct MainView: View {
         .onHoverCursor()
     }
 
-    @ViewBuilder func iconRoll(/* value: Binding<any CaseIterable & Equatable> */) -> some View {
+    @ViewBuilder func iconRoll(value: Binding<BytesState> /* Binding<any CaseIterable & Equatable> */) -> some View {
         Button {
-            self.sizeMode.roll()
+            value.wrappedValue.roll()
         } label: {
             Image(systemName: "arcade.stick")
                 .font(.system(size: 10, weight: .regular))
@@ -111,7 +111,7 @@ struct MainView: View {
                 HStack(spacing: 10) {
                     HStack(spacing: 5) {
                         Text(NSLocalizedString("Size", comment: ""))
-                        self.iconRoll()
+                        self.iconRoll(value: self.$sizeMode)
                     }.frame(width: titleColumnWidth, alignment: .trailing)
                     HStack(spacing: 5) {
                         switch self.sizeMode {
