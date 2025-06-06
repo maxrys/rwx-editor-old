@@ -18,12 +18,12 @@ struct PickerCustom<Key>: View where Key: Hashable & Comparable {
     @State private var isOpened: Bool = false
     @State private var hoverIndex: Key?
 
-    private var selectedIndex: Binding<Key>
+    private var selected: Binding<Key>
     private var values: [Key: String]
     private var isPlainListStyle: Bool
 
-    init(selectedIndex: Binding<Key>, values: [Key: String], isPlainListStyle: Bool = false) {
-        self.selectedIndex    = selectedIndex
+    init(selected: Binding<Key>, values: [Key: String], isPlainListStyle: Bool = false) {
+        self.selected         = selected
         self.values           = values
         self.isPlainListStyle = isPlainListStyle
     }
@@ -34,7 +34,7 @@ struct PickerCustom<Key>: View where Key: Hashable & Comparable {
         Button {
             self.isOpened = true
         } label: {
-            Text(self.values[self.selectedIndex.wrappedValue] ?? "n/a")
+            Text(self.values[self.selected.wrappedValue] ?? "n/a")
                 .lineLimit(1)
                 .padding(.horizontal, 9)
                 .padding(.vertical  , 5)
@@ -57,13 +57,13 @@ struct PickerCustom<Key>: View where Key: Hashable & Comparable {
         VStack (alignment: .leading, spacing: 6) {
             ForEach(self.values.sorted(by: { $0.key < $1.key }), id: \.key) { key, value in
                 Button {
-                    self.selectedIndex.wrappedValue = key
+                    self.selected.wrappedValue = key
                     self.isOpened = false
                 } label: {
                     var background: Color {
-                        if (self.selectedIndex.wrappedValue == key) { return Color(Self.ColorNames.itemSelectedBackground.rawValue) }
-                        if (self.hoverIndex                 == key) { return Color(Self.ColorNames.itemHoveredBackground .rawValue) }
-                        return self.isPlainListStyle ? Color(.clear) : Color(Self.ColorNames.itemBackground.rawValue)
+                        if (self.selected.wrappedValue == key) { return Color(Self.ColorNames.itemSelectedBackground.rawValue) }
+                        if (self.hoverIndex            == key) { return Color(Self.ColorNames.itemHoveredBackground .rawValue) }
+                        return  self.isPlainListStyle ? Color(.clear) : Color(Self.ColorNames.itemBackground        .rawValue)
                     }
                     Text("\(value)")
                         .lineLimit(1)
@@ -84,16 +84,16 @@ struct PickerCustom<Key>: View where Key: Hashable & Comparable {
 }
 
 @available(macOS 14.0, *) #Preview {
-    @Previewable @State var selectedIndexV1: UInt = 0
-    @Previewable @State var selectedIndexV2: UInt = 0
+    @Previewable @State var selectedV1: UInt = 0
+    @Previewable @State var selectedV2: UInt = 0
 
     let valuesV1: [UInt: String] = [
         0: "Single value"
     ]
 
     VStack {
-        PickerCustom<UInt>(selectedIndex: $selectedIndexV1, values: valuesV1, isPlainListStyle: true).frame(maxWidth: 100)
-        PickerCustom<UInt>(selectedIndex: $selectedIndexV1, values: valuesV1                        ).frame(maxWidth: 100)
+        PickerCustom<UInt>(selected: $selectedV1, values: valuesV1, isPlainListStyle: true).frame(maxWidth: 100)
+        PickerCustom<UInt>(selected: $selectedV1, values: valuesV1                        ).frame(maxWidth: 100)
     }.padding(10)
 
     let valuesV2 = {
@@ -106,7 +106,7 @@ struct PickerCustom<Key>: View where Key: Hashable & Comparable {
     }()
 
     VStack {
-        PickerCustom<UInt>(selectedIndex: $selectedIndexV2, values: valuesV2, isPlainListStyle: true).frame(maxWidth: 100)
-        PickerCustom<UInt>(selectedIndex: $selectedIndexV2, values: valuesV2                        ).frame(maxWidth: 100)
+        PickerCustom<UInt>(selected: $selectedV2, values: valuesV2, isPlainListStyle: true).frame(maxWidth: 100)
+        PickerCustom<UInt>(selected: $selectedV2, values: valuesV2                        ).frame(maxWidth: 100)
     }.padding(10)
 }

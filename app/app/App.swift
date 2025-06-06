@@ -46,8 +46,8 @@ enum Kind {
 
 @main struct ThisApp: App {
 
-    static var owners: [UInt: String] = [:]
-    static var groups: [UInt: String] = [:]
+    static var owners: [String: String] = [:]
+    static var groups: [String: String] = [:]
 
     var body: some Scene {
         let window = WindowGroup {
@@ -67,8 +67,8 @@ enum Kind {
             created: try! Date(fromISO8601: "2025-01-02 03:04:05 +0000"),
             updated: try! Date(fromISO8601: "2025-01-02 03:04:05 +0000"),
             rights: 0o644,
-            owner: 0,
-            group: 0,
+            owner: "nobody",
+            group: "staff",
             onApply: self.onApply
         )
     }
@@ -77,21 +77,19 @@ enum Kind {
         let owners = Process.systemUsers ().filter{ $0.first != "_" }.sorted()
         let groups = Process.systemGroups().filter{ $0.first != "_" }.sorted()
         if (Self.owners.isEmpty) {
-            for i in owners.indices {
-                Self.owners[UInt(i)] = owners[i]
+            for value in owners {
+                Self.owners[value] = value
             }
         }
         if (Self.groups.isEmpty) {
-            for i in groups.indices {
-                Self.groups[UInt(i)] = groups[i]
+            for value in groups {
+                Self.groups[value] = value
             }
         }
     }
 
-    func onApply(rights: UInt, owner: UInt, group: UInt) {
-        let ownerValue = Self.owners[owner] ?? "n/a"
-        let groupValue = Self.groups[group] ?? "n/a"
-        print("rights: \(String(rights, radix: 8)) | owner: \(ownerValue) | group: \(groupValue)")
+    func onApply(rights: UInt, owner: String, group: String) {
+        print("rights: \(String(rights, radix: 8)) | owner: \(owner) | group: \(group)")
     }
 
 }

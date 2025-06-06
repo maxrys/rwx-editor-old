@@ -29,7 +29,8 @@ struct ButtonCustom: View {
                 .color(Color(Self.ColorNames.text.rawValue))
                 .lineLimit(1)
                 .padding(.horizontal, 7)
-                .padding(.vertical  , 6)
+                .padding(.top       , 6)
+                .padding(.bottom    , 7)
                 .background(
                     RoundedRectangle(cornerRadius: 7)
                         .fill(

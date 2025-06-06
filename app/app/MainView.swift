@@ -16,8 +16,8 @@ struct MainView: View {
     @State private var isISOcreated: Bool = false
     @State private var isISOupdated: Bool = false
     @State private var rights: UInt
-    @State private var owner: UInt
-    @State private var group: UInt
+    @State private var owner: String
+    @State private var group: String
 
     private let kind: Kind
     private let name: String
@@ -26,11 +26,11 @@ struct MainView: View {
     private let created: Date
     private let updated: Date
     private let originalRights: UInt
-    private let originalOwner: UInt
-    private let originalGroup: UInt
-    private let onApply: (UInt, UInt, UInt) -> Void
+    private let originalOwner: String
+    private let originalGroup: String
+    private let onApply: (UInt, String, String) -> Void
 
-    init(kind: Kind, name: String, path: String, size: UInt, created: Date, updated: Date, rights: UInt, owner: UInt, group: UInt, onApply: @escaping (UInt, UInt, UInt) -> Void) {
+    init(kind: Kind, name: String, path: String, size: UInt, created: Date, updated: Date, rights: UInt, owner: String, group: String, onApply: @escaping (UInt, String, String) -> Void) {
         self.kind           = kind
         self.name           = name
         self.path           = path
@@ -181,8 +181,8 @@ struct MainView: View {
                 /* MARK: owner picker */
                 HStack(spacing: 10) {
                     Text(NSLocalizedString("Owner", comment: ""))
-                    PickerCustom<UInt>(
-                        selectedIndex: self.$owner,
+                    PickerCustom<String>(
+                        selected: self.$owner,
                         values: ThisApp.owners,
                         isPlainListStyle: true
                     )
@@ -191,8 +191,8 @@ struct MainView: View {
                 /* MARK: group picker */
                 HStack(spacing: 10) {
                     Text(NSLocalizedString("Group", comment: ""))
-                    PickerCustom<UInt>(
-                        selectedIndex: self.$group,
+                    PickerCustom<String>(
+                        selected: self.$group,
                         values: ThisApp.groups,
                         isPlainListStyle: true
                     )
@@ -250,8 +250,8 @@ struct MainView: View {
         created: try! Date(fromISO8601: "2025-01-02 03:04:05 +0000"),
         updated: try! Date(fromISO8601: "2025-01-02 03:04:05 +0000"),
         rights: 0o644,
-        owner: 0,
-        group: 0,
+        owner: "nobody",
+        group: "staff",
         onApply: { rights, owner, group in
             print("rights: \(String(rights, radix: 8)) | owner: \(owner) | group: \(group)")
         }
