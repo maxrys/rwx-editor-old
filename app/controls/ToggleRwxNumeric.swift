@@ -8,6 +8,16 @@ import SwiftUI
 struct ToggleRwxNumeric: View {
 
     private var rights: Binding<UInt>
+    private let values: [UInt: String] = [
+        0: "0",
+        1: "1",
+        2: "2",
+        3: "3",
+        4: "4",
+        5: "5",
+        6: "6",
+        7: "7",
+    ]
 
     init(_ rights: Binding<UInt>) {
         self.rights = rights
@@ -36,14 +46,13 @@ struct ToggleRwxNumeric: View {
     }
 
     var body: some View {
-        let values: [String] = ["0", "1", "2", "3", "4", "5", "6", "7"]
         let ownerProxy = Binding<UInt> { self.valueUnpack(self.rights.wrappedValue, .owner) } set: { value in self.rights.wrappedValue = self.valuePack(value, self.rights.wrappedValue, .owner) }
         let groupProxy = Binding<UInt> { self.valueUnpack(self.rights.wrappedValue, .group) } set: { value in self.rights.wrappedValue = self.valuePack(value, self.rights.wrappedValue, .group) }
         let otherProxy = Binding<UInt> { self.valueUnpack(self.rights.wrappedValue, .other) } set: { value in self.rights.wrappedValue = self.valuePack(value, self.rights.wrappedValue, .other) }
         HStack(spacing: 3) {
-            PickerCustom(selectedIndex: ownerProxy, values: values)
-            PickerCustom(selectedIndex: groupProxy, values: values)
-            PickerCustom(selectedIndex: otherProxy, values: values)
+            PickerCustom(selectedIndex: ownerProxy, values: self.values)
+            PickerCustom(selectedIndex: groupProxy, values: self.values)
+            PickerCustom(selectedIndex: otherProxy, values: self.values)
         }
     }
 

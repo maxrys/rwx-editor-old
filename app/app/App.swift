@@ -46,8 +46,8 @@ enum Kind {
 
 @main struct ThisApp: App {
 
-    static var owners: [String] = []
-    static var groups: [String] = []
+    static var owners: [UInt: String] = [:]
+    static var groups: [UInt: String] = [:]
 
     var body: some Scene {
         let window = WindowGroup {
@@ -74,13 +74,23 @@ enum Kind {
     }
 
     init() {
-        if (Self.owners.isEmpty) { Self.owners = Process.systemUsers ().filter{ $0.first != "_" }.sorted() }
-        if (Self.groups.isEmpty) { Self.groups = Process.systemGroups().filter{ $0.first != "_" }.sorted() }
+        let owners = Process.systemUsers ().filter{ $0.first != "_" }.sorted()
+        let groups = Process.systemGroups().filter{ $0.first != "_" }.sorted()
+        if (Self.owners.isEmpty) {
+            for i in owners.indices {
+                Self.owners[UInt(i)] = owners[i]
+            }
+        }
+        if (Self.groups.isEmpty) {
+            for i in groups.indices {
+                Self.groups[UInt(i)] = groups[i]
+            }
+        }
     }
 
     func onApply(rights: UInt, owner: UInt, group: UInt) {
-        let ownerValue = Self.owners[Int(owner)]
-        let groupValue = Self.groups[Int(group)]
+        let ownerValue = Self.owners[owner] ?? "n/a"
+        let groupValue = Self.groups[group] ?? "n/a"
         print("rights: \(String(rights, radix: 8)) | owner: \(ownerValue) | group: \(groupValue)")
     }
 
