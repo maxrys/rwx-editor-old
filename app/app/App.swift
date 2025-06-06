@@ -5,45 +5,6 @@
 
 import SwiftUI
 
-enum Permission: String {
-
-    case r = "r"
-    case w = "w"
-    case x = "x"
-
-    var offset: UInt {
-        switch self {
-            case .r: return 2
-            case .w: return 1
-            case .x: return 0
-        }
-    }
-
-}
-
-enum Subject {
-
-    case owner
-    case group
-    case other
-
-    var offset: UInt {
-        switch self {
-            case .owner: return 6
-            case .group: return 3
-            case .other: return 0
-        }
-    }
-
-}
-
-enum Kind {
-
-    case dirrectory
-    case file
-
-}
-
 @main struct ThisApp: App {
 
     static var owners: [String: String] = [:]

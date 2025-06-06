@@ -178,24 +178,30 @@ struct MainView: View {
                     ToggleRwxNumeric($rights)
                 }
 
-                /* MARK: owner picker */
-                HStack(spacing: 10) {
-                    Text(NSLocalizedString("Owner", comment: ""))
-                    PickerCustom<String>(
-                        selected: self.$owner,
-                        values: ThisApp.owners,
-                        isPlainListStyle: true
-                    )
-                }
+                VStack(alignment: .trailing, spacing: 10) {
 
-                /* MARK: group picker */
-                HStack(spacing: 10) {
-                    Text(NSLocalizedString("Group", comment: ""))
-                    PickerCustom<String>(
-                        selected: self.$group,
-                        values: ThisApp.groups,
-                        isPlainListStyle: true
-                    )
+                    /* MARK: owner picker */
+                    HStack(spacing: 10) {
+                        Text(NSLocalizedString("Owner", comment: ""))
+                        PickerCustom<String>(
+                            selected: self.$owner,
+                            values: ThisApp.owners,
+                            isPlainListStyle: true,
+                            flexibility: .size(150)
+                        )
+                    }
+
+                    /* MARK: group picker */
+                    HStack(spacing: 10) {
+                        Text(NSLocalizedString("Group", comment: ""))
+                        PickerCustom<String>(
+                            selected: self.$group,
+                            values: ThisApp.groups,
+                            isPlainListStyle: true,
+                            flexibility: .size(150)
+                        )
+                    }
+
                 }
 
             }

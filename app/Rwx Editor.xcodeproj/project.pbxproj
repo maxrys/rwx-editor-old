@@ -31,6 +31,8 @@
 		507318992DF05F62005E26F9 /* Process.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507318972DF05F60005E26F9 /* Process.swift */; };
 		5073189C2DF1BA3D005E26F9 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5073189B2DF1BA3D005E26F9 /* Date.swift */; };
 		5073189D2DF1BA3D005E26F9 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5073189B2DF1BA3D005E26F9 /* Date.swift */; };
+		507318A02DF31F20005E26F9 /* enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5073189F2DF31F1C005E26F9 /* enums.swift */; };
+		507318A12DF31F20005E26F9 /* enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5073189F2DF31F1C005E26F9 /* enums.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +65,7 @@
 		507318752DE9EB32005E26F9 /* ButtonCustom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCustom.swift; sourceTree = "<group>"; };
 		507318972DF05F60005E26F9 /* Process.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Process.swift; sourceTree = "<group>"; };
 		5073189B2DF1BA3D005E26F9 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		5073189F2DF31F1C005E26F9 /* enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = enums.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +110,7 @@
 		50624C552DE5C2BF00794BC8 /* shared */ = {
 			isa = PBXGroup;
 			children = (
+				5073189F2DF31F1C005E26F9 /* enums.swift */,
 				50624C722DE5E2E300794BC8 /* String.swift */,
 				50624C602DE5D6B500794BC8 /* UInt.swift */,
 				5073189B2DF1BA3D005E26F9 /* Date.swift */,
@@ -260,6 +264,7 @@
 				50624C4E2DE5BA8200794BC8 /* App.swift in Sources */,
 				507318512DE7939D005E26F9 /* ToggleRwxNumeric.swift in Sources */,
 				507318762DE9EB32005E26F9 /* ButtonCustom.swift in Sources */,
+				507318A12DF31F20005E26F9 /* enums.swift in Sources */,
 				507318462DE71047005E26F9 /* RwxTextView.swift in Sources */,
 				50624C742DE5E2E600794BC8 /* String.swift in Sources */,
 				5073189D2DF1BA3D005E26F9 /* Date.swift in Sources */,
@@ -281,6 +286,7 @@
 				50624C732DE5E2E600794BC8 /* String.swift in Sources */,
 				50624C702DE5DD3000794BC8 /* UInt.swift in Sources */,
 				50624C6A2DE5DCD500794BC8 /* Test.swift in Sources */,
+				507318A02DF31F20005E26F9 /* enums.swift in Sources */,
 				507318982DF05F62005E26F9 /* Process.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
