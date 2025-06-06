@@ -58,7 +58,7 @@ struct MainView: View {
         .onHoverCursor()
     }
 
-    @ViewBuilder func iconRoll(value: Binding<BytesState> /* Binding<any CaseIterable & Equatable> */) -> some View {
+    @ViewBuilder func iconRoll<T: CaseIterable & Equatable>(value: Binding<T>) -> some View {
         Button {
             value.wrappedValue.roll()
         } label: {
