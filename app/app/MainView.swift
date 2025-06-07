@@ -16,9 +16,9 @@ struct MainView: View {
     @State private var rights: UInt
     @State private var owner: String
     @State private var group: String
-    @State private var sizeMode: BytesViewMode = .bytes
-    @State private var createdMode: DateViewMode = .convenient
-    @State private var updatedMode: DateViewMode = .convenient
+    @State private var sizeViewMode: BytesViewMode = .bytes
+    @State private var createdViewMode: DateViewMode = .convenient
+    @State private var updatedViewMode: DateViewMode = .convenient
 
     private let kind: Kind
     private let name: String
@@ -58,11 +58,13 @@ struct MainView: View {
         .onHoverCursor()
     }
 
-    @ViewBuilder func tableRow(tint: Bool = false, _ title: some View, _ value: some View) -> some View {
-        HStack(spacing: 0) {
-            HStack(spacing: 0) { title }.frame(width: 90,           alignment: .trailing).padding(6).background( tint ? Color.white.opacity(0.5) : Color.black.opacity(0.01))
-            HStack(spacing: 0) { value }.frame(maxWidth: .infinity, alignment: .leading ).padding(6).background( tint ? Color.white.opacity(0.7) : Color.black.opacity(0.10))
-        }
+    @ViewBuilder func gridCellWrapper(alignment: Alignment = .leading, tint: Bool = false, _ value: some View) -> some View {
+        let background = tint ? Color.white.opacity(0.5) : Color.black.opacity(0.01)
+        HStack(spacing: 0) { value }
+            .padding(.horizontal, 7)
+            .padding(.vertical  , 6)
+            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: alignment)
+            .background(background)
     }
 
     var body: some View {
@@ -72,57 +74,87 @@ struct MainView: View {
             /* MARK: head */
             /* ########## */
 
-            VStack(alignment: .leading, spacing: 0) {
+            let columns = [
+                GridItem(.fixed(100), spacing: 0),
+                GridItem(.flexible(), spacing: 0)
+            ]
+
+            LazyVGrid(columns: columns, spacing: 0) {
+
                 /* kind */
-                self.tableRow(tint: true,
-                    Text(NSLocalizedString("Kind", comment: "")),
+                self.gridCellWrapper(alignment: .trailing, tint: true,
+                    Text(NSLocalizedString("Kind", comment: ""))
+                )
+                self.gridCellWrapper(tint: true,
                     {switch self.kind {
                         case .dirrectory: Text(NSLocalizedString("dirrectory", comment: ""))
                         case .file      : Text(NSLocalizedString("file"      , comment: ""))
                     }}()
                 )
+
                 /* name */
-                self.tableRow(
-                    Text(NSLocalizedString("Name", comment: "")),
+                self.gridCellWrapper(alignment: .trailing,
+                    Text(NSLocalizedString("Name", comment: ""))
+                )
+                self.gridCellWrapper(
                     Text("\(self.name)")
                 )
+
                 /* path */
-                self.tableRow(tint: true,
-                    Text(NSLocalizedString("Path", comment: "")),
+                self.gridCellWrapper(alignment: .trailing, tint: true,
+                    Text(NSLocalizedString("Path", comment: ""))
+                )
+                self.gridCellWrapper(tint: true,
                     Text("\(self.path)")
                 )
+
                 /* size */
-                self.tableRow(
+                self.gridCellWrapper(alignment: .trailing,
                     HStack(spacing: 5) {
                         Text(NSLocalizedString("Size", comment: ""))
-                        self.iconRoll(value: self.$sizeMode)
-                    },
-                    Text("\(self.size.format(mode: self.sizeMode))")
+                        self.iconRoll(value: self.$sizeViewMode)
+                    }
                 )
+                self.gridCellWrapper(
+                    {switch self.sizeViewMode {
+                        case  .bytes: return Text(ByteCountFormatter.format(self.size, unit: .useBytes))
+                        case .kbytes: return Text(ByteCountFormatter.format(self.size, unit: .useKB))
+                        case .mbytes: return Text(ByteCountFormatter.format(self.size, unit: .useMB))
+                        case .gbytes: return Text(ByteCountFormatter.format(self.size, unit: .useGB))
+                        case .tbytes: return Text(ByteCountFormatter.format(self.size, unit: .useTB))
+                    }}()
+                )
+
                 /* created */
-                self.tableRow(tint: true,
+                self.gridCellWrapper(alignment: .trailing, tint: true,
                     HStack(spacing: 5) {
                         Text(NSLocalizedString("Created", comment: ""))
-                        self.iconRoll(value: self.$createdMode)
-                    },
-                    {switch self.createdMode {
+                        self.iconRoll(value: self.$createdViewMode)
+                    }
+                )
+                self.gridCellWrapper(tint: true,
+                    {switch self.createdViewMode {
                         case .convenient   : Text(self.created.convenient)
                         case .iso8601withTZ: Text(self.created.ISO8601withTZ)
                         case .iso8601      : Text(self.created.ISO8601)
                     }}()
                 )
+
                 /* updated */
-                self.tableRow(
+                self.gridCellWrapper(alignment: .trailing,
                     HStack(spacing: 5) {
                         Text(NSLocalizedString("Updated", comment: ""))
-                        self.iconRoll(value: self.$updatedMode)
-                    },
-                    {switch self.updatedMode {
+                        self.iconRoll(value: self.$updatedViewMode)
+                    }
+                )
+                self.gridCellWrapper(
+                    {switch self.updatedViewMode {
                         case .convenient   : Text(self.updated.convenient)
                         case .iso8601withTZ: Text(self.updated.ISO8601withTZ)
                         case .iso8601      : Text(self.updated.ISO8601)
                     }}()
                 )
+
             }
             .frame(maxWidth: .infinity)
             .background(Color(Self.ColorNames.head.rawValue))
@@ -248,7 +280,7 @@ struct MainView: View {
     MainView(
         kind: .file,
         name: "Rwx Editor.icns",
-        path: "/usr/local/bin/some/long/long/path",
+        path: "/usr/local/bin/some",
         size: 1_234_567,
         created: try! Date(fromISO8601: "2025-01-02 03:04:05 +0000"),
         updated: try! Date(fromISO8601: "2025-01-02 03:04:05 +0000"),
