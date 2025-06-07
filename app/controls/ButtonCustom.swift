@@ -39,9 +39,9 @@ struct ButtonCustom: View {
                             LinearGradient(
                                 colors: [
                                     Color(Self.ColorNames.backgroundFrom.rawValue),
-                                    Color(Self.ColorNames.backgroundTo.rawValue)],
-                                startPoint: .top,
-                                endPoint: .bottom
+                                    Color(Self.ColorNames.backgroundTo  .rawValue)],
+                                startPoint: .bottom,
+                                endPoint  : .top
                             )
                        )
                 )
