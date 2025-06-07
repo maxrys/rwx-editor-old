@@ -59,18 +59,10 @@ struct MainView: View {
     }
 
     @ViewBuilder func tableRow(tint: Bool = false, _ title: some View, _ value: some View) -> some View {
-        let titleColumnWidth: CGFloat = 90
-        let valueColumnWidth: CGFloat = 180
-        HStack(spacing: 10) {
-            HStack(spacing: 0) { title }.frame(width: titleColumnWidth, alignment: .trailing)
-            HStack(spacing: 0) { value }.frame(width: valueColumnWidth, alignment: .leading)
+        HStack(spacing: 0) {
+            HStack(spacing: 0) { title }.frame(width: 90,           alignment: .trailing).padding(6).background( tint ? Color.white.opacity(0.5) : Color.black.opacity(0.01))
+            HStack(spacing: 0) { value }.frame(maxWidth: .infinity, alignment: .leading ).padding(6).background( tint ? Color.white.opacity(0.7) : Color.black.opacity(0.10))
         }
-        .padding(6)
-        .background(
-            tint ?
-            Color.white.opacity(0.5) :
-            Color.clear
-        )
     }
 
     var body: some View {
@@ -132,7 +124,6 @@ struct MainView: View {
                     }}()
                 )
             }
-
             .frame(maxWidth: .infinity)
             .background(Color(Self.ColorNames.head.rawValue))
             .font(.system(size: 12, weight: .regular))
