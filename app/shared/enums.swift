@@ -52,10 +52,11 @@ enum Flexibility {
 
 }
 
-enum DateState: Int, CaseIterable & Equatable {
+enum DateState: CaseIterable & Equatable {
 
-    case iso8601    = 0
-    case convenient = 1
+    case convenient
+    case iso8601withTZ
+    case iso8601
 
 }
 

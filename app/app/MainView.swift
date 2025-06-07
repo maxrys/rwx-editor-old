@@ -120,8 +120,9 @@ struct MainView: View {
                     }.frame(width: titleColumnWidth, alignment: .trailing)
                     HStack(spacing: 5) {
                         switch self.createdMode {
-                            case .convenient: Text(self.created.convenient)
-                            case .iso8601   : Text(self.created.ISO8601)
+                            case .convenient   : Text(self.created.convenient)
+                            case .iso8601withTZ: Text(self.created.ISO8601withTZ)
+                            case .iso8601      : Text(self.created.ISO8601)
                         }
                     }.frame(width: valueColumnWidth, alignment: .leading)
                 }
@@ -133,8 +134,9 @@ struct MainView: View {
                     }.frame(width: titleColumnWidth, alignment: .trailing)
                     HStack(spacing: 5) {
                         switch self.updatedMode {
-                            case .convenient: Text(self.updated.convenient)
-                            case .iso8601   : Text(self.updated.ISO8601)
+                            case .convenient   : Text(self.updated.convenient)
+                            case .iso8601withTZ: Text(self.updated.ISO8601withTZ)
+                            case .iso8601      : Text(self.updated.ISO8601)
                         }
                     }.frame(width: valueColumnWidth, alignment: .leading)
                 }
