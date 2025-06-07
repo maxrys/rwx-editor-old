@@ -58,6 +58,21 @@ struct MainView: View {
         .onHoverCursor()
     }
 
+    @ViewBuilder func tableRow(tint: Bool = false, _ title: some View, _ value: some View) -> some View {
+        let titleColumnWidth: CGFloat = 90
+        let valueColumnWidth: CGFloat = 180
+        HStack(spacing: 10) {
+            HStack(spacing: 0) { title }.frame(width: titleColumnWidth, alignment: .trailing)
+            HStack(spacing: 0) { value }.frame(width: valueColumnWidth, alignment: .leading)
+        }
+        .padding(6)
+        .background(
+            tint ?
+            Color.white.opacity(0.5) :
+            Color.clear
+        )
+    }
+
     var body: some View {
         VStack(spacing: 0) {
 
@@ -65,83 +80,59 @@ struct MainView: View {
             /* MARK: head */
             /* ########## */
 
-            VStack(alignment: .leading, spacing: 10) {
-                let titleColumnWidth: CGFloat = 90
-                let valueColumnWidth: CGFloat = 180
+            VStack(alignment: .leading, spacing: 0) {
                 /* kind */
-                HStack(spacing: 10) {
-                    HStack(spacing: 5) {
-                        Text(NSLocalizedString("Kind", comment: ""))
-                    }.frame(width: titleColumnWidth, alignment: .trailing)
-                    HStack(spacing: 5) {
-                        if (self.kind == .dirrectory) { Text(NSLocalizedString("dirrectory", comment: "")) }
-                        if (self.kind == .file      ) { Text(NSLocalizedString("file"      , comment: "")) }
-                    }.frame(width: valueColumnWidth, alignment: .leading)
-                }
+                self.tableRow(tint: true,
+                    Text(NSLocalizedString("Kind", comment: "")),
+                    {switch self.kind {
+                        case .dirrectory: Text(NSLocalizedString("dirrectory", comment: ""))
+                        case .file      : Text(NSLocalizedString("file"      , comment: ""))
+                    }}()
+                )
                 /* name */
-                HStack(spacing: 10) {
-                    HStack(spacing: 5) {
-                        Text(NSLocalizedString("Name", comment: ""))
-                    }.frame(width: titleColumnWidth, alignment: .trailing)
-                    HStack(spacing: 5) {
-                        Text("\(self.name)")
-                    }.frame(width: valueColumnWidth, alignment: .leading)
-                }
+                self.tableRow(
+                    Text(NSLocalizedString("Name", comment: "")),
+                    Text("\(self.name)")
+                )
                 /* path */
-                HStack(spacing: 10) {
-                    HStack(spacing: 5) {
-                        Text(NSLocalizedString("Path", comment: ""))
-                    }.frame(width: titleColumnWidth, alignment: .trailing)
-                    HStack(spacing: 5) {
-                        Text("\(self.path)")
-                    }.frame(width: valueColumnWidth, alignment: .leading)
-                }
+                self.tableRow(tint: true,
+                    Text(NSLocalizedString("Path", comment: "")),
+                    Text("\(self.path)")
+                )
                 /* size */
-                HStack(spacing: 10) {
+                self.tableRow(
                     HStack(spacing: 5) {
                         Text(NSLocalizedString("Size", comment: ""))
                         self.iconRoll(value: self.$sizeMode)
-                    }.frame(width: titleColumnWidth, alignment: .trailing)
-                    HStack(spacing: 5) {
-                        switch self.sizeMode {
-                            case  .bytes: Text("\(self.size.format(mode:  .bytes))")
-                            case .kbytes: Text("\(self.size.format(mode: .kbytes))")
-                            case .mbytes: Text("\(self.size.format(mode: .mbytes))")
-                            case .gbytes: Text("\(self.size.format(mode: .gbytes))")
-                            case .tbytes: Text("\(self.size.format(mode: .tbytes))")
-                        }
-                    }.frame(width: valueColumnWidth, alignment: .leading)
-                }
+                    },
+                    Text("\(self.size.format(mode: self.sizeMode))")
+                )
                 /* created */
-                HStack(spacing: 10) {
+                self.tableRow(tint: true,
                     HStack(spacing: 5) {
                         Text(NSLocalizedString("Created", comment: ""))
                         self.iconRoll(value: self.$createdMode)
-                    }.frame(width: titleColumnWidth, alignment: .trailing)
-                    HStack(spacing: 5) {
-                        switch self.createdMode {
-                            case .convenient   : Text(self.created.convenient)
-                            case .iso8601withTZ: Text(self.created.ISO8601withTZ)
-                            case .iso8601      : Text(self.created.ISO8601)
-                        }
-                    }.frame(width: valueColumnWidth, alignment: .leading)
-                }
+                    },
+                    {switch self.createdMode {
+                        case .convenient   : Text(self.created.convenient)
+                        case .iso8601withTZ: Text(self.created.ISO8601withTZ)
+                        case .iso8601      : Text(self.created.ISO8601)
+                    }}()
+                )
                 /* updated */
-                HStack(spacing: 10) {
+                self.tableRow(
                     HStack(spacing: 5) {
                         Text(NSLocalizedString("Updated", comment: ""))
                         self.iconRoll(value: self.$updatedMode)
-                    }.frame(width: titleColumnWidth, alignment: .trailing)
-                    HStack(spacing: 5) {
-                        switch self.updatedMode {
-                            case .convenient   : Text(self.updated.convenient)
-                            case .iso8601withTZ: Text(self.updated.ISO8601withTZ)
-                            case .iso8601      : Text(self.updated.ISO8601)
-                        }
-                    }.frame(width: valueColumnWidth, alignment: .leading)
-                }
+                    },
+                    {switch self.updatedMode {
+                        case .convenient   : Text(self.updated.convenient)
+                        case .iso8601withTZ: Text(self.updated.ISO8601withTZ)
+                        case .iso8601      : Text(self.updated.ISO8601)
+                    }}()
+                )
             }
-            .padding(.vertical, 20)
+
             .frame(maxWidth: .infinity)
             .background(Color(Self.ColorNames.head.rawValue))
             .font(.system(size: 12, weight: .regular))
