@@ -60,7 +60,7 @@ struct MainView: View {
     }
 
     @ViewBuilder func gridCellWrapper(alignment: Alignment = .leading, tint: Bool = false, _ value: some View) -> some View {
-        let background = tint ? Color.white.opacity(0.5) : Color.black.opacity(0.01)
+        let background = tint ? Color("color MainView Head Tint") : Color.clear
         HStack(spacing: 0) { value }
             .padding(.horizontal, 7)
             .padding(.vertical  , 6)
