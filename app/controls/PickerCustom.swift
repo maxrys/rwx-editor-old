@@ -67,7 +67,10 @@ struct PickerCustom<Key>: View where Key: Hashable & Comparable {
                     var background: Color {
                         if (self.selected.wrappedValue == key) { return Color(Self.ColorNames.itemSelectedBackground.rawValue) }
                         if (self.hovered               == key) { return Color(Self.ColorNames.itemHoveredBackground .rawValue) }
-                        return self.isPlainListStyle ? Color.clear : Color(Self.ColorNames.itemBackground.rawValue)
+                        return self.isPlainListStyle ?
+                            Color.clear :
+                            Color(Self.ColorNames.itemBackground.rawValue
+                        )
                     }
                     Text("\(value)")
                         .lineLimit(1)

@@ -12,6 +12,11 @@ extension View {
         else                                   { return self.foregroundColor(color) }
     }
 
+    @ViewBuilder public func textSelectionEnable() -> some View {
+        if #available(macOS 12.0, *) { self.textSelection(.enabled) }
+        else                         { self }
+    }
+
     @inlinable nonisolated public func onHoverCursor(isEnabled: Bool = true) -> some View {
         self.onHover { isInView in
             if (isEnabled) {

@@ -35,7 +35,7 @@ struct RwxTextView: View {
             "\( self.isOn(rightsValue, Subject.group.offset + Permission.r.offset) ? symbolR : symbolE )\( self.isOn(rightsValue, Subject.group.offset + Permission.w.offset) ? symbolW : symbolE )\( self.isOn(rightsValue, Subject.group.offset + Permission.x.offset) ? symbolX : symbolE )" +
             "\( self.isOn(rightsValue, Subject.other.offset + Permission.r.offset) ? symbolR : symbolE )\( self.isOn(rightsValue, Subject.other.offset + Permission.w.offset) ? symbolW : symbolE )\( self.isOn(rightsValue, Subject.other.offset + Permission.x.offset) ? symbolX : symbolE )"
         )
-        let textView = Text(text)
+        Text(text)
             .padding(.horizontal, 9)
             .padding(.top, 4)
             .padding(.bottom, 6)
@@ -43,8 +43,7 @@ struct RwxTextView: View {
             .color(Color(Self.ColorNames.text.rawValue))
             .background(Color(Self.ColorNames.background.rawValue))
             .cornerRadius(5)
-        if #available(macOS 12.0, *) { textView.textSelection(.enabled) }
-        else                         { textView }
+            .textSelectionEnable()
     }
 
 }

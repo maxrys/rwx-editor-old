@@ -16,6 +16,7 @@ struct MainView: View {
     @State private var rights: UInt
     @State private var owner: String
     @State private var group: String
+
     @State private var sizeViewMode: BytesViewMode = .bytes
     @State private var createdViewMode: DateViewMode = .convenient
     @State private var updatedViewMode: DateViewMode = .convenient
@@ -97,7 +98,7 @@ struct MainView: View {
                     Text(NSLocalizedString("Name", comment: ""))
                 )
                 self.gridCellWrapper(
-                    Text("\(self.name)")
+                    Text("\(self.name)").textSelectionEnable()
                 )
 
                 /* path */
@@ -105,7 +106,7 @@ struct MainView: View {
                     Text(NSLocalizedString("Path", comment: ""))
                 )
                 self.gridCellWrapper(tint: true,
-                    Text("\(self.path)")
+                    Text("\(self.path)").textSelectionEnable()
                 )
 
                 /* size */
@@ -122,7 +123,7 @@ struct MainView: View {
                         case .mbytes: return Text(ByteCountFormatter.format(self.size, unit: .useMB))
                         case .gbytes: return Text(ByteCountFormatter.format(self.size, unit: .useGB))
                         case .tbytes: return Text(ByteCountFormatter.format(self.size, unit: .useTB))
-                    }}()
+                    }}().textSelectionEnable()
                 )
 
                 /* created */
@@ -137,7 +138,7 @@ struct MainView: View {
                         case .convenient   : Text(self.created.convenient)
                         case .iso8601withTZ: Text(self.created.ISO8601withTZ)
                         case .iso8601      : Text(self.created.ISO8601)
-                    }}()
+                    }}().textSelectionEnable()
                 )
 
                 /* updated */
@@ -152,7 +153,7 @@ struct MainView: View {
                         case .convenient   : Text(self.updated.convenient)
                         case .iso8601withTZ: Text(self.updated.ISO8601withTZ)
                         case .iso8601      : Text(self.updated.ISO8601)
-                    }}()
+                    }}().textSelectionEnable()
                 )
 
             }
