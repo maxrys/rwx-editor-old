@@ -20,8 +20,8 @@ extension UInt {
         self = self ^ (0b1 << position)
     }
 
-    func format(state: BytesState) -> String {
-        switch state {
+    func format(mode: BytesViewMode) -> String {
+        switch mode {
             case  .bytes: return ByteCountFormatter.format(self, unit: .useBytes)
             case .kbytes: return ByteCountFormatter.format(self, unit: .useKB)
             case .mbytes: return ByteCountFormatter.format(self, unit: .useMB)

@@ -52,20 +52,20 @@ enum Flexibility {
 
 }
 
-enum DateState: CaseIterable & Equatable {
-
-    case convenient
-    case iso8601withTZ
-    case iso8601
-
-}
-
-enum BytesState: String, CaseIterable & Equatable {
+enum BytesViewMode: String, CaseIterable & Equatable {
 
     case bytes  = "Bytes"
     case kbytes = "KBytes"
     case mbytes = "MBytes"
     case gbytes = "GBytes"
     case tbytes = "TBytes"
+
+}
+
+enum DateViewMode: CaseIterable & Equatable {
+
+    case convenient
+    case iso8601withTZ
+    case iso8601
 
 }

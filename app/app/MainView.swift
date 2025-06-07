@@ -16,9 +16,9 @@ struct MainView: View {
     @State private var rights: UInt
     @State private var owner: String
     @State private var group: String
-    @State private var createdMode: DateState = .convenient
-    @State private var updatedMode: DateState = .convenient
-    @State private var sizeMode: BytesState = .bytes
+    @State private var sizeMode: BytesViewMode = .bytes
+    @State private var createdMode: DateViewMode = .convenient
+    @State private var updatedMode: DateViewMode = .convenient
 
     private let kind: Kind
     private let name: String
@@ -104,11 +104,11 @@ struct MainView: View {
                     }.frame(width: titleColumnWidth, alignment: .trailing)
                     HStack(spacing: 5) {
                         switch self.sizeMode {
-                            case  .bytes: Text("\(self.size.format(state:  .bytes))")
-                            case .kbytes: Text("\(self.size.format(state: .kbytes))")
-                            case .mbytes: Text("\(self.size.format(state: .mbytes))")
-                            case .gbytes: Text("\(self.size.format(state: .gbytes))")
-                            case .tbytes: Text("\(self.size.format(state: .tbytes))")
+                            case  .bytes: Text("\(self.size.format(mode:  .bytes))")
+                            case .kbytes: Text("\(self.size.format(mode: .kbytes))")
+                            case .mbytes: Text("\(self.size.format(mode: .mbytes))")
+                            case .gbytes: Text("\(self.size.format(mode: .gbytes))")
+                            case .tbytes: Text("\(self.size.format(mode: .tbytes))")
                         }
                     }.frame(width: valueColumnWidth, alignment: .leading)
                 }
