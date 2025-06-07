@@ -8,16 +8,10 @@ import Foundation
 extension CaseIterable where Self: Equatable {
 
     var next: Self {
-        var isMatch: Bool = false
-        var first: Self?
-        for value in Self.allCases {
-            if (first == nil) { first = value }
-            if (isMatch) { return value }
-            if (self == value) {
-                isMatch = true
-            }
-        }
-        return first!
+        let allCases = Self.allCases
+        let index = allCases.firstIndex(of: self)!
+        let nextIndex = allCases.index(after: index)
+        return allCases[nextIndex == allCases.endIndex ? allCases.startIndex : nextIndex]
     }
 
     mutating func roll() {
