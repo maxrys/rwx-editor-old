@@ -5,7 +5,7 @@
 
 import CoreGraphics
 
-enum Permission: String {
+public enum Permission: String {
 
     case r = "r"
     case w = "w"
@@ -21,7 +21,7 @@ enum Permission: String {
 
 }
 
-enum Subject {
+public enum Subject {
 
     case owner
     case group
@@ -37,22 +37,22 @@ enum Subject {
 
 }
 
-enum Kind {
+public enum Kind {
 
     case dirrectory
     case file
 
 }
 
-enum Flexibility {
+public enum Flexibility {
 
+    case none
     case size(CGFloat)
     case infinity
-    case none
 
 }
 
-enum BytesViewMode: String, CaseIterable & Equatable {
+public enum BytesViewMode: String, CaseIterable & Equatable {
 
     case bytes  = "Bytes"
     case kbytes = "KBytes"
@@ -62,7 +62,7 @@ enum BytesViewMode: String, CaseIterable & Equatable {
 
 }
 
-enum DateViewMode: CaseIterable & Equatable {
+public enum DateViewMode: CaseIterable & Equatable {
 
     case convenient
     case iso8601withTZ

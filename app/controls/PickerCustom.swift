@@ -135,3 +135,27 @@ struct PickerCustom<Key>: View where Key: Hashable & Comparable {
 
     }.frame(width: 200)
 }
+
+@available(macOS 14.0, *) #Preview {
+    @Previewable @State var selected: UInt = 0
+
+    VStack {
+
+        let values = {
+            var result: [UInt: String] = [:]
+            for i in 0 ..< 10 {
+                if (i == 5) { result[UInt(i)] = "Value \(i) long long long long long long" }
+                else        { result[UInt(i)] = "Value \(i)" }
+            }
+            return result
+        }()
+
+        VStack {
+            PickerCustom<UInt>(selected: $selected, values: values)
+            PickerCustom<UInt>(selected: $selected, values: values, flexibility: .none)
+            PickerCustom<UInt>(selected: $selected, values: values, flexibility: .size(100))
+            PickerCustom<UInt>(selected: $selected, values: values, flexibility: .infinity)
+        }.padding(10)
+
+    }.frame(width: 200)
+}
