@@ -36,15 +36,14 @@ struct PickerCustom<Key>: View where Key: Hashable & Comparable {
         Button {
             self.isOpened = true
         } label: {
-            let textView = Text(self.values[self.selected.wrappedValue] ?? "n/a")
+            Text(self.values[self.selected.wrappedValue] ?? "n/a")
                 .lineLimit(1)
                 .padding(.horizontal, 9)
                 .padding(.vertical  , 5)
-            switch self.flexibility {
-                case .size(let size): textView.frame(width: size)        .background(Color(Self.ColorNames.background.rawValue)).color(Color(Self.ColorNames.text.rawValue)).cornerRadius(10)
-                case .infinity      : textView.frame(maxWidth: .infinity).background(Color(Self.ColorNames.background.rawValue)).color(Color(Self.ColorNames.text.rawValue)).cornerRadius(10)
-                case .none          : textView                           .background(Color(Self.ColorNames.background.rawValue)).color(Color(Self.ColorNames.text.rawValue)).cornerRadius(10)
-            }
+                .flexibility(self.flexibility)
+                .background(Color(Self.ColorNames.background.rawValue))
+                .color(Color(Self.ColorNames.text.rawValue))
+                .cornerRadius(10)
         }
         .buttonStyle(.plain)
         .onHoverCursor()

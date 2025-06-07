@@ -17,6 +17,14 @@ extension View {
         else                         { self }
     }
 
+    @ViewBuilder public func flexibility(_ value: Flexibility = .none) -> some View {
+        switch value {
+            case .size(let size): self.frame(width: size)
+            case .infinity      : self.frame(maxWidth: .infinity)
+            case .none          : self
+        }
+    }
+
     @inlinable nonisolated public func onHoverCursor(isEnabled: Bool = true) -> some View {
         self.onHover { isInView in
             if (isEnabled) {

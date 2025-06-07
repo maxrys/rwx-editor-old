@@ -25,21 +25,26 @@ struct ButtonCustom: View {
 
     var body: some View {
         Button { self.onClick() } label: {
-            let background = RoundedRectangle(cornerRadius: 7)
-                .fill(
-                    LinearGradient(
-                        colors: [
-                            Color(Self.ColorNames.backgroundFrom.rawValue),
-                            Color(Self.ColorNames.backgroundTo.rawValue)],
-                        startPoint: .top,
-                        endPoint: .bottom
-                    )
-               )
-            switch self.flexibility {
-                case .size(let size): Text(self.text).frame(width: size)        .font(.system(size: 12, weight: .bold)).color(Color(Self.ColorNames.text.rawValue)).lineLimit(1).padding(.horizontal, 7).padding(.top, 6).padding(.bottom, 7).background(background)
-                case .infinity      : Text(self.text).frame(maxWidth: .infinity).font(.system(size: 12, weight: .bold)).color(Color(Self.ColorNames.text.rawValue)).lineLimit(1).padding(.horizontal, 7).padding(.top, 6).padding(.bottom, 7).background(background)
-                case .none          : Text(self.text)                           .font(.system(size: 12, weight: .bold)).color(Color(Self.ColorNames.text.rawValue)).lineLimit(1).padding(.horizontal, 7).padding(.top, 6).padding(.bottom, 7).background(background)
-            }
+            Text(self.text)
+                .flexibility(self.flexibility)
+                .font(.system(size: 12, weight: .bold))
+                .color(Color(Self.ColorNames.text.rawValue))
+                .lineLimit(1)
+                .padding(.horizontal, 7)
+                .padding(.top       , 6)
+                .padding(.bottom    , 7)
+                .background(
+                    RoundedRectangle(cornerRadius: 7)
+                        .fill(
+                            LinearGradient(
+                                colors: [
+                                    Color(Self.ColorNames.backgroundFrom.rawValue),
+                                    Color(Self.ColorNames.backgroundTo.rawValue)],
+                                startPoint: .top,
+                                endPoint: .bottom
+                            )
+                       )
+                )
         }
         .buttonStyle(.plain)
         .onHoverCursor()
@@ -51,9 +56,9 @@ struct ButtonCustom: View {
     VStack {
         ButtonCustom()
         ButtonCustom(flexibility: .none)
-        ButtonCustom(flexibility: .infinity)
         ButtonCustom(flexibility: .size(100))
+        ButtonCustom(flexibility: .infinity)
     }
-    .frame(width: 200, height: 200)
+    .frame(width: 200)
     .padding(20)
 }
