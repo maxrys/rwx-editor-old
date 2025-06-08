@@ -39,18 +39,14 @@
     <rect style="stroke-width: 2; fill: rgb(238, 238, 238); stroke: rgb(198, 198, 198);" x="199.041" y="50.846" width="600" height="1106" rx="20" ry="20"/>
     <path d="M 199.117 98 L 208.117 98 L 208.117 165 L 199.117 165 C 199.117 148.25 176.117 139.408 176.117 131.5 C 176.117 123.556 199.117 114.75 199.117 98 Z" style="stroke-width: 2; filter: none; fill: rgb(238, 238, 238); stroke: rgb(198, 198, 198);"/>
     <g>
-      <path style="stroke-width: 2; filter: none; fill: rgb(231, 231, 231);" d="M 219.041 51 H 779.041 A 20 20 0 0 1 799.041 71 V 374 H 199.041 V 71 A 20 20 0 0 1 219.041 51 Z" bx:shape="rect 199.041 51 600 323 20 20 0 0 1@31cac9b6"/>
+      <path style="stroke-width: 2; filter: none; fill: rgb(240, 240, 240);" d="M 219.041 51 H 779.041 A 20 20 0 0 1 799.041 71 V 374 H 199.041 V 71 A 20 20 0 0 1 219.041 51 Z" bx:shape="rect 199.041 51 600 323 20 20 0 0 1@31cac9b6"/>
       <g>
-        <rect x="199.041" y="105" width="200" height="54" style="stroke-width: 1; fill: rgb(240, 240, 240);"/>
-        <rect x="399.041" y="105" width="400" height="54" style="stroke-width: 1; fill: rgb(240, 240, 240);"/>
-      </g>
-      <g>
-        <rect x="199.041" y="213" width="200.167" height="54" style="stroke-width: 1; fill: rgb(240, 240, 240);"/>
-        <rect x="398.707" y="213" width="400.334" height="54" style="stroke-width: 1; fill: rgb(240, 240, 240);"/>
-      </g>
-      <g>
-        <rect x="199.041" y="320" width="200.167" height="54" style="stroke-width: 1; fill: rgb(240, 240, 240);"/>
-        <rect x="398.707" y="320" width="400.334" height="54" style="stroke-width: 1; fill: rgb(240, 240, 240);"/>
+        <rect x="199.041" y="105" width="200" height="54" style="stroke-width: 1; fill: rgb(231, 231, 231);"/>
+        <rect x="399.041" y="105" width="400" height="54" style="stroke-width: 1; fill: rgb(231, 231, 231);"/>
+        <rect x="199.041" y="213" width="200.167" height="54" style="stroke-width: 1; fill: rgb(231, 231, 231);"/>
+        <rect x="398.707" y="213" width="400.334" height="54" style="stroke-width: 1; fill: rgb(231, 231, 231);"/>
+        <rect x="199.041" y="320" width="200.167" height="54" style="stroke-width: 1; fill: rgb(231, 231, 231);"/>
+        <rect x="398.707" y="320" width="400.334" height="54" style="stroke-width: 1; fill: rgb(231, 231, 231);"/>
       </g>
       <g>
         <text style="font-family: &quot;SF Pro&quot;; font-size: 27px; letter-spacing: 0.3px; white-space: pre;" transform="matrix(1, -0.000916, 0, 1, 124.392349, -624.145325)" x="206.863" y="710.918">Kind</text>

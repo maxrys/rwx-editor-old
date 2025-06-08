@@ -177,7 +177,7 @@ struct MainView: View {
                     .fill(
                         LinearGradient(
                             colors: [
-                                Color(.black).opacity(self.colorScheme == .light ? 0.1 : 0.3),
+                                Color(.black).opacity(self.colorScheme == .light ? 0.1 : 0.4),
                                 Color(.black).opacity(self.colorScheme == .light ? 0.0 : 0.0) ],
                             startPoint: .top,
                             endPoint: .bottom
