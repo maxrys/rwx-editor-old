@@ -252,8 +252,20 @@ struct MainView: View {
 
                 }
 
+                /* shadow */
+                Rectangle()
+                    .fill(
+                        LinearGradient(
+                            colors: [
+                                Color(.black).opacity(self.colorScheme == .light ? 0.0 : 0.0),
+                                Color(.black).opacity(self.colorScheme == .light ? 0.1 : 0.3) ],
+                            startPoint: .top,
+                            endPoint: .bottom
+                        )
+                    ).frame(height: 6)
+                    .padding(.top, 10)
+
             }
-            .padding(.bottom, 30)
             .frame(maxWidth: .infinity)
             .background(Color(Self.ColorNames.body.rawValue))
 
