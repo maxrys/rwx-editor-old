@@ -98,7 +98,7 @@ struct MainView: View {
                     Text(NSLocalizedString("Name", comment: ""))
                 )
                 self.gridCellWrapper(
-                    Text("\(self.name)").textSelectionEnable()
+                    Text("\(self.name)").textSelectionPolyfill()
                 )
 
                 /* path */
@@ -106,7 +106,7 @@ struct MainView: View {
                     Text(NSLocalizedString("Path", comment: ""))
                 )
                 self.gridCellWrapper(tint: true,
-                    Text("\(self.path)").textSelectionEnable()
+                    Text("\(self.path)").textSelectionPolyfill()
                 )
 
                 /* size */
@@ -123,7 +123,7 @@ struct MainView: View {
                         case .mbytes: return Text(ByteCountFormatter.format(self.size, unit: .useMB))
                         case .gbytes: return Text(ByteCountFormatter.format(self.size, unit: .useGB))
                         case .tbytes: return Text(ByteCountFormatter.format(self.size, unit: .useTB))
-                    }}().textSelectionEnable()
+                    }}().textSelectionPolyfill()
                 )
 
                 /* created */
@@ -138,7 +138,7 @@ struct MainView: View {
                         case .convenient   : Text(self.created.convenient)
                         case .iso8601withTZ: Text(self.created.ISO8601withTZ)
                         case .iso8601      : Text(self.created.ISO8601)
-                    }}().textSelectionEnable()
+                    }}().textSelectionPolyfill()
                 )
 
                 /* updated */
@@ -153,7 +153,7 @@ struct MainView: View {
                         case .convenient   : Text(self.updated.convenient)
                         case .iso8601withTZ: Text(self.updated.ISO8601withTZ)
                         case .iso8601      : Text(self.updated.ISO8601)
-                    }}().textSelectionEnable()
+                    }}().textSelectionPolyfill()
                 )
 
             }

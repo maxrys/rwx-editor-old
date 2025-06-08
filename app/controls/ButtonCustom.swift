@@ -28,7 +28,7 @@ struct ButtonCustom: View {
             Text(self.text)
                 .flexibility(self.flexibility)
                 .font(.system(size: 12, weight: .bold))
-                .color(Color(Self.ColorNames.text.rawValue))
+                .foregroundPolyfill(Color(Self.ColorNames.text.rawValue))
                 .lineLimit(1)
                 .padding(.horizontal, 7)
                 .padding(.top       , 6)

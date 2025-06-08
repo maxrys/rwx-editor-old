@@ -43,7 +43,7 @@ struct ToggleRwxColored: View {
                         .frame(width: self.iconR, height: self.iconR)
                     Image(systemName: "checkmark")
                         .font(.system(size: 13, weight: .bold))
-                        .color(Color.white)
+                        .foregroundPolyfill(Color.white)
                 }
             } else {
                 Circle()

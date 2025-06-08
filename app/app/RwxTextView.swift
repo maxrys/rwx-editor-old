@@ -40,10 +40,10 @@ struct RwxTextView: View {
             .padding(.top, 4)
             .padding(.bottom, 6)
             .font(.system(size: 13, weight: .regular, design: .monospaced))
-            .color(Color(Self.ColorNames.text.rawValue))
+            .foregroundPolyfill(Color(Self.ColorNames.text.rawValue))
             .background(Color(Self.ColorNames.background.rawValue))
             .cornerRadius(5)
-            .textSelectionEnable()
+            .textSelectionPolyfill()
     }
 
 }

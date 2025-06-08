@@ -42,7 +42,7 @@ struct PickerCustom<Key>: View where Key: Hashable & Comparable {
                 .padding(.vertical  , 5)
                 .flexibility(self.flexibility)
                 .background(Color(Self.ColorNames.background.rawValue))
-                .color(Color(Self.ColorNames.text.rawValue))
+                .foregroundPolyfill(Color(Self.ColorNames.text.rawValue))
                 .cornerRadius(10)
         }
         .buttonStyle(.plain)
@@ -76,7 +76,7 @@ struct PickerCustom<Key>: View where Key: Hashable & Comparable {
                         .padding(.horizontal, 9)
                         .padding(.vertical  , 5)
                         .frame(maxWidth: .infinity, alignment: self.isPlainListStyle ? .leading : .center)
-                        .color(Color(Self.ColorNames.text.rawValue))
+                        .foregroundPolyfill(Color(Self.ColorNames.text.rawValue))
                         .background(background)
                         .cornerRadius(10)
                         .onHover { isHovered in
