@@ -7,6 +7,8 @@ import SwiftUI
 
 struct MainView: View {
 
+    @Environment(\.colorScheme) private var colorScheme
+
     enum ColorNames: String {
         case head      = "color MainView Head Background"
         case body      = "color MainView Body Background"
@@ -86,10 +88,10 @@ struct MainView: View {
             LazyVGrid(columns: columns, spacing: 0) {
 
                 /* kind */
-                self.gridCellWrapper(alignment: .trailing, tint: true,
+                self.gridCellWrapper(alignment: .trailing,
                     Text(NSLocalizedString("Kind", comment: ""))
                 )
-                self.gridCellWrapper(tint: true,
+                self.gridCellWrapper(
                     {switch self.kind {
                         case .dirrectory: Text(NSLocalizedString("dirrectory", comment: ""))
                         case .file      : Text(NSLocalizedString("file"      , comment: ""))
@@ -97,29 +99,29 @@ struct MainView: View {
                 )
 
                 /* name */
-                self.gridCellWrapper(alignment: .trailing,
+                self.gridCellWrapper(alignment: .trailing, tint: true,
                     Text(NSLocalizedString("Name", comment: ""))
                 )
-                self.gridCellWrapper(
+                self.gridCellWrapper(tint: true,
                     Text("\(self.name)").textSelectionPolyfill()
                 )
 
                 /* path */
-                self.gridCellWrapper(alignment: .trailing, tint: true,
+                self.gridCellWrapper(alignment: .trailing,
                     Text(NSLocalizedString("Path", comment: ""))
                 )
-                self.gridCellWrapper(tint: true,
+                self.gridCellWrapper(
                     Text("\(self.path)").textSelectionPolyfill()
                 )
 
                 /* size */
-                self.gridCellWrapper(alignment: .trailing,
+                self.gridCellWrapper(alignment: .trailing, tint: true,
                     HStack(spacing: 5) {
                         Text(NSLocalizedString("Size", comment: ""))
                         self.iconRoll(value: self.$sizeViewMode)
                     }
                 )
-                self.gridCellWrapper(
+                self.gridCellWrapper(tint: true,
                     {switch self.sizeViewMode {
                         case  .bytes: return Text(ByteCountFormatter.format(self.size, unit: .useBytes))
                         case .kbytes: return Text(ByteCountFormatter.format(self.size, unit: .useKB))
@@ -130,13 +132,13 @@ struct MainView: View {
                 )
 
                 /* created */
-                self.gridCellWrapper(alignment: .trailing, tint: true,
+                self.gridCellWrapper(alignment: .trailing,
                     HStack(spacing: 5) {
                         Text(NSLocalizedString("Created", comment: ""))
                         self.iconRoll(value: self.$createdViewMode)
                     }
                 )
-                self.gridCellWrapper(tint: true,
+                self.gridCellWrapper(
                     {switch self.createdViewMode {
                         case .convenient   : Text(self.created.convenient)
                         case .iso8601withTZ: Text(self.created.ISO8601withTZ)
@@ -145,13 +147,13 @@ struct MainView: View {
                 )
 
                 /* updated */
-                self.gridCellWrapper(alignment: .trailing,
+                self.gridCellWrapper(alignment: .trailing, tint: true,
                     HStack(spacing: 5) {
                         Text(NSLocalizedString("Updated", comment: ""))
                         self.iconRoll(value: self.$updatedViewMode)
                     }
                 )
-                self.gridCellWrapper(
+                self.gridCellWrapper(tint: true,
                     {switch self.updatedViewMode {
                         case .convenient   : Text(self.updated.convenient)
                         case .iso8601withTZ: Text(self.updated.ISO8601withTZ)
@@ -169,6 +171,18 @@ struct MainView: View {
             /* ########## */
 
             VStack(spacing: 20) {
+
+                /* shadow */
+                Rectangle()
+                    .fill(
+                        LinearGradient(
+                            colors: [
+                                Color(.black).opacity(self.colorScheme == .light ? 0.1 : 0.3),
+                                Color(.black).opacity(self.colorScheme == .light ? 0.0 : 0.0) ],
+                            startPoint: .top,
+                            endPoint: .bottom
+                        )
+                    ).frame(height: 6)
 
                 /* MARK: rules via toggles */
                 HStack(spacing: 0) {
@@ -239,7 +253,7 @@ struct MainView: View {
                 }
 
             }
-            .padding(.vertical, 20)
+            .padding(.bottom, 30)
             .frame(maxWidth: .infinity)
             .background(Color(Self.ColorNames.body.rawValue))
 
