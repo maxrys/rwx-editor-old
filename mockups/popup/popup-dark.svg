@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <svg viewBox="0 0 1000 1300" xmlns="http://www.w3.org/2000/svg" xmlns:bx="https://boxy-svg.com">
   <defs>
-    <filter id="drop-shadow-filter-1" color-interpolation-filters="sRGB" x="-50%" y="-50%" width="200%" height="200%" bx:preset="drop-shadow 1 0 0 10 0.4 rgba(0,0,0,0.3)">
+    <filter id="drop-shadow-filter-1" color-interpolation-filters="sRGB" x="-50%" y="-50%" width="200%" height="200%" bx:preset="drop-shadow 1 0 0 10 0.4 #000000bf">
       <feGaussianBlur in="SourceAlpha" stdDeviation="10"/>
       <feOffset dx="0" dy="0"/>
       <feComponentTransfer result="offsetblur">
         <feFuncA id="spread-ctrl" type="linear" slope="0.8"/>
       </feComponentTransfer>
-      <feFlood flood-color="rgba(0,0,0,0.3)"/>
+      <feFlood flood-color="#000000bf"/>
       <feComposite in2="offsetblur" operator="in"/>
       <feMerge>
         <feMergeNode/>
@@ -34,7 +34,7 @@
       <stop offset="1" style="stop-color: rgb(43, 43, 43);"/>
     </linearGradient>
   </defs>
-  <rect width="1000" height="1300" style="fill: rgb(227, 228, 229);"/>
+  <rect width="1000" height="1300" style="fill: rgb(84, 85, 84);"/>
   <g style="filter: url('#drop-shadow-filter-1');" transform="matrix(1, 0, 0, 1, 0.882995, 25)">
     <rect style="fill: rgb(60, 60, 60); stroke-width: 2px; stroke: rgb(101, 106, 109);" x="199.117" y="51" width="600" height="1106" rx="20" ry="20"/>
     <path d="M 199.117 98 L 208.117 98 L 208.117 165 L 199.117 165 C 199.117 148.25 176.117 139.408 176.117 131.5 C 176.117 123.556 199.117 114.75 199.117 98 Z" style="stroke-width: 2px; filter: none; fill: rgb(60, 60, 60); stroke: rgb(101, 106, 109);"/>
