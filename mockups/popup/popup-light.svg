@@ -31,7 +31,7 @@
     </linearGradient>
   </defs>
   <rect width="1000" height="1300" style="fill: rgb(227, 228, 229);"/>
-  <g style="filter: url('#drop-shadow-filter-1');" transform="matrix(1, 0, 0, 1, 0.882995, 25)">
+  <g style="filter: url('#drop-shadow-filter-1');" transform="matrix(1, 0, 0, 1, -2.040983925877711, 25.154247620493635)">
     <path d="M 219.117 50 L 779.117 50 C 790.163 50 799.117 60.705 799.117 73.911 L 799.117 1102.09 C 799.117 1115.3 790.163 1126 779.117 1126 L 219.117 1126 C 208.071 1126 199.117 1115.3 199.117 1102.09 L 199.093 182.916 C 199.093 166.178 175.093 157.343 175.093 149.44 C 175.093 141.502 199.093 132.703 199.093 115.965 L 199.117 73.911 C 199.117 60.705 208.071 50 219.117 50 Z" style="stroke-width: 2px; filter: none; fill: rgb(238, 238, 238); stroke: rgb(198, 198, 198);"/>
     <g>
       <path style="stroke-width: 2; filter: none; fill: rgb(231, 231, 231);" d="M 219.499 51 H 779.499 A 20 20 0 0 1 799.499 71 V 374 H 199.499 V 71 A 20 20 0 0 1 219.499 51 Z" bx:shape="rect 199.499 51 600 323 20 20 0 0 1@cb3b90a6"/>
@@ -88,19 +88,19 @@
             <ellipse style="fill: color(display-p3 0.196 0.663 0.054); stroke-width: 1;" cx="559.6" cy="510.133" rx="25" ry="25"/>
             <path style="stroke-linecap: round; stroke-linejoin: round; stroke-width: 4; stroke: rgb(255, 255, 255); fill: none;" d="M 549.83 510.992 L 557.03 519.441 L 568.98 500.825"/>
           </g>
-          <ellipse style="stroke-width: 1; filter: none; fill: color(display-p3 0.816 0.816 0.816);" cx="679.99" cy="510.133" rx="25" ry="25"/>
+          <ellipse style="stroke-width: 1; filter: none; fill: color(display-p3 0.866 0.866 0.866);" cx="679.99" cy="510.133" rx="25" ry="25"/>
           <g>
             <ellipse style="fill: color(display-p3 0.837 0.461 0.047); stroke-width: 1;" cx="439.85" cy="580.321" rx="25" ry="25"/>
             <path style="stroke-linecap: round; stroke-linejoin: round; stroke-width: 4; stroke: rgb(255, 255, 255); fill: none;" d="M 430.08 581.18 L 437.28 589.629 L 449.23 571.013"/>
           </g>
-          <ellipse style="stroke-width: 1; filter: none; fill: color(display-p3 0.816 0.816 0.816);" cx="559.6" cy="580.321" rx="25" ry="25"/>
-          <ellipse style="stroke-width: 1; filter: none; fill: color(display-p3 0.816 0.816 0.816);" cx="679.99" cy="580.321" rx="25" ry="25"/>
+          <ellipse style="stroke-width: 1; filter: none; fill: color(display-p3 0.866 0.866 0.866);" cx="559.6" cy="580.321" rx="25" ry="25"/>
+          <ellipse style="stroke-width: 1; filter: none; fill: color(display-p3 0.866 0.866 0.866);" cx="679.99" cy="580.321" rx="25" ry="25"/>
           <g>
             <ellipse style="fill: color(display-p3 0.765 0.201 0.057); stroke-width: 1;" cx="439.85" cy="650.771" rx="25" ry="25"/>
             <path style="stroke-linecap: round; stroke-linejoin: round; stroke-width: 4; stroke: rgb(255, 255, 255); fill: none;" d="M 430.08 651.63 L 437.28 660.079 L 449.23 641.463"/>
           </g>
-          <ellipse style="stroke-width: 1; filter: none; fill: color(display-p3 0.816 0.816 0.816);" cx="559.6" cy="650.771" rx="25" ry="25"/>
-          <ellipse style="stroke-width: 1; filter: none; fill: color(display-p3 0.816 0.816 0.816);" cx="679.99" cy="650.771" rx="25" ry="25"/>
+          <ellipse style="stroke-width: 1; filter: none; fill: color(display-p3 0.866 0.866 0.866);" cx="559.6" cy="650.771" rx="25" ry="25"/>
+          <ellipse style="stroke-width: 1; filter: none; fill: color(display-p3 0.866 0.866 0.866);" cx="679.99" cy="650.771" rx="25" ry="25"/>
         </g>
       </g>
       <g>
