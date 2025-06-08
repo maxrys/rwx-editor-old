@@ -8,9 +8,11 @@ import SwiftUI
 struct MainView: View {
 
     enum ColorNames: String {
-        case head = "color MainView Head Background"
-        case body = "color MainView Body Background"
-        case foot = "color MainView Foot Background"
+        case head      = "color MainView Head Background"
+        case body      = "color MainView Body Background"
+        case foot      = "color MainView Foot Background"
+        case rollStick = "color Roll Stick"
+        case headTint  = "color MainView Head Tint"
     }
 
     @State private var rights: UInt
@@ -53,6 +55,7 @@ struct MainView: View {
             value.wrappedValue.roll()
         } label: {
             Image(systemName: "arcade.stick")
+                .foregroundPolyfill(Color(Self.ColorNames.rollStick.rawValue))
                 .font(.system(size: 10, weight: .regular))
         }
         .buttonStyle(.plain)
@@ -60,7 +63,7 @@ struct MainView: View {
     }
 
     @ViewBuilder func gridCellWrapper(alignment: Alignment = .leading, tint: Bool = false, _ value: some View) -> some View {
-        let background = tint ? Color("color MainView Head Tint") : Color.clear
+        let background = tint ? Color(Self.ColorNames.headTint.rawValue) : Color.clear
         HStack(spacing: 0) { value }
             .padding(.horizontal, 7)
             .padding(.vertical  , 6)
