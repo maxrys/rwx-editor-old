@@ -25,27 +25,28 @@
       <stop offset="0" style="stop-color: rgb(21.961% 59.608% 89.412%)"/>
       <stop offset="1" style="stop-color: rgb(0, 102, 168);"/>
     </linearGradient>
-    <linearGradient gradientUnits="userSpaceOnUse" x1="499.617" y1="374" x2="499.617" y2="394" id="gradient-0" gradientTransform="matrix(1, 0, 0, 0.5, 0, 187.000006)">
+    <linearGradient gradientUnits="userSpaceOnUse" x1="499.617" y1="374" x2="499.617" y2="394" id="gradient-0" gradientTransform="matrix(1, 0, 0, 0.5, -0.57602, 187)">
       <stop offset="0" style="stop-color: rgb(224, 224, 224);"/>
       <stop offset="1" style="stop-color: rgb(236, 236, 236);"/>
     </linearGradient>
   </defs>
   <rect width="1000" height="1300" style="fill: rgb(227, 228, 229);"/>
   <g style="filter: url('#drop-shadow-filter-1');" transform="matrix(1, 0, 0, 1, -2.040983925877711, 25.154247620493635)">
-    <path d="M 219.117 50 L 779.117 50 C 790.163 50 799.117 60.705 799.117 73.911 L 799.117 1102.09 C 799.117 1115.3 790.163 1126 779.117 1126 L 219.117 1126 C 208.071 1126 199.117 1115.3 199.117 1102.09 L 199.093 182.916 C 199.093 166.178 175.093 157.343 175.093 149.44 C 175.093 141.502 199.093 132.703 199.093 115.965 L 199.117 73.911 C 199.117 60.705 208.071 50 219.117 50 Z" style="stroke-width: 2px; filter: none; fill: rgb(238, 238, 238); stroke: rgb(198, 198, 198);"/>
+    <rect style="stroke-width: 2; fill: rgb(238, 238, 238); stroke: rgb(198, 198, 198);" x="199.041" y="50.846" width="600" height="1075" rx="20" ry="20"/>
+    <path d="M 199.117 98 L 208.117 98 L 208.117 165 L 199.117 165 C 199.117 148.25 176.117 139.408 176.117 131.5 C 176.117 123.556 199.117 114.75 199.117 98 Z" style="stroke-width: 2; filter: none; fill: rgb(238, 238, 238); stroke: rgb(198, 198, 198);"/>
     <g>
-      <path style="stroke-width: 2; filter: none; fill: rgb(231, 231, 231);" d="M 219.499 51 H 779.499 A 20 20 0 0 1 799.499 71 V 374 H 199.499 V 71 A 20 20 0 0 1 219.499 51 Z" bx:shape="rect 199.499 51 600 323 20 20 0 0 1@cb3b90a6"/>
+      <path style="stroke-width: 2; filter: none; fill: rgb(231, 231, 231);" d="M 219.041 51 H 779.041 A 20 20 0 0 1 799.041 71 V 374 H 199.041 V 71 A 20 20 0 0 1 219.041 51 Z" bx:shape="rect 199.041 51 600 323 20 20 0 0 1@31cac9b6"/>
       <g>
-        <rect x="199.617" y="105" width="200" height="54" style="stroke-width: 1; fill: rgb(240, 240, 240);"/>
-        <rect x="399.617" y="105" width="400" height="54" style="stroke-width: 1; fill: rgb(240, 240, 240);"/>
+        <rect x="199.041" y="105" width="200" height="54" style="stroke-width: 1; fill: rgb(240, 240, 240);"/>
+        <rect x="399.041" y="105" width="400" height="54" style="stroke-width: 1; fill: rgb(240, 240, 240);"/>
       </g>
       <g>
-        <rect x="200.117" y="213" width="200" height="54" style="stroke-width: 1; fill: rgb(240, 240, 240);"/>
-        <rect x="399.617" y="213" width="400" height="54" style="stroke-width: 1; fill: rgb(240, 240, 240);"/>
+        <rect x="199.041" y="213" width="200.167" height="54" style="stroke-width: 1; fill: rgb(240, 240, 240);"/>
+        <rect x="398.707" y="213" width="400.334" height="54" style="stroke-width: 1; fill: rgb(240, 240, 240);"/>
       </g>
       <g>
-        <rect x="200.117" y="320" width="200" height="54" style="stroke-width: 1; fill: rgb(240, 240, 240);"/>
-        <rect x="399.617" y="320" width="400" height="54" style="stroke-width: 1; fill: rgb(240, 240, 240);"/>
+        <rect x="199.041" y="320" width="200.167" height="54" style="stroke-width: 1; fill: rgb(240, 240, 240);"/>
+        <rect x="398.707" y="320" width="400.334" height="54" style="stroke-width: 1; fill: rgb(240, 240, 240);"/>
       </g>
       <g>
         <text style="font-family: &quot;SF Pro&quot;; font-size: 27px; letter-spacing: 0.3px; white-space: pre;" transform="matrix(1, -0.000916, 0, 1, 124.392349, -624.145325)" x="206.863" y="710.918">Kind</text>
@@ -66,8 +67,8 @@
       </g>
     </g>
     <g>
-      <rect style="stroke-width: 2; filter: none; fill: color(xyz-d65 0.797 0.839 0.914);" x="199.617" y="374" width="600" height="597"/>
-      <rect x="199.617" y="374" width="600" height="10" style="fill: url(&quot;#gradient-0&quot;);"/>
+      <rect style="stroke-width: 2; filter: none; fill: color(xyz-d65 0.797 0.839 0.914);" x="199.041" y="374.846" width="600" height="597"/>
+      <rect x="199.041" y="374" width="600" height="10" style="fill: url(&quot;#gradient-0&quot;);"/>
       <g>
         <g>
           <text style="fill: rgb(36, 36, 36); font-family: &quot;SF Pro&quot;; font-size: 27px; letter-spacing: 0.3px; white-space: pre; stroke-width: 1;" x="409.31" y="450.675">Read</text>
