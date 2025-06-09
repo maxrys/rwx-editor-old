@@ -31,13 +31,12 @@ struct ButtonCustom: View {
                 .padding(.init(top: 6, leading: 10, bottom: 7, trailing: 10))
                 .background(
                     ZStack {
-                        Color.white
                         RoundedRectangle(cornerRadius: 7)
                             .fill(
                                 LinearGradient(
                                     colors: [
-                                        Color.accentColor.opacity(0.5),
-                                        Color.accentColor
+                                        Color.accentColor,
+                                        Color.accentColor.opacity(0.5)
                                     ],
                                     startPoint: .top,
                                     endPoint: .bottom

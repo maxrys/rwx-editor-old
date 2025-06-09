@@ -10,10 +10,11 @@ struct MainView: View {
     @Environment(\.colorScheme) private var colorScheme
 
     enum ColorNames: String {
+        case text     = "color Text"
+        case headTint = "color MainView Head Tint"
         case head     = "color MainView Head Background"
         case body     = "color MainView Body Background"
         case foot     = "color MainView Foot Background"
-        case headTint = "color MainView Head Tint"
     }
 
     @State private var rights: UInt
@@ -301,7 +302,9 @@ struct MainView: View {
             .frame(maxWidth: .infinity)
             .background(Color(Self.ColorNames.foot.rawValue))
 
-        }.frame(width: 300)
+        }
+        .foregroundPolyfill(Color(Self.ColorNames.text.rawValue))
+        .frame(width: 300)
     }
 
 }
