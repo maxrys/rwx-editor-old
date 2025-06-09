@@ -36,10 +36,8 @@ struct RwxTextView: View {
             "\( self.isOn(rightsValue, Subject.other.offset + Permission.r.offset) ? symbolR : symbolE )\( self.isOn(rightsValue, Subject.other.offset + Permission.w.offset) ? symbolW : symbolE )\( self.isOn(rightsValue, Subject.other.offset + Permission.x.offset) ? symbolX : symbolE )"
         )
         Text(text)
-            .padding(.horizontal, 9)
-            .padding(.top, 4)
-            .padding(.bottom, 6)
             .font(.system(size: 13, weight: .regular, design: .monospaced))
+            .padding(.init(top: 4, leading: 9, bottom: 6, trailing: 9))
             .foregroundPolyfill(Color(Self.ColorNames.text.rawValue))
             .background(Color(Self.ColorNames.background.rawValue))
             .cornerRadius(5)

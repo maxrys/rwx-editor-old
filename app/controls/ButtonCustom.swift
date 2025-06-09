@@ -26,13 +26,11 @@ struct ButtonCustom: View {
     var body: some View {
         Button { self.onClick() } label: {
             Text(self.text)
+                .lineLimit(1)
                 .flexibility(self.flexibility)
                 .font(.system(size: 12, weight: .bold))
                 .foregroundPolyfill(Color(Self.ColorNames.text.rawValue))
-                .lineLimit(1)
-                .padding(.horizontal, 7)
-                .padding(.top       , 6)
-                .padding(.bottom    , 7)
+                .padding(.init(top: 6, leading: 10, bottom: 7, trailing: 10))
                 .background(
                     RoundedRectangle(cornerRadius: 7)
                         .fill(

@@ -250,7 +250,7 @@ struct MainView: View {
                         )
                     }
 
-                }
+                }.padding(.top, 10)
 
                 /* shadow */
                 Rectangle()
@@ -262,8 +262,9 @@ struct MainView: View {
                             startPoint: .top,
                             endPoint: .bottom
                         )
-                    ).frame(height: 6)
-                    .padding(.top, 10)
+                    )
+                    .frame(height: 6)
+                    .padding(.top, 6)
 
             }
             .frame(maxWidth: .infinity)
