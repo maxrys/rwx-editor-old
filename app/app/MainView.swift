@@ -212,7 +212,8 @@ struct MainView: View {
                     }
 
                     VStack(spacing: 10) {
-                        Text(NSLocalizedString("Execute", comment: "")).frame(width: textW, height: textH)
+                        if (self.kind == .dirrectory) { Text(NSLocalizedString("Access" , comment: "")).frame(width: textW, height: textH) }
+                        if (self.kind == .file      ) { Text(NSLocalizedString("Execute", comment: "")).frame(width: textW, height: textH) }
                         ToggleRwxColored(.owner, self.$rights, bitPosition: Subject.owner.offset + Permission.x.offset);
                         ToggleRwxColored(.group, self.$rights, bitPosition: Subject.group.offset + Permission.x.offset);
                         ToggleRwxColored(.other, self.$rights, bitPosition: Subject.other.offset + Permission.x.offset);
