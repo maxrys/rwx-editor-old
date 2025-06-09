@@ -8,11 +8,9 @@ import SwiftUI
 struct PickerCustom<Key>: View where Key: Hashable & Comparable {
 
     enum ColorNames: String {
-        case text                   = "color PickerCustom Text"
-        case background             = "color PickerCustom Background"
-        case itemBackground         = "color PickerCustom Item Background"
-        case itemSelectedBackground = "color PickerCustom Item Selected Background"
-        case itemHoveredBackground  = "color PickerCustom Item Hovered Background"
+        case text           = "color PickerCustom Text"
+        case background     = "color PickerCustom Background"
+        case itemBackground = "color PickerCustom Item Background"
     }
 
     @State private var isOpened: Bool = false
@@ -63,13 +61,12 @@ struct PickerCustom<Key>: View where Key: Hashable & Comparable {
                     self.selected.wrappedValue = key
                     self.isOpened = false
                 } label: {
-                    var background: Color {
-                        if (self.selected.wrappedValue == key) { return Color(Self.ColorNames.itemSelectedBackground.rawValue) }
-                        if (self.hovered               == key) { return Color(Self.ColorNames.itemHoveredBackground .rawValue) }
+                    var backgroundColor: Color {
+                        if (self.selected.wrappedValue == key) { return Color.accentColor.opacity(0.5) }
+                        if (self.hovered               == key) { return Color.accentColor.opacity(0.2) }
                         return self.isPlainListStyle ?
                             Color.clear :
-                            Color(Self.ColorNames.itemBackground.rawValue
-                        )
+                            Color(Self.ColorNames.itemBackground.rawValue)
                     }
                     Text("\(value)")
                         .lineLimit(1)
@@ -77,7 +74,7 @@ struct PickerCustom<Key>: View where Key: Hashable & Comparable {
                         .padding(.vertical  , 5)
                         .frame(maxWidth: .infinity, alignment: self.isPlainListStyle ? .leading : .center)
                         .foregroundPolyfill(Color(Self.ColorNames.text.rawValue))
-                        .background(background)
+                        .background(backgroundColor)
                         .cornerRadius(10)
                         .onHover { isHovered in
                             self.hovered = isHovered ? key : nil

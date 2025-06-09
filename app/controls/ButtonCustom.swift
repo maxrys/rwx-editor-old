@@ -8,9 +8,7 @@ import SwiftUI
 struct ButtonCustom: View {
 
     enum ColorNames: String {
-        case text           = "color ButtonCustom Text"
-        case backgroundFrom = "color ButtonCustom Background From"
-        case backgroundTo   = "color ButtonCustom Background To"
+        case text = "color ButtonCustom Text"
     }
 
     private let text: String
@@ -32,16 +30,20 @@ struct ButtonCustom: View {
                 .foregroundPolyfill(Color(Self.ColorNames.text.rawValue))
                 .padding(.init(top: 6, leading: 10, bottom: 7, trailing: 10))
                 .background(
-                    RoundedRectangle(cornerRadius: 7)
-                        .fill(
-                            LinearGradient(
-                                colors: [
-                                    Color(Self.ColorNames.backgroundFrom.rawValue),
-                                    Color(Self.ColorNames.backgroundTo  .rawValue)],
-                                startPoint: .bottom,
-                                endPoint  : .top
-                            )
-                       )
+                    ZStack {
+                        Color.white
+                        RoundedRectangle(cornerRadius: 7)
+                            .fill(
+                                LinearGradient(
+                                    colors: [
+                                        Color.accentColor.opacity(0.5),
+                                        Color.accentColor
+                                    ],
+                                    startPoint: .top,
+                                    endPoint: .bottom
+                                )
+                           )
+                    }
                 )
         }
         .buttonStyle(.plain)
