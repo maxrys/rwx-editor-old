@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		50583D5D2DFB5D2000013BD0 /* Rwx Editor Finder Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 50583D552DFB5D2000013BD0 /* Rwx Editor Finder Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		50583D662DFB5EA100013BD0 /* FinderSync.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50583D632DFB5EA100013BD0 /* FinderSync.swift */; };
+		50583D662DFB5EA100013BD0 /* FinderSyncExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50583D632DFB5EA100013BD0 /* FinderSyncExt.swift */; };
 		50583D6A2DFB60B900013BD0 /* ByteCountFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507318A52DF37FB8005E26F9 /* ByteCountFormatter.swift */; };
 		50583D6B2DFB60B900013BD0 /* CaseIterable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507318A22DF3758B005E26F9 /* CaseIterable.swift */; };
 		50583D6C2DFB60B900013BD0 /* enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5073189F2DF31F1C005E26F9 /* enums.swift */; };
@@ -80,9 +80,9 @@
 
 /* Begin PBXFileReference section */
 		50583D552DFB5D2000013BD0 /* Rwx Editor Finder Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Rwx Editor Finder Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
-		50583D632DFB5EA100013BD0 /* FinderSync.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinderSync.swift; sourceTree = "<group>"; };
+		50583D632DFB5EA100013BD0 /* FinderSyncExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinderSyncExt.swift; sourceTree = "<group>"; };
 		50583D642DFB5EA100013BD0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		50583D652DFB5EA100013BD0 /* FinderSync.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FinderSync.entitlements; sourceTree = "<group>"; };
+		50583D652DFB5EA100013BD0 /* FinderSyncExt.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FinderSyncExt.entitlements; sourceTree = "<group>"; };
 		50624C342DE5B96100794BC8 /* Rwx Editor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Rwx Editor.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		50624C4A2DE5BA8200794BC8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		50624C4B2DE5BA8200794BC8 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -132,14 +132,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		50583D682DFB5EA500013BD0 /* finderSync */ = {
+		50583D682DFB5EA500013BD0 /* finderSyncExt */ = {
 			isa = PBXGroup;
 			children = (
-				50583D632DFB5EA100013BD0 /* FinderSync.swift */,
-				50583D652DFB5EA100013BD0 /* FinderSync.entitlements */,
+				50583D632DFB5EA100013BD0 /* FinderSyncExt.swift */,
+				50583D652DFB5EA100013BD0 /* FinderSyncExt.entitlements */,
 				50583D642DFB5EA100013BD0 /* Info.plist */,
 			);
-			path = finderSync;
+			path = finderSyncExt;
 			sourceTree = "<group>";
 		};
 		50583D692DFB608400013BD0 /* popup */ = {
@@ -157,7 +157,7 @@
 				50624C4C2DE5BA8200794BC8 /* app.entitlements */,
 				50624C552DE5C2BF00794BC8 /* shared */,
 				50583D692DFB608400013BD0 /* popup */,
-				50583D682DFB5EA500013BD0 /* finderSync */,
+				50583D682DFB5EA500013BD0 /* finderSyncExt */,
 				50624C712DE5DD8300794BC8 /* test */,
 				50624C352DE5B96100794BC8 /* Products */,
 			);
@@ -367,7 +367,7 @@
 				50583D6F2DFB60B900013BD0 /* String.swift in Sources */,
 				50583D702DFB60B900013BD0 /* Date.swift in Sources */,
 				50583D712DFB60B900013BD0 /* UInt.swift in Sources */,
-				50583D662DFB5EA100013BD0 /* FinderSync.swift in Sources */,
+				50583D662DFB5EA100013BD0 /* FinderSyncExt.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -428,7 +428,7 @@
 		50583D5F2DFB5D2000013BD0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = finderSync/FinderSync.entitlements;
+				CODE_SIGN_ENTITLEMENTS = finderSyncExt/FinderSyncExt.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -436,7 +436,7 @@
 				DEVELOPMENT_TEAM = 97CZR6J379;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = finderSync/Info.plist;
+				INFOPLIST_FILE = finderSyncExt/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Rwx Editor Finder Extension";
 				INFOPLIST_KEY_LSUIElement = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
@@ -460,7 +460,7 @@
 		50583D602DFB5D2000013BD0 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = finderSync/FinderSync.entitlements;
+				CODE_SIGN_ENTITLEMENTS = finderSyncExt/FinderSyncExt.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -468,7 +468,7 @@
 				DEVELOPMENT_TEAM = 97CZR6J379;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = finderSync/Info.plist;
+				INFOPLIST_FILE = finderSyncExt/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Rwx Editor Finder Extension";
 				INFOPLIST_KEY_LSUIElement = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";

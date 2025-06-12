@@ -6,7 +6,7 @@
 import Cocoa
 import FinderSync
 
-class FinderSync: FIFinderSync {
+class FinderSyncExt: FIFinderSync {
 
     var myFolderURL = URL(
         fileURLWithPath: "/Users/Shared/MySyncExtension Documents"
