@@ -135,8 +135,8 @@
 		50583D682DFB5EA500013BD0 /* finderSync */ = {
 			isa = PBXGroup;
 			children = (
-				50583D652DFB5EA100013BD0 /* FinderSync.entitlements */,
 				50583D632DFB5EA100013BD0 /* FinderSync.swift */,
+				50583D652DFB5EA100013BD0 /* FinderSync.entitlements */,
 				50583D642DFB5EA100013BD0 /* Info.plist */,
 			);
 			path = finderSync;
@@ -450,6 +450,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "maxrys.rwx-editor.finder-ext";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				REGISTER_APP_GROUPS = YES;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -481,6 +482,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "maxrys.rwx-editor.finder-ext";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				REGISTER_APP_GROUPS = YES;
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
