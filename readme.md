@@ -1,12 +1,12 @@
 
 This Finder extension (open source) creates a new menu item "Rwx Editor" in the Finder context menu when you click on a file or directory.
 
-## Внешний вид
+## Exterior
 
 ![основное всплывающее окно](https://raw.githubusercontent.com/maxrys/rwx-editor/refs/heads/main/screens/screen-1.png "основное всплывающее окно")
 
 
-## Описание
+## Description
 
 This Finder extension (open source) creates a new menu item "Rwx Editor" in the Finder context menu when you click on a file or directory.
 After clicking on the menu item, the "Rwx Editor Popup" application is called, which is a form where the user can:
