@@ -7,6 +7,8 @@ import SwiftUI
 
 @main struct PopupApp: App {
 
+    @Environment(\.openURL) private var openURL
+
     static var owners: [String: String] = [:]
     static var groups: [String: String] = [:]
 
@@ -61,6 +63,9 @@ import SwiftUI
         dump(
             FinderEvent.decode(event)
         )
+        if let url = URL(string: "rwxEditor://test") {
+            openURL(url)
+        }
     }
 
     func onApply(rights: UInt, owner: String, group: String) {

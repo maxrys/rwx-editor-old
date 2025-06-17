@@ -108,6 +108,7 @@
 		50114D162E01F24000024326 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		50114D172E01F24000024326 /* popup.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = popup.entitlements; sourceTree = "<group>"; };
 		50114D182E01F24000024326 /* PopupApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupApp.swift; sourceTree = "<group>"; };
+		50114D622E02032D00024326 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		50583D552DFB5D2000013BD0 /* Rwx Editor Finder Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Rwx Editor Finder Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		50583D632DFB5EA100013BD0 /* FinderSyncExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinderSyncExt.swift; sourceTree = "<group>"; };
 		50583D642DFB5EA100013BD0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -178,6 +179,7 @@
 				507318452DE71047005E26F9 /* RwxTextView.swift */,
 				50114D152E01F24000024326 /* Assets.xcassets */,
 				50114D172E01F24000024326 /* popup.entitlements */,
+				50114D622E02032D00024326 /* Info.plist */,
 			);
 			path = popup;
 			sourceTree = "<group>";
@@ -542,6 +544,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "popup/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Rwx Editor Popup";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
@@ -572,6 +575,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Rwx Editor Popup";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
