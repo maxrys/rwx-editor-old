@@ -153,13 +153,13 @@
 			path = "finder extension";
 			sourceTree = "<group>";
 		};
-		50583D692DFB608400013BD0 /* popup */ = {
+		50583D692DFB608400013BD0 /* main app */ = {
 			isa = PBXGroup;
 			children = (
 				507318922DF05A3B005E26F9 /* controls */,
 				50624C562DE5C2C800794BC8 /* app */,
 			);
-			path = popup;
+			path = "main app";
 			sourceTree = "<group>";
 		};
 		50624C2B2DE5B96100794BC8 = {
@@ -167,7 +167,7 @@
 			children = (
 				50624C4C2DE5BA8200794BC8 /* app.entitlements */,
 				50624C552DE5C2BF00794BC8 /* shared */,
-				50583D692DFB608400013BD0 /* popup */,
+				50583D692DFB608400013BD0 /* main app */,
 				50583D682DFB5EA500013BD0 /* finder extension */,
 				50624C712DE5DD8300794BC8 /* test */,
 				50624C352DE5B96100794BC8 /* Products */,
