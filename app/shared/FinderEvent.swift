@@ -16,10 +16,9 @@ struct FinderEvent: Codable {
     var items: [String]
 
     func encode() -> String {
-        let encoder = JSONEncoder()
-        let data = try! encoder.encode(self)
         return String(
-            data: data, encoding: .utf8
+            data: try! JSONEncoder().encode(self),
+            encoding: .utf8
         )!
     }
 
