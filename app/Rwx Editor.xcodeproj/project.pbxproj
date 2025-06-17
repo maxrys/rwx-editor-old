@@ -8,38 +8,59 @@
 
 /* Begin PBXBuildFile section */
 		50114C7D2E015BF500024326 /* FinderSyncExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50583D632DFB5EA100013BD0 /* FinderSyncExt.swift */; };
-		50114C7E2E01605B00024326 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 50624C5C2DE5CD1A00794BC8 /* Localizable.xcstrings */; };
-		50114C7F2E01607700024326 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 50624C5C2DE5CD1A00794BC8 /* Localizable.xcstrings */; };
-		50114C822E017BD800024326 /* FinderEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50114C812E017BD400024326 /* FinderEvent.swift */; };
-		50114C832E017BD800024326 /* FinderEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50114C812E017BD400024326 /* FinderEvent.swift */; };
-		50114C842E017BD800024326 /* FinderEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50114C812E017BD400024326 /* FinderEvent.swift */; };
 		50114D192E01F24000024326 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50114D162E01F24000024326 /* ContentView.swift */; };
 		50114D1A2E01F24000024326 /* PopupApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50114D182E01F24000024326 /* PopupApp.swift */; };
 		50114D1B2E01F24000024326 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50114D152E01F24000024326 /* Assets.xcassets */; };
+		50114D1D2E01F6AF00024326 /* UInt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50624C602DE5D6B500794BC8 /* UInt.swift */; };
+		50114D1E2E01F6AF00024326 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50624C532DE5C2BA00794BC8 /* View.swift */; };
+		50114D1F2E01F6AF00024326 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50624C722DE5E2E300794BC8 /* String.swift */; };
+		50114D202E01F6AF00024326 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5073189B2DF1BA3D005E26F9 /* Date.swift */; };
+		50114D212E01F6AF00024326 /* EventsDispatcherGlobal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50583D7E2DFB673D00013BD0 /* EventsDispatcherGlobal.swift */; };
+		50114D222E01F6AF00024326 /* FinderEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50114C812E017BD400024326 /* FinderEvent.swift */; };
+		50114D232E01F6AF00024326 /* enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5073189F2DF31F1C005E26F9 /* enums.swift */; };
+		50114D242E01F6AF00024326 /* CaseIterable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507318A22DF3758B005E26F9 /* CaseIterable.swift */; };
+		50114D252E01F6AF00024326 /* Process.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507318972DF05F60005E26F9 /* Process.swift */; };
+		50114D262E01F6AF00024326 /* ByteCountFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507318A52DF37FB8005E26F9 /* ByteCountFormatter.swift */; };
+		50114D272E01F6AF00024326 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 50624C5C2DE5CD1A00794BC8 /* Localizable.xcstrings */; };
+		50114D282E01F6AF00024326 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50624C722DE5E2E300794BC8 /* String.swift */; };
+		50114D292E01F6AF00024326 /* FinderEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50114C812E017BD400024326 /* FinderEvent.swift */; };
+		50114D2A2E01F6AF00024326 /* CaseIterable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507318A22DF3758B005E26F9 /* CaseIterable.swift */; };
+		50114D2B2E01F6AF00024326 /* Process.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507318972DF05F60005E26F9 /* Process.swift */; };
+		50114D2C2E01F6AF00024326 /* ByteCountFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507318A52DF37FB8005E26F9 /* ByteCountFormatter.swift */; };
+		50114D2D2E01F6AF00024326 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5073189B2DF1BA3D005E26F9 /* Date.swift */; };
+		50114D2E2E01F6AF00024326 /* enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5073189F2DF31F1C005E26F9 /* enums.swift */; };
+		50114D2F2E01F6AF00024326 /* UInt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50624C602DE5D6B500794BC8 /* UInt.swift */; };
+		50114D302E01F6AF00024326 /* EventsDispatcherGlobal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50583D7E2DFB673D00013BD0 /* EventsDispatcherGlobal.swift */; };
+		50114D312E01F6AF00024326 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50624C532DE5C2BA00794BC8 /* View.swift */; };
+		50114D322E01F6AF00024326 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 50624C5C2DE5CD1A00794BC8 /* Localizable.xcstrings */; };
+		50114D332E01F6AF00024326 /* FinderEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50114C812E017BD400024326 /* FinderEvent.swift */; };
+		50114D342E01F6AF00024326 /* enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5073189F2DF31F1C005E26F9 /* enums.swift */; };
+		50114D352E01F6AF00024326 /* UInt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50624C602DE5D6B500794BC8 /* UInt.swift */; };
+		50114D362E01F6AF00024326 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50624C722DE5E2E300794BC8 /* String.swift */; };
+		50114D372E01F6AF00024326 /* CaseIterable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507318A22DF3758B005E26F9 /* CaseIterable.swift */; };
+		50114D382E01F6AF00024326 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5073189B2DF1BA3D005E26F9 /* Date.swift */; };
+		50114D392E01F6AF00024326 /* Process.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507318972DF05F60005E26F9 /* Process.swift */; };
+		50114D3A2E01F6AF00024326 /* EventsDispatcherGlobal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50583D7E2DFB673D00013BD0 /* EventsDispatcherGlobal.swift */; };
+		50114D3B2E01F6AF00024326 /* ByteCountFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507318A52DF37FB8005E26F9 /* ByteCountFormatter.swift */; };
+		50114D3C2E01F6AF00024326 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50624C532DE5C2BA00794BC8 /* View.swift */; };
+		50114D3D2E01F6AF00024326 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 50624C5C2DE5CD1A00794BC8 /* Localizable.xcstrings */; };
+		50114D3E2E01F6AF00024326 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5073189B2DF1BA3D005E26F9 /* Date.swift */; };
+		50114D3F2E01F6AF00024326 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50624C532DE5C2BA00794BC8 /* View.swift */; };
+		50114D402E01F6AF00024326 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50624C722DE5E2E300794BC8 /* String.swift */; };
+		50114D412E01F6AF00024326 /* FinderEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50114C812E017BD400024326 /* FinderEvent.swift */; };
+		50114D422E01F6AF00024326 /* EventsDispatcherGlobal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50583D7E2DFB673D00013BD0 /* EventsDispatcherGlobal.swift */; };
+		50114D432E01F6AF00024326 /* Process.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507318972DF05F60005E26F9 /* Process.swift */; };
+		50114D442E01F6AF00024326 /* enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5073189F2DF31F1C005E26F9 /* enums.swift */; };
+		50114D452E01F6AF00024326 /* ByteCountFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507318A52DF37FB8005E26F9 /* ByteCountFormatter.swift */; };
+		50114D462E01F6AF00024326 /* CaseIterable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507318A22DF3758B005E26F9 /* CaseIterable.swift */; };
+		50114D472E01F6AF00024326 /* UInt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50624C602DE5D6B500794BC8 /* UInt.swift */; };
+		50114D482E01F6AF00024326 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 50624C5C2DE5CD1A00794BC8 /* Localizable.xcstrings */; };
 		50583D5D2DFB5D2000013BD0 /* Rwx Editor Finder Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 50583D552DFB5D2000013BD0 /* Rwx Editor Finder Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		50583D662DFB5EA100013BD0 /* FinderSyncExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50583D632DFB5EA100013BD0 /* FinderSyncExt.swift */; };
-		50583D6A2DFB60B900013BD0 /* ByteCountFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507318A52DF37FB8005E26F9 /* ByteCountFormatter.swift */; };
-		50583D6B2DFB60B900013BD0 /* CaseIterable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507318A22DF3758B005E26F9 /* CaseIterable.swift */; };
-		50583D6C2DFB60B900013BD0 /* enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5073189F2DF31F1C005E26F9 /* enums.swift */; };
-		50583D6D2DFB60B900013BD0 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50624C532DE5C2BA00794BC8 /* View.swift */; };
-		50583D6E2DFB60B900013BD0 /* Process.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507318972DF05F60005E26F9 /* Process.swift */; };
-		50583D6F2DFB60B900013BD0 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50624C722DE5E2E300794BC8 /* String.swift */; };
-		50583D702DFB60B900013BD0 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5073189B2DF1BA3D005E26F9 /* Date.swift */; };
-		50583D712DFB60B900013BD0 /* UInt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50624C602DE5D6B500794BC8 /* UInt.swift */; };
-		50583D7F2DFB673D00013BD0 /* EventsDispatcherGlobal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50583D7E2DFB673D00013BD0 /* EventsDispatcherGlobal.swift */; };
-		50583D902DFB6C1700013BD0 /* EventsDispatcherGlobal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50583D7E2DFB673D00013BD0 /* EventsDispatcherGlobal.swift */; };
-		50583D912DFB6C1700013BD0 /* EventsDispatcherGlobal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50583D7E2DFB673D00013BD0 /* EventsDispatcherGlobal.swift */; };
 		50624C4E2DE5BA8200794BC8 /* MainApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50624C4D2DE5BA8200794BC8 /* MainApp.swift */; };
 		50624C4F2DE5BA8200794BC8 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50624C4B2DE5BA8200794BC8 /* MainView.swift */; };
 		50624C502DE5BA8200794BC8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50624C4A2DE5BA8200794BC8 /* Assets.xcassets */; };
-		50624C542DE5C2BA00794BC8 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50624C532DE5C2BA00794BC8 /* View.swift */; };
-		50624C5D2DE5CD1A00794BC8 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 50624C5C2DE5CD1A00794BC8 /* Localizable.xcstrings */; };
-		50624C612DE5D6B500794BC8 /* UInt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50624C602DE5D6B500794BC8 /* UInt.swift */; };
 		50624C6A2DE5DCD500794BC8 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50624C692DE5DCD500794BC8 /* Test.swift */; };
-		50624C702DE5DD3000794BC8 /* UInt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50624C602DE5D6B500794BC8 /* UInt.swift */; };
-		50624C732DE5E2E600794BC8 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50624C722DE5E2E300794BC8 /* String.swift */; };
-		50624C742DE5E2E600794BC8 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50624C722DE5E2E300794BC8 /* String.swift */; };
-		50624C752DE5E30E00794BC8 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50624C532DE5C2BA00794BC8 /* View.swift */; };
 		507318442DE70C27005E26F9 /* ToggleRwxColored.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507318432DE70C27005E26F9 /* ToggleRwxColored.swift */; };
 		507318462DE71047005E26F9 /* RwxTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507318452DE71047005E26F9 /* RwxTextView.swift */; };
 		507318512DE7939D005E26F9 /* ToggleRwxNumeric.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507318502DE7939D005E26F9 /* ToggleRwxNumeric.swift */; };
@@ -47,16 +68,6 @@
 		507318582DE865C3005E26F9 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 507318572DE865C3005E26F9 /* Media.xcassets */; };
 		507318592DE865C3005E26F9 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 507318572DE865C3005E26F9 /* Media.xcassets */; };
 		507318762DE9EB32005E26F9 /* ButtonCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507318752DE9EB32005E26F9 /* ButtonCustom.swift */; };
-		507318982DF05F62005E26F9 /* Process.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507318972DF05F60005E26F9 /* Process.swift */; };
-		507318992DF05F62005E26F9 /* Process.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507318972DF05F60005E26F9 /* Process.swift */; };
-		5073189C2DF1BA3D005E26F9 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5073189B2DF1BA3D005E26F9 /* Date.swift */; };
-		5073189D2DF1BA3D005E26F9 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5073189B2DF1BA3D005E26F9 /* Date.swift */; };
-		507318A02DF31F20005E26F9 /* enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5073189F2DF31F1C005E26F9 /* enums.swift */; };
-		507318A12DF31F20005E26F9 /* enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5073189F2DF31F1C005E26F9 /* enums.swift */; };
-		507318A32DF3758E005E26F9 /* CaseIterable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507318A22DF3758B005E26F9 /* CaseIterable.swift */; };
-		507318A42DF3758E005E26F9 /* CaseIterable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507318A22DF3758B005E26F9 /* CaseIterable.swift */; };
-		507318A62DF37FB9005E26F9 /* ByteCountFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507318A52DF37FB8005E26F9 /* ByteCountFormatter.swift */; };
-		507318A72DF37FB9005E26F9 /* ByteCountFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507318A52DF37FB8005E26F9 /* ByteCountFormatter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -387,6 +398,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				50114D322E01F6AF00024326 /* Localizable.xcstrings in Resources */,
 				50114D1B2E01F24000024326 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -395,7 +407,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				50114C7E2E01605B00024326 /* Localizable.xcstrings in Resources */,
+				50114D3D2E01F6AF00024326 /* Localizable.xcstrings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -405,7 +417,7 @@
 			files = (
 				50624C502DE5BA8200794BC8 /* Assets.xcassets in Resources */,
 				507318582DE865C3005E26F9 /* Media.xcassets in Resources */,
-				50624C5D2DE5CD1A00794BC8 /* Localizable.xcstrings in Resources */,
+				50114D272E01F6AF00024326 /* Localizable.xcstrings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -413,7 +425,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				50114C7F2E01607700024326 /* Localizable.xcstrings in Resources */,
+				50114D482E01F6AF00024326 /* Localizable.xcstrings in Resources */,
 				507318592DE865C3005E26F9 /* Media.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -426,6 +438,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				50114D192E01F24000024326 /* ContentView.swift in Sources */,
+				50114D282E01F6AF00024326 /* String.swift in Sources */,
+				50114D292E01F6AF00024326 /* FinderEvent.swift in Sources */,
+				50114D2A2E01F6AF00024326 /* CaseIterable.swift in Sources */,
+				50114D2B2E01F6AF00024326 /* Process.swift in Sources */,
+				50114D2C2E01F6AF00024326 /* ByteCountFormatter.swift in Sources */,
+				50114D2D2E01F6AF00024326 /* Date.swift in Sources */,
+				50114D2E2E01F6AF00024326 /* enums.swift in Sources */,
+				50114D2F2E01F6AF00024326 /* UInt.swift in Sources */,
+				50114D302E01F6AF00024326 /* EventsDispatcherGlobal.swift in Sources */,
+				50114D312E01F6AF00024326 /* View.swift in Sources */,
 				50114D1A2E01F24000024326 /* PopupApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -434,16 +456,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				50583D6A2DFB60B900013BD0 /* ByteCountFormatter.swift in Sources */,
-				50583D6B2DFB60B900013BD0 /* CaseIterable.swift in Sources */,
-				50114C842E017BD800024326 /* FinderEvent.swift in Sources */,
-				50583D7F2DFB673D00013BD0 /* EventsDispatcherGlobal.swift in Sources */,
-				50583D6C2DFB60B900013BD0 /* enums.swift in Sources */,
-				50583D6D2DFB60B900013BD0 /* View.swift in Sources */,
-				50583D6E2DFB60B900013BD0 /* Process.swift in Sources */,
-				50583D6F2DFB60B900013BD0 /* String.swift in Sources */,
-				50583D702DFB60B900013BD0 /* Date.swift in Sources */,
-				50583D712DFB60B900013BD0 /* UInt.swift in Sources */,
+				50114D332E01F6AF00024326 /* FinderEvent.swift in Sources */,
+				50114D342E01F6AF00024326 /* enums.swift in Sources */,
+				50114D352E01F6AF00024326 /* UInt.swift in Sources */,
+				50114D362E01F6AF00024326 /* String.swift in Sources */,
+				50114D372E01F6AF00024326 /* CaseIterable.swift in Sources */,
+				50114D382E01F6AF00024326 /* Date.swift in Sources */,
+				50114D392E01F6AF00024326 /* Process.swift in Sources */,
+				50114D3A2E01F6AF00024326 /* EventsDispatcherGlobal.swift in Sources */,
+				50114D3B2E01F6AF00024326 /* ByteCountFormatter.swift in Sources */,
+				50114D3C2E01F6AF00024326 /* View.swift in Sources */,
 				50583D662DFB5EA100013BD0 /* FinderSyncExt.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -452,24 +474,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				50583D902DFB6C1700013BD0 /* EventsDispatcherGlobal.swift in Sources */,
-				50624C612DE5D6B500794BC8 /* UInt.swift in Sources */,
 				507318442DE70C27005E26F9 /* ToggleRwxColored.swift in Sources */,
 				50624C4E2DE5BA8200794BC8 /* MainApp.swift in Sources */,
 				507318512DE7939D005E26F9 /* ToggleRwxNumeric.swift in Sources */,
-				507318A32DF3758E005E26F9 /* CaseIterable.swift in Sources */,
 				507318762DE9EB32005E26F9 /* ButtonCustom.swift in Sources */,
-				507318A12DF31F20005E26F9 /* enums.swift in Sources */,
 				507318462DE71047005E26F9 /* RwxTextView.swift in Sources */,
-				50624C742DE5E2E600794BC8 /* String.swift in Sources */,
 				50114C7D2E015BF500024326 /* FinderSyncExt.swift in Sources */,
-				5073189D2DF1BA3D005E26F9 /* Date.swift in Sources */,
-				507318A72DF37FB9005E26F9 /* ByteCountFormatter.swift in Sources */,
 				50624C4F2DE5BA8200794BC8 /* MainView.swift in Sources */,
-				50114C822E017BD800024326 /* FinderEvent.swift in Sources */,
-				50624C542DE5C2BA00794BC8 /* View.swift in Sources */,
-				507318992DF05F62005E26F9 /* Process.swift in Sources */,
 				507318532DE82BDB005E26F9 /* PickerCustom.swift in Sources */,
+				50114D1D2E01F6AF00024326 /* UInt.swift in Sources */,
+				50114D1E2E01F6AF00024326 /* View.swift in Sources */,
+				50114D1F2E01F6AF00024326 /* String.swift in Sources */,
+				50114D202E01F6AF00024326 /* Date.swift in Sources */,
+				50114D212E01F6AF00024326 /* EventsDispatcherGlobal.swift in Sources */,
+				50114D222E01F6AF00024326 /* FinderEvent.swift in Sources */,
+				50114D232E01F6AF00024326 /* enums.swift in Sources */,
+				50114D242E01F6AF00024326 /* CaseIterable.swift in Sources */,
+				50114D252E01F6AF00024326 /* Process.swift in Sources */,
+				50114D262E01F6AF00024326 /* ByteCountFormatter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -477,17 +499,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				50624C752DE5E30E00794BC8 /* View.swift in Sources */,
-				5073189C2DF1BA3D005E26F9 /* Date.swift in Sources */,
-				50114C832E017BD800024326 /* FinderEvent.swift in Sources */,
-				50583D912DFB6C1700013BD0 /* EventsDispatcherGlobal.swift in Sources */,
-				50624C732DE5E2E600794BC8 /* String.swift in Sources */,
-				507318A62DF37FB9005E26F9 /* ByteCountFormatter.swift in Sources */,
-				50624C702DE5DD3000794BC8 /* UInt.swift in Sources */,
+				50114D3E2E01F6AF00024326 /* Date.swift in Sources */,
+				50114D3F2E01F6AF00024326 /* View.swift in Sources */,
+				50114D402E01F6AF00024326 /* String.swift in Sources */,
+				50114D412E01F6AF00024326 /* FinderEvent.swift in Sources */,
+				50114D422E01F6AF00024326 /* EventsDispatcherGlobal.swift in Sources */,
+				50114D432E01F6AF00024326 /* Process.swift in Sources */,
+				50114D442E01F6AF00024326 /* enums.swift in Sources */,
+				50114D452E01F6AF00024326 /* ByteCountFormatter.swift in Sources */,
+				50114D462E01F6AF00024326 /* CaseIterable.swift in Sources */,
+				50114D472E01F6AF00024326 /* UInt.swift in Sources */,
 				50624C6A2DE5DCD500794BC8 /* Test.swift in Sources */,
-				507318A02DF31F20005E26F9 /* enums.swift in Sources */,
-				507318A42DF3758E005E26F9 /* CaseIterable.swift in Sources */,
-				507318982DF05F62005E26F9 /* Process.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
