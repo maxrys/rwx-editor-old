@@ -1,22 +1,18 @@
-//
-//  ContentView.swift
-//  Rwx Editor Popup
-//
-//  Created by Max on 17.06.25.
-//
+
+/* ############################################################# */
+/* ### Copyright © 2025 Maxim Rysevets. All rights reserved. ### */
+/* ############################################################# */
 
 import SwiftUI
 
 struct ContentView: View {
+
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+            Text("Main app")
         }
-        .padding()
     }
+
 }
 
 #Preview {
