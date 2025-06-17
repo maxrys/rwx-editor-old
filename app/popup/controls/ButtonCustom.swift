@@ -26,22 +26,14 @@ struct ButtonCustom: View {
             Text(self.text)
                 .lineLimit(1)
                 .flexibility(self.flexibility)
-                .font(.system(size: 12, weight: .bold))
+                .font(.system(size: 12, weight: .regular))
                 .foregroundPolyfill(Color(Self.ColorNames.text.rawValue))
                 .padding(.init(top: 6, leading: 10, bottom: 7, trailing: 10))
                 .background(
                     ZStack {
-                        RoundedRectangle(cornerRadius: 7)
-                            .fill(
-                                LinearGradient(
-                                    colors: [
-                                        Color.accentColor,
-                                        Color.accentColor.opacity(0.5)
-                                    ],
-                                    startPoint: .top,
-                                    endPoint: .bottom
-                                )
-                           )
+                        if #available(macOS 13.0, *)
+                             { RoundedRectangle(cornerRadius: 7).fill(Color.accentColor.gradient) }
+                        else { RoundedRectangle(cornerRadius: 7).fill(Color.accentColor) }
                     }
                 )
         }
