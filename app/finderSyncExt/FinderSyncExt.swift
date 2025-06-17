@@ -51,7 +51,7 @@ class FinderSyncExt: FIFinderSync {
                 object: FinderEvent(
                     type: .directory,
                     items: paths
-                ).toString()
+                ).encode()
             )
         }
     }

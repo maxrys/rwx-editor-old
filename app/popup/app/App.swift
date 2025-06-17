@@ -58,11 +58,9 @@ import SwiftUI
     }
 
     func onFinderContextMenu(event: String) {
-        let object = try! JSONDecoder().decode(
-            FinderEvent.self,
-            from: event.data(using: .utf8)!
+        dump(
+            FinderEvent.decode(event)
         )
-        dump(object.items)
     }
 
     func onApply(rights: UInt, owner: String, group: String) {

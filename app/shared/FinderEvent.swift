@@ -15,10 +15,21 @@ struct FinderEvent: Codable {
     var type: FinderEventType
     var items: [String]
 
-    func toString() -> String {
+    func encode() -> String {
         let encoder = JSONEncoder()
         let data = try! encoder.encode(self)
-        return String(data: data, encoding: .utf8)!
+        return String(
+            data: data, encoding: .utf8
+        )!
+    }
+
+    static func decode(_ event: String) -> Self {
+        return try! JSONDecoder().decode(
+            Self.self,
+            from: event.data(
+                using: .utf8
+            )!
+        )
     }
 
 }
