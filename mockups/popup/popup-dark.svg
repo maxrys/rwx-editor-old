@@ -18,12 +18,12 @@
       <bx:file format="png" path="popup-light.png"/>
     </bx:export>
     <linearGradient gradientUnits="userSpaceOnUse" x1="623.617" y1="1020" x2="623.617" y2="1076" id="gradient-1" gradientTransform="matrix(1, 0, 0, 1, 0, 31)">
-      <stop offset="0" style="stop-color: rgb(41, 144, 255);"/>
-      <stop offset="1" style="stop-color: rgb(0, 122, 255);"/>
+      <stop offset="0" style="stop-color: rgb(45, 159, 255);"/>
+      <stop offset="1" style="stop-color: rgb(2, 122, 255);"/>
     </linearGradient>
     <linearGradient gradientUnits="userSpaceOnUse" x1="375.117" y1="1019.9" x2="375.117" y2="1075.9" id="gradient-2" gradientTransform="matrix(1, 0, 0, 1, 0, 31)">
-      <stop offset="0" style="stop-color: rgb(41, 144, 255);"/>
-      <stop offset="1" style="stop-color: rgb(0, 122, 255);"/>
+      <stop offset="0" style="stop-color: rgb(45, 159, 255);"/>
+      <stop offset="1" style="stop-color: rgb(2, 122, 255);"/>
     </linearGradient>
     <linearGradient gradientUnits="userSpaceOnUse" x1="499.617" y1="374" x2="499.617" y2="394" id="gradient-0" gradientTransform="matrix(1, 0, 0, 0.5, -0.499999, 187)">
       <stop offset="0" style="stop-color: rgb(28, 27, 27);"/>
@@ -146,11 +146,11 @@
       <path style="stroke-width: 2; filter: none; fill: rgb(34, 34, 34);" d="M 199.117 1002 H 799.117 V 1136.3 A 20.7 20.7 0 0 1 778.417 1157 H 219.817 A 20.7 20.7 0 0 1 199.117 1136.3 V 1002 Z" bx:shape="rect 199.117 1002 600 155 0 0 20.7 20.7 1@e2b3b946"/>
       <g style="opacity: 0.5;">
         <rect x="261.117" y="1050.9" width="228" height="56" style="filter: none; stroke-width: 1; fill: url(&quot;#gradient-2&quot;);" rx="15.007" ry="15.007"/>
-        <text style="fill: rgb(255, 255, 255); font-family: &quot;SF Pro&quot;; font-size: 27px; font-weight: 700; white-space: pre; stroke-width: 1;" x="333.424" y="1087.59">cancel</text>
+        <text style="fill: rgb(255, 255, 255); font-family: &quot;SF Pro&quot;; font-size: 27px; white-space: pre;" x="336.924" y="1087.59">cancel</text>
       </g>
       <g>
         <rect x="509.117" y="1051" width="229" height="56" style="filter: none; stroke-width: 1; fill: url(&quot;#gradient-1&quot;);" rx="14.968" ry="14.968"/>
-        <text style="fill: rgb(255, 255, 255); font-family: &quot;SF Pro&quot;; font-size: 27px; font-weight: 700; white-space: pre; stroke-width: 1;" x="588.758" y="1087.69">apply</text>
+        <text style="fill: rgb(255, 255, 255); font-family: &quot;SF Pro&quot;; font-size: 27px; white-space: pre;" x="591.753" y="1087.69">apply</text>
       </g>
     </g>
   </g>
