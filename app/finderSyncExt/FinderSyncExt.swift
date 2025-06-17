@@ -49,7 +49,7 @@ class FinderSyncExt: FIFinderSync {
             }
             EventsDispatcher.shared.send(
                 FinderSyncExt.EVENT_NAME_FOR_FINDER_CONTEXT_MENU,
-                message: Message(
+                object: Message(
                     name: "forDirs",
                     data: paths.joined(separator: "|")
                 )

@@ -27,13 +27,13 @@ class EventsDispatcher {
     let center: DistributedNotificationCenter = .default()
 
     var handlers: [
-        String: (_ message: Message) -> Void
+        String: (_ event: Message) -> Void
     ] = [:]
 
-    func send(_ type: String, message: Message) {
+    func send(_ type: String, object: Message) {
         self.center.postNotificationName(
             NSNotification.Name(type),
-            object: message.encode(),
+            object: object.encode(),
             userInfo: nil,
             deliverImmediately: true
         )
