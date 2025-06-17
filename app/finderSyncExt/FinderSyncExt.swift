@@ -27,8 +27,7 @@ class FinderSyncExt: FIFinderSync {
         switch menuKind {
             case .contextualMenuForItems, .contextualMenuForContainer:
                 let menuItem = NSMenuItem()
-                    menuItem.title = String(NSLocalizedString("Permissions", comment: ""))
-                    menuItem.toolTip = "Permissions"
+                    menuItem.title = String(NSLocalizedString("Rwx Editor", comment: ""))
                     menuItem.image = NSImage(systemSymbolName: "folder.badge.person.crop", accessibilityDescription: "")!
                     menuItem.action = #selector(onContextMenu(_:))
                     menuItem.target = self
@@ -49,10 +48,7 @@ class FinderSyncExt: FIFinderSync {
             }
             EventsDispatcher.shared.send(
                 FinderSyncExt.EVENT_NAME_FOR_FINDER_CONTEXT_MENU,
-                object: Message(
-                    name: "forDirs",
-                    data: paths.joined(separator: "|")
-                )
+                object: "dirs:\(paths.joined(separator: "|"))"
             )
         }
     }

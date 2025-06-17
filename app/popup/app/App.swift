@@ -48,9 +48,7 @@ import SwiftUI
             }
         }
         EventsDispatcher.shared.on(FinderSyncExt.EVENT_NAME_FOR_FINDER_CONTEXT_MENU) { event in
-            if (event.name == "forDirs") {
-                print("message: \(event.encode())")
-            }
+            dump(event)
         }
     }
 
