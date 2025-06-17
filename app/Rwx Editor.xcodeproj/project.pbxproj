@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		50114C7D2E015BF500024326 /* FinderSyncExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50583D632DFB5EA100013BD0 /* FinderSyncExt.swift */; };
 		50583D5D2DFB5D2000013BD0 /* Rwx Editor Finder Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 50583D552DFB5D2000013BD0 /* Rwx Editor Finder Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		50583D662DFB5EA100013BD0 /* FinderSyncExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50583D632DFB5EA100013BD0 /* FinderSyncExt.swift */; };
 		50583D6A2DFB60B900013BD0 /* ByteCountFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507318A52DF37FB8005E26F9 /* ByteCountFormatter.swift */; };
@@ -391,6 +392,7 @@
 				507318A12DF31F20005E26F9 /* enums.swift in Sources */,
 				507318462DE71047005E26F9 /* RwxTextView.swift in Sources */,
 				50624C742DE5E2E600794BC8 /* String.swift in Sources */,
+				50114C7D2E015BF500024326 /* FinderSyncExt.swift in Sources */,
 				5073189D2DF1BA3D005E26F9 /* Date.swift in Sources */,
 				507318A72DF37FB9005E26F9 /* ByteCountFormatter.swift in Sources */,
 				50624C4F2DE5BA8200794BC8 /* MainView.swift in Sources */,

@@ -8,6 +8,8 @@ import FinderSync
 
 class FinderSyncExt: FIFinderSync {
 
+    static let EVENT_NAME_FOR_FINDER_CONTEXT_MENU = "finderContextMenu"
+
     var folderURL = URL(
         fileURLWithPath: "/Users/" // "/Users/Shared/MySyncExtension Documents"
     )
@@ -46,7 +48,7 @@ class FinderSyncExt: FIFinderSync {
                 paths.append(url.absoluteString)
             }
             EventsDispatcher.shared.send(
-                "finderContextMenu",
+                FinderSyncExt.EVENT_NAME_FOR_FINDER_CONTEXT_MENU,
                 message: Message(
                     name: "forDirs",
                     data: paths.joined(separator: "|")
