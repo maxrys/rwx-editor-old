@@ -10,8 +10,6 @@ import SwiftUI
     static var owners: [String: String] = [:]
     static var groups: [String: String] = [:]
 
-    let messenger = Messenger.shared
-
     var body: some Scene {
         let window = WindowGroup {
             self.mainScene
@@ -49,7 +47,7 @@ import SwiftUI
                 Self.groups[value] = value
             }
         }
-        messenger.on("finderContextMenu") { message in
+        EventsDispatcher.shared.on("finderContextMenu") { message in
             if (message.name == "forDirs") {
                 print("message: \(message.encode())")
             }

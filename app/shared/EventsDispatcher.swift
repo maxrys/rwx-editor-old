@@ -20,9 +20,9 @@ struct Message: Codable {
 
 }
 
-class Messenger {
+class EventsDispatcher {
 
-    static let shared = Messenger()
+    static let shared = EventsDispatcher()
 
     let center: DistributedNotificationCenter = .default()
 
@@ -30,7 +30,7 @@ class Messenger {
         String: (_ message: Message) -> Void
     ] = [:]
 
-    func sendMessage(_ type: String, message: Message) {
+    func send(_ type: String, message: Message) {
         self.center.postNotificationName(
             NSNotification.Name(type),
             object: message.encode(),

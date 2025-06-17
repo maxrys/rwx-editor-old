@@ -8,7 +8,6 @@ import FinderSync
 
 class FinderSyncExt: FIFinderSync {
 
-    let messenger = Messenger.shared
     var folderURL = URL(
         fileURLWithPath: "/Users/" // "/Users/Shared/MySyncExtension Documents"
     )
@@ -46,7 +45,7 @@ class FinderSyncExt: FIFinderSync {
             items?.forEach { url in
                 paths.append(url.absoluteString)
             }
-            messenger.sendMessage(
+            EventsDispatcher.shared.send(
                 "finderContextMenu",
                 message: Message(
                     name: "forDirs",
