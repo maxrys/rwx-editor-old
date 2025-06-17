@@ -20,6 +20,9 @@ import SwiftUI
         let window = WindowGroup {
             self.mainScene
                 .environment(\.layoutDirection, .leftToRight)
+                .onOpenURL { url in
+                    dump(url)
+                }
         }
         if #available(macOS 13.0, *) { return window.windowResizability(.contentSize) }
         else                         { return window }
