@@ -5,7 +5,7 @@
 
 import SwiftUI
 
-@main struct ThisApp: App {
+@main struct MainApp: App {
 
     static var owners: [String: String] = [:]
     static var groups: [String: String] = [:]
@@ -71,5 +71,5 @@ import SwiftUI
 
 @available(macOS 14.0, *) #Preview {
     @Previewable @State var rights: UInt = 0o644
-    ThisApp().mainScene
+    MainApp().mainScene
 }

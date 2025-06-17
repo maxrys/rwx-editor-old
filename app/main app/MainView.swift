@@ -234,7 +234,7 @@ struct MainView: View {
                         Text(NSLocalizedString("Owner", comment: ""))
                         PickerCustom<String>(
                             selected: self.$owner,
-                            values: ThisApp.owners,
+                            values: MainApp.owners,
                             isPlainListStyle: true,
                             flexibility: .size(150)
                         )
@@ -245,7 +245,7 @@ struct MainView: View {
                         Text(NSLocalizedString("Group", comment: ""))
                         PickerCustom<String>(
                             selected: self.$group,
-                            values: ThisApp.groups,
+                            values: MainApp.groups,
                             isPlainListStyle: true,
                             flexibility: .size(150)
                         )

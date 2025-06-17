@@ -26,7 +26,7 @@
 		50583D7F2DFB673D00013BD0 /* EventsDispatcherGlobal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50583D7E2DFB673D00013BD0 /* EventsDispatcherGlobal.swift */; };
 		50583D902DFB6C1700013BD0 /* EventsDispatcherGlobal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50583D7E2DFB673D00013BD0 /* EventsDispatcherGlobal.swift */; };
 		50583D912DFB6C1700013BD0 /* EventsDispatcherGlobal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50583D7E2DFB673D00013BD0 /* EventsDispatcherGlobal.swift */; };
-		50624C4E2DE5BA8200794BC8 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50624C4D2DE5BA8200794BC8 /* App.swift */; };
+		50624C4E2DE5BA8200794BC8 /* MainApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50624C4D2DE5BA8200794BC8 /* MainApp.swift */; };
 		50624C4F2DE5BA8200794BC8 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50624C4B2DE5BA8200794BC8 /* MainView.swift */; };
 		50624C502DE5BA8200794BC8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50624C4A2DE5BA8200794BC8 /* Assets.xcassets */; };
 		50624C542DE5C2BA00794BC8 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50624C532DE5C2BA00794BC8 /* View.swift */; };
@@ -97,8 +97,8 @@
 		50624C342DE5B96100794BC8 /* Rwx Editor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Rwx Editor.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		50624C4A2DE5BA8200794BC8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		50624C4B2DE5BA8200794BC8 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
-		50624C4C2DE5BA8200794BC8 /* app.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = app.entitlements; sourceTree = "<group>"; };
-		50624C4D2DE5BA8200794BC8 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
+		50624C4C2DE5BA8200794BC8 /* popup.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = popup.entitlements; sourceTree = "<group>"; };
+		50624C4D2DE5BA8200794BC8 /* MainApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainApp.swift; sourceTree = "<group>"; };
 		50624C532DE5C2BA00794BC8 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		50624C5C2DE5CD1A00794BC8 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		50624C602DE5D6B500794BC8 /* UInt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UInt.swift; sourceTree = "<group>"; };
@@ -157,7 +157,11 @@
 			isa = PBXGroup;
 			children = (
 				507318922DF05A3B005E26F9 /* controls */,
-				50624C562DE5C2C800794BC8 /* app */,
+				50624C4D2DE5BA8200794BC8 /* MainApp.swift */,
+				50624C4B2DE5BA8200794BC8 /* MainView.swift */,
+				507318452DE71047005E26F9 /* RwxTextView.swift */,
+				50624C4A2DE5BA8200794BC8 /* Assets.xcassets */,
+				50624C4C2DE5BA8200794BC8 /* popup.entitlements */,
 			);
 			path = "main app";
 			sourceTree = "<group>";
@@ -165,7 +169,6 @@
 		50624C2B2DE5B96100794BC8 = {
 			isa = PBXGroup;
 			children = (
-				50624C4C2DE5BA8200794BC8 /* app.entitlements */,
 				50624C552DE5C2BF00794BC8 /* shared */,
 				50583D692DFB608400013BD0 /* main app */,
 				50583D682DFB5EA500013BD0 /* finder extension */,
@@ -200,17 +203,6 @@
 				50624C5C2DE5CD1A00794BC8 /* Localizable.xcstrings */,
 			);
 			path = shared;
-			sourceTree = "<group>";
-		};
-		50624C562DE5C2C800794BC8 /* app */ = {
-			isa = PBXGroup;
-			children = (
-				50624C4D2DE5BA8200794BC8 /* App.swift */,
-				50624C4B2DE5BA8200794BC8 /* MainView.swift */,
-				507318452DE71047005E26F9 /* RwxTextView.swift */,
-				50624C4A2DE5BA8200794BC8 /* Assets.xcassets */,
-			);
-			path = app;
 			sourceTree = "<group>";
 		};
 		50624C712DE5DD8300794BC8 /* test */ = {
@@ -395,7 +387,7 @@
 				50583D902DFB6C1700013BD0 /* EventsDispatcherGlobal.swift in Sources */,
 				50624C612DE5D6B500794BC8 /* UInt.swift in Sources */,
 				507318442DE70C27005E26F9 /* ToggleRwxColored.swift in Sources */,
-				50624C4E2DE5BA8200794BC8 /* App.swift in Sources */,
+				50624C4E2DE5BA8200794BC8 /* MainApp.swift in Sources */,
 				507318512DE7939D005E26F9 /* ToggleRwxNumeric.swift in Sources */,
 				507318A32DF3758E005E26F9 /* CaseIterable.swift in Sources */,
 				507318762DE9EB32005E26F9 /* ButtonCustom.swift in Sources */,
@@ -638,7 +630,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = app.entitlements;
+				CODE_SIGN_ENTITLEMENTS = "main app/popup.entitlements";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -669,7 +661,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = app.entitlements;
+				CODE_SIGN_ENTITLEMENTS = "main app/popup.entitlements";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
