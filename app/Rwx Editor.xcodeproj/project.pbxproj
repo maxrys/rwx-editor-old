@@ -13,6 +13,9 @@
 		50114C822E017BD800024326 /* FinderEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50114C812E017BD400024326 /* FinderEvent.swift */; };
 		50114C832E017BD800024326 /* FinderEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50114C812E017BD400024326 /* FinderEvent.swift */; };
 		50114C842E017BD800024326 /* FinderEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50114C812E017BD400024326 /* FinderEvent.swift */; };
+		50114D192E01F24000024326 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50114D162E01F24000024326 /* ContentView.swift */; };
+		50114D1A2E01F24000024326 /* PopupApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50114D182E01F24000024326 /* PopupApp.swift */; };
+		50114D1B2E01F24000024326 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50114D152E01F24000024326 /* Assets.xcassets */; };
 		50583D5D2DFB5D2000013BD0 /* Rwx Editor Finder Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 50583D552DFB5D2000013BD0 /* Rwx Editor Finder Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		50583D662DFB5EA100013BD0 /* FinderSyncExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50583D632DFB5EA100013BD0 /* FinderSyncExt.swift */; };
 		50583D6A2DFB60B900013BD0 /* ByteCountFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507318A52DF37FB8005E26F9 /* ByteCountFormatter.swift */; };
@@ -90,6 +93,9 @@
 /* Begin PBXFileReference section */
 		50114C812E017BD400024326 /* FinderEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinderEvent.swift; sourceTree = "<group>"; };
 		50114D022E01F10900024326 /* Rwx Editor Popup.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Rwx Editor Popup.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		50114D152E01F24000024326 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		50114D162E01F24000024326 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		50114D182E01F24000024326 /* PopupApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupApp.swift; sourceTree = "<group>"; };
 		50583D552DFB5D2000013BD0 /* Rwx Editor Finder Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Rwx Editor Finder Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		50583D632DFB5EA100013BD0 /* FinderSyncExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinderSyncExt.swift; sourceTree = "<group>"; };
 		50583D642DFB5EA100013BD0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -159,6 +165,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		50114D1C2E01F50F00024326 /* popup */ = {
+			isa = PBXGroup;
+			children = (
+				50114D182E01F24000024326 /* PopupApp.swift */,
+				50114D162E01F24000024326 /* ContentView.swift */,
+				50114D152E01F24000024326 /* Assets.xcassets */,
+			);
+			path = popup;
+			sourceTree = "<group>";
+		};
 		50583D682DFB5EA500013BD0 /* finder extension */ = {
 			isa = PBXGroup;
 			children = (
@@ -187,6 +203,7 @@
 			children = (
 				50624C552DE5C2BF00794BC8 /* shared */,
 				50583D692DFB608400013BD0 /* main app */,
+				50114D1C2E01F50F00024326 /* popup */,
 				50583D682DFB5EA500013BD0 /* finder extension */,
 				50624C712DE5DD8300794BC8 /* test */,
 				50114D032E01F10900024326 /* Rwx Editor Popup */,
@@ -380,6 +397,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				50114D1B2E01F24000024326 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -417,6 +435,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				50114D192E01F24000024326 /* ContentView.swift in Sources */,
+				50114D1A2E01F24000024326 /* PopupApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
