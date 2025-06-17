@@ -89,6 +89,7 @@
 
 /* Begin PBXFileReference section */
 		50114C812E017BD400024326 /* FinderEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinderEvent.swift; sourceTree = "<group>"; };
+		50114D022E01F10900024326 /* Rwx Editor Popup.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Rwx Editor Popup.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		50583D552DFB5D2000013BD0 /* Rwx Editor Finder Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Rwx Editor Finder Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		50583D632DFB5EA100013BD0 /* FinderSyncExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinderSyncExt.swift; sourceTree = "<group>"; };
 		50583D642DFB5EA100013BD0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -118,7 +119,22 @@
 		507318A52DF37FB8005E26F9 /* ByteCountFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ByteCountFormatter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		50114D032E01F10900024326 /* Rwx Editor Popup */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = "Rwx Editor Popup";
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
 /* Begin PBXFrameworksBuildPhase section */
+		50114CFF2E01F10900024326 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		50583D522DFB5D2000013BD0 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -173,6 +189,7 @@
 				50583D692DFB608400013BD0 /* main app */,
 				50583D682DFB5EA500013BD0 /* finder extension */,
 				50624C712DE5DD8300794BC8 /* test */,
+				50114D032E01F10900024326 /* Rwx Editor Popup */,
 				50624C352DE5B96100794BC8 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -183,6 +200,7 @@
 				50624C342DE5B96100794BC8 /* Rwx Editor.app */,
 				50624C672DE5DCD500794BC8 /* Rwx Editor Test.xctest */,
 				50583D552DFB5D2000013BD0 /* Rwx Editor Finder Extension.appex */,
+				50114D022E01F10900024326 /* Rwx Editor Popup.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -228,6 +246,28 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		50114D012E01F10900024326 /* Rwx Editor Popup */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 50114D0D2E01F10B00024326 /* Build configuration list for PBXNativeTarget "Rwx Editor Popup" */;
+			buildPhases = (
+				50114CFE2E01F10900024326 /* Sources */,
+				50114CFF2E01F10900024326 /* Frameworks */,
+				50114D002E01F10900024326 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				50114D032E01F10900024326 /* Rwx Editor Popup */,
+			);
+			name = "Rwx Editor Popup";
+			packageProductDependencies = (
+			);
+			productName = "Rwx Editor Popup";
+			productReference = 50114D022E01F10900024326 /* Rwx Editor Popup.app */;
+			productType = "com.apple.product-type.application";
+		};
 		50583D542DFB5D2000013BD0 /* Rwx Editor Finder Extension */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 50583D622DFB5D2000013BD0 /* Build configuration list for PBXNativeTarget "Rwx Editor Finder Extension" */;
@@ -298,6 +338,9 @@
 				LastSwiftUpdateCheck = 1640;
 				LastUpgradeCheck = 1630;
 				TargetAttributes = {
+					50114D012E01F10900024326 = {
+						CreatedOnToolsVersion = 16.4;
+					};
 					50583D542DFB5D2000013BD0 = {
 						CreatedOnToolsVersion = 16.4;
 					};
@@ -327,11 +370,19 @@
 				50624C332DE5B96100794BC8 /* Rwx Editor */,
 				50583D542DFB5D2000013BD0 /* Rwx Editor Finder Extension */,
 				50624C662DE5DCD500794BC8 /* Rwx Editor Test */,
+				50114D012E01F10900024326 /* Rwx Editor Popup */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		50114D002E01F10900024326 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		50583D532DFB5D2000013BD0 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -362,6 +413,13 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		50114CFE2E01F10900024326 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		50583D512DFB5D2000013BD0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -439,6 +497,62 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		50114D0B2E01F10B00024326 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Rwx Editor Popup/Rwx_Editor_Popup.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 97CZR6J379;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 15.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "maxrys.Rwx-Editor-Popup";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		50114D0C2E01F10B00024326 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Rwx Editor Popup/Rwx_Editor_Popup.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 97CZR6J379;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 15.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "maxrys.Rwx-Editor-Popup";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
 		50583D5F2DFB5D2000013BD0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -722,6 +836,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		50114D0D2E01F10B00024326 /* Build configuration list for PBXNativeTarget "Rwx Editor Popup" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				50114D0B2E01F10B00024326 /* Debug */,
+				50114D0C2E01F10B00024326 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		50583D622DFB5D2000013BD0 /* Build configuration list for PBXNativeTarget "Rwx Editor Finder Extension" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
