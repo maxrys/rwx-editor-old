@@ -46,7 +46,7 @@ class FinderSyncExt: FIFinderSync {
             items?.forEach { url in
                 paths.append(url.absoluteString)
             }
-            EventsDispatcher.shared.send(
+            EventsDispatcherGlobal.shared.send(
                 FinderSyncExt.EVENT_NAME_FOR_FINDER_CONTEXT_MENU,
                 object: "dirs:\(paths.joined(separator: "|"))"
             )

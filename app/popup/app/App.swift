@@ -10,6 +10,10 @@ import SwiftUI
     static var owners: [String: String] = [:]
     static var groups: [String: String] = [:]
 
+    private let publisherForFinder = EventsDispatcherGlobal.shared.publisher(
+        FinderSyncExt.EVENT_NAME_FOR_FINDER_CONTEXT_MENU
+    )!
+
     var body: some Scene {
         let window = WindowGroup {
             self.mainScene
@@ -47,7 +51,7 @@ import SwiftUI
                 Self.groups[value] = value
             }
         }
-        EventsDispatcher.shared.on(FinderSyncExt.EVENT_NAME_FOR_FINDER_CONTEXT_MENU) { event in
+        EventsDispatcherGlobal.shared.on(FinderSyncExt.EVENT_NAME_FOR_FINDER_CONTEXT_MENU) { event in
             dump(event)
         }
     }
