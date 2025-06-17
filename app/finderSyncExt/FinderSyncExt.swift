@@ -48,7 +48,10 @@ class FinderSyncExt: FIFinderSync {
             }
             EventsDispatcherGlobal.shared.send(
                 FinderSyncExt.EVENT_NAME_FOR_FINDER_CONTEXT_MENU,
-                object: "dirs:\(paths.joined(separator: "|"))"
+                object: FinderEvent(
+                    type: .directory,
+                    items: paths
+                ).toString()
             )
         }
     }

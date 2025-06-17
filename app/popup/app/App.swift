@@ -39,6 +39,10 @@ import SwiftUI
     }
 
     init() {
+        EventsDispatcherGlobal.shared.on(
+            FinderSyncExt.EVENT_NAME_FOR_FINDER_CONTEXT_MENU,
+            handler: self.onFinderContextMenu
+        )
         let owners = Process.systemUsers ().filter{ $0.first != "_" }.sorted()
         let groups = Process.systemGroups().filter{ $0.first != "_" }.sorted()
         if (Self.owners.isEmpty) {
@@ -51,9 +55,14 @@ import SwiftUI
                 Self.groups[value] = value
             }
         }
-        EventsDispatcherGlobal.shared.on(FinderSyncExt.EVENT_NAME_FOR_FINDER_CONTEXT_MENU) { event in
-            dump(event)
-        }
+    }
+
+    func onFinderContextMenu(event: String) {
+        let object = try! JSONDecoder().decode(
+            FinderEvent.self,
+            from: event.data(using: .utf8)!
+        )
+        dump(object.items)
     }
 
     func onApply(rights: UInt, owner: String, group: String) {
