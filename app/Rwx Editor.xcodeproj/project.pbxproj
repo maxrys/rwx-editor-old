@@ -143,14 +143,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		50583D682DFB5EA500013BD0 /* finderSyncExt */ = {
+		50583D682DFB5EA500013BD0 /* finder extension */ = {
 			isa = PBXGroup;
 			children = (
 				50583D632DFB5EA100013BD0 /* FinderSyncExt.swift */,
 				50583D652DFB5EA100013BD0 /* FinderSyncExt.entitlements */,
 				50583D642DFB5EA100013BD0 /* Info.plist */,
 			);
-			path = finderSyncExt;
+			path = "finder extension";
 			sourceTree = "<group>";
 		};
 		50583D692DFB608400013BD0 /* popup */ = {
@@ -168,7 +168,7 @@
 				50624C4C2DE5BA8200794BC8 /* app.entitlements */,
 				50624C552DE5C2BF00794BC8 /* shared */,
 				50583D692DFB608400013BD0 /* popup */,
-				50583D682DFB5EA500013BD0 /* finderSyncExt */,
+				50583D682DFB5EA500013BD0 /* finder extension */,
 				50624C712DE5DD8300794BC8 /* test */,
 				50624C352DE5B96100794BC8 /* Products */,
 			);
@@ -450,7 +450,7 @@
 		50583D5F2DFB5D2000013BD0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = finderSyncExt/FinderSyncExt.entitlements;
+				CODE_SIGN_ENTITLEMENTS = "finder extension/FinderSyncExt.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -458,7 +458,7 @@
 				DEVELOPMENT_TEAM = 97CZR6J379;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = finderSyncExt/Info.plist;
+				INFOPLIST_FILE = "finder extension/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Rwx Editor Finder Extension";
 				INFOPLIST_KEY_LSUIElement = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
@@ -482,7 +482,7 @@
 		50583D602DFB5D2000013BD0 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = finderSyncExt/FinderSyncExt.entitlements;
+				CODE_SIGN_ENTITLEMENTS = "finder extension/FinderSyncExt.entitlements";
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -490,7 +490,7 @@
 				DEVELOPMENT_TEAM = 97CZR6J379;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = finderSyncExt/Info.plist;
+				INFOPLIST_FILE = "finder extension/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Rwx Editor Finder Extension";
 				INFOPLIST_KEY_LSUIElement = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
