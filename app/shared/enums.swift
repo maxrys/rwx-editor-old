@@ -41,6 +41,7 @@ public enum Kind {
 
     case dirrectory
     case file
+    case unknown
 
 }
 

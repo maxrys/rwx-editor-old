@@ -5,6 +5,20 @@
 
 import SwiftUI
 
+struct EntityInfo {
+
+    var kind: Kind = .unknown
+    var name: String = "n/a"
+    var path: String = "n/a"
+    var size: UInt = 0
+    var created: Date = try! Date(fromISO8601: "2025-01-01 00:00:00 +0000")
+    var updated: Date = try! Date(fromISO8601: "2025-01-01 00:00:00 +0000")
+    var rights: UInt = 0
+    var owner: String = ""
+    var group: String = ""
+
+}
+
 @main struct PopupApp: App {
 
     static let FRAME_WIDTH: CGFloat = 300
@@ -34,18 +48,26 @@ import SwiftUI
                 else { Text(String(format: NSLocalizedString("url: %@", comment: ""), self.receivedUrl)).padding(10).frame(maxWidth: .infinity).foregroundPolyfill(Color(.white)).background(Color.getCustom(.softGreen)) }
             #endif
             PopupMainView(
-                kind: .file,
-                name: "Rwx Editor.icns",
-                path: "/usr/local/bin/some/long/path",
-                size: 1_234_567,
-                created: try! Date(fromISO8601: "2025-01-02 03:04:05 +0000"),
-                updated: try! Date(fromISO8601: "2025-01-02 03:04:05 +0000"),
-                rights: 0o644,
-                owner: "nobody",
-                group: "staff",
+                info: self.parseURL(url: self.receivedUrl),
                 onApply: self.onApply
             )
         }.frame(width: PopupApp.FRAME_WIDTH)
+    }
+
+    func parseURL(url: String) -> EntityInfo {
+        var result = EntityInfo()
+        if (url != "") {
+            result.kind = .file
+            result.name = "Rwx Editor.icns"
+            result.path = "/usr/local/bin/some/long/path"
+            result.size = 1_234_567
+            result.created = try! Date(fromISO8601: "2025-01-02 03:04:05 +0000")
+            result.updated = try! Date(fromISO8601: "2025-01-02 03:04:05 +0000")
+            result.rights = 0o644
+            result.owner = "nobody"
+            result.group = "staff"
+        }
+        return result
     }
 
     init() {

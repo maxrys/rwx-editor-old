@@ -35,20 +35,20 @@ struct PopupMainView: View {
     private let originalGroup: String
     private let onApply: (UInt, String, String) -> Void
 
-    init(kind: Kind, name: String, path: String, size: UInt, created: Date, updated: Date, rights: UInt, owner: String, group: String, onApply: @escaping (UInt, String, String) -> Void) {
-        self.kind           = kind
-        self.name           = name
-        self.path           = path
-        self.size           = size
-        self.created        = created
-        self.updated        = updated
-        self.rights         = rights
-        self.owner          = owner
-        self.group          = group
+    init(info: EntityInfo, onApply: @escaping (UInt, String, String) -> Void) {
+        self.kind           = info.kind
+        self.name           = info.name
+        self.path           = info.path
+        self.size           = info.size
+        self.created        = info.created
+        self.updated        = info.updated
+        self.rights         = info.rights
+        self.owner          = info.owner
+        self.group          = info.group
+        self.originalRights = info.rights
+        self.originalOwner  = info.owner
+        self.originalGroup  = info.group
         self.onApply        = onApply
-        self.originalRights = rights
-        self.originalOwner  = owner
-        self.originalGroup  = group
     }
 
     @ViewBuilder func iconRoll<T: CaseIterable & Equatable>(value: Binding<T>) -> some View {
@@ -94,6 +94,7 @@ struct PopupMainView: View {
                     {switch self.kind {
                         case .dirrectory: Text(NSLocalizedString("dirrectory", comment: ""))
                         case .file      : Text(NSLocalizedString("file"      , comment: ""))
+                        case .unknown   : Text(NSLocalizedString("n/a"       , comment: ""))
                     }}()
                 )
 
@@ -211,8 +212,8 @@ struct PopupMainView: View {
                     }
 
                     VStack(spacing: 10) {
-                        if (self.kind == .dirrectory) { Text(NSLocalizedString("Access" , comment: "")).frame(width: textW, height: textH) }
-                        if (self.kind == .file      ) { Text(NSLocalizedString("Execute", comment: "")).frame(width: textW, height: textH) }
+                        if (self.kind == .file) { Text(NSLocalizedString("Execute", comment: "")).frame(width: textW, height: textH) }
+                        if (self.kind != .file) { Text(NSLocalizedString("Access" , comment: "")).frame(width: textW, height: textH) }
                         ToggleRwxColored(.owner, self.$rights, bitPosition: Subject.owner.offset + Permission.x.offset);
                         ToggleRwxColored(.group, self.$rights, bitPosition: Subject.group.offset + Permission.x.offset);
                         ToggleRwxColored(.other, self.$rights, bitPosition: Subject.other.offset + Permission.x.offset);
@@ -296,6 +297,7 @@ struct PopupMainView: View {
                         self.group
                     )
                 }
+                .disabled(self.kind == .unknown)
 
             }
             .padding(25)
@@ -310,15 +312,17 @@ struct PopupMainView: View {
 
 #Preview {
     PopupMainView(
-        kind: .file,
-        name: "Rwx Editor.icns",
-        path: "/usr/local/bin/some",
-        size: 1_234_567,
-        created: try! Date(fromISO8601: "2025-01-02 03:04:05 +0000"),
-        updated: try! Date(fromISO8601: "2025-01-02 03:04:05 +0000"),
-        rights: 0o644,
-        owner: "nobody",
-        group: "staff",
+        info: EntityInfo(
+            kind: .file,
+            name: "Rwx Editor.icns",
+            path: "/usr/local/bin/some",
+            size: 1_234_567,
+            created: try! Date(fromISO8601: "2025-01-02 03:04:05 +0000"),
+            updated: try! Date(fromISO8601: "2025-01-02 03:04:05 +0000"),
+            rights: 0o644,
+            owner: "nobody",
+            group: "staff"
+        ),
         onApply: { rights, owner, group in
             print("rights: \(String(rights, radix: 8)) | owner: \(owner) | group: \(group)")
         }
