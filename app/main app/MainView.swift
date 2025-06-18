@@ -27,10 +27,9 @@ struct MainView: View {
                         Color(Color.ColorNames.softRed.rawValue)
                 ).cornerRadius(5)
 
-            Button {
+            ButtonCustom(NSLocalizedString("Open Settings", comment: ""), flexibility: .size(200)) {
                 FinderSync.FIFinderSyncController.showExtensionManagementInterface()
-            } label: {
-                Text("Open Settings")
+
             }
 
         }
