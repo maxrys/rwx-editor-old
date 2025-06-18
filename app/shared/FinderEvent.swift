@@ -7,13 +7,7 @@ import Foundation
 
 struct FinderEvent: Codable {
 
-    enum FinderEventType: Codable {
-        case directory
-        case file
-    }
-
-    var type: FinderEventType
-    var items: [String]
+    var paths: [String]
 
     func encode() -> String {
         return String(
@@ -22,8 +16,8 @@ struct FinderEvent: Codable {
         )!
     }
 
-    static func decode(_ event: String) -> Self {
-        return try! JSONDecoder().decode(
+    static func decode(_ event: String) throws -> Self {
+        return try JSONDecoder().decode(
             Self.self,
             from: event.data(
                 using: .utf8

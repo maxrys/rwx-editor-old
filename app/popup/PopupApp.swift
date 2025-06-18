@@ -63,11 +63,18 @@ import SwiftUI
     }
 
     func onFinderContextMenu(event: String) {
-        dump(
-            FinderEvent.decode(event)
-        )
-        if let url = URL(string: "rwxEditor://test") {
-            openURL(url)
+        do {
+            for path in try FinderEvent.decode(event).paths {
+                if let url = URL(string: "rwxEditor://\(path)") {
+                    Task {
+                        openURL(url)
+                    }
+                }
+            }
+        } catch {
+            #if DEBUG
+                print("decode error \(error)")
+            #endif
         }
     }
 

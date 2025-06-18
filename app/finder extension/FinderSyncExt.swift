@@ -9,6 +9,7 @@ import FinderSync
 class FinderSyncExt: FIFinderSync {
 
     static let EVENT_NAME_FOR_FINDER_CONTEXT_MENU = "finderContextMenu"
+    static let MENU_ITEM_TAG_RWX_EDITOR = 0
 
     var folderURL = URL(
         fileURLWithPath: "/Users/"
@@ -27,8 +28,8 @@ class FinderSyncExt: FIFinderSync {
                     menuItem.title = String(NSLocalizedString("Rwx Editor", comment: ""))
                     menuItem.image = NSImage(systemSymbolName: "folder.badge.person.crop", accessibilityDescription: "")!
                     menuItem.action = #selector(onContextMenu(_:))
+                    menuItem.tag = Self.MENU_ITEM_TAG_RWX_EDITOR
                     menuItem.target = self
-                    menuItem.tag = 0
                 menu.addItem(menuItem)
             default: break
         }
@@ -36,7 +37,7 @@ class FinderSyncExt: FIFinderSync {
     }
 
     @objc func onContextMenu(_ menuItem: NSMenuItem) {
-        if (menuItem.tag == 0) {
+        if (menuItem.tag == Self.MENU_ITEM_TAG_RWX_EDITOR) {
             let _ = FIFinderSyncController.default().targetedURL()
             let items = FIFinderSyncController.default().selectedItemURLs()
             var paths: [String] = []
@@ -46,8 +47,7 @@ class FinderSyncExt: FIFinderSync {
             EventsDispatcherGlobal.shared.send(
                 FinderSyncExt.EVENT_NAME_FOR_FINDER_CONTEXT_MENU,
                 object: FinderEvent(
-                    type: .directory,
-                    items: paths
+                    paths: paths
                 ).encode()
             )
         }
