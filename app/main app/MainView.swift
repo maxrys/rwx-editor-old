@@ -21,6 +21,7 @@ struct MainView: View {
                 .font(.system(size: 12, weight: .regular))
                 .foregroundPolyfill(.white)
                 .padding(20)
+                .frame(maxWidth: .infinity)
                 .background(
                     FIFinderSyncController.isExtensionEnabled ?
                         Color.getCustom(.softGreen) :
@@ -33,8 +34,8 @@ struct MainView: View {
             }
 
         }
-        .foregroundPolyfill(Color.getCustom(.text))
         .padding(20)
+        .foregroundPolyfill(Color.getCustom(.text))
     }
 
 }
