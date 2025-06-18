@@ -118,7 +118,9 @@ struct PopupMainView: View {
                 self.gridCellWrapper(alignment: .trailing, tint: true,
                     HStack(spacing: 5) {
                         Text(NSLocalizedString("Size", comment: ""))
-                        self.iconRoll(value: self.$sizeViewMode)
+                        if (self.size > 0) {
+                            self.iconRoll(value: self.$sizeViewMode)
+                        }
                     }
                 )
                 self.gridCellWrapper(tint: true,

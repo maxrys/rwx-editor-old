@@ -27,7 +27,9 @@ struct EntityInfo {
     static var owners: [String: String] = [:]
     static var groups: [String: String] = [:]
 
-    @State var receivedUrl: String = ""
+    //@State var receivedUrl: String = ""
+    //@State var receivedUrl: String = "/Users/max/Desktop/"
+    @State var receivedUrl: String = "/Users/max/Desktop/testDir/testDir2/testFile.txt"
 
     var body: some Scene {
         let window = WindowGroup {
@@ -67,16 +69,28 @@ struct EntityInfo {
 
     func parseURL(url: String) -> EntityInfo {
         var result = EntityInfo()
-        if (url != "") {
-            result.kind = url.last == "/" ? .dirrectory : .file
+        if (!url.isEmpty) {
+            /* kind */
+            result.kind = url.last == "/" ?
+                .dirrectory :
+                .file
+            if let attr = try? FileManager.default.attributesOfItem(atPath: url) {
+                /* size */
+                if (result.kind == .file) {
+                    if let size = attr[.size] as? UInt {
+                        result.size = size
+                    }
+                }
+                if let created = attr[.creationDate]          as? Date   { result.created = created }
+                if let updated = attr[.modificationDate]      as? Date   { result.updated = updated }
+                if let owner   = attr[.ownerAccountName]      as? String { result.owner   = owner }
+                if let group   = attr[.groupOwnerAccountName] as? String { result.group   = group }
+                if let rights  = attr[.posixPermissions]      as? UInt   { result.rights  = rights }
+            }
+            /* name */
             result.name = URL(string: url)!.lastPathComponent
+            /* path */
             result.path = url
-            result.size = 1_234_567
-            result.created = try! Date(fromISO8601: "2025-01-02 03:04:05 +0000")
-            result.updated = try! Date(fromISO8601: "2025-01-02 03:04:05 +0000")
-            result.rights = 0o644
-            result.owner = "nobody"
-            result.group = "staff"
         }
         return result
     }
