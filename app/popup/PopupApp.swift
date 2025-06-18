@@ -27,9 +27,7 @@ struct EntityInfo {
     static var owners: [String: String] = [:]
     static var groups: [String: String] = [:]
 
-    //@State var receivedUrl: String = ""
-    //@State var receivedUrl: String = "/Users/max/Desktop/"
-    @State var receivedUrl: String = "/Users/max/Desktop/testDir/testDir2/testFile.txt"
+    @State var receivedUrl: String = ""
 
     var body: some Scene {
         let window = WindowGroup {
@@ -70,27 +68,46 @@ struct EntityInfo {
     func parseURL(url: String) -> EntityInfo {
         var result = EntityInfo()
         if (!url.isEmpty) {
-            /* kind */
-            result.type = url.last == "/" ?
-                .dirrectory :
-                .file
             if let attr = try? FileManager.default.attributesOfItem(atPath: url) {
-                /* size */
-                if (result.type == .file) {
-                    if let size = attr[.size] as? UInt {
-                        result.size = size
-                    }
+
+                /* type */
+                switch attr[.type] as? FileAttributeType {
+                    case .typeRegular         : result.type = .file
+                    case .typeDirectory       : result.type = .dirrectory
+                    case .typeBlockSpecial    : result.type = .unknown
+                    case .typeCharacterSpecial: result.type = .unknown
+                    case .typeSocket          : result.type = .unknown
+                    case .typeSymbolicLink    : result.type = .unknown
+                    case .typeUnknown         : result.type = .unknown
+                    case .none                : result.type = .unknown
+                    case .some(_)             : result.type = .unknown
                 }
-                if let created = attr[.creationDate]          as? Date   { result.created = created }
-                if let updated = attr[.modificationDate]      as? Date   { result.updated = updated }
-                if let owner   = attr[.ownerAccountName]      as? String { result.owner   = owner }
-                if let group   = attr[.groupOwnerAccountName] as? String { result.group   = group }
-                if let rights  = attr[.posixPermissions]      as? UInt   { result.rights  = rights }
+
+                if (result.type == .file || result.type == .dirrectory) {
+
+                    /* size */
+                    if (result.type == .file) {
+                        if let size = attr[.size] as? UInt {
+                            result.size = size
+                        }
+                    }
+
+                    /* other attributes */
+                    if let created = attr[.creationDate]          as? Date   { result.created = created }
+                    if let updated = attr[.modificationDate]      as? Date   { result.updated = updated }
+                    if let rights  = attr[.posixPermissions]      as? UInt   { result.rights  = rights }
+                    if let owner   = attr[.ownerAccountName]      as? String { result.owner   = owner }
+                    if let group   = attr[.groupOwnerAccountName] as? String { result.group   = group }
+
+                    /* name/path */
+                    if let urlAsURL = URL(string: url) {
+                        result.name = urlAsURL.lastPathComponent
+                        if (result.type == .dirrectory) { result.path = String(urlAsURL.absoluteString[0, urlAsURL.absoluteString.count-result.name.count-2]) }
+                        if (result.type == .file      ) { result.path = String(urlAsURL.absoluteString[0, urlAsURL.absoluteString.count-result.name.count-1]) }
+                    }
+
+                }
             }
-            /* name */
-            result.name = URL(string: url)!.lastPathComponent
-            /* path */
-            result.path = url
         }
         return result
     }

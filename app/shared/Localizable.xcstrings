@@ -198,14 +198,9 @@
             "state" : "translated",
             "value" : "n/a"
           }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "н/а"
-          }
         }
-      }
+      },
+      "shouldTranslate" : false
     },
     "Name" : {
       "localizations" : {
