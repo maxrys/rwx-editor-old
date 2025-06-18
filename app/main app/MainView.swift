@@ -32,6 +32,7 @@ struct MainView: View {
             }
 
         }
+        .foregroundPolyfill(Color(Color.ColorNames.text.rawValue))
         .padding(20)
     }
 

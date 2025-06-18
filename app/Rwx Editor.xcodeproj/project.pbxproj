@@ -66,6 +66,14 @@
 		50114D552E01F79100024326 /* PickerCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507318522DE82BDB005E26F9 /* PickerCustom.swift */; };
 		50114D562E01F79100024326 /* ToggleRwxColored.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507318432DE70C27005E26F9 /* ToggleRwxColored.swift */; };
 		50114D572E01F79100024326 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 507318572DE865C3005E26F9 /* Media.xcassets */; };
+		50114D642E02AB9400024326 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50114D632E02AB9400024326 /* Media.xcassets */; };
+		50114D652E02AB9400024326 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50114D632E02AB9400024326 /* Media.xcassets */; };
+		50114D662E02AB9400024326 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50114D632E02AB9400024326 /* Media.xcassets */; };
+		50114D672E02AB9400024326 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50114D632E02AB9400024326 /* Media.xcassets */; };
+		50114D692E02AC0F00024326 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50114D682E02AC0D00024326 /* Color.swift */; };
+		50114D6A2E02AC0F00024326 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50114D682E02AC0D00024326 /* Color.swift */; };
+		50114D6B2E02AC0F00024326 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50114D682E02AC0D00024326 /* Color.swift */; };
+		50114D6C2E02AC0F00024326 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50114D682E02AC0D00024326 /* Color.swift */; };
 		50583D5D2DFB5D2000013BD0 /* Rwx Editor Finder Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 50583D552DFB5D2000013BD0 /* Rwx Editor Finder Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		50624C6A2DE5DCD500794BC8 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50624C692DE5DCD500794BC8 /* Test.swift */; };
 /* End PBXBuildFile section */
@@ -109,6 +117,8 @@
 		50114D172E01F24000024326 /* popup.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = popup.entitlements; sourceTree = "<group>"; };
 		50114D182E01F24000024326 /* PopupApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupApp.swift; sourceTree = "<group>"; };
 		50114D622E02032D00024326 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		50114D632E02AB9400024326 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
+		50114D682E02AC0D00024326 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		50583D552DFB5D2000013BD0 /* Rwx Editor Finder Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Rwx Editor Finder Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		50583D632DFB5EA100013BD0 /* FinderSyncExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinderSyncExt.swift; sourceTree = "<group>"; };
 		50583D642DFB5EA100013BD0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -235,6 +245,7 @@
 				50624C722DE5E2E300794BC8 /* String.swift */,
 				50624C602DE5D6B500794BC8 /* UInt.swift */,
 				5073189B2DF1BA3D005E26F9 /* Date.swift */,
+				50114D682E02AC0D00024326 /* Color.swift */,
 				50624C532DE5C2BA00794BC8 /* View.swift */,
 				507318A22DF3758B005E26F9 /* CaseIterable.swift */,
 				507318A52DF37FB8005E26F9 /* ByteCountFormatter.swift */,
@@ -242,6 +253,7 @@
 				50583D7E2DFB673D00013BD0 /* EventsDispatcherGlobal.swift */,
 				50114C812E017BD400024326 /* FinderEvent.swift */,
 				50624C5C2DE5CD1A00794BC8 /* Localizable.xcstrings */,
+				50114D632E02AB9400024326 /* Media.xcassets */,
 			);
 			path = shared;
 			sourceTree = "<group>";
@@ -402,6 +414,7 @@
 			files = (
 				50114D522E01F78900024326 /* Assets.xcassets in Resources */,
 				50114D572E01F79100024326 /* Media.xcassets in Resources */,
+				50114D662E02AB9400024326 /* Media.xcassets in Resources */,
 				50114D322E01F6AF00024326 /* Localizable.xcstrings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -410,6 +423,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				50114D672E02AB9400024326 /* Media.xcassets in Resources */,
 				50114D3D2E01F6AF00024326 /* Localizable.xcstrings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -419,6 +433,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				50114D4E2E01F77900024326 /* Assets.xcassets in Resources */,
+				50114D642E02AB9400024326 /* Media.xcassets in Resources */,
 				50114D272E01F6AF00024326 /* Localizable.xcstrings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -427,6 +442,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				50114D652E02AB9400024326 /* Media.xcassets in Resources */,
 				50114D482E01F6AF00024326 /* Localizable.xcstrings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -449,6 +465,7 @@
 				50114D532E01F79100024326 /* ButtonCustom.swift in Sources */,
 				50114D542E01F79100024326 /* ToggleRwxNumeric.swift in Sources */,
 				50114D552E01F79100024326 /* PickerCustom.swift in Sources */,
+				50114D692E02AC0F00024326 /* Color.swift in Sources */,
 				50114D562E01F79100024326 /* ToggleRwxColored.swift in Sources */,
 				50114D4F2E01F78900024326 /* PopupApp.swift in Sources */,
 				50114D502E01F78900024326 /* PopupMainView.swift in Sources */,
@@ -468,6 +485,7 @@
 				50114D4B2E01F71900024326 /* FinderSyncExt.swift in Sources */,
 				50114D352E01F6AF00024326 /* UInt.swift in Sources */,
 				50114D362E01F6AF00024326 /* String.swift in Sources */,
+				50114D6A2E02AC0F00024326 /* Color.swift in Sources */,
 				50114D372E01F6AF00024326 /* CaseIterable.swift in Sources */,
 				50114D382E01F6AF00024326 /* Date.swift in Sources */,
 				50114D392E01F6AF00024326 /* Process.swift in Sources */,
@@ -490,6 +508,7 @@
 				50114D212E01F6AF00024326 /* EventsDispatcherGlobal.swift in Sources */,
 				50114D222E01F6AF00024326 /* FinderEvent.swift in Sources */,
 				50114D232E01F6AF00024326 /* enums.swift in Sources */,
+				50114D6B2E02AC0F00024326 /* Color.swift in Sources */,
 				50114D242E01F6AF00024326 /* CaseIterable.swift in Sources */,
 				50114D252E01F6AF00024326 /* Process.swift in Sources */,
 				50114D4C2E01F76D00024326 /* MainApp.swift in Sources */,
@@ -506,6 +525,7 @@
 				50114D402E01F6AF00024326 /* String.swift in Sources */,
 				50114D412E01F6AF00024326 /* FinderEvent.swift in Sources */,
 				50114D422E01F6AF00024326 /* EventsDispatcherGlobal.swift in Sources */,
+				50114D6C2E02AC0F00024326 /* Color.swift in Sources */,
 				50114D432E01F6AF00024326 /* Process.swift in Sources */,
 				50114D442E01F6AF00024326 /* enums.swift in Sources */,
 				50114D452E01F6AF00024326 /* ByteCountFormatter.swift in Sources */,

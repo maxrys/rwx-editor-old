@@ -10,11 +10,10 @@ struct PopupMainView: View {
     @Environment(\.colorScheme) private var colorScheme
 
     enum ColorNames: String {
-        case text     = "color Text"
-        case headTint = "color MainView Head Tint"
-        case head     = "color MainView Head Background"
-        case body     = "color MainView Body Background"
-        case foot     = "color MainView Foot Background"
+        case headTint = "color PopupMainView Head Tint"
+        case head     = "color PopupMainView Head Background"
+        case body     = "color PopupMainView Body Background"
+        case foot     = "color PopupMainView Foot Background"
     }
 
     @State private var rights: UInt
@@ -304,7 +303,7 @@ struct PopupMainView: View {
             .background(Color(Self.ColorNames.foot.rawValue))
 
         }
-        .foregroundPolyfill(Color(Self.ColorNames.text.rawValue))
+        .foregroundPolyfill(Color(Color.ColorNames.text.rawValue))
         .frame(width: 300)
     }
 
