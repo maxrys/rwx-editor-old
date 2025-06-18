@@ -9,12 +9,15 @@ struct ToggleRwxColored: View {
 
     enum ColorNames: String {
         case empty = "color ToggleRwxColored Empty"
-        case owner = "color Soft Green"
-        case group = "color Soft Orange"
-        case other = "color Soft Red"
     }
 
-    private var color: ColorNames
+    enum Kind {
+        case owner
+        case group
+        case other
+    }
+
+    private var kind: Kind
     private var rights: Binding<UInt>
     private var bitPosition: UInt
     private let iconR: CGFloat = 25
@@ -24,8 +27,8 @@ struct ToggleRwxColored: View {
         ) == 1
     }
 
-    init(_ color: ColorNames, _ rights: Binding<UInt>, bitPosition: UInt) {
-        self.color       = color
+    init(_ kind: Kind, _ rights: Binding<UInt>, bitPosition: UInt) {
+        self.kind        = kind
         self.rights      = rights
         self.bitPosition = bitPosition
     }
@@ -37,9 +40,16 @@ struct ToggleRwxColored: View {
             )
         } label: {
             if (self.isOn) {
+                let background = {
+                    switch self.kind {
+                        case .owner: Color.getCustom(.softGreen)
+                        case .group: Color.getCustom(.softOrange)
+                        case .other: Color.getCustom(.softRed)
+                    }
+                }()
                 ZStack {
                     Circle()
-                        .fill(Color(self.color.rawValue))
+                        .fill(background)
                         .frame(width: self.iconR, height: self.iconR)
                     Image(systemName: "checkmark")
                         .font(.system(size: 13, weight: .bold))
