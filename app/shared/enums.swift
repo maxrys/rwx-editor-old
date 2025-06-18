@@ -37,7 +37,7 @@ public enum Subject {
 
 }
 
-public enum Kind {
+public enum FSType {
 
     case dirrectory
     case file

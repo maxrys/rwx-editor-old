@@ -24,7 +24,7 @@ struct PopupMainView: View {
     @State private var owner: String
     @State private var group: String
 
-    private let kind: Kind
+    private let type: FSType
     private let name: String
     private let path: String
     private let size: UInt
@@ -36,7 +36,7 @@ struct PopupMainView: View {
     private let onApply: (UInt, String, String) -> Void
 
     init(info: EntityInfo, onApply: @escaping (UInt, String, String) -> Void) {
-        self.kind           = info.kind
+        self.type           = info.type
         self.name           = info.name
         self.path           = info.path
         self.size           = info.size
@@ -86,12 +86,12 @@ struct PopupMainView: View {
 
             LazyVGrid(columns: columns, spacing: 0) {
 
-                /* kind */
+                /* type */
                 self.gridCellWrapper(alignment: .trailing,
-                    Text(NSLocalizedString("Kind", comment: ""))
+                    Text(NSLocalizedString("Type", comment: ""))
                 )
                 self.gridCellWrapper(
-                    {switch self.kind {
+                    {switch self.type {
                         case .dirrectory: Text(NSLocalizedString("dirrectory", comment: ""))
                         case .file      : Text(NSLocalizedString("file"      , comment: ""))
                         case .unknown   : Text(NSLocalizedString("n/a"       , comment: ""))
@@ -214,8 +214,8 @@ struct PopupMainView: View {
                     }
 
                     VStack(spacing: 10) {
-                        if (self.kind == .file) { Text(NSLocalizedString("Execute", comment: "")).frame(width: textW, height: textH) }
-                        if (self.kind != .file) { Text(NSLocalizedString("Access" , comment: "")).frame(width: textW, height: textH) }
+                        if (self.type == .file) { Text(NSLocalizedString("Execute", comment: "")).frame(width: textW, height: textH) }
+                        if (self.type != .file) { Text(NSLocalizedString("Access" , comment: "")).frame(width: textW, height: textH) }
                         ToggleRwxColored(.owner, self.$rights, bitPosition: Subject.owner.offset + Permission.x.offset);
                         ToggleRwxColored(.group, self.$rights, bitPosition: Subject.group.offset + Permission.x.offset);
                         ToggleRwxColored(.other, self.$rights, bitPosition: Subject.other.offset + Permission.x.offset);
@@ -299,7 +299,7 @@ struct PopupMainView: View {
                         self.group
                     )
                 }
-                .disabled(self.kind == .unknown)
+                .disabled(self.type == .unknown)
 
             }
             .padding(25)
@@ -315,7 +315,7 @@ struct PopupMainView: View {
 #Preview {
     PopupMainView(
         info: EntityInfo(
-            kind: .file,
+            type: .file,
             name: "Rwx Editor.icns",
             path: "/usr/local/bin/some",
             size: 1_234_567,

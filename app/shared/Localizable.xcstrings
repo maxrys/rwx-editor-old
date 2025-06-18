@@ -191,24 +191,21 @@
         }
       }
     },
-    "Kind" : {
+    "n/a" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Kind"
+            "value" : "n/a"
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Тип"
+            "value" : "н/а"
           }
         }
       }
-    },
-    "n/a" : {
-
     },
     "Name" : {
       "localizations" : {
@@ -334,6 +331,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Размер"
+          }
+        }
+      }
+    },
+    "Type" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Type"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Тип"
           }
         }
       }

@@ -7,7 +7,7 @@ import SwiftUI
 
 struct EntityInfo {
 
-    var kind: Kind = .unknown
+    var type: FSType = .unknown
     var name: String = "n/a"
     var path: String = "n/a"
     var size: UInt = 0
@@ -71,12 +71,12 @@ struct EntityInfo {
         var result = EntityInfo()
         if (!url.isEmpty) {
             /* kind */
-            result.kind = url.last == "/" ?
+            result.type = url.last == "/" ?
                 .dirrectory :
                 .file
             if let attr = try? FileManager.default.attributesOfItem(atPath: url) {
                 /* size */
-                if (result.kind == .file) {
+                if (result.type == .file) {
                     if let size = attr[.size] as? UInt {
                         result.size = size
                     }
