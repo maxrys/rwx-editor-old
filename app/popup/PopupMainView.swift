@@ -303,7 +303,7 @@ struct PopupMainView: View {
             .background(Color(Self.ColorNames.foot.rawValue))
 
         }
-        .foregroundPolyfill(Color(Color.ColorNames.text.rawValue))
+        .foregroundPolyfill(Color.getCustom(.text))
         .frame(width: 300)
     }
 
