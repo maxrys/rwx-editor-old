@@ -127,6 +127,38 @@
         }
       }
     },
+    "extension is disabled" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "extension is disabled"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "расширение включено"
+          }
+        }
+      }
+    },
+    "extension is enabled" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "extension is enabled"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "расширение выключено"
+          }
+        }
+      }
+    },
     "file" : {
       "localizations" : {
         "en" : {
@@ -175,9 +207,6 @@
         }
       }
     },
-    "Main app" : {
-
-    },
     "Name" : {
       "localizations" : {
         "en" : {
@@ -190,6 +219,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Название"
+          }
+        }
+      }
+    },
+    "Open Settings" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Open Settings"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Открыть Настройки"
           }
         }
       }

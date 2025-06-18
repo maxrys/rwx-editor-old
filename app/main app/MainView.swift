@@ -4,12 +4,33 @@
 /* ############################################################# */
 
 import SwiftUI
+import FinderSync
 
 struct MainView: View {
 
     var body: some View {
-        VStack {
-            Text("Main app")
+        VStack(spacing: 10) {
+
+            let title: String = {
+                if (FIFinderSyncController.isExtensionEnabled)
+                     { return NSLocalizedString("extension is enabled" , comment: "") }
+                else { return NSLocalizedString("extension is disabled", comment: "") }
+            }()
+
+            Text(title)
+                .font(.system(size: 12, weight: .regular))
+                .foregroundPolyfill(.white)
+                .padding(20)
+                .background(
+                    FIFinderSyncController.isExtensionEnabled ? Color.green : Color.red )
+                .cornerRadius(5)
+
+            Button {
+                FinderSync.FIFinderSyncController.showExtensionManagementInterface()
+            } label: {
+                Text("Open Settings")
+            }
+
         }
     }
 
