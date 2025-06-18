@@ -23,8 +23,8 @@ struct MainView: View {
                 .padding(20)
                 .background(
                     FIFinderSyncController.isExtensionEnabled ?
-                        Color(Color.ColorNames.softGreen.rawValue) :
-                        Color(Color.ColorNames.softRed.rawValue)
+                        Color.getCustom(.softGreen) :
+                        Color.getCustom(.softRed)
                 ).cornerRadius(5)
 
             ButtonCustom(NSLocalizedString("Open Settings", comment: ""), flexibility: .size(200)) {
@@ -33,7 +33,7 @@ struct MainView: View {
             }
 
         }
-        .foregroundPolyfill(Color(Color.ColorNames.text.rawValue))
+        .foregroundPolyfill(Color.getCustom(.text))
         .padding(20)
     }
 

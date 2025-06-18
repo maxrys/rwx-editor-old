@@ -14,4 +14,8 @@ extension Color {
         case softRed    = "color Soft Red"
     }
 
+    static func getCustom(_ name: ColorNames = .text) -> Self {
+        Self(name.rawValue)
+    }
+
 }
