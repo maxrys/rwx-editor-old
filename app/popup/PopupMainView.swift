@@ -16,13 +16,13 @@ struct PopupMainView: View {
         case foot     = "color PopupMainView Foot Background"
     }
 
-    @State private var rights: UInt
-    @State private var owner: String
-    @State private var group: String
-
     @State private var sizeViewMode: BytesViewMode = .bytes
     @State private var createdViewMode: DateViewMode = .convenient
     @State private var updatedViewMode: DateViewMode = .convenient
+
+    @State private var rights: UInt
+    @State private var owner: String
+    @State private var group: String
 
     private let kind: Kind
     private let name: String

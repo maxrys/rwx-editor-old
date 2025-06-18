@@ -33,7 +33,14 @@ struct EntityInfo {
             self.mainScene
                 .environment(\.layoutDirection, .leftToRight)
                 .onOpenURL { url in
-                    self.receivedUrl = url.absoluteString
+                    let absolute = url.absoluteString
+                    if (absolute.isEmpty == false) {
+                        if (absolute[0, 11] == "rwxEditor://") {
+                            self.receivedUrl = String(
+                                absolute[12, absolute.count-1]
+                            )
+                        }
+                    }
                 }
         }
         if #available(macOS 13.0, *) { return window.windowResizability(.contentSize) }
@@ -58,8 +65,8 @@ struct EntityInfo {
         var result = EntityInfo()
         if (url != "") {
             result.kind = url.last == "/" ? .dirrectory : .file
-            result.name = "Rwx Editor.icns"
-            result.path = "/usr/local/bin/some/long/path"
+            result.name = URL(string: url)!.lastPathComponent
+            result.path = url
             result.size = 1_234_567
             result.created = try! Date(fromISO8601: "2025-01-02 03:04:05 +0000")
             result.updated = try! Date(fromISO8601: "2025-01-02 03:04:05 +0000")
