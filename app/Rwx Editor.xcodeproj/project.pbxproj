@@ -65,7 +65,6 @@
 		50114D542E01F79100024326 /* ToggleRwxNumeric.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507318502DE7939D005E26F9 /* ToggleRwxNumeric.swift */; };
 		50114D552E01F79100024326 /* PickerCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507318522DE82BDB005E26F9 /* PickerCustom.swift */; };
 		50114D562E01F79100024326 /* ToggleRwxColored.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507318432DE70C27005E26F9 /* ToggleRwxColored.swift */; };
-		50114D572E01F79100024326 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 507318572DE865C3005E26F9 /* Media.xcassets */; };
 		50114D642E02AB9400024326 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50114D632E02AB9400024326 /* Media.xcassets */; };
 		50114D652E02AB9400024326 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50114D632E02AB9400024326 /* Media.xcassets */; };
 		50114D662E02AB9400024326 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50114D632E02AB9400024326 /* Media.xcassets */; };
@@ -74,6 +73,8 @@
 		50114D6A2E02AC0F00024326 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50114D682E02AC0D00024326 /* Color.swift */; };
 		50114D6B2E02AC0F00024326 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50114D682E02AC0D00024326 /* Color.swift */; };
 		50114D6C2E02AC0F00024326 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50114D682E02AC0D00024326 /* Color.swift */; };
+		50114D6E2E02AFD500024326 /* PickerCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507318522DE82BDB005E26F9 /* PickerCustom.swift */; };
+		50114D6F2E02AFE400024326 /* ButtonCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507318752DE9EB32005E26F9 /* ButtonCustom.swift */; };
 		50583D5D2DFB5D2000013BD0 /* Rwx Editor Finder Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 50583D552DFB5D2000013BD0 /* Rwx Editor Finder Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		50624C6A2DE5DCD500794BC8 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50624C692DE5DCD500794BC8 /* Test.swift */; };
 /* End PBXBuildFile section */
@@ -139,7 +140,6 @@
 		507318452DE71047005E26F9 /* RwxTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RwxTextView.swift; sourceTree = "<group>"; };
 		507318502DE7939D005E26F9 /* ToggleRwxNumeric.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleRwxNumeric.swift; sourceTree = "<group>"; };
 		507318522DE82BDB005E26F9 /* PickerCustom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerCustom.swift; sourceTree = "<group>"; };
-		507318572DE865C3005E26F9 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		507318752DE9EB32005E26F9 /* ButtonCustom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCustom.swift; sourceTree = "<group>"; };
 		507318972DF05F60005E26F9 /* Process.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Process.swift; sourceTree = "<group>"; };
 		5073189B2DF1BA3D005E26F9 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
@@ -183,15 +183,25 @@
 		50114D1C2E01F50F00024326 /* popup */ = {
 			isa = PBXGroup;
 			children = (
-				507318922DF05A3B005E26F9 /* controls */,
 				50114D182E01F24000024326 /* PopupApp.swift */,
 				50624C4B2DE5BA8200794BC8 /* PopupMainView.swift */,
 				507318452DE71047005E26F9 /* RwxTextView.swift */,
+				507318432DE70C27005E26F9 /* ToggleRwxColored.swift */,
+				507318502DE7939D005E26F9 /* ToggleRwxNumeric.swift */,
 				50114D152E01F24000024326 /* Assets.xcassets */,
 				50114D172E01F24000024326 /* popup.entitlements */,
 				50114D622E02032D00024326 /* Info.plist */,
 			);
 			path = popup;
+			sourceTree = "<group>";
+		};
+		50114D6D2E02AF8700024326 /* controls */ = {
+			isa = PBXGroup;
+			children = (
+				507318522DE82BDB005E26F9 /* PickerCustom.swift */,
+				507318752DE9EB32005E26F9 /* ButtonCustom.swift */,
+			);
+			path = controls;
 			sourceTree = "<group>";
 		};
 		50583D682DFB5EA500013BD0 /* finder extension */ = {
@@ -252,8 +262,9 @@
 				507318972DF05F60005E26F9 /* Process.swift */,
 				50583D7E2DFB673D00013BD0 /* EventsDispatcherGlobal.swift */,
 				50114C812E017BD400024326 /* FinderEvent.swift */,
-				50624C5C2DE5CD1A00794BC8 /* Localizable.xcstrings */,
+				50114D6D2E02AF8700024326 /* controls */,
 				50114D632E02AB9400024326 /* Media.xcassets */,
+				50624C5C2DE5CD1A00794BC8 /* Localizable.xcstrings */,
 			);
 			path = shared;
 			sourceTree = "<group>";
@@ -264,18 +275,6 @@
 				50624C692DE5DCD500794BC8 /* Test.swift */,
 			);
 			path = test;
-			sourceTree = "<group>";
-		};
-		507318922DF05A3B005E26F9 /* controls */ = {
-			isa = PBXGroup;
-			children = (
-				507318522DE82BDB005E26F9 /* PickerCustom.swift */,
-				507318752DE9EB32005E26F9 /* ButtonCustom.swift */,
-				507318432DE70C27005E26F9 /* ToggleRwxColored.swift */,
-				507318502DE7939D005E26F9 /* ToggleRwxNumeric.swift */,
-				507318572DE865C3005E26F9 /* Media.xcassets */,
-			);
-			path = controls;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -413,7 +412,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				50114D522E01F78900024326 /* Assets.xcassets in Resources */,
-				50114D572E01F79100024326 /* Media.xcassets in Resources */,
 				50114D662E02AB9400024326 /* Media.xcassets in Resources */,
 				50114D322E01F6AF00024326 /* Localizable.xcstrings in Resources */,
 			);
@@ -503,7 +501,9 @@
 				50114D4D2E01F77300024326 /* MainView.swift in Sources */,
 				50114D1D2E01F6AF00024326 /* UInt.swift in Sources */,
 				50114D1E2E01F6AF00024326 /* View.swift in Sources */,
+				50114D6F2E02AFE400024326 /* ButtonCustom.swift in Sources */,
 				50114D1F2E01F6AF00024326 /* String.swift in Sources */,
+				50114D6E2E02AFD500024326 /* PickerCustom.swift in Sources */,
 				50114D202E01F6AF00024326 /* Date.swift in Sources */,
 				50114D212E01F6AF00024326 /* EventsDispatcherGlobal.swift in Sources */,
 				50114D222E01F6AF00024326 /* FinderEvent.swift in Sources */,
