@@ -9,7 +9,7 @@ import FinderSync
 struct MainView: View {
 
     var body: some View {
-        VStack(spacing: 10) {
+        VStack(spacing: 20) {
 
             let title: String = {
                 if (FIFinderSyncController.isExtensionEnabled)
@@ -32,6 +32,7 @@ struct MainView: View {
             }
 
         }
+        .padding(20)
     }
 
 }

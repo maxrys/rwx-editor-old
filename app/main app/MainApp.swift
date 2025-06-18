@@ -8,12 +8,25 @@ import SwiftUI
 @main struct MainApp: App {
 
     var body: some Scene {
-        WindowGroup {
-            MainView()
+        let window = WindowGroup {
+            self.mainScene
         }
+        if #available(macOS 13.0, *) { return window.windowResizability(.contentSize) }
+        else                         { return window }
     }
 
     init() {
     }
 
+    @ViewBuilder var mainScene: some View {
+        MainView()
+            .environment(
+                \.layoutDirection, .leftToRight
+            )
+    }
+
+}
+
+#Preview {
+    MainApp().mainScene
 }

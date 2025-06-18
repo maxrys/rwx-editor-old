@@ -5,7 +5,7 @@
 
 import SwiftUI
 
-struct MainView: View {
+struct PopupMainView: View {
 
     @Environment(\.colorScheme) private var colorScheme
 
@@ -311,7 +311,7 @@ struct MainView: View {
 }
 
 #Preview {
-    MainView(
+    PopupMainView(
         kind: .file,
         name: "Rwx Editor.icns",
         path: "/usr/local/bin/some",

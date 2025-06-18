@@ -29,7 +29,7 @@ import SwiftUI
     }
 
     @ViewBuilder var mainScene: some View {
-        MainView(
+        PopupMainView(
             kind: .file,
             name: "Rwx Editor.icns",
             path: "/usr/local/bin/some/long/path",

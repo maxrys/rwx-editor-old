@@ -58,7 +58,7 @@
 		50114D4D2E01F77300024326 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50114D162E01F24000024326 /* MainView.swift */; };
 		50114D4E2E01F77900024326 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50624C4A2DE5BA8200794BC8 /* Assets.xcassets */; };
 		50114D4F2E01F78900024326 /* PopupApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50114D182E01F24000024326 /* PopupApp.swift */; };
-		50114D502E01F78900024326 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50624C4B2DE5BA8200794BC8 /* MainView.swift */; };
+		50114D502E01F78900024326 /* PopupMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50624C4B2DE5BA8200794BC8 /* PopupMainView.swift */; };
 		50114D512E01F78900024326 /* RwxTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507318452DE71047005E26F9 /* RwxTextView.swift */; };
 		50114D522E01F78900024326 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50114D152E01F24000024326 /* Assets.xcassets */; };
 		50114D532E01F79100024326 /* ButtonCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507318752DE9EB32005E26F9 /* ButtonCustom.swift */; };
@@ -116,7 +116,7 @@
 		50583D7E2DFB673D00013BD0 /* EventsDispatcherGlobal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsDispatcherGlobal.swift; sourceTree = "<group>"; };
 		50624C342DE5B96100794BC8 /* Rwx Editor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Rwx Editor.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		50624C4A2DE5BA8200794BC8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		50624C4B2DE5BA8200794BC8 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		50624C4B2DE5BA8200794BC8 /* PopupMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupMainView.swift; sourceTree = "<group>"; };
 		50624C4C2DE5BA8200794BC8 /* app.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = app.entitlements; sourceTree = "<group>"; };
 		50624C4D2DE5BA8200794BC8 /* MainApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainApp.swift; sourceTree = "<group>"; };
 		50624C532DE5C2BA00794BC8 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
@@ -175,7 +175,7 @@
 			children = (
 				507318922DF05A3B005E26F9 /* controls */,
 				50114D182E01F24000024326 /* PopupApp.swift */,
-				50624C4B2DE5BA8200794BC8 /* MainView.swift */,
+				50624C4B2DE5BA8200794BC8 /* PopupMainView.swift */,
 				507318452DE71047005E26F9 /* RwxTextView.swift */,
 				50114D152E01F24000024326 /* Assets.xcassets */,
 				50114D172E01F24000024326 /* popup.entitlements */,
@@ -451,7 +451,7 @@
 				50114D552E01F79100024326 /* PickerCustom.swift in Sources */,
 				50114D562E01F79100024326 /* ToggleRwxColored.swift in Sources */,
 				50114D4F2E01F78900024326 /* PopupApp.swift in Sources */,
-				50114D502E01F78900024326 /* MainView.swift in Sources */,
+				50114D502E01F78900024326 /* PopupMainView.swift in Sources */,
 				50114D512E01F78900024326 /* RwxTextView.swift in Sources */,
 				50114D2F2E01F6AF00024326 /* UInt.swift in Sources */,
 				50114D302E01F6AF00024326 /* EventsDispatcherGlobal.swift in Sources */,
