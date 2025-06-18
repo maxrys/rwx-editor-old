@@ -10,6 +10,7 @@ class FinderSyncExt: FIFinderSync {
 
     static let EVENT_NAME_FOR_FINDER_CONTEXT_MENU = "finderContextMenu"
     static let MENU_ITEM_TAG_RWX_EDITOR = 0
+    static let URL_PREFIX = "file://"
 
     var folderURL = URL(
         fileURLWithPath: "/Users/"
@@ -43,10 +44,13 @@ class FinderSyncExt: FIFinderSync {
             items?.forEach { url in
                 let absolute = url.absoluteString
                 if (absolute.isEmpty == false) {
-                    if (absolute[0, 6] == "file://") {
+                    if (absolute[0, Self.URL_PREFIX.count-1] == Self.URL_PREFIX) {
                         paths.append(
                             String(
-                                absolute[7, absolute.count-1]
+                                absolute[
+                                    Self.URL_PREFIX.count,
+                                    absolute.count-1
+                                ]
                             )
                         )
                     }

@@ -22,6 +22,7 @@ struct EntityInfo {
 @main struct PopupApp: App {
 
     static let FRAME_WIDTH: CGFloat = 300
+    static let URL_PREFIX = "rwxEditor://"
 
     static var owners: [String: String] = [:]
     static var groups: [String: String] = [:]
@@ -35,9 +36,12 @@ struct EntityInfo {
                 .onOpenURL { url in
                     let absolute = url.absoluteString
                     if (absolute.isEmpty == false) {
-                        if (absolute[0, 11] == "rwxEditor://") {
+                        if (absolute[0, Self.URL_PREFIX.count-1] == Self.URL_PREFIX) {
                             self.receivedUrl = String(
-                                absolute[12, absolute.count-1]
+                                absolute[
+                                    Self.URL_PREFIX.count,
+                                    absolute.count-1
+                                ]
                             )
                         }
                     }
