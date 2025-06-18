@@ -138,7 +138,7 @@
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "расширение включено"
+            "value" : "расширение выключено"
           }
         }
       }
@@ -154,7 +154,7 @@
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "расширение выключено"
+            "value" : "расширение включено"
           }
         }
       }
