@@ -22,8 +22,10 @@ struct MainView: View {
                 .foregroundPolyfill(.white)
                 .padding(20)
                 .background(
-                    FIFinderSyncController.isExtensionEnabled ? Color.green : Color.red )
-                .cornerRadius(5)
+                    FIFinderSyncController.isExtensionEnabled ?
+                        Color(Color.ColorNames.softGreen.rawValue) :
+                        Color(Color.ColorNames.softRed.rawValue)
+                ).cornerRadius(5)
 
             Button {
                 FinderSync.FIFinderSyncController.showExtensionManagementInterface()
