@@ -223,6 +223,9 @@
         }
       }
     },
+    "no url" : {
+
+    },
     "Open Settings" : {
       "localizations" : {
         "en" : {
@@ -350,6 +353,9 @@
           }
         }
       }
+    },
+    "url: %@" : {
+
     },
     "Write" : {
       "localizations" : {

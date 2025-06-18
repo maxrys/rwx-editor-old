@@ -7,21 +7,19 @@ import SwiftUI
 
 @main struct PopupApp: App {
 
-    @Environment(\.openURL) private var openURL
+    static let FRAME_WIDTH: CGFloat = 300
 
     static var owners: [String: String] = [:]
     static var groups: [String: String] = [:]
 
-    private let publisherForFinder = EventsDispatcherGlobal.shared.publisher(
-        FinderSyncExt.EVENT_NAME_FOR_FINDER_CONTEXT_MENU
-    )!
+    @State var receivedUrl: String = ""
 
     var body: some Scene {
         let window = WindowGroup {
             self.mainScene
                 .environment(\.layoutDirection, .leftToRight)
                 .onOpenURL { url in
-                    dump(url)
+                    self.receivedUrl = url.absoluteString
                 }
         }
         if #available(macOS 13.0, *) { return window.windowResizability(.contentSize) }
@@ -29,25 +27,28 @@ import SwiftUI
     }
 
     @ViewBuilder var mainScene: some View {
-        PopupMainView(
-            kind: .file,
-            name: "Rwx Editor.icns",
-            path: "/usr/local/bin/some/long/path",
-            size: 1_234_567,
-            created: try! Date(fromISO8601: "2025-01-02 03:04:05 +0000"),
-            updated: try! Date(fromISO8601: "2025-01-02 03:04:05 +0000"),
-            rights: 0o644,
-            owner: "nobody",
-            group: "staff",
-            onApply: self.onApply
-        )
+        VStack(spacing: 0) {
+            #if DEBUG
+                if (self.receivedUrl.isEmpty)
+                     { Text(         "no url"         ).padding(10).frame(maxWidth: .infinity).foregroundPolyfill(Color(.white)).background(Color.getCustom(.softRed  )) }
+                else { Text("url: \(self.receivedUrl)").padding(10).frame(maxWidth: .infinity).foregroundPolyfill(Color(.white)).background(Color.getCustom(.softGreen)) }
+            #endif
+            PopupMainView(
+                kind: .file,
+                name: "Rwx Editor.icns",
+                path: "/usr/local/bin/some/long/path",
+                size: 1_234_567,
+                created: try! Date(fromISO8601: "2025-01-02 03:04:05 +0000"),
+                updated: try! Date(fromISO8601: "2025-01-02 03:04:05 +0000"),
+                rights: 0o644,
+                owner: "nobody",
+                group: "staff",
+                onApply: self.onApply
+            )
+        }.frame(width: PopupApp.FRAME_WIDTH)
     }
 
     init() {
-        EventsDispatcherGlobal.shared.on(
-            FinderSyncExt.EVENT_NAME_FOR_FINDER_CONTEXT_MENU,
-            handler: self.onFinderContextMenu
-        )
         let owners = Process.systemUsers ().filter{ $0.first != "_" }.sorted()
         let groups = Process.systemGroups().filter{ $0.first != "_" }.sorted()
         if (Self.owners.isEmpty) {
@@ -59,22 +60,6 @@ import SwiftUI
             for value in groups {
                 Self.groups[value] = value
             }
-        }
-    }
-
-    func onFinderContextMenu(event: String) {
-        do {
-            for path in try FinderEvent.decode(event).paths {
-                if let url = URL(string: "rwxEditor://\(path)") {
-                    Task {
-                        openURL(url)
-                    }
-                }
-            }
-        } catch {
-            #if DEBUG
-                print("decode error \(error)")
-            #endif
         }
     }
 

@@ -304,7 +304,6 @@ struct PopupMainView: View {
 
         }
         .foregroundPolyfill(Color.getCustom(.text))
-        .frame(width: 300)
     }
 
 }
@@ -323,5 +322,5 @@ struct PopupMainView: View {
         onApply: { rights, owner, group in
             print("rights: \(String(rights, radix: 8)) | owner: \(owner) | group: \(group)")
         }
-    )
+    ).frame(width: PopupApp.FRAME_WIDTH)
 }
