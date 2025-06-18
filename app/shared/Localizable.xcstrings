@@ -223,9 +223,6 @@
         }
       }
     },
-    "no url" : {
-
-    },
     "Open Settings" : {
       "localizations" : {
         "en" : {
@@ -355,7 +352,20 @@
       }
     },
     "url: %@" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "url: %@"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "url: %@"
+          }
+        }
+      }
     },
     "Write" : {
       "localizations" : {

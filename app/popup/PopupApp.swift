@@ -30,8 +30,8 @@ import SwiftUI
         VStack(spacing: 0) {
             #if DEBUG
                 if (self.receivedUrl.isEmpty)
-                     { Text(         "no url"         ).padding(10).frame(maxWidth: .infinity).foregroundPolyfill(Color(.white)).background(Color.getCustom(.softRed  )) }
-                else { Text("url: \(self.receivedUrl)").padding(10).frame(maxWidth: .infinity).foregroundPolyfill(Color(.white)).background(Color.getCustom(.softGreen)) }
+                     { Text(String(format: NSLocalizedString("url: %@", comment: ""),      "n/a"      )).padding(10).frame(maxWidth: .infinity).foregroundPolyfill(Color(.white)).background(Color.getCustom(.softRed  )) }
+                else { Text(String(format: NSLocalizedString("url: %@", comment: ""), self.receivedUrl)).padding(10).frame(maxWidth: .infinity).foregroundPolyfill(Color(.white)).background(Color.getCustom(.softGreen)) }
             #endif
             PopupMainView(
                 kind: .file,
