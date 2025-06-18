@@ -38,18 +38,28 @@ class FinderSyncExt: FIFinderSync {
 
     @objc func onContextMenu(_ menuItem: NSMenuItem) {
         if (menuItem.tag == Self.MENU_ITEM_TAG_RWX_EDITOR) {
-            let _ = FIFinderSyncController.default().targetedURL()
             let items = FIFinderSyncController.default().selectedItemURLs()
             var paths: [String] = []
             items?.forEach { url in
-                paths.append(url.absoluteString)
+                let absolute = url.absoluteString
+                if (absolute.isEmpty == false) {
+                    if (absolute[0, 6] == "file://") {
+                        paths.append(
+                            String(
+                                absolute[7, absolute.count-1]
+                            )
+                        )
+                    }
+                }
             }
-            EventsDispatcherGlobal.shared.send(
-                FinderSyncExt.EVENT_NAME_FOR_FINDER_CONTEXT_MENU,
-                object: FinderEvent(
-                    paths: paths
-                ).encode()
-            )
+            if (paths.isEmpty == false) {
+                EventsDispatcherGlobal.shared.send(
+                    FinderSyncExt.EVENT_NAME_FOR_FINDER_CONTEXT_MENU,
+                    object: FinderEvent(
+                        paths: paths
+                    ).encode()
+                )
+            }
         }
     }
 

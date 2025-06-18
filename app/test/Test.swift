@@ -15,6 +15,7 @@ struct Test {
         try? self.bitGet()
         try? self.bitSet()
         try? self.bitToggle()
+        try? self.string()
     }
 
     func bitGet() throws {
@@ -119,6 +120,41 @@ struct Test {
         value = 0b111111111;  value.bitToggle(position: 6);  expected = "0b110111111";  received = self.prettyResult(value);  print("\(expected) = \(received)");  #expect(expected == received)
         value = 0b111111111;  value.bitToggle(position: 7);  expected = "0b101111111";  received = self.prettyResult(value);  print("\(expected) = \(received)");  #expect(expected == received)
         value = 0b111111111;  value.bitToggle(position: 8);  expected = "0b011111111";  received = self.prettyResult(value);  print("\(expected) = \(received)");  #expect(expected == received)
+    }
+
+    func string() throws {
+
+        let string = "Привет!"
+
+        #expect(string[0] == "П")
+        #expect(string[1] == "р")
+        #expect(string[2] == "и")
+        #expect(string[3] == "в")
+        #expect(string[4] == "е")
+        #expect(string[5] == "т")
+        #expect(string[6] == "!")
+
+        #expect(string[-7] == "П")
+        #expect(string[-6] == "р")
+        #expect(string[-5] == "и")
+        #expect(string[-4] == "в")
+        #expect(string[-3] == "е")
+        #expect(string[-2] == "т")
+        #expect(string[-1] == "!")
+
+        #expect(string[0, 0] == "П")
+        #expect(string[0, 1] == "Пр")
+        #expect(string[0, 2] == "При")
+        #expect(string[0, 3] == "Прив")
+        #expect(string[0, 4] == "Приве")
+        #expect(string[0, 5] == "Привет")
+        #expect(string[0, 6] == "Привет!")
+
+        #expect(string[3, 3] == "в")
+        #expect(string[3, 4] == "ве")
+        #expect(string[3, 5] == "вет")
+        #expect(string[3, 6] == "вет!")
+
     }
 
 }

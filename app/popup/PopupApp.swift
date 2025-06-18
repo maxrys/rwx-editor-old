@@ -57,7 +57,7 @@ struct EntityInfo {
     func parseURL(url: String) -> EntityInfo {
         var result = EntityInfo()
         if (url != "") {
-            result.kind = .file
+            result.kind = url.last == "/" ? .dirrectory : .file
             result.name = "Rwx Editor.icns"
             result.path = "/usr/local/bin/some/long/path"
             result.size = 1_234_567
