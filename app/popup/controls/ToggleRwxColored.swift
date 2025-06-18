@@ -9,9 +9,9 @@ struct ToggleRwxColored: View {
 
     enum ColorNames: String {
         case empty = "color ToggleRwxColored Empty"
-        case owner = "color ToggleRwxColored Owner"
-        case group = "color ToggleRwxColored Group"
-        case other = "color ToggleRwxColored Other"
+        case owner = "color Soft Green"
+        case group = "color Soft Orange"
+        case other = "color Soft Red"
     }
 
     private var color: ColorNames

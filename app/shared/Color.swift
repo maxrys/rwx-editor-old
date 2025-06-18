@@ -8,7 +8,10 @@ import SwiftUI
 extension Color {
 
     enum ColorNames: String {
-        case text = "color Text"
+        case text       = "color Text"
+        case softGreen  = "color Soft Green"
+        case softOrange = "color Soft Orange"
+        case softRed    = "color Soft Red"
     }
 
 }
