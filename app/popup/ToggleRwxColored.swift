@@ -23,8 +23,8 @@ struct ToggleRwxColored: View {
     private let iconR: CGFloat = 25
     private var isOn: Bool {
         self.rights.wrappedValue.bitGet(
-            position: self.bitPosition
-        ) == 1
+            index: self.bitPosition
+        )
     }
 
     init(_ kind: Kind, _ rights: Binding<UInt>, bitPosition: UInt) {

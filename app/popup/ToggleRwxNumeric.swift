@@ -24,24 +24,24 @@ struct ToggleRwxNumeric: View {
     }
 
     let valueUnpack: (UInt, Subject) -> UInt = { rightsValue, subject in
-        let bitR = rightsValue.bitGet(position: subject.offset + Permission.r.offset)
-        let bitW = rightsValue.bitGet(position: subject.offset + Permission.w.offset)
-        let bitX = rightsValue.bitGet(position: subject.offset + Permission.x.offset)
+        let bitR = rightsValue.bitGet(index: subject.offset + Permission.r.offset)
+        let bitW = rightsValue.bitGet(index: subject.offset + Permission.w.offset)
+        let bitX = rightsValue.bitGet(index: subject.offset + Permission.x.offset)
         var result: UInt = 0
-            result.bitSet(position: Permission.r.offset, isOn: bitR == 1)
-            result.bitSet(position: Permission.w.offset, isOn: bitW == 1)
-            result.bitSet(position: Permission.x.offset, isOn: bitX == 1)
+            result.bitSet(index: Permission.r.offset, isOn: bitR)
+            result.bitSet(index: Permission.w.offset, isOn: bitW)
+            result.bitSet(index: Permission.x.offset, isOn: bitX)
         return result
     }
 
     let valuePack: (UInt, UInt, Subject) -> UInt = { value, rightsValue, subject in
-        let bitR = value.bitGet(position: Permission.r.offset)
-        let bitW = value.bitGet(position: Permission.w.offset)
-        let bitX = value.bitGet(position: Permission.x.offset)
+        let bitR = value.bitGet(index: Permission.r.offset)
+        let bitW = value.bitGet(index: Permission.w.offset)
+        let bitX = value.bitGet(index: Permission.x.offset)
         var result = rightsValue
-            result.bitSet(position: subject.offset + Permission.r.offset, isOn: bitR == 1)
-            result.bitSet(position: subject.offset + Permission.w.offset, isOn: bitW == 1)
-            result.bitSet(position: subject.offset + Permission.x.offset, isOn: bitX == 1)
+            result.bitSet(index: subject.offset + Permission.r.offset, isOn: bitR)
+            result.bitSet(index: subject.offset + Permission.w.offset, isOn: bitW)
+            result.bitSet(index: subject.offset + Permission.x.offset, isOn: bitX)
         return result
     }
 
