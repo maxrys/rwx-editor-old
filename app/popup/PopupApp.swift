@@ -5,14 +5,14 @@
 
 import SwiftUI
 
-struct EntityInfo {
+struct FSEntityInfo {
 
     var type: FSType = .unknown
-    var name: String = ""
-    var path: String = ""
-    var size: UInt = 0
-    var created: Date? = nil
-    var updated: Date? = nil
+    var name: String?
+    var path: String?
+    var size: UInt?
+    var created: Date?
+    var updated: Date?
     var rights: UInt = 0
     var owner: String = ""
     var group: String = ""
@@ -74,8 +74,8 @@ struct EntityInfo {
         }.frame(width: PopupApp.FRAME_WIDTH)
     }
 
-    func parseURL(url: String) -> EntityInfo {
-        var result = EntityInfo()
+    func parseURL(url: String) -> FSEntityInfo {
+        var result = FSEntityInfo()
         if (!url.isEmpty) {
             if let attr = try? FileManager.default.attributesOfItem(atPath: url) {
 
@@ -111,8 +111,8 @@ struct EntityInfo {
                     /* name/path */
                     if let urlAsURL = URL(string: url) {
                         result.name = urlAsURL.lastPathComponent
-                        if (result.type == .dirrectory) { result.path = String(urlAsURL.absoluteString[0, urlAsURL.absoluteString.count-result.name.count-2]) }
-                        if (result.type == .file      ) { result.path = String(urlAsURL.absoluteString[0, urlAsURL.absoluteString.count-result.name.count-1]) }
+                        if (result.type == .dirrectory) { result.path = String(urlAsURL.absoluteString[0, urlAsURL.absoluteString.count - result.name!.count - 2]) }
+                        if (result.type == .file      ) { result.path = String(urlAsURL.absoluteString[0, urlAsURL.absoluteString.count - result.name!.count - 1]) }
                     }
 
                 }

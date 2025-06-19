@@ -33,6 +33,14 @@ struct ToggleRwxColored: View {
         self.bitPosition = bitPosition
     }
 
+    var background: Color {
+        switch self.kind {
+            case .owner: Color.getCustom(.softGreen)
+            case .group: Color.getCustom(.softOrange)
+            case .other: Color.getCustom(.softRed)
+        }
+    }
+
     var body: some View {
         Button {
             self.rights.wrappedValue.bitToggle(
@@ -40,16 +48,9 @@ struct ToggleRwxColored: View {
             )
         } label: {
             if (self.isOn) {
-                let background = {
-                    switch self.kind {
-                        case .owner: Color.getCustom(.softGreen)
-                        case .group: Color.getCustom(.softOrange)
-                        case .other: Color.getCustom(.softRed)
-                    }
-                }()
                 ZStack {
                     Circle()
-                        .fill(background)
+                        .fill(self.background)
                         .frame(width: self.iconR, height: self.iconR)
                     Image(systemName: "checkmark")
                         .font(.system(size: 13, weight: .bold))
@@ -70,8 +71,8 @@ struct ToggleRwxColored: View {
 @available(macOS 14.0, *) #Preview {
     @Previewable @State var rights: UInt = 0o7
     HStack(spacing: 10) {
+        ToggleRwxColored(.owner, $rights, bitPosition: Permission.r.offset)
         ToggleRwxColored(.group, $rights, bitPosition: Permission.x.offset)
         ToggleRwxColored(.other, $rights, bitPosition: Permission.w.offset)
-        ToggleRwxColored(.owner, $rights, bitPosition: Permission.r.offset)
     }.padding(20)
 }

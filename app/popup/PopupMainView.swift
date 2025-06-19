@@ -27,9 +27,9 @@ struct PopupMainView: View {
     @State private var group: String
 
     private let type: FSType
-    private let name: String
-    private let path: String
-    private let size: UInt
+    private let name: String?
+    private let path: String?
+    private let size: UInt?
     private let created: Date?
     private let updated: Date?
     private let originalRights: UInt
@@ -37,7 +37,7 @@ struct PopupMainView: View {
     private let originalGroup: String
     private let onApply: (UInt, String, String) -> Void
 
-    init(info: EntityInfo, onApply: @escaping (UInt, String, String) -> Void) {
+    init(info: FSEntityInfo, onApply: @escaping (UInt, String, String) -> Void) {
         self.type           = info.type
         self.name           = info.name
         self.path           = info.path
@@ -76,55 +76,65 @@ struct PopupMainView: View {
 
     var formatType: String {
         switch self.type {
-            case .dirrectory: return NSLocalizedString("dirrectory", comment: "")
-            case .file      : return NSLocalizedString("file"      , comment: "")
-            case .unknown   : return NSLocalizedString(Self.NA_SIGN, comment: "")
+            case .dirrectory: NSLocalizedString("dirrectory", comment: "")
+            case .file      : NSLocalizedString("file"      , comment: "")
+            case .unknown   : NSLocalizedString(Self.NA_SIGN, comment: "")
         }
     }
 
     var formatName: String {
-        if (self.name.isEmpty == false)
-             { return self.name }
-        else { return NSLocalizedString(Self.NA_SIGN, comment: "") }
+        if let name = self.name
+             { name }
+        else { NSLocalizedString(Self.NA_SIGN, comment: "") }
     }
 
     var formatPath: String {
-        if (self.path.isEmpty == false)
-             { return self.path }
-        else { return NSLocalizedString(Self.NA_SIGN, comment: "") }
+        if let path = self.path
+             { path }
+        else { NSLocalizedString(Self.NA_SIGN, comment: "") }
     }
 
     var formatSize: String {
-        switch self.sizeViewMode {
-            case  .bytes: return ByteCountFormatter.format(self.size, unit: .useBytes)
-            case .kbytes: return ByteCountFormatter.format(self.size, unit: .useKB)
-            case .mbytes: return ByteCountFormatter.format(self.size, unit: .useMB)
-            case .gbytes: return ByteCountFormatter.format(self.size, unit: .useGB)
-            case .tbytes: return ByteCountFormatter.format(self.size, unit: .useTB)
+        if let size = self.size {
+            switch self.sizeViewMode {
+                case  .bytes: ByteCountFormatter.format(size, unit: .useBytes)
+                case .kbytes: ByteCountFormatter.format(size, unit: .useKB)
+                case .mbytes: ByteCountFormatter.format(size, unit: .useMB)
+                case .gbytes: ByteCountFormatter.format(size, unit: .useGB)
+                case .tbytes: ByteCountFormatter.format(size, unit: .useTB)
+            }
+        } else {
+            NSLocalizedString(
+                Self.NA_SIGN, comment: ""
+            )
         }
     }
 
     var formatCreated: String {
         if let created = self.created {
             switch self.createdViewMode {
-                case .convenient   : return created.convenient
-                case .iso8601withTZ: return created.ISO8601withTZ
-                case .iso8601      : return created.ISO8601
+                case .convenient   : created.convenient
+                case .iso8601withTZ: created.ISO8601withTZ
+                case .iso8601      : created.ISO8601
             }
         } else {
-            return NSLocalizedString(Self.NA_SIGN, comment: "")
+            NSLocalizedString(
+                Self.NA_SIGN, comment: ""
+            )
         }
     }
 
     var formatUpdated: String {
         if let updated = self.updated {
             switch self.updatedViewMode {
-                case .convenient   : return updated.convenient
-                case .iso8601withTZ: return updated.ISO8601withTZ
-                case .iso8601      : return updated.ISO8601
+                case .convenient   : updated.convenient
+                case .iso8601withTZ: updated.ISO8601withTZ
+                case .iso8601      : updated.ISO8601
             }
         } else {
-            return NSLocalizedString(Self.NA_SIGN, comment: "")
+            NSLocalizedString(
+                Self.NA_SIGN, comment: ""
+            )
         }
     }
 
@@ -176,8 +186,10 @@ struct PopupMainView: View {
                 self.gridCellWrapper(alignment: .trailing, tint: true,
                     HStack(spacing: 5) {
                         Text(NSLocalizedString("Size", comment: ""))
-                        if (self.size > 0) {
-                            self.iconRoll(value: self.$sizeViewMode)
+                        if (self.size != nil) {
+                            self.iconRoll(
+                                value: self.$sizeViewMode
+                            )
                         }
                     }
                 )
@@ -192,7 +204,9 @@ struct PopupMainView: View {
                     HStack(spacing: 5) {
                         Text(NSLocalizedString("Created", comment: ""))
                         if (self.created != nil) {
-                            self.iconRoll(value: self.$createdViewMode)
+                            self.iconRoll(
+                                value: self.$createdViewMode
+                            )
                         }
                     }
                 )
@@ -207,7 +221,9 @@ struct PopupMainView: View {
                     HStack(spacing: 5) {
                         Text(NSLocalizedString("Updated", comment: ""))
                         if (self.updated != nil) {
-                            self.iconRoll(value: self.$updatedViewMode)
+                            self.iconRoll(
+                                value: self.$updatedViewMode
+                            )
                         }
                     }
                 )
@@ -267,8 +283,8 @@ struct PopupMainView: View {
                     }
 
                     VStack(spacing: 10) {
-                        if (self.type == .file) { Text(NSLocalizedString("Execute", comment: "")).frame(width: textW, height: textH) }
-                        if (self.type != .file) { Text(NSLocalizedString("Access" , comment: "")).frame(width: textW, height: textH) }
+                        let text = self.type == .file ? "Execute" : "Access"
+                        Text(NSLocalizedString(text, comment: "")).frame(width: textW, height: textH)
                         ToggleRwxColored(.owner, self.$rights, bitPosition: Subject.owner.offset + Permission.x.offset);
                         ToggleRwxColored(.group, self.$rights, bitPosition: Subject.group.offset + Permission.x.offset);
                         ToggleRwxColored(.other, self.$rights, bitPosition: Subject.other.offset + Permission.x.offset);
@@ -367,7 +383,7 @@ struct PopupMainView: View {
 
 #Preview {
     PopupMainView(
-        info: EntityInfo(
+        info: FSEntityInfo(
             type: .file,
             name: "Rwx Editor.icns",
             path: "/usr/local/bin/some",
