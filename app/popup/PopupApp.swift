@@ -8,11 +8,11 @@ import SwiftUI
 struct EntityInfo {
 
     var type: FSType = .unknown
-    var name: String = "n/a"
-    var path: String = "n/a"
+    var name: String = ""
+    var path: String = ""
     var size: UInt = 0
-    var created: Date = try! Date(fromISO8601: "2025-01-01 00:00:00 +0000")
-    var updated: Date = try! Date(fromISO8601: "2025-01-01 00:00:00 +0000")
+    var created: Date? = nil
+    var updated: Date? = nil
     var rights: UInt = 0
     var owner: String = ""
     var group: String = ""
@@ -23,6 +23,7 @@ struct EntityInfo {
 
     static let FRAME_WIDTH: CGFloat = 300
     static let URL_PREFIX = "rwxEditor://"
+    static let NA_SIGN = "—"
 
     static var owners: [String: String] = [:]
     static var groups: [String: String] = [:]
@@ -54,9 +55,17 @@ struct EntityInfo {
     @ViewBuilder var mainScene: some View {
         VStack(spacing: 0) {
             #if DEBUG
-                if (self.receivedUrl.isEmpty)
-                     { Text(String(format: NSLocalizedString("url: %@", comment: ""),      "n/a"      )).padding(10).frame(maxWidth: .infinity).foregroundPolyfill(Color(.white)).background(Color.getCustom(.softRed  )) }
-                else { Text(String(format: NSLocalizedString("url: %@", comment: ""), self.receivedUrl)).padding(10).frame(maxWidth: .infinity).foregroundPolyfill(Color(.white)).background(Color.getCustom(.softGreen)) }
+                let text = String(format: NSLocalizedString("url: %@", comment: ""), self.receivedUrl.isEmpty ? Self.NA_SIGN : self.receivedUrl)
+                let background = self.receivedUrl.isEmpty ?
+                    Color.getCustom(.softRed) :
+                    Color.getCustom(.softGreen)
+                Text(text)
+                    .padding(10)
+                    .multilineTextAlignment(.center)
+                    .fixedSize(horizontal: false, vertical: true)
+                    .frame(maxWidth: .infinity)
+                    .foregroundPolyfill(Color(.white))
+                    .background(background)
             #endif
             PopupMainView(
                 info: self.parseURL(url: self.receivedUrl),

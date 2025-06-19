@@ -191,17 +191,6 @@
         }
       }
     },
-    "n/a" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "n/a"
-          }
-        }
-      },
-      "shouldTranslate" : false
-    },
     "Name" : {
       "localizations" : {
         "en" : {

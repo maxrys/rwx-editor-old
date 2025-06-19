@@ -34,7 +34,7 @@ struct PickerCustom<Key>: View where Key: Hashable & Comparable {
         Button {
             self.isOpened = true
         } label: {
-            Text(self.values[self.selected.wrappedValue] ?? "n/a")
+            Text(self.values[self.selected.wrappedValue] ?? "—")
                 .lineLimit(1)
                 .padding(.horizontal, 9)
                 .padding(.vertical  , 5)

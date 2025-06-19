@@ -7,14 +7,16 @@ import SwiftUI
 
 struct PopupMainView: View {
 
-    @Environment(\.colorScheme) private var colorScheme
-
     enum ColorNames: String {
         case headTint = "color PopupMainView Head Tint"
         case head     = "color PopupMainView Head Background"
         case body     = "color PopupMainView Body Background"
         case foot     = "color PopupMainView Foot Background"
     }
+
+    static let NA_SIGN = "—"
+
+    @Environment(\.colorScheme) private var colorScheme
 
     @State private var sizeViewMode: BytesViewMode = .bytes
     @State private var createdViewMode: DateViewMode = .convenient
@@ -28,8 +30,8 @@ struct PopupMainView: View {
     private let name: String
     private let path: String
     private let size: UInt
-    private let created: Date
-    private let updated: Date
+    private let created: Date?
+    private let updated: Date?
     private let originalRights: UInt
     private let originalOwner: String
     private let originalGroup: String
@@ -72,6 +74,60 @@ struct PopupMainView: View {
             .background(background)
     }
 
+    var formatType: String {
+        switch self.type {
+            case .dirrectory: return NSLocalizedString("dirrectory", comment: "")
+            case .file      : return NSLocalizedString("file"      , comment: "")
+            case .unknown   : return NSLocalizedString(Self.NA_SIGN, comment: "")
+        }
+    }
+
+    var formatName: String {
+        if (self.name.isEmpty == false)
+             { return self.name }
+        else { return NSLocalizedString(Self.NA_SIGN, comment: "") }
+    }
+
+    var formatPath: String {
+        if (self.path.isEmpty == false)
+             { return self.path }
+        else { return NSLocalizedString(Self.NA_SIGN, comment: "") }
+    }
+
+    var formatSize: String {
+        switch self.sizeViewMode {
+            case  .bytes: return ByteCountFormatter.format(self.size, unit: .useBytes)
+            case .kbytes: return ByteCountFormatter.format(self.size, unit: .useKB)
+            case .mbytes: return ByteCountFormatter.format(self.size, unit: .useMB)
+            case .gbytes: return ByteCountFormatter.format(self.size, unit: .useGB)
+            case .tbytes: return ByteCountFormatter.format(self.size, unit: .useTB)
+        }
+    }
+
+    var formatCreated: String {
+        if let created = self.created {
+            switch self.createdViewMode {
+                case .convenient   : return created.convenient
+                case .iso8601withTZ: return created.ISO8601withTZ
+                case .iso8601      : return created.ISO8601
+            }
+        } else {
+            return NSLocalizedString(Self.NA_SIGN, comment: "")
+        }
+    }
+
+    var formatUpdated: String {
+        if let updated = self.updated {
+            switch self.updatedViewMode {
+                case .convenient   : return updated.convenient
+                case .iso8601withTZ: return updated.ISO8601withTZ
+                case .iso8601      : return updated.ISO8601
+            }
+        } else {
+            return NSLocalizedString(Self.NA_SIGN, comment: "")
+        }
+    }
+
     var body: some View {
         VStack(spacing: 0) {
 
@@ -86,35 +142,37 @@ struct PopupMainView: View {
 
             LazyVGrid(columns: columns, spacing: 0) {
 
-                /* type */
+                /* MARK: type */
+
                 self.gridCellWrapper(alignment: .trailing,
                     Text(NSLocalizedString("Type", comment: ""))
                 )
                 self.gridCellWrapper(
-                    {switch self.type {
-                        case .dirrectory: Text(NSLocalizedString("dirrectory", comment: ""))
-                        case .file      : Text(NSLocalizedString("file"      , comment: ""))
-                        case .unknown   : Text(NSLocalizedString("n/a"       , comment: ""))
-                    }}()
+                    Text(self.formatType)
                 )
 
-                /* name */
+                /* MARK: name */
+
                 self.gridCellWrapper(alignment: .trailing, tint: true,
                     Text(NSLocalizedString("Name", comment: ""))
                 )
                 self.gridCellWrapper(tint: true,
-                    Text("\(self.name)").textSelectionPolyfill()
+                    Text(self.formatName)
+                        .textSelectionPolyfill()
                 )
 
-                /* path */
+                /* MARK: path */
+
                 self.gridCellWrapper(alignment: .trailing,
                     Text(NSLocalizedString("Path", comment: ""))
                 )
                 self.gridCellWrapper(
-                    Text("\(self.path)").textSelectionPolyfill()
+                    Text(self.formatPath)
+                        .textSelectionPolyfill()
                 )
 
-                /* size */
+                /* MARK: size */
+
                 self.gridCellWrapper(alignment: .trailing, tint: true,
                     HStack(spacing: 5) {
                         Text(NSLocalizedString("Size", comment: ""))
@@ -124,43 +182,38 @@ struct PopupMainView: View {
                     }
                 )
                 self.gridCellWrapper(tint: true,
-                    {switch self.sizeViewMode {
-                        case  .bytes: return Text(ByteCountFormatter.format(self.size, unit: .useBytes))
-                        case .kbytes: return Text(ByteCountFormatter.format(self.size, unit: .useKB))
-                        case .mbytes: return Text(ByteCountFormatter.format(self.size, unit: .useMB))
-                        case .gbytes: return Text(ByteCountFormatter.format(self.size, unit: .useGB))
-                        case .tbytes: return Text(ByteCountFormatter.format(self.size, unit: .useTB))
-                    }}().textSelectionPolyfill()
+                    Text(self.formatSize)
+                        .textSelectionPolyfill()
                 )
 
-                /* created */
+                /* MARK: created */
+
                 self.gridCellWrapper(alignment: .trailing,
                     HStack(spacing: 5) {
                         Text(NSLocalizedString("Created", comment: ""))
-                        self.iconRoll(value: self.$createdViewMode)
+                        if (self.created != nil) {
+                            self.iconRoll(value: self.$createdViewMode)
+                        }
                     }
                 )
                 self.gridCellWrapper(
-                    {switch self.createdViewMode {
-                        case .convenient   : Text(self.created.convenient)
-                        case .iso8601withTZ: Text(self.created.ISO8601withTZ)
-                        case .iso8601      : Text(self.created.ISO8601)
-                    }}().textSelectionPolyfill()
+                    Text(self.formatCreated)
+                        .textSelectionPolyfill()
                 )
 
-                /* updated */
+                /* MARK: updated */
+
                 self.gridCellWrapper(alignment: .trailing, tint: true,
                     HStack(spacing: 5) {
                         Text(NSLocalizedString("Updated", comment: ""))
-                        self.iconRoll(value: self.$updatedViewMode)
+                        if (self.updated != nil) {
+                            self.iconRoll(value: self.$updatedViewMode)
+                        }
                     }
                 )
                 self.gridCellWrapper(tint: true,
-                    {switch self.updatedViewMode {
-                        case .convenient   : Text(self.updated.convenient)
-                        case .iso8601withTZ: Text(self.updated.ISO8601withTZ)
-                        case .iso8601      : Text(self.updated.ISO8601)
-                    }}().textSelectionPolyfill()
+                    Text(self.formatUpdated)
+                        .textSelectionPolyfill()
                 )
 
             }
