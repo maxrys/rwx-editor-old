@@ -10,13 +10,14 @@ extension String {
     }
 
     subscript(position: Int) -> Character {
-        let index = position >= 0 ? self.startIndex : self.endIndex
-        return self[self.index(index, offsetBy: position)]
+        let position = position >= 0 ? position : self.count + position
+        let index = self.index(self.startIndex, offsetBy: position.fixBounds(max: self.count-1))
+        return self[index]
     }
 
     subscript(startPosition: Int, endPosition: Int) -> Substring {
-        let startIndex = self.index(self.startIndex, offsetBy: startPosition)
-        let endIndex = self.index(self.startIndex, offsetBy: endPosition)
+        let startIndex = self.index(self.startIndex, offsetBy: startPosition.fixBounds(max: self.count-1))
+        let endIndex   = self.index(self.startIndex, offsetBy: endPosition  .fixBounds(max: self.count-1))
         return self[startIndex ... endIndex]
     }
 

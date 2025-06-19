@@ -155,6 +155,10 @@ struct Test {
         #expect(string[3, 5] == "вет")
         #expect(string[3, 6] == "вет!")
 
+        #expect(string[-100, +100] == "Привет!")
+        #expect(string[-100] == "П" )
+        #expect(string[+100] == "!" )
+
     }
 
 }
