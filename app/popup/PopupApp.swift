@@ -13,6 +13,7 @@ struct FSEntityInfo {
     var size: UInt?
     var created: Date?
     var updated: Date?
+    var references: UInt?
     var rights: UInt = 0
     var owner: String = ""
     var group: String = ""
@@ -101,12 +102,13 @@ struct FSEntityInfo {
                         }
                     }
 
-                    /* MARK: created/updated/rights/owner/group */
-                    if let created = attr[.creationDate]          as? Date   { result.created = created }
-                    if let updated = attr[.modificationDate]      as? Date   { result.updated = updated }
-                    if let rights  = attr[.posixPermissions]      as? UInt   { result.rights  = rights }
-                    if let owner   = attr[.ownerAccountName]      as? String { result.owner   = owner }
-                    if let group   = attr[.groupOwnerAccountName] as? String { result.group   = group }
+                    /* MARK: created/updated/rights/owner/group/referenceCount */
+                    if let created    = attr[.creationDate]          as? Date   { result.created    = created }
+                    if let updated    = attr[.modificationDate]      as? Date   { result.updated    = updated }
+                    if let references = attr[.referenceCount]        as? UInt   { result.references = references }
+                    if let rights     = attr[.posixPermissions]      as? UInt   { result.rights     = rights }
+                    if let owner      = attr[.ownerAccountName]      as? String { result.owner      = owner }
+                    if let group      = attr[.groupOwnerAccountName] as? String { result.group      = group }
 
                     /* MARK: name/path */
                     if let urlAsURL = URL(string: url) {

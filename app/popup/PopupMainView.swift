@@ -32,6 +32,7 @@ struct PopupMainView: View {
     private let size: UInt?
     private let created: Date?
     private let updated: Date?
+    private let references: UInt?
     private let originalRights: UInt
     private let originalOwner: String
     private let originalGroup: String
@@ -44,6 +45,7 @@ struct PopupMainView: View {
         self.size           = info.size
         self.created        = info.created
         self.updated        = info.updated
+        self.references     = info.references
         self.rights         = info.rights
         self.owner          = info.owner
         self.group          = info.group
@@ -138,6 +140,16 @@ struct PopupMainView: View {
         }
     }
 
+    var formattedReferences: String {
+        if let references = self.references {
+            String(references)
+        } else {
+            NSLocalizedString(
+                Self.NA_SIGN, comment: ""
+            )
+        }
+    }
+
     var body: some View {
         VStack(spacing: 0) {
 
@@ -154,31 +166,40 @@ struct PopupMainView: View {
 
                 /* MARK: type */
 
-                self.gridCellWrapper(alignment: .trailing,
+                self.gridCellWrapper(alignment: .trailing, tint: true,
                     Text(NSLocalizedString("Type", comment: ""))
                 )
-                self.gridCellWrapper(
+                self.gridCellWrapper(tint: true,
                     Text(self.formattedType)
                 )
 
                 /* MARK: name */
 
-                self.gridCellWrapper(alignment: .trailing, tint: true,
+                self.gridCellWrapper(alignment: .trailing,
                     Text(NSLocalizedString("Name", comment: ""))
                 )
-                self.gridCellWrapper(tint: true,
+                self.gridCellWrapper(
                     Text(self.formattedName)
                         .textSelectionPolyfill()
                 )
 
                 /* MARK: path */
 
-                self.gridCellWrapper(alignment: .trailing,
+                self.gridCellWrapper(alignment: .trailing, tint: true,
                     Text(NSLocalizedString("Path", comment: ""))
                 )
-                self.gridCellWrapper(
+                self.gridCellWrapper(tint: true,
                     Text(self.formattedPath)
                         .textSelectionPolyfill()
+                )
+
+                /* MARK: references */
+
+                self.gridCellWrapper(alignment: .trailing,
+                    Text(NSLocalizedString("References", comment: ""))
+                )
+                self.gridCellWrapper(
+                    Text(self.formattedReferences)
                 )
 
                 /* MARK: size */

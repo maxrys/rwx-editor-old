@@ -287,6 +287,22 @@
         }
       }
     },
+    "References" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "References"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ссылки"
+          }
+        }
+      }
+    },
     "Rwx Editor" : {
       "localizations" : {
         "en" : {
