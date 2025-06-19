@@ -68,7 +68,7 @@ struct PickerCustom<Key>: View where Key: Hashable & Comparable {
                             Color.clear :
                             Color(Self.ColorNames.itemBackground.rawValue)
                     }
-                    Text("\(value)")
+                    Text(value)
                         .lineLimit(1)
                         .padding(.horizontal, 9)
                         .padding(.vertical  , 5)

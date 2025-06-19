@@ -1,32 +1,12 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
-    "" : {
-      "localizations" : {
-        "ru" : {
-          "stringUnit" : {
-            "state" : "needs_review",
-            "value" : ""
-          }
-        }
-      },
-      "shouldTranslate" : false
-    },
-    "%@" : {
-      "shouldTranslate" : false
-    },
     "%@ 'at' %@" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "new",
             "value" : "%1$@ 'at' %2$@"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%@ 'в' %@"
           }
         }
       }
@@ -106,7 +86,7 @@
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Директория"
+            "value" : "директория"
           }
         }
       }
@@ -267,6 +247,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Путь"
+          }
+        }
+      }
+    },
+    "pcs." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "pcs."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "шт."
           }
         }
       }

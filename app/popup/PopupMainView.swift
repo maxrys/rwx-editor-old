@@ -142,7 +142,7 @@ struct PopupMainView: View {
 
     var formattedReferences: String {
         if let references = self.references {
-            String(references)
+            String(references) + " " + NSLocalizedString("pcs.", comment: "")
         } else {
             NSLocalizedString(
                 Self.NA_SIGN, comment: ""
@@ -283,7 +283,7 @@ struct PopupMainView: View {
                     let textH: CGFloat = 25
 
                     VStack(spacing: 10) {
-                        Text("").frame(width: textW, height: textH)
+                        Color.clear.frame(width: textW, height: textH)
                         Text(NSLocalizedString("Owner", comment: "")).frame(width: textW, height: textH)
                         Text(NSLocalizedString("Group", comment: "")).frame(width: textW, height: textH)
                         Text(NSLocalizedString("Other", comment: "")).frame(width: textW, height: textH)
