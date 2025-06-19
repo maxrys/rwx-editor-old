@@ -33,6 +33,17 @@
         }
       }
     },
+    "%@: %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@: %2$@"
+          }
+        }
+      },
+      "shouldTranslate" : false
+    },
     "Access" : {
       "localizations" : {
         "en" : {
@@ -96,6 +107,17 @@
           }
         }
       }
+    },
+    "DEBUG INFO: %@ | %@ | %@ | %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "DEBUG INFO: %1$@ | %2$@ | %3$@ | %4$@"
+          }
+        }
+      },
+      "shouldTranslate" : false
     },
     "dirrectory" : {
       "localizations" : {
@@ -365,22 +387,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Обновлено"
-          }
-        }
-      }
-    },
-    "url: %@" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "url: %@"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "url: %@"
           }
         }
       }

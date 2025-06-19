@@ -575,7 +575,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = popup/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "Rwx Editor Popup";
+				INFOPLIST_KEY_CFBundleDisplayName = "Rwx Editor";
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025 Maxim Rysevets. All rights reserved.";
@@ -607,7 +607,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "Rwx Editor Popup";
+				INFOPLIST_KEY_CFBundleDisplayName = "Rwx Editor";
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025 Maxim Rysevets. All rights reserved.";

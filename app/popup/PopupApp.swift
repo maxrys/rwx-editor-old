@@ -39,7 +39,7 @@ struct FSEntityInfo {
                     let absolute = url.absoluteString
                     if (absolute.isEmpty == false) {
                         if (absolute[0, UInt(Self.URL_PREFIX.count-1)] == Self.URL_PREFIX) {
-                            self.receivedUrl = String(
+                            self.incommingUrl = String(
                                 absolute[
                                     UInt(Self.URL_PREFIX.count),
                                     UInt(absolute.count-1)
@@ -55,27 +55,27 @@ struct FSEntityInfo {
 
     @ViewBuilder var mainScene: some View {
         VStack(spacing: 0) {
+            let analyzeURLInfo = self.analyzeURL(url: self.incommingUrl)
+            PopupMainView(
+                info: analyzeURLInfo,
+                onApply: self.onApply
+            )
             #if DEBUG
-                let text = String(format: NSLocalizedString("url: %@", comment: ""), self.receivedUrl.isEmpty ? Self.NA_SIGN : self.receivedUrl)
-                let background = self.receivedUrl.isEmpty ?
-                    Color.getCustom(.darkRed) :
-                    Color.getCustom(.darkGreen)
-                Text(text)
+                let formattedIncommingUrl = String(format: "%@: %@", "url"   , self.incommingUrl.isEmpty ? Self.NA_SIGN : self.incommingUrl)
+                let formattedRights       = String(format: "%@: %@", "rights", String(analyzeURLInfo.rights))
+                let formattedOwner        = String(format: "%@: %@", "owner" , analyzeURLInfo.owner.isEmpty ? Self.NA_SIGN : analyzeURLInfo.owner)
+                let formattedGroup        = String(format: "%@: %@", "group" , analyzeURLInfo.group.isEmpty ? Self.NA_SIGN : analyzeURLInfo.group)
+                Text("DEBUG INFO: \(formattedIncommingUrl) | \(formattedRights) | \(formattedOwner) | \(formattedGroup)")
                     .padding(10)
-                    .multilineTextAlignment(.center)
                     .fixedSize(horizontal: false, vertical: true)
                     .frame(maxWidth: .infinity)
                     .foregroundPolyfill(Color(.white))
-                    .background(background)
+                    .background(Color.gray)
             #endif
-            PopupMainView(
-                info: self.parseURL(url: self.receivedUrl),
-                onApply: self.onApply
-            )
         }.frame(width: PopupApp.FRAME_WIDTH)
     }
 
-    func parseURL(url: String) -> FSEntityInfo {
+    func analyzeURL(url: String) -> FSEntityInfo {
         var result = FSEntityInfo()
         if (!url.isEmpty) {
             if let attr = try? FileManager.default.attributesOfItem(atPath: url) {
@@ -95,6 +95,13 @@ struct FSEntityInfo {
 
                 if (result.type == .file || result.type == .dirrectory) {
 
+                    /* MARK: name/path */
+                    if let urlAsURL = URL(string: url) {
+                        result.name = urlAsURL.lastPathComponent
+                        if (result.type == .dirrectory) { result.path = String(urlAsURL.absoluteString[0, UInt(urlAsURL.absoluteString.count - result.name!.count - 2)]) }
+                        if (result.type == .file      ) { result.path = String(urlAsURL.absoluteString[0, UInt(urlAsURL.absoluteString.count - result.name!.count - 1)]) }
+                    }
+
                     /* MARK: size */
                     if (result.type == .file) {
                         if let size = attr[.size] as? UInt {
@@ -109,13 +116,6 @@ struct FSEntityInfo {
                     if let rights     = attr[.posixPermissions]      as? UInt   { result.rights     = rights }
                     if let owner      = attr[.ownerAccountName]      as? String { result.owner      = owner }
                     if let group      = attr[.groupOwnerAccountName] as? String { result.group      = group }
-
-                    /* MARK: name/path */
-                    if let urlAsURL = URL(string: url) {
-                        result.name = urlAsURL.lastPathComponent
-                        if (result.type == .dirrectory) { result.path = String(urlAsURL.absoluteString[0, UInt(urlAsURL.absoluteString.count - result.name!.count - 2)]) }
-                        if (result.type == .file      ) { result.path = String(urlAsURL.absoluteString[0, UInt(urlAsURL.absoluteString.count - result.name!.count - 1)]) }
-                    }
 
                 }
             }
