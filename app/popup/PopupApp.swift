@@ -37,11 +37,11 @@ struct FSEntityInfo {
                 .onOpenURL { url in
                     let absolute = url.absoluteString
                     if (absolute.isEmpty == false) {
-                        if (absolute[0, Self.URL_PREFIX.count-1] == Self.URL_PREFIX) {
+                        if (absolute[0, UInt(Self.URL_PREFIX.count-1)] == Self.URL_PREFIX) {
                             self.receivedUrl = String(
                                 absolute[
-                                    Self.URL_PREFIX.count,
-                                    absolute.count-1
+                                    UInt(Self.URL_PREFIX.count),
+                                    UInt(absolute.count-1)
                                 ]
                             )
                         }
@@ -111,8 +111,8 @@ struct FSEntityInfo {
                     /* name/path */
                     if let urlAsURL = URL(string: url) {
                         result.name = urlAsURL.lastPathComponent
-                        if (result.type == .dirrectory) { result.path = String(urlAsURL.absoluteString[0, urlAsURL.absoluteString.count - result.name!.count - 2]) }
-                        if (result.type == .file      ) { result.path = String(urlAsURL.absoluteString[0, urlAsURL.absoluteString.count - result.name!.count - 1]) }
+                        if (result.type == .dirrectory) { result.path = String(urlAsURL.absoluteString[0, UInt(urlAsURL.absoluteString.count - result.name!.count - 2)]) }
+                        if (result.type == .file      ) { result.path = String(urlAsURL.absoluteString[0, UInt(urlAsURL.absoluteString.count - result.name!.count - 1)]) }
                     }
 
                 }

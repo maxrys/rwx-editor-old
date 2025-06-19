@@ -44,12 +44,12 @@ class FinderSyncExt: FIFinderSync {
             items?.forEach { url in
                 let absolute = url.absoluteString
                 if (absolute.isEmpty == false) {
-                    if (absolute[0, Self.URL_PREFIX.count-1] == Self.URL_PREFIX) {
+                    if (absolute[0, UInt(Self.URL_PREFIX.count-1)] == Self.URL_PREFIX) {
                         paths.append(
                             String(
                                 absolute[
-                                    Self.URL_PREFIX.count,
-                                    absolute.count-1
+                                    UInt(Self.URL_PREFIX.count),
+                                    UInt(absolute.count-1)
                                 ]
                             )
                         )
