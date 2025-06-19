@@ -22,15 +22,15 @@ struct Test {
         print("bitGet:")
         for i in 0 ... 0b111111111 {
             let received = "0b" +
-            String(UInt(i)[8] ? 1 : 0) +
-            String(UInt(i)[7] ? 1 : 0) +
-            String(UInt(i)[6] ? 1 : 0) +
-            String(UInt(i)[5] ? 1 : 0) +
-            String(UInt(i)[4] ? 1 : 0) +
-            String(UInt(i)[3] ? 1 : 0) +
-            String(UInt(i)[2] ? 1 : 0) +
-            String(UInt(i)[1] ? 1 : 0) +
-            String(UInt(i)[0] ? 1 : 0)
+                String(UInt(i)[8] ? 1 : 0) +
+                String(UInt(i)[7] ? 1 : 0) +
+                String(UInt(i)[6] ? 1 : 0) +
+                String(UInt(i)[5] ? 1 : 0) +
+                String(UInt(i)[4] ? 1 : 0) +
+                String(UInt(i)[3] ? 1 : 0) +
+                String(UInt(i)[2] ? 1 : 0) +
+                String(UInt(i)[1] ? 1 : 0) +
+                String(UInt(i)[0] ? 1 : 0)
             let expected = self.prettyResult(UInt(i))
             print("\(String(i).padding(toLength: 3, withPad: " ", startingAt: 0)): ", terminator: "")
             print("\(received) = \(expected)", terminator: "")

@@ -12,8 +12,8 @@ extension UInt {
             (self >> index & 0b1) == 1
         }
         set(isOn) {
-            if (isOn) { self = self |  (0b1 << index) }
-            else      { self = self & ~(0b1 << index) }
+            if (isOn) { self |=  (0b1 << index) }
+            else      { self &= ~(0b1 << index) }
         }
     }
 
