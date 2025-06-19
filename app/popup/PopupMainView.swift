@@ -396,6 +396,20 @@ struct PopupMainView: View {
             .frame(maxWidth: .infinity)
             .background(Color(Self.ColorNames.foot.rawValue))
 
+            #if DEBUG
+                HStack {
+                    let formattedRights = String(format: "%@: %@", "rights", String(self.rights))
+                    let formattedOwner  = String(format: "%@: %@", "owner" , self.owner.isEmpty ? Self.NA_SIGN : self.owner)
+                    let formattedGroup  = String(format: "%@: %@", "group" , self.group.isEmpty ? Self.NA_SIGN : self.group)
+                    Text("PopupMainView: \(formattedRights) | \(formattedOwner) | \(formattedGroup)")
+                        .fixedSize(horizontal: false, vertical: true)
+                }
+                .padding(10)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .foregroundPolyfill(Color(.white))
+                .background(Color.gray)
+            #endif
+
         }
         .foregroundPolyfill(Color.getCustom(.text))
     }

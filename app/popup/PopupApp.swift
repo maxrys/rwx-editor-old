@@ -62,22 +62,24 @@ struct FSEntityInfo {
     @ViewBuilder var mainScene: some View {
         VStack(spacing: 0) {
             let analyzeURLInfo = self.analyzeURL(url: self.incommingUrl)
+            #if DEBUG
+                HStack {
+                    let formattedIncommingUrl = String(format: "%@: %@", "url"   , self.incommingUrl.isEmpty ? Self.NA_SIGN : self.incommingUrl)
+                    let formattedRights       = String(format: "%@: %@", "rights", String(analyzeURLInfo.rights))
+                    let formattedOwner        = String(format: "%@: %@", "owner" , analyzeURLInfo.owner.isEmpty ? Self.NA_SIGN : analyzeURLInfo.owner)
+                    let formattedGroup        = String(format: "%@: %@", "group" , analyzeURLInfo.group.isEmpty ? Self.NA_SIGN : analyzeURLInfo.group)
+                    Text("PopupApp: \(formattedIncommingUrl) | \(formattedRights) | \(formattedOwner) | \(formattedGroup)")
+                        .fixedSize(horizontal: false, vertical: true)
+                }
+                .padding(10)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .foregroundPolyfill(Color(.white))
+                .background(Color.gray)
+            #endif
             PopupMainView(
                 info: analyzeURLInfo,
                 onApply: self.onApply
             )
-            #if DEBUG
-                let formattedIncommingUrl = String(format: "%@: %@", "url"   , self.incommingUrl.isEmpty ? Self.NA_SIGN : self.incommingUrl)
-                let formattedRights       = String(format: "%@: %@", "rights", String(analyzeURLInfo.rights))
-                let formattedOwner        = String(format: "%@: %@", "owner" , analyzeURLInfo.owner.isEmpty ? Self.NA_SIGN : analyzeURLInfo.owner)
-                let formattedGroup        = String(format: "%@: %@", "group" , analyzeURLInfo.group.isEmpty ? Self.NA_SIGN : analyzeURLInfo.group)
-                Text("DEBUG INFO: \(formattedIncommingUrl) | \(formattedRights) | \(formattedOwner) | \(formattedGroup)")
-                    .padding(10)
-                    .fixedSize(horizontal: false, vertical: true)
-                    .frame(maxWidth: .infinity)
-                    .foregroundPolyfill(Color(.white))
-                    .background(Color.gray)
-            #endif
         }.frame(width: PopupApp.FRAME_WIDTH)
     }
 
