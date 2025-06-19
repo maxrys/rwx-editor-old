@@ -19,9 +19,7 @@ struct RwxTextView: View {
     }
 
     let isOn: (UInt, UInt) -> Bool = { rightsValue, bitPosition in
-        rightsValue.bitGet(
-            index: bitPosition
-        )
+        rightsValue[bitPosition]
     }
 
     var body: some View {
