@@ -58,8 +58,8 @@ struct FSEntityInfo {
             #if DEBUG
                 let text = String(format: NSLocalizedString("url: %@", comment: ""), self.receivedUrl.isEmpty ? Self.NA_SIGN : self.receivedUrl)
                 let background = self.receivedUrl.isEmpty ?
-                    Color.getCustom(.softRed) :
-                    Color.getCustom(.softGreen)
+                    Color.getCustom(.darkRed) :
+                    Color.getCustom(.darkGreen)
                 Text(text)
                     .padding(10)
                     .multilineTextAlignment(.center)

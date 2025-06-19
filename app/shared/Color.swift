@@ -12,6 +12,9 @@ extension Color {
         case softGreen  = "color Soft Green"
         case softOrange = "color Soft Orange"
         case softRed    = "color Soft Red"
+        case darkGreen  = "color Dark Green"
+        case darkOrange = "color Dark Orange"
+        case darkRed    = "color Dark Red"
     }
 
     static func getCustom(_ name: ColorNames = .text) -> Self {

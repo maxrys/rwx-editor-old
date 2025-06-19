@@ -24,8 +24,8 @@ struct MainView: View {
                 .frame(maxWidth: .infinity)
                 .background(
                     FIFinderSyncController.isExtensionEnabled ?
-                        Color.getCustom(.softGreen) :
-                        Color.getCustom(.softRed)
+                        Color.getCustom(.darkGreen) :
+                        Color.getCustom(.darkRed)
                 ).cornerRadius(5)
 
             ButtonCustom(NSLocalizedString("Open Settings", comment: ""), flexibility: .size(200)) {

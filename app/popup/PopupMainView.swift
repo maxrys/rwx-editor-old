@@ -142,7 +142,7 @@ struct PopupMainView: View {
 
     var formattedReferences: String {
         if let references = self.references {
-            String(references) + " " + NSLocalizedString("pcs.", comment: "")
+            String(format: NSLocalizedString("%@ pcs.", comment: ""), String(references))
         } else {
             NSLocalizedString(
                 Self.NA_SIGN, comment: ""
