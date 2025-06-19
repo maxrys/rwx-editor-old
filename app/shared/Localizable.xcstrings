@@ -295,17 +295,6 @@
       },
       "shouldTranslate" : false
     },
-    "PopupMainView: %@ | %@ | %@" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "PopupMainView: %1$@ | %2$@ | %3$@"
-          }
-        }
-      },
-      "shouldTranslate" : false
-    },
     "Read" : {
       "localizations" : {
         "en" : {

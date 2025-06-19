@@ -315,8 +315,8 @@ struct PopupMainView: View {
 
                 /* MARK: rules via text/numeric */
                 HStack(spacing: 20) {
-                    RwxTextView($rights)
-                    ToggleRwxNumeric($rights)
+                    RwxTextView(self.$rights)
+                    ToggleRwxNumeric(self.$rights)
                 }
 
                 VStack(alignment: .trailing, spacing: 10) {
@@ -398,11 +398,19 @@ struct PopupMainView: View {
 
             #if DEBUG
                 HStack {
-                    let formattedRights = String(format: "%@: %@", "rights", String(self.rights))
-                    let formattedOwner  = String(format: "%@: %@", "owner" , self.owner.isEmpty ? Self.NA_SIGN : self.owner)
-                    let formattedGroup  = String(format: "%@: %@", "group" , self.group.isEmpty ? Self.NA_SIGN : self.group)
-                    Text("PopupMainView: \(formattedRights) | \(formattedOwner) | \(formattedGroup)")
-                        .fixedSize(horizontal: false, vertical: true)
+                    let formattedRights      = String(format: "%@: %@", "rights"      , String(self.rights))
+                    let formattedOwner       = String(format: "%@: %@", "owner"       , self.owner.isEmpty ? Self.NA_SIGN : self.owner)
+                    let formattedGroup       = String(format: "%@: %@", "group"       , self.group.isEmpty ? Self.NA_SIGN : self.group)
+                    let formatOriginalRights = String(format: "%@: %@", "orig. rights", String(self.originalRights))
+                    let formatOriginalOwner  = String(format: "%@: %@", "orig. owner" , self.originalOwner.isEmpty ? Self.NA_SIGN : self.originalOwner)
+                    let formatOriginalGroup  = String(format: "%@: %@", "orig. group" , self.originalGroup.isEmpty ? Self.NA_SIGN : self.originalGroup)
+                    Text("PopupMainView: "         +
+                         "\(formattedRights)"      + " | " +
+                         "\(formattedOwner)"       + " | " +
+                         "\(formattedGroup)"       + " | " +
+                         "\(formatOriginalRights)" + " | " +
+                         "\(formatOriginalOwner)"  + " | " +
+                         "\(formatOriginalGroup)").fixedSize(horizontal: false, vertical: true)
                 }
                 .padding(10)
                 .frame(maxWidth: .infinity, alignment: .leading)
