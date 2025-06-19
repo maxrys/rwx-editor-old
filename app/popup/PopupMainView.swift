@@ -411,6 +411,7 @@ struct PopupMainView: View {
             size: 1_234_567,
             created: try! Date(fromISO8601: "2025-01-02 03:04:05 +0000"),
             updated: try! Date(fromISO8601: "2025-01-02 03:04:05 +0000"),
+            references: 1,
             rights: 0o644,
             owner: "nobody",
             group: "staff"
