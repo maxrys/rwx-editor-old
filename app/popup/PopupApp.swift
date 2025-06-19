@@ -22,6 +22,8 @@ struct FSEntityInfo {
 
 @main struct PopupApp: App {
 
+    @Environment(\.scenePhase) var scenePhase
+
     static let FRAME_WIDTH: CGFloat = 300
     static let URL_PREFIX = "rwxEditor://"
     static let NA_SIGN = "—"
@@ -48,6 +50,10 @@ struct FSEntityInfo {
                         }
                     }
                 }
+        }.onChange(of: scenePhase) { phase in
+            if (phase == .background) {
+                NSApplication.shared.terminate(nil)
+            }
         }
         if #available(macOS 13.0, *) { return window.windowResizability(.contentSize) }
         else                         { return window }
