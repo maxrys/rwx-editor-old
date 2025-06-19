@@ -43,9 +43,7 @@ struct ToggleRwxColored: View {
 
     var body: some View {
         Button {
-            self.rights.wrappedValue.bitToggle(
-                position: self.bitPosition
-            )
+            self.rights.wrappedValue[self.bitPosition].toggle()
         } label: {
             if (self.isOn) {
                 ZStack {

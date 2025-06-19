@@ -17,8 +17,4 @@ extension UInt {
         }
     }
 
-    mutating func bitToggle(position: UInt) {
-        self = self ^ (0b1 << position)
-    }
-
 }
