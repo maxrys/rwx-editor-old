@@ -79,7 +79,7 @@ struct FSEntityInfo {
         if (!url.isEmpty) {
             if let attr = try? FileManager.default.attributesOfItem(atPath: url) {
 
-                /* type */
+                /* MARK: type */
                 switch attr[.type] as? FileAttributeType {
                     case .typeRegular         : result.type = .file
                     case .typeDirectory       : result.type = .dirrectory
@@ -94,21 +94,21 @@ struct FSEntityInfo {
 
                 if (result.type == .file || result.type == .dirrectory) {
 
-                    /* size */
+                    /* MARK: size */
                     if (result.type == .file) {
                         if let size = attr[.size] as? UInt {
                             result.size = size
                         }
                     }
 
-                    /* other attributes */
+                    /* MARK: created/updated/rights/owner/group */
                     if let created = attr[.creationDate]          as? Date   { result.created = created }
                     if let updated = attr[.modificationDate]      as? Date   { result.updated = updated }
                     if let rights  = attr[.posixPermissions]      as? UInt   { result.rights  = rights }
                     if let owner   = attr[.ownerAccountName]      as? String { result.owner   = owner }
                     if let group   = attr[.groupOwnerAccountName] as? String { result.group   = group }
 
-                    /* name/path */
+                    /* MARK: name/path */
                     if let urlAsURL = URL(string: url) {
                         result.name = urlAsURL.lastPathComponent
                         if (result.type == .dirrectory) { result.path = String(urlAsURL.absoluteString[0, UInt(urlAsURL.absoluteString.count - result.name!.count - 2)]) }

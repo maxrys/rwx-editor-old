@@ -74,7 +74,7 @@ struct PopupMainView: View {
             .background(background)
     }
 
-    var formatType: String {
+    var formattedType: String {
         switch self.type {
             case .dirrectory: NSLocalizedString("dirrectory", comment: "")
             case .file      : NSLocalizedString("file"      , comment: "")
@@ -82,19 +82,19 @@ struct PopupMainView: View {
         }
     }
 
-    var formatName: String {
+    var formattedName: String {
         if let name = self.name
              { name }
         else { NSLocalizedString(Self.NA_SIGN, comment: "") }
     }
 
-    var formatPath: String {
+    var formattedPath: String {
         if let path = self.path
              { path }
         else { NSLocalizedString(Self.NA_SIGN, comment: "") }
     }
 
-    var formatSize: String {
+    var formattedSize: String {
         if let size = self.size {
             switch self.sizeViewMode {
                 case  .bytes: ByteCountFormatter.format(size, unit: .useBytes)
@@ -110,7 +110,7 @@ struct PopupMainView: View {
         }
     }
 
-    var formatCreated: String {
+    var formattedCreated: String {
         if let created = self.created {
             switch self.createdViewMode {
                 case .convenient   : created.convenient
@@ -124,7 +124,7 @@ struct PopupMainView: View {
         }
     }
 
-    var formatUpdated: String {
+    var formattedUpdated: String {
         if let updated = self.updated {
             switch self.updatedViewMode {
                 case .convenient   : updated.convenient
@@ -158,7 +158,7 @@ struct PopupMainView: View {
                     Text(NSLocalizedString("Type", comment: ""))
                 )
                 self.gridCellWrapper(
-                    Text(self.formatType)
+                    Text(self.formattedType)
                 )
 
                 /* MARK: name */
@@ -167,7 +167,7 @@ struct PopupMainView: View {
                     Text(NSLocalizedString("Name", comment: ""))
                 )
                 self.gridCellWrapper(tint: true,
-                    Text(self.formatName)
+                    Text(self.formattedName)
                         .textSelectionPolyfill()
                 )
 
@@ -177,7 +177,7 @@ struct PopupMainView: View {
                     Text(NSLocalizedString("Path", comment: ""))
                 )
                 self.gridCellWrapper(
-                    Text(self.formatPath)
+                    Text(self.formattedPath)
                         .textSelectionPolyfill()
                 )
 
@@ -194,7 +194,7 @@ struct PopupMainView: View {
                     }
                 )
                 self.gridCellWrapper(tint: true,
-                    Text(self.formatSize)
+                    Text(self.formattedSize)
                         .textSelectionPolyfill()
                 )
 
@@ -211,7 +211,7 @@ struct PopupMainView: View {
                     }
                 )
                 self.gridCellWrapper(
-                    Text(self.formatCreated)
+                    Text(self.formattedCreated)
                         .textSelectionPolyfill()
                 )
 
@@ -228,7 +228,7 @@ struct PopupMainView: View {
                     }
                 )
                 self.gridCellWrapper(tint: true,
-                    Text(self.formatUpdated)
+                    Text(self.formattedUpdated)
                         .textSelectionPolyfill()
                 )
 
