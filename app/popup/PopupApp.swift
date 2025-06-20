@@ -26,21 +26,21 @@ import SwiftUI
             self.mainScene
                 .environment(\.layoutDirection, .leftToRight)
                 .onOpenURL { url in
-                     let absolute = url.absoluteString
-                     if (absolute.isEmpty == false) {
-                         if (absolute[0, UInt(Self.URL_PREFIX.count-1)] == Self.URL_PREFIX) {
-                             let incommingUrl = String(
-                                 absolute[
-                                     UInt(Self.URL_PREFIX.count),
-                                     UInt(absolute.count-1)
-                                 ]
-                             )
-                             self.fsEntityInfo = FSEntityInfo(incommingUrl)
-                             self.rights = self.fsEntityInfo.rights
-                             self.owner  = self.fsEntityInfo.owner
-                             self.group  = self.fsEntityInfo.group
-                         }
-                     }
+                    let absolute = url.absoluteString
+                    if (absolute.isEmpty == false) {
+                        if (absolute[0, UInt(Self.URL_PREFIX.count-1)] == Self.URL_PREFIX) {
+                            let incommingUrl = String(
+                                absolute[
+                                    UInt(Self.URL_PREFIX.count),
+                                    UInt(absolute.count-1)
+                                ]
+                            )
+                            self.fsEntityInfo = FSEntityInfo(incommingUrl)
+                            self.rights = self.fsEntityInfo.rights
+                            self.owner  = self.fsEntityInfo.owner
+                            self.group  = self.fsEntityInfo.group
+                        }
+                    }
                 }
         }.onChange(of: scenePhase) { phase in
             if (phase == .background) {
