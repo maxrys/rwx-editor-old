@@ -51,6 +51,10 @@ struct FSEntityInfo {
                                     UInt(absolute.count-1)
                                 ]
                             )
+                            self.fsEntityInfo = self.analyzeURL(url: self.incommingUrl)
+                            self.rights       = self.fsEntityInfo.rights
+                            self.owner        = self.fsEntityInfo.owner
+                            self.group        = self.fsEntityInfo.group
                         }
                     }
                 }
@@ -86,14 +90,7 @@ struct FSEntityInfo {
                 info   : self.fsEntityInfo,
                 onApply: self.onApply
             )
-        }
-        .frame(width: PopupApp.FRAME_WIDTH)
-        .onChange(of: self.incommingUrl) { value in
-            self.fsEntityInfo = self.analyzeURL(url: self.incommingUrl)
-            self.rights       = self.fsEntityInfo.rights
-            self.owner        = self.fsEntityInfo.owner
-            self.group        = self.fsEntityInfo.group
-        }
+        }.frame(width: PopupApp.FRAME_WIDTH)
     }
 
     func analyzeURL(url: String) -> FSEntityInfo {
