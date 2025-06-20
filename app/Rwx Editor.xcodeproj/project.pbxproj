@@ -18,17 +18,6 @@
 		50114D252E01F6AF00024326 /* Process.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507318972DF05F60005E26F9 /* Process.swift */; };
 		50114D262E01F6AF00024326 /* ByteCountFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507318A52DF37FB8005E26F9 /* ByteCountFormatter.swift */; };
 		50114D272E01F6AF00024326 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 50624C5C2DE5CD1A00794BC8 /* Localizable.xcstrings */; };
-		50114D282E01F6AF00024326 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50624C722DE5E2E300794BC8 /* String.swift */; };
-		50114D292E01F6AF00024326 /* FinderEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50114C812E017BD400024326 /* FinderEvent.swift */; };
-		50114D2A2E01F6AF00024326 /* CaseIterable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507318A22DF3758B005E26F9 /* CaseIterable.swift */; };
-		50114D2B2E01F6AF00024326 /* Process.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507318972DF05F60005E26F9 /* Process.swift */; };
-		50114D2C2E01F6AF00024326 /* ByteCountFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507318A52DF37FB8005E26F9 /* ByteCountFormatter.swift */; };
-		50114D2D2E01F6AF00024326 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5073189B2DF1BA3D005E26F9 /* Date.swift */; };
-		50114D2E2E01F6AF00024326 /* enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5073189F2DF31F1C005E26F9 /* enums.swift */; };
-		50114D2F2E01F6AF00024326 /* UInt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50624C602DE5D6B500794BC8 /* UInt.swift */; };
-		50114D302E01F6AF00024326 /* EventsDispatcherGlobal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50583D7E2DFB673D00013BD0 /* EventsDispatcherGlobal.swift */; };
-		50114D312E01F6AF00024326 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50624C532DE5C2BA00794BC8 /* View.swift */; };
-		50114D322E01F6AF00024326 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 50624C5C2DE5CD1A00794BC8 /* Localizable.xcstrings */; };
 		50114D332E01F6AF00024326 /* FinderEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50114C812E017BD400024326 /* FinderEvent.swift */; };
 		50114D342E01F6AF00024326 /* enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5073189F2DF31F1C005E26F9 /* enums.swift */; };
 		50114D352E01F6AF00024326 /* UInt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50624C602DE5D6B500794BC8 /* UInt.swift */; };
@@ -52,34 +41,30 @@
 		50114D472E01F6AF00024326 /* UInt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50624C602DE5D6B500794BC8 /* UInt.swift */; };
 		50114D482E01F6AF00024326 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 50624C5C2DE5CD1A00794BC8 /* Localizable.xcstrings */; };
 		50114D492E01F71900024326 /* FinderSyncExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50583D632DFB5EA100013BD0 /* FinderSyncExt.swift */; };
-		50114D4A2E01F71900024326 /* FinderSyncExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50583D632DFB5EA100013BD0 /* FinderSyncExt.swift */; };
 		50114D4B2E01F71900024326 /* FinderSyncExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50583D632DFB5EA100013BD0 /* FinderSyncExt.swift */; };
 		50114D4C2E01F76D00024326 /* MainApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50624C4D2DE5BA8200794BC8 /* MainApp.swift */; };
 		50114D4D2E01F77300024326 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50114D162E01F24000024326 /* MainView.swift */; };
 		50114D4E2E01F77900024326 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50624C4A2DE5BA8200794BC8 /* Assets.xcassets */; };
-		50114D4F2E01F78900024326 /* PopupApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50114D182E01F24000024326 /* PopupApp.swift */; };
-		50114D502E01F78900024326 /* PopupMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50624C4B2DE5BA8200794BC8 /* PopupMainView.swift */; };
-		50114D512E01F78900024326 /* RwxTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507318452DE71047005E26F9 /* RwxTextView.swift */; };
-		50114D522E01F78900024326 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50114D152E01F24000024326 /* Assets.xcassets */; };
-		50114D532E01F79100024326 /* ButtonCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507318752DE9EB32005E26F9 /* ButtonCustom.swift */; };
-		50114D542E01F79100024326 /* ToggleRwxNumeric.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507318502DE7939D005E26F9 /* ToggleRwxNumeric.swift */; };
-		50114D552E01F79100024326 /* PickerCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507318522DE82BDB005E26F9 /* PickerCustom.swift */; };
-		50114D562E01F79100024326 /* ToggleRwxColored.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507318432DE70C27005E26F9 /* ToggleRwxColored.swift */; };
 		50114D642E02AB9400024326 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50114D632E02AB9400024326 /* Media.xcassets */; };
 		50114D652E02AB9400024326 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50114D632E02AB9400024326 /* Media.xcassets */; };
-		50114D662E02AB9400024326 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50114D632E02AB9400024326 /* Media.xcassets */; };
 		50114D672E02AB9400024326 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50114D632E02AB9400024326 /* Media.xcassets */; };
-		50114D692E02AC0F00024326 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50114D682E02AC0D00024326 /* Color.swift */; };
 		50114D6A2E02AC0F00024326 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50114D682E02AC0D00024326 /* Color.swift */; };
 		50114D6B2E02AC0F00024326 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50114D682E02AC0D00024326 /* Color.swift */; };
 		50114D6C2E02AC0F00024326 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50114D682E02AC0D00024326 /* Color.swift */; };
 		50114D6E2E02AFD500024326 /* PickerCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507318522DE82BDB005E26F9 /* PickerCustom.swift */; };
 		50114D6F2E02AFE400024326 /* ButtonCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507318752DE9EB32005E26F9 /* ButtonCustom.swift */; };
 		50114D7A2E04036200024326 /* Numeric.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50114D792E04036200024326 /* Numeric.swift */; };
-		50114D7B2E04036200024326 /* Numeric.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50114D792E04036200024326 /* Numeric.swift */; };
 		50114D7C2E04036200024326 /* Numeric.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50114D792E04036200024326 /* Numeric.swift */; };
 		50114D7D2E04036200024326 /* Numeric.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50114D792E04036200024326 /* Numeric.swift */; };
-		50114D802E05545000024326 /* FSEntityInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50114D7F2E05544E00024326 /* FSEntityInfo.swift */; };
+		50114D822E05F87B00024326 /* PopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50624C4B2DE5BA8200794BC8 /* PopupView.swift */; };
+		50114D832E05F87B00024326 /* ToggleRwxNumeric.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507318502DE7939D005E26F9 /* ToggleRwxNumeric.swift */; };
+		50114D842E05F87B00024326 /* ToggleRwxColored.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507318432DE70C27005E26F9 /* ToggleRwxColored.swift */; };
+		50114D862E05F87B00024326 /* RwxTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507318452DE71047005E26F9 /* RwxTextView.swift */; };
+		50114D872E05F87B00024326 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50114D152E01F24000024326 /* Assets.xcassets */; };
+		50114D882E05F8CE00024326 /* FSEntityInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50114D7F2E05544E00024326 /* FSEntityInfo.swift */; };
+		50114D892E05F8CE00024326 /* FSEntityInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50114D7F2E05544E00024326 /* FSEntityInfo.swift */; };
+		50114D8A2E05F8CE00024326 /* FSEntityInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50114D7F2E05544E00024326 /* FSEntityInfo.swift */; };
+		50114D8F2E05FC6200024326 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 50114D8E2E05FC6200024326 /* Info.plist */; };
 		50583D5D2DFB5D2000013BD0 /* Rwx Editor Finder Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 50583D552DFB5D2000013BD0 /* Rwx Editor Finder Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		50624C6A2DE5DCD500794BC8 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50624C692DE5DCD500794BC8 /* Test.swift */; };
 /* End PBXBuildFile section */
@@ -117,16 +102,13 @@
 
 /* Begin PBXFileReference section */
 		50114C812E017BD400024326 /* FinderEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinderEvent.swift; sourceTree = "<group>"; };
-		50114D022E01F10900024326 /* Rwx Editor Popup.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Rwx Editor Popup.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		50114D152E01F24000024326 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		50114D162E01F24000024326 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
-		50114D172E01F24000024326 /* popup.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = popup.entitlements; sourceTree = "<group>"; };
-		50114D182E01F24000024326 /* PopupApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupApp.swift; sourceTree = "<group>"; };
-		50114D622E02032D00024326 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		50114D632E02AB9400024326 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		50114D682E02AC0D00024326 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		50114D792E04036200024326 /* Numeric.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Numeric.swift; sourceTree = "<group>"; };
 		50114D7F2E05544E00024326 /* FSEntityInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSEntityInfo.swift; sourceTree = "<group>"; };
+		50114D8E2E05FC6200024326 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		50583D552DFB5D2000013BD0 /* Rwx Editor Finder Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Rwx Editor Finder Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		50583D632DFB5EA100013BD0 /* FinderSyncExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinderSyncExt.swift; sourceTree = "<group>"; };
 		50583D642DFB5EA100013BD0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -134,7 +116,7 @@
 		50583D7E2DFB673D00013BD0 /* EventsDispatcherGlobal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsDispatcherGlobal.swift; sourceTree = "<group>"; };
 		50624C342DE5B96100794BC8 /* Rwx Editor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Rwx Editor.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		50624C4A2DE5BA8200794BC8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		50624C4B2DE5BA8200794BC8 /* PopupMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupMainView.swift; sourceTree = "<group>"; };
+		50624C4B2DE5BA8200794BC8 /* PopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupView.swift; sourceTree = "<group>"; };
 		50624C4C2DE5BA8200794BC8 /* app.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = app.entitlements; sourceTree = "<group>"; };
 		50624C4D2DE5BA8200794BC8 /* MainApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainApp.swift; sourceTree = "<group>"; };
 		50624C532DE5C2BA00794BC8 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
@@ -156,13 +138,6 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		50114CFF2E01F10900024326 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		50583D522DFB5D2000013BD0 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -190,14 +165,11 @@
 		50114D1C2E01F50F00024326 /* popup */ = {
 			isa = PBXGroup;
 			children = (
-				50114D182E01F24000024326 /* PopupApp.swift */,
-				50624C4B2DE5BA8200794BC8 /* PopupMainView.swift */,
+				50624C4B2DE5BA8200794BC8 /* PopupView.swift */,
 				507318452DE71047005E26F9 /* RwxTextView.swift */,
 				507318432DE70C27005E26F9 /* ToggleRwxColored.swift */,
 				507318502DE7939D005E26F9 /* ToggleRwxNumeric.swift */,
 				50114D152E01F24000024326 /* Assets.xcassets */,
-				50114D172E01F24000024326 /* popup.entitlements */,
-				50114D622E02032D00024326 /* Info.plist */,
 			);
 			path = popup;
 			sourceTree = "<group>";
@@ -228,6 +200,7 @@
 				50114D162E01F24000024326 /* MainView.swift */,
 				50624C4A2DE5BA8200794BC8 /* Assets.xcassets */,
 				50624C4C2DE5BA8200794BC8 /* app.entitlements */,
+				50114D8E2E05FC6200024326 /* Info.plist */,
 			);
 			path = "main app";
 			sourceTree = "<group>";
@@ -250,7 +223,6 @@
 				50624C342DE5B96100794BC8 /* Rwx Editor.app */,
 				50624C672DE5DCD500794BC8 /* Rwx Editor Test.xctest */,
 				50583D552DFB5D2000013BD0 /* Rwx Editor Finder Extension.appex */,
-				50114D022E01F10900024326 /* Rwx Editor Popup.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -289,25 +261,6 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		50114D012E01F10900024326 /* Rwx Editor Popup */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 50114D0D2E01F10B00024326 /* Build configuration list for PBXNativeTarget "Rwx Editor Popup" */;
-			buildPhases = (
-				50114CFE2E01F10900024326 /* Sources */,
-				50114CFF2E01F10900024326 /* Frameworks */,
-				50114D002E01F10900024326 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "Rwx Editor Popup";
-			packageProductDependencies = (
-			);
-			productName = "Rwx Editor Popup";
-			productReference = 50114D022E01F10900024326 /* Rwx Editor Popup.app */;
-			productType = "com.apple.product-type.application";
-		};
 		50583D542DFB5D2000013BD0 /* Rwx Editor Finder Extension */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 50583D622DFB5D2000013BD0 /* Build configuration list for PBXNativeTarget "Rwx Editor Finder Extension" */;
@@ -378,9 +331,6 @@
 				LastSwiftUpdateCheck = 1640;
 				LastUpgradeCheck = 1630;
 				TargetAttributes = {
-					50114D012E01F10900024326 = {
-						CreatedOnToolsVersion = 16.4;
-					};
 					50583D542DFB5D2000013BD0 = {
 						CreatedOnToolsVersion = 16.4;
 					};
@@ -408,7 +358,6 @@
 			projectRoot = "";
 			targets = (
 				50624C332DE5B96100794BC8 /* Rwx Editor */,
-				50114D012E01F10900024326 /* Rwx Editor Popup */,
 				50583D542DFB5D2000013BD0 /* Rwx Editor Finder Extension */,
 				50624C662DE5DCD500794BC8 /* Rwx Editor Test */,
 			);
@@ -416,16 +365,6 @@
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		50114D002E01F10900024326 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				50114D522E01F78900024326 /* Assets.xcassets in Resources */,
-				50114D662E02AB9400024326 /* Media.xcassets in Resources */,
-				50114D322E01F6AF00024326 /* Localizable.xcstrings in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		50583D532DFB5D2000013BD0 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -441,7 +380,9 @@
 			files = (
 				50114D4E2E01F77900024326 /* Assets.xcassets in Resources */,
 				50114D642E02AB9400024326 /* Media.xcassets in Resources */,
+				50114D872E05F87B00024326 /* Assets.xcassets in Resources */,
 				50114D272E01F6AF00024326 /* Localizable.xcstrings in Resources */,
+				50114D8F2E05FC6200024326 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -457,34 +398,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		50114CFE2E01F10900024326 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				50114D282E01F6AF00024326 /* String.swift in Sources */,
-				50114D292E01F6AF00024326 /* FinderEvent.swift in Sources */,
-				50114D802E05545000024326 /* FSEntityInfo.swift in Sources */,
-				50114D2A2E01F6AF00024326 /* CaseIterable.swift in Sources */,
-				50114D2B2E01F6AF00024326 /* Process.swift in Sources */,
-				50114D2C2E01F6AF00024326 /* ByteCountFormatter.swift in Sources */,
-				50114D4A2E01F71900024326 /* FinderSyncExt.swift in Sources */,
-				50114D2D2E01F6AF00024326 /* Date.swift in Sources */,
-				50114D2E2E01F6AF00024326 /* enums.swift in Sources */,
-				50114D532E01F79100024326 /* ButtonCustom.swift in Sources */,
-				50114D542E01F79100024326 /* ToggleRwxNumeric.swift in Sources */,
-				50114D552E01F79100024326 /* PickerCustom.swift in Sources */,
-				50114D7B2E04036200024326 /* Numeric.swift in Sources */,
-				50114D692E02AC0F00024326 /* Color.swift in Sources */,
-				50114D562E01F79100024326 /* ToggleRwxColored.swift in Sources */,
-				50114D4F2E01F78900024326 /* PopupApp.swift in Sources */,
-				50114D502E01F78900024326 /* PopupMainView.swift in Sources */,
-				50114D512E01F78900024326 /* RwxTextView.swift in Sources */,
-				50114D2F2E01F6AF00024326 /* UInt.swift in Sources */,
-				50114D302E01F6AF00024326 /* EventsDispatcherGlobal.swift in Sources */,
-				50114D312E01F6AF00024326 /* View.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		50583D512DFB5D2000013BD0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -498,6 +411,7 @@
 				50114D6A2E02AC0F00024326 /* Color.swift in Sources */,
 				50114D372E01F6AF00024326 /* CaseIterable.swift in Sources */,
 				50114D382E01F6AF00024326 /* Date.swift in Sources */,
+				50114D892E05F8CE00024326 /* FSEntityInfo.swift in Sources */,
 				50114D392E01F6AF00024326 /* Process.swift in Sources */,
 				50114D3A2E01F6AF00024326 /* EventsDispatcherGlobal.swift in Sources */,
 				50114D3B2E01F6AF00024326 /* ByteCountFormatter.swift in Sources */,
@@ -509,8 +423,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				50114D822E05F87B00024326 /* PopupView.swift in Sources */,
+				50114D832E05F87B00024326 /* ToggleRwxNumeric.swift in Sources */,
+				50114D842E05F87B00024326 /* ToggleRwxColored.swift in Sources */,
+				50114D862E05F87B00024326 /* RwxTextView.swift in Sources */,
 				50114D492E01F71900024326 /* FinderSyncExt.swift in Sources */,
 				50114D4D2E01F77300024326 /* MainView.swift in Sources */,
+				50114D882E05F8CE00024326 /* FSEntityInfo.swift in Sources */,
 				50114D7D2E04036200024326 /* Numeric.swift in Sources */,
 				50114D1D2E01F6AF00024326 /* UInt.swift in Sources */,
 				50114D1E2E01F6AF00024326 /* View.swift in Sources */,
@@ -542,6 +461,7 @@
 				50114D6C2E02AC0F00024326 /* Color.swift in Sources */,
 				50114D432E01F6AF00024326 /* Process.swift in Sources */,
 				50114D442E01F6AF00024326 /* enums.swift in Sources */,
+				50114D8A2E05F8CE00024326 /* FSEntityInfo.swift in Sources */,
 				50114D452E01F6AF00024326 /* ByteCountFormatter.swift in Sources */,
 				50114D462E01F6AF00024326 /* CaseIterable.swift in Sources */,
 				50114D472E01F6AF00024326 /* UInt.swift in Sources */,
@@ -565,70 +485,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		50114D0B2E01F10B00024326 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = popup/popup.entitlements;
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 97CZR6J379;
-				ENABLE_HARDENED_RUNTIME = YES;
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = popup/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "Rwx Editor";
-				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
-				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
-				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025 Maxim Rysevets. All rights reserved.";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 13.0;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "maxrys.Rwx-Editor-Popup";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				REGISTER_APP_GROUPS = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-			};
-			name = Debug;
-		};
-		50114D0C2E01F10B00024326 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = popup/popup.entitlements;
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 97CZR6J379;
-				ENABLE_HARDENED_RUNTIME = YES;
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "Rwx Editor";
-				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
-				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
-				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2025 Maxim Rysevets. All rights reserved.";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 13.0;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "maxrys.Rwx-Editor-Popup";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				REGISTER_APP_GROUPS = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-			};
-			name = Release;
-		};
 		50583D5F2DFB5D2000013BD0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -831,6 +687,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "main app/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Rwx Editor";
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
@@ -863,6 +720,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "main app/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Rwx Editor";
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
@@ -888,6 +746,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 97CZR6J379;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "";
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "maxrys.rwx-editor.test";
@@ -904,6 +763,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 97CZR6J379;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "";
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "maxrys.rwx-editor.test";
@@ -916,15 +776,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		50114D0D2E01F10B00024326 /* Build configuration list for PBXNativeTarget "Rwx Editor Popup" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				50114D0B2E01F10B00024326 /* Debug */,
-				50114D0C2E01F10B00024326 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		50583D622DFB5D2000013BD0 /* Build configuration list for PBXNativeTarget "Rwx Editor Finder Extension" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

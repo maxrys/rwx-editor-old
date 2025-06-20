@@ -5,25 +5,38 @@
 
 import SwiftUI
 
+struct WindowInfo: Identifiable {
+    var id: String = ""
+}
+
 @main struct MainApp: App {
 
-    @Environment(\.openURL) private var openURL
+    static var owners = Process.systemUsers ().filter{ $0.first != "_" }.sorted()
+    static var groups = Process.systemGroups().filter{ $0.first != "_" }.sorted()
+
+    @Environment(\.openWindow) private var openWindow
 
     private let publisherForFinder = EventsDispatcherGlobal.shared.publisher(
         FinderSyncExt.EVENT_NAME_FOR_FINDER_CONTEXT_MENU
     )!
 
     var body: some Scene {
-        Window("Rwx Editor", id: "rwx-editor-main") {
-            self.mainScene
-        }.windowResizability(.contentMinSize)
+        WindowGroup(for: WindowInfo.ID.self) { $windowId in
+            if let windowId {
+                /* MARK: Popup windows */
+                PopupView(
+                    windowId: windowId
+                )
+            } else {
+                /* MARK: Parent Window */
+                self.mainScene
+            }
+        }.windowResizability(.contentSize)
     }
 
     @ViewBuilder var mainScene: some View {
         MainView()
-            .environment(
-                \.layoutDirection, .leftToRight
-            )
+            .environment(\.layoutDirection, .leftToRight)
     }
 
     init() {
@@ -36,11 +49,7 @@ import SwiftUI
     func onFinderContextMenu(event: String) {
         do {
             for path in try FinderEvent.decode(event).paths {
-                if let url = URL(string: "rwxEditor://\(path)") {
-                    Task {
-                        openURL(url)
-                    }
-                }
+                openWindow(value: path)
             }
         } catch {
             #if DEBUG
