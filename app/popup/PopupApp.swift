@@ -32,6 +32,7 @@ struct FSEntityInfo {
     static var groups: [String: String] = [:]
 
     @State var incommingUrl: String = "" // "/Users/max/Desktop/" "/Users/max/Desktop/testDir/testDir2/testFile.txt"
+    @State var fsEntityInfo: FSEntityInfo = FSEntityInfo()
     @State private var rights: UInt = 0
     @State private var owner: String = ""
     @State private var group: String = ""
@@ -64,13 +65,12 @@ struct FSEntityInfo {
 
     @ViewBuilder var mainScene: some View {
         VStack(spacing: 0) {
-            let analyzeURLInfo = self.analyzeURL(url: self.incommingUrl)
             #if DEBUG
                 HStack {
                     let formattedIncommingUrl = String(format: "%@: %@", "url"   , self.incommingUrl.isEmpty ? Self.NA_SIGN : self.incommingUrl)
-                    let formattedRights       = String(format: "%@: %@", "rights", String(analyzeURLInfo.rights))
-                    let formattedOwner        = String(format: "%@: %@", "owner" , analyzeURLInfo.owner.isEmpty ? Self.NA_SIGN : analyzeURLInfo.owner)
-                    let formattedGroup        = String(format: "%@: %@", "group" , analyzeURLInfo.group.isEmpty ? Self.NA_SIGN : analyzeURLInfo.group)
+                    let formattedRights       = String(format: "%@: %@", "rights", String(self.fsEntityInfo.rights))
+                    let formattedOwner        = String(format: "%@: %@", "owner" , self.fsEntityInfo.owner.isEmpty ? Self.NA_SIGN : self.fsEntityInfo.owner)
+                    let formattedGroup        = String(format: "%@: %@", "group" , self.fsEntityInfo.group.isEmpty ? Self.NA_SIGN : self.fsEntityInfo.group)
                     Text("PopupApp: \(formattedIncommingUrl) | \(formattedRights) | \(formattedOwner) | \(formattedGroup)")
                         .fixedSize(horizontal: false, vertical: true)
                 }
@@ -80,19 +80,19 @@ struct FSEntityInfo {
                 .background(Color.gray)
             #endif
             PopupMainView(
-                rights: self.$rights,
-                owner: self.$owner,
-                group: self.$group,
-                info: analyzeURLInfo,
+                rights : self.$rights,
+                owner  : self.$owner,
+                group  : self.$group,
+                info   : self.fsEntityInfo,
                 onApply: self.onApply
             )
         }
         .frame(width: PopupApp.FRAME_WIDTH)
         .onChange(of: self.incommingUrl) { value in
-            let analyzeURLInfo = self.analyzeURL(url: value)
-            self.rights = analyzeURLInfo.rights
-            self.owner = analyzeURLInfo.owner
-            self.group = analyzeURLInfo.group
+            self.fsEntityInfo = self.analyzeURL(url: self.incommingUrl)
+            self.rights       = self.fsEntityInfo.rights
+            self.owner        = self.fsEntityInfo.owner
+            self.group        = self.fsEntityInfo.group
         }
     }
 
