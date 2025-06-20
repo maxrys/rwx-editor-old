@@ -22,9 +22,9 @@ struct PopupMainView: View {
     @State private var createdViewMode: DateViewMode = .convenient
     @State private var updatedViewMode: DateViewMode = .convenient
 
-    @State private var rights: UInt
-    @State private var owner: String
-    @State private var group: String
+    private var rights: Binding<UInt>
+    private var owner: Binding<String>
+    private var group: Binding<String>
 
     private let type: FSType
     private let name: String?
@@ -38,7 +38,10 @@ struct PopupMainView: View {
     private let originalGroup: String
     private let onApply: (UInt, String, String) -> Void
 
-    init(info: FSEntityInfo, onApply: @escaping (UInt, String, String) -> Void) {
+    init(rights: Binding<UInt>, owner: Binding<String>, group: Binding<String>, info: FSEntityInfo, onApply: @escaping (UInt, String, String) -> Void) {
+        self.rights         = rights
+        self.owner          = owner
+        self.group          = group
         self.type           = info.type
         self.name           = info.name
         self.path           = info.path
@@ -46,9 +49,6 @@ struct PopupMainView: View {
         self.created        = info.created
         self.updated        = info.updated
         self.references     = info.references
-        self.rights         = info.rights
-        self.owner          = info.owner
-        self.group          = info.group
         self.originalRights = info.rights
         self.originalOwner  = info.owner
         self.originalGroup  = info.group
@@ -291,32 +291,32 @@ struct PopupMainView: View {
 
                     VStack(spacing: 10) {
                         Text(NSLocalizedString("Read", comment: "")).frame(width: textW, height: textH)
-                        ToggleRwxColored(.owner, self.$rights, bitPosition: Subject.owner.offset + Permission.r.offset)
-                        ToggleRwxColored(.group, self.$rights, bitPosition: Subject.group.offset + Permission.r.offset)
-                        ToggleRwxColored(.other, self.$rights, bitPosition: Subject.other.offset + Permission.r.offset)
+                        ToggleRwxColored(.owner, self.rights, bitPosition: Subject.owner.offset + Permission.r.offset)
+                        ToggleRwxColored(.group, self.rights, bitPosition: Subject.group.offset + Permission.r.offset)
+                        ToggleRwxColored(.other, self.rights, bitPosition: Subject.other.offset + Permission.r.offset)
                     }
 
                     VStack(spacing: 10) {
                         Text(NSLocalizedString("Write", comment: "")).frame(width: textW, height: textH)
-                        ToggleRwxColored(.owner, self.$rights, bitPosition: Subject.owner.offset + Permission.w.offset)
-                        ToggleRwxColored(.group, self.$rights, bitPosition: Subject.group.offset + Permission.w.offset)
-                        ToggleRwxColored(.other, self.$rights, bitPosition: Subject.other.offset + Permission.w.offset)
+                        ToggleRwxColored(.owner, self.rights, bitPosition: Subject.owner.offset + Permission.w.offset)
+                        ToggleRwxColored(.group, self.rights, bitPosition: Subject.group.offset + Permission.w.offset)
+                        ToggleRwxColored(.other, self.rights, bitPosition: Subject.other.offset + Permission.w.offset)
                     }
 
                     VStack(spacing: 10) {
                         let text = self.type == .file ? "Execute" : "Access"
                         Text(NSLocalizedString(text, comment: "")).frame(width: textW, height: textH)
-                        ToggleRwxColored(.owner, self.$rights, bitPosition: Subject.owner.offset + Permission.x.offset);
-                        ToggleRwxColored(.group, self.$rights, bitPosition: Subject.group.offset + Permission.x.offset);
-                        ToggleRwxColored(.other, self.$rights, bitPosition: Subject.other.offset + Permission.x.offset);
+                        ToggleRwxColored(.owner, self.rights, bitPosition: Subject.owner.offset + Permission.x.offset);
+                        ToggleRwxColored(.group, self.rights, bitPosition: Subject.group.offset + Permission.x.offset);
+                        ToggleRwxColored(.other, self.rights, bitPosition: Subject.other.offset + Permission.x.offset);
                     }
 
                 }
 
                 /* MARK: rules via text/numeric */
                 HStack(spacing: 20) {
-                    RwxTextView(self.$rights)
-                    ToggleRwxNumeric(self.$rights)
+                    RwxTextView(self.rights)
+                    ToggleRwxNumeric(self.rights)
                 }
 
                 VStack(alignment: .trailing, spacing: 10) {
@@ -325,7 +325,7 @@ struct PopupMainView: View {
                     HStack(spacing: 10) {
                         Text(NSLocalizedString("Owner", comment: ""))
                         PickerCustom<String>(
-                            selected: self.$owner,
+                            selected: self.owner,
                             values: PopupApp.owners,
                             isPlainListStyle: true,
                             flexibility: .size(150)
@@ -336,7 +336,7 @@ struct PopupMainView: View {
                     HStack(spacing: 10) {
                         Text(NSLocalizedString("Group", comment: ""))
                         PickerCustom<String>(
-                            selected: self.$group,
+                            selected: self.group,
                             values: PopupApp.groups,
                             isPlainListStyle: true,
                             flexibility: .size(150)
@@ -371,22 +371,22 @@ struct PopupMainView: View {
 
                 /* MARK: cancel button */
                 ButtonCustom(NSLocalizedString("cancel", comment: ""), flexibility: .size(100)) {
-                    self.rights = self.originalRights
-                    self.owner  = self.originalOwner
-                    self.group  = self.originalGroup
+                    self.rights.wrappedValue = self.originalRights
+                    self.owner.wrappedValue  = self.originalOwner
+                    self.group.wrappedValue  = self.originalGroup
                 }
                 .disabled(
-                    self.rights == self.originalRights &&
-                    self.owner  == self.originalOwner  &&
-                    self.group  == self.originalGroup
+                    self.rights.wrappedValue == self.originalRights &&
+                    self.owner.wrappedValue  == self.originalOwner  &&
+                    self.group.wrappedValue  == self.originalGroup
                 )
 
                 /* MARK: apply button */
                 ButtonCustom(NSLocalizedString("apply", comment: ""), flexibility: .size(100)) {
                     self.onApply(
-                        self.rights,
-                        self.owner,
-                        self.group
+                        self.rights.wrappedValue,
+                        self.owner.wrappedValue,
+                        self.group.wrappedValue
                     )
                 }
                 .disabled(self.type == .unknown)
@@ -398,9 +398,9 @@ struct PopupMainView: View {
 
             #if DEBUG
                 HStack {
-                    let formattedRights      = String(format: "%@: %@", "rights"      , String(self.rights))
-                    let formattedOwner       = String(format: "%@: %@", "owner"       , self.owner.isEmpty ? Self.NA_SIGN : self.owner)
-                    let formattedGroup       = String(format: "%@: %@", "group"       , self.group.isEmpty ? Self.NA_SIGN : self.group)
+                    let formattedRights      = String(format: "%@: %@", "rights"      , String(self.rights.wrappedValue))
+                    let formattedOwner       = String(format: "%@: %@", "owner"       , self.owner.wrappedValue.isEmpty ? Self.NA_SIGN : self.owner.wrappedValue)
+                    let formattedGroup       = String(format: "%@: %@", "group"       , self.group.wrappedValue.isEmpty ? Self.NA_SIGN : self.group.wrappedValue)
                     let formatOriginalRights = String(format: "%@: %@", "orig. rights", String(self.originalRights))
                     let formatOriginalOwner  = String(format: "%@: %@", "orig. owner" , self.originalOwner.isEmpty ? Self.NA_SIGN : self.originalOwner)
                     let formatOriginalGroup  = String(format: "%@: %@", "orig. group" , self.originalGroup.isEmpty ? Self.NA_SIGN : self.originalGroup)
@@ -424,8 +424,14 @@ struct PopupMainView: View {
 
 }
 
-#Preview {
+@available(macOS 14.0, *) #Preview {
+    @Previewable @State var rights: UInt = 0o7
+    @Previewable @State var owner: String = "nobody"
+    @Previewable @State var group: String = "staff"
     PopupMainView(
+        rights: $rights,
+        owner: $owner,
+        group: $group,
         info: FSEntityInfo(
             type: .file,
             name: "Rwx Editor.icns",

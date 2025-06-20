@@ -31,7 +31,10 @@ struct FSEntityInfo {
     static var owners: [String: String] = [:]
     static var groups: [String: String] = [:]
 
-    @State var receivedUrl: String = ""
+    @State var incommingUrl: String = "" // "/Users/max/Desktop/" "/Users/max/Desktop/testDir/testDir2/testFile.txt"
+    @State private var rights: UInt = 0
+    @State private var owner: String = ""
+    @State private var group: String = ""
 
     var body: some Scene {
         let window = WindowGroup {
@@ -77,10 +80,20 @@ struct FSEntityInfo {
                 .background(Color.gray)
             #endif
             PopupMainView(
+                rights: self.$rights,
+                owner: self.$owner,
+                group: self.$group,
                 info: analyzeURLInfo,
                 onApply: self.onApply
             )
-        }.frame(width: PopupApp.FRAME_WIDTH)
+        }
+        .frame(width: PopupApp.FRAME_WIDTH)
+        .onChange(of: self.incommingUrl) { value in
+            let analyzeURLInfo = self.analyzeURL(url: value)
+            self.rights = analyzeURLInfo.rights
+            self.owner = analyzeURLInfo.owner
+            self.group = analyzeURLInfo.group
+        }
     }
 
     func analyzeURL(url: String) -> FSEntityInfo {
