@@ -25,34 +25,15 @@ struct PopupMainView: View {
     private var rights: Binding<UInt>
     private var owner: Binding<String>
     private var group: Binding<String>
-
-    private let type: FSType
-    private let name: String?
-    private let path: String?
-    private let size: UInt?
-    private let created: Date?
-    private let updated: Date?
-    private let references: UInt?
-    private let originalRights: UInt
-    private let originalOwner: String
-    private let originalGroup: String
+    private let info: FSEntityInfo
     private let onApply: (UInt, String, String) -> Void
 
     init(rights: Binding<UInt>, owner: Binding<String>, group: Binding<String>, info: FSEntityInfo, onApply: @escaping (UInt, String, String) -> Void) {
-        self.rights         = rights
-        self.owner          = owner
-        self.group          = group
-        self.type           = info.type
-        self.name           = info.name
-        self.path           = info.path
-        self.size           = info.size
-        self.created        = info.created
-        self.updated        = info.updated
-        self.references     = info.references
-        self.originalRights = info.rights
-        self.originalOwner  = info.owner
-        self.originalGroup  = info.group
-        self.onApply        = onApply
+        self.rights  = rights
+        self.owner   = owner
+        self.group   = group
+        self.info    = info
+        self.onApply = onApply
     }
 
     @ViewBuilder func iconRoll<T: CaseIterable & Equatable>(value: Binding<T>) -> some View {
@@ -77,7 +58,7 @@ struct PopupMainView: View {
     }
 
     var formattedType: String {
-        switch self.type {
+        switch self.info.type {
             case .dirrectory: NSLocalizedString("dirrectory", comment: "")
             case .file      : NSLocalizedString("file"      , comment: "")
             case .unknown   : NSLocalizedString(Self.NA_SIGN, comment: "")
@@ -85,19 +66,19 @@ struct PopupMainView: View {
     }
 
     var formattedName: String {
-        if let name = self.name
+        if let name = self.info.name
              { name }
         else { NSLocalizedString(Self.NA_SIGN, comment: "") }
     }
 
     var formattedPath: String {
-        if let path = self.path
+        if let path = self.info.path
              { path }
         else { NSLocalizedString(Self.NA_SIGN, comment: "") }
     }
 
     var formattedSize: String {
-        if let size = self.size {
+        if let size = self.info.size {
             switch self.sizeViewMode {
                 case  .bytes: ByteCountFormatter.format(size, unit: .useBytes)
                 case .kbytes: ByteCountFormatter.format(size, unit: .useKB)
@@ -113,7 +94,7 @@ struct PopupMainView: View {
     }
 
     var formattedCreated: String {
-        if let created = self.created {
+        if let created = self.info.created {
             switch self.createdViewMode {
                 case .convenient   : created.convenient
                 case .iso8601withTZ: created.ISO8601withTZ
@@ -127,7 +108,7 @@ struct PopupMainView: View {
     }
 
     var formattedUpdated: String {
-        if let updated = self.updated {
+        if let updated = self.info.updated {
             switch self.updatedViewMode {
                 case .convenient   : updated.convenient
                 case .iso8601withTZ: updated.ISO8601withTZ
@@ -141,7 +122,7 @@ struct PopupMainView: View {
     }
 
     var formattedReferences: String {
-        if let references = self.references {
+        if let references = self.info.references {
             String(format: NSLocalizedString("%@ pcs.", comment: ""), String(references))
         } else {
             NSLocalizedString(
@@ -207,7 +188,7 @@ struct PopupMainView: View {
                 self.gridCellWrapper(alignment: .trailing, tint: true,
                     HStack(spacing: 5) {
                         Text(NSLocalizedString("Size", comment: ""))
-                        if (self.size != nil) {
+                        if (self.info.size != nil) {
                             self.iconRoll(
                                 value: self.$sizeViewMode
                             )
@@ -224,7 +205,7 @@ struct PopupMainView: View {
                 self.gridCellWrapper(alignment: .trailing,
                     HStack(spacing: 5) {
                         Text(NSLocalizedString("Created", comment: ""))
-                        if (self.created != nil) {
+                        if (self.info.created != nil) {
                             self.iconRoll(
                                 value: self.$createdViewMode
                             )
@@ -241,7 +222,7 @@ struct PopupMainView: View {
                 self.gridCellWrapper(alignment: .trailing, tint: true,
                     HStack(spacing: 5) {
                         Text(NSLocalizedString("Updated", comment: ""))
-                        if (self.updated != nil) {
+                    if (self.info.updated != nil) {
                             self.iconRoll(
                                 value: self.$updatedViewMode
                             )
@@ -304,7 +285,7 @@ struct PopupMainView: View {
                     }
 
                     VStack(spacing: 10) {
-                        let text = self.type == .file ? "Execute" : "Access"
+                        let text = self.info.type == .file ? "Execute" : "Access"
                         Text(NSLocalizedString(text, comment: "")).frame(width: textW, height: textH)
                         ToggleRwxColored(.owner, self.rights, bitPosition: Subject.owner.offset + Permission.x.offset);
                         ToggleRwxColored(.group, self.rights, bitPosition: Subject.group.offset + Permission.x.offset);
@@ -371,14 +352,14 @@ struct PopupMainView: View {
 
                 /* MARK: cancel button */
                 ButtonCustom(NSLocalizedString("cancel", comment: ""), flexibility: .size(100)) {
-                    self.rights.wrappedValue = self.originalRights
-                    self.owner.wrappedValue  = self.originalOwner
-                    self.group.wrappedValue  = self.originalGroup
+                    self.rights.wrappedValue = self.info.rights
+                    self.owner.wrappedValue  = self.info.owner
+                    self.group.wrappedValue  = self.info.group
                 }
                 .disabled(
-                    self.rights.wrappedValue == self.originalRights &&
-                    self.owner.wrappedValue  == self.originalOwner  &&
-                    self.group.wrappedValue  == self.originalGroup
+                    self.rights.wrappedValue == self.info.rights &&
+                    self.owner.wrappedValue  == self.info.owner  &&
+                    self.group.wrappedValue  == self.info.group
                 )
 
                 /* MARK: apply button */
@@ -389,7 +370,7 @@ struct PopupMainView: View {
                         self.group.wrappedValue
                     )
                 }
-                .disabled(self.type == .unknown)
+                .disabled(self.info.type == .unknown)
 
             }
             .padding(25)
@@ -398,19 +379,21 @@ struct PopupMainView: View {
 
             #if DEBUG
                 HStack {
-                    let formattedRights      = String(format: "%@: %@", "rights"      , String(self.rights.wrappedValue))
-                    let formattedOwner       = String(format: "%@: %@", "owner"       , self.owner.wrappedValue.isEmpty ? Self.NA_SIGN : self.owner.wrappedValue)
-                    let formattedGroup       = String(format: "%@: %@", "group"       , self.group.wrappedValue.isEmpty ? Self.NA_SIGN : self.group.wrappedValue)
-                    let formatOriginalRights = String(format: "%@: %@", "orig. rights", String(self.originalRights))
-                    let formatOriginalOwner  = String(format: "%@: %@", "orig. owner" , self.originalOwner.isEmpty ? Self.NA_SIGN : self.originalOwner)
-                    let formatOriginalGroup  = String(format: "%@: %@", "orig. group" , self.originalGroup.isEmpty ? Self.NA_SIGN : self.originalGroup)
-                    Text("PopupMainView: "         +
-                         "\(formattedRights)"      + " | " +
-                         "\(formattedOwner)"       + " | " +
-                         "\(formattedGroup)"       + " | " +
-                         "\(formatOriginalRights)" + " | " +
-                         "\(formatOriginalOwner)"  + " | " +
-                         "\(formatOriginalGroup)").fixedSize(horizontal: false, vertical: true)
+                    let formattedStateRights = String(format: "%@: %@", "state rights", String(self.rights.wrappedValue))
+                    let formattedStateOwner  = String(format: "%@: %@", "state owner" , self.owner.wrappedValue.isEmpty ? Self.NA_SIGN : self.owner.wrappedValue)
+                    let formattedStateGroup  = String(format: "%@: %@", "state group" , self.group.wrappedValue.isEmpty ? Self.NA_SIGN : self.group.wrappedValue)
+                    let formatRights         = String(format: "%@: %@", "rights"      , String(self.info.rights))
+                    let formatOwner          = String(format: "%@: %@", "owner"       , self.info.owner.isEmpty ? Self.NA_SIGN : self.info.owner)
+                    let formatGroup          = String(format: "%@: %@", "group"       , self.info.group.isEmpty ? Self.NA_SIGN : self.info.group)
+                    let formattedUrl         = String(format: "%@: %@", "url"         , String(self.info.incommingUrl))
+                    Text("Debug: "         +
+                         "\(formattedStateRights)" + " | " +
+                         "\(formattedStateOwner)"  + " | " +
+                         "\(formattedStateGroup)"  + " | " +
+                         "\(formatRights)"         + " | " +
+                         "\(formatOwner)"          + " | " +
+                         "\(formatGroup)"          + " | " +
+                         "\(formattedUrl)").fixedSize(horizontal: false, vertical: true)
                 }
                 .padding(10)
                 .frame(maxWidth: .infinity, alignment: .leading)
