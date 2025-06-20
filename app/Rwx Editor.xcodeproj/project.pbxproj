@@ -79,6 +79,7 @@
 		50114D7B2E04036200024326 /* Numeric.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50114D792E04036200024326 /* Numeric.swift */; };
 		50114D7C2E04036200024326 /* Numeric.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50114D792E04036200024326 /* Numeric.swift */; };
 		50114D7D2E04036200024326 /* Numeric.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50114D792E04036200024326 /* Numeric.swift */; };
+		50114D802E05545000024326 /* FSEntityInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50114D7F2E05544E00024326 /* FSEntityInfo.swift */; };
 		50583D5D2DFB5D2000013BD0 /* Rwx Editor Finder Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 50583D552DFB5D2000013BD0 /* Rwx Editor Finder Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		50624C6A2DE5DCD500794BC8 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50624C692DE5DCD500794BC8 /* Test.swift */; };
 /* End PBXBuildFile section */
@@ -125,6 +126,7 @@
 		50114D632E02AB9400024326 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		50114D682E02AC0D00024326 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		50114D792E04036200024326 /* Numeric.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Numeric.swift; sourceTree = "<group>"; };
+		50114D7F2E05544E00024326 /* FSEntityInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSEntityInfo.swift; sourceTree = "<group>"; };
 		50583D552DFB5D2000013BD0 /* Rwx Editor Finder Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Rwx Editor Finder Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		50583D632DFB5EA100013BD0 /* FinderSyncExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinderSyncExt.swift; sourceTree = "<group>"; };
 		50583D642DFB5EA100013BD0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -268,6 +270,7 @@
 				507318972DF05F60005E26F9 /* Process.swift */,
 				50583D7E2DFB673D00013BD0 /* EventsDispatcherGlobal.swift */,
 				50114C812E017BD400024326 /* FinderEvent.swift */,
+				50114D7F2E05544E00024326 /* FSEntityInfo.swift */,
 				50114D6D2E02AF8700024326 /* controls */,
 				50114D632E02AB9400024326 /* Media.xcassets */,
 				50624C5C2DE5CD1A00794BC8 /* Localizable.xcstrings */,
@@ -460,6 +463,7 @@
 			files = (
 				50114D282E01F6AF00024326 /* String.swift in Sources */,
 				50114D292E01F6AF00024326 /* FinderEvent.swift in Sources */,
+				50114D802E05545000024326 /* FSEntityInfo.swift in Sources */,
 				50114D2A2E01F6AF00024326 /* CaseIterable.swift in Sources */,
 				50114D2B2E01F6AF00024326 /* Process.swift in Sources */,
 				50114D2C2E01F6AF00024326 /* ByteCountFormatter.swift in Sources */,

@@ -432,18 +432,7 @@ struct PopupMainView: View {
         rights: $rights,
         owner: $owner,
         group: $group,
-        info: FSEntityInfo(
-            type: .file,
-            name: "Rwx Editor.icns",
-            path: "/usr/local/bin/some",
-            size: 1_234_567,
-            created: try! Date(fromISO8601: "2025-01-02 03:04:05 +0000"),
-            updated: try! Date(fromISO8601: "2025-01-02 03:04:05 +0000"),
-            references: 1,
-            rights: 0o644,
-            owner: "nobody",
-            group: "staff"
-        ),
+        info: FSEntityInfo.forDemo(),
         onApply: { rights, owner, group in
             print("rights: \(String(rights, radix: 8)) | owner: \(owner) | group: \(group)")
         }

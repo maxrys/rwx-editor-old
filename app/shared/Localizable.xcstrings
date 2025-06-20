@@ -284,17 +284,6 @@
         }
       }
     },
-    "PopupApp: %@ | %@ | %@ | %@" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "PopupApp: %1$@ | %2$@ | %3$@ | %4$@"
-          }
-        }
-      },
-      "shouldTranslate" : false
-    },
     "Read" : {
       "localizations" : {
         "en" : {
