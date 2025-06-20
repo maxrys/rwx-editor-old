@@ -19,7 +19,7 @@ struct FSEntityInfo {
     var owner: String = ""
     var group: String = ""
 
-    init(incommingUrl: String) {
+    init(_ incommingUrl: String) {
         if (incommingUrl.isEmpty == false) {
             self.incommingUrl = incommingUrl
             if let attr = try? FileManager.default.attributesOfItem(atPath: incommingUrl) {
@@ -67,7 +67,7 @@ struct FSEntityInfo {
     }
 
     static func forDemo() -> Self {
-        var result = Self(incommingUrl: "")
+        var result = Self("")
             result.incommingUrl = "/Applications/Rwx Editor.app/Contents/Resources/AppIcon.icns"
             result.type = .file
             result.name = "AppIcon.icns"

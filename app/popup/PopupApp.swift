@@ -16,8 +16,7 @@ import SwiftUI
     static var owners: [String: String] = [:]
     static var groups: [String: String] = [:]
 
-    @State private var incommingUrl: String? // "/Users/max/Desktop/" "/Users/max/Desktop/testDir/testDir2/testFile.txt"
-    @State private var fsEntityInfo = FSEntityInfo(incommingUrl: "")
+    @State private var fsEntityInfo = FSEntityInfo("")
     @State private var rights: UInt = 0
     @State private var owner: String = ""
     @State private var group: String = ""
@@ -30,13 +29,13 @@ import SwiftUI
                      let absolute = url.absoluteString
                      if (absolute.isEmpty == false) {
                          if (absolute[0, UInt(Self.URL_PREFIX.count-1)] == Self.URL_PREFIX) {
-                             self.incommingUrl = String(
+                             let incommingUrl = String(
                                  absolute[
                                      UInt(Self.URL_PREFIX.count),
                                      UInt(absolute.count-1)
                                  ]
                              )
-                             self.fsEntityInfo = FSEntityInfo(incommingUrl: self.incommingUrl!)
+                             self.fsEntityInfo = FSEntityInfo(incommingUrl)
                              self.rights       = self.fsEntityInfo.rights
                              self.owner        = self.fsEntityInfo.owner
                              self.group        = self.fsEntityInfo.group
