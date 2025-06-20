@@ -161,7 +161,7 @@ struct PopupMainView: View {
                 )
                 self.gridCellWrapper(
                     Text(self.formattedName)
-                        .textSelectionPolyfill()
+                        .textSelection(.enabled)
                 )
 
                 /* MARK: path */
@@ -171,7 +171,7 @@ struct PopupMainView: View {
                 )
                 self.gridCellWrapper(tint: true,
                     Text(self.formattedPath)
-                        .textSelectionPolyfill()
+                        .textSelection(.enabled)
                 )
 
                 /* MARK: references */
@@ -197,7 +197,7 @@ struct PopupMainView: View {
                 )
                 self.gridCellWrapper(tint: true,
                     Text(self.formattedSize)
-                        .textSelectionPolyfill()
+                        .textSelection(.enabled)
                 )
 
                 /* MARK: created */
@@ -214,7 +214,7 @@ struct PopupMainView: View {
                 )
                 self.gridCellWrapper(
                     Text(self.formattedCreated)
-                        .textSelectionPolyfill()
+                        .textSelection(.enabled)
                 )
 
                 /* MARK: updated */
@@ -231,7 +231,7 @@ struct PopupMainView: View {
                 )
                 self.gridCellWrapper(tint: true,
                     Text(self.formattedUpdated)
-                        .textSelectionPolyfill()
+                        .textSelection(.enabled)
                 )
 
             }

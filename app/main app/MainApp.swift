@@ -14,11 +14,9 @@ import SwiftUI
     )!
 
     var body: some Scene {
-        let window = WindowGroup {
+        Window("Rwx Editor", id: "rwx-editor-main") {
             self.mainScene
-        }
-        if #available(macOS 13.0, *) { return window.windowResizability(.contentSize) }
-        else                         { return window }
+        }.windowResizability(.contentMinSize)
     }
 
     @ViewBuilder var mainScene: some View {

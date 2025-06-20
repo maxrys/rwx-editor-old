@@ -31,9 +31,8 @@ struct ButtonCustom: View {
                 .padding(.init(top: 6, leading: 10, bottom: 7, trailing: 10))
                 .background(
                     ZStack {
-                        if #available(macOS 13.0, *)
-                             { RoundedRectangle(cornerRadius: 7).fill(Color.accentColor.gradient) }
-                        else { RoundedRectangle(cornerRadius: 7).fill(Color.accentColor) }
+                        RoundedRectangle(cornerRadius: 7)
+                            .fill(Color.accentColor.gradient)
                     }
                 )
         }

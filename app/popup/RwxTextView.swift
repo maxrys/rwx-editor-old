@@ -39,7 +39,7 @@ struct RwxTextView: View {
             .foregroundPolyfill(Color(Self.ColorNames.text.rawValue))
             .background(Color(Self.ColorNames.background.rawValue))
             .cornerRadius(5)
-            .textSelectionPolyfill()
+            .textSelection(.enabled)
     }
 
 }

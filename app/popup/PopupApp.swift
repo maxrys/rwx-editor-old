@@ -22,7 +22,7 @@ import SwiftUI
     @State private var group: String = ""
 
     var body: some Scene {
-        let window = WindowGroup {
+        WindowGroup {
             self.mainScene
                 .environment(\.layoutDirection, .leftToRight)
                 .onOpenURL { url in
@@ -46,9 +46,7 @@ import SwiftUI
             if (phase == .background) {
                 NSApplication.shared.terminate(nil)
             }
-        }
-        if #available(macOS 13.0, *) { return window.windowResizability(.contentSize) }
-        else                         { return window }
+        }.windowResizability(.contentSize)
     }
 
     @ViewBuilder var mainScene: some View {
