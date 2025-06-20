@@ -36,9 +36,9 @@ import SwiftUI
                                  ]
                              )
                              self.fsEntityInfo = FSEntityInfo(incommingUrl)
-                             self.rights       = self.fsEntityInfo.rights
-                             self.owner        = self.fsEntityInfo.owner
-                             self.group        = self.fsEntityInfo.group
+                             self.rights = self.fsEntityInfo.rights
+                             self.owner  = self.fsEntityInfo.owner
+                             self.group  = self.fsEntityInfo.group
                          }
                      }
                 }
