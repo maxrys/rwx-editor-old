@@ -207,6 +207,22 @@
         }
       }
     },
+    "link" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "link"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ссылка"
+          }
+        }
+      }
+    },
     "Name" : {
       "localizations" : {
         "en" : {

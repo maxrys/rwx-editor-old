@@ -41,6 +41,7 @@ public enum FSType {
 
     case dirrectory
     case file
+    case link
     case unknown
 
 }

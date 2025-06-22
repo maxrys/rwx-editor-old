@@ -28,26 +28,27 @@ struct FSEntityInfo {
                 switch attr[.type] as? FileAttributeType {
                     case .typeRegular         : self.type = .file
                     case .typeDirectory       : self.type = .dirrectory
+                    case .typeSymbolicLink    : self.type = .link
                     case .typeBlockSpecial    : self.type = .unknown
                     case .typeCharacterSpecial: self.type = .unknown
                     case .typeSocket          : self.type = .unknown
-                    case .typeSymbolicLink    : self.type = .unknown
                     case .typeUnknown         : self.type = .unknown
                     case .none                : self.type = .unknown
                     case .some(_)             : self.type = .unknown
                 }
 
-                if (self.type == .file || self.type == .dirrectory) {
+                if (self.type != .unknown) {
 
                     /* MARK: name/path */
                     if let urlAsURL = URL(string: incommingUrl) {
                         self.name = urlAsURL.lastPathComponent
                         if (self.type == .dirrectory) { self.path = String(urlAsURL.absoluteString[0, UInt(urlAsURL.absoluteString.count - self.name!.count - 2)]) }
                         if (self.type == .file      ) { self.path = String(urlAsURL.absoluteString[0, UInt(urlAsURL.absoluteString.count - self.name!.count - 1)]) }
+                        if (self.type == .link      ) { self.path = String(urlAsURL.absoluteString[0, UInt(urlAsURL.absoluteString.count - self.name!.count - 1)]) }
                     }
 
                     /* MARK: size */
-                    if (self.type == .file) {
+                    if (self.type == .file || self.type == .link) {
                         if let size = attr[.size] as? UInt {
                             self.size = size
                         }

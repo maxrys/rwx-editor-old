@@ -79,6 +79,7 @@ struct PopupView: View {
         switch self.info.type {
             case .dirrectory: NSLocalizedString("dirrectory", comment: "")
             case .file      : NSLocalizedString("file"      , comment: "")
+            case .link      : NSLocalizedString("link"      , comment: "")
             case .unknown   : NSLocalizedString(Self.NA_SIGN, comment: "")
         }
     }
