@@ -67,20 +67,4 @@ struct FSEntityInfo {
         }
     }
 
-    static func forDemo() -> Self {
-        var result = Self("")
-            result.incommingUrl = "/Applications/Rwx Editor.app/Contents/Resources/AppIcon.icns"
-            result.type = .file
-            result.name = "AppIcon.icns"
-            result.path = "/Applications/Rwx Editor.app/Contents/Resources/"
-            result.size = 1_234_567
-            result.created = try! Date(fromISO8601: "2025-01-02 03:04:05 +0000")
-            result.updated = try! Date(fromISO8601: "2025-01-02 03:04:05 +0000")
-            result.references = 5
-            result.rights = 0o644
-            result.owner = "nobody"
-            result.group = "staff"
-        return result
-    }
-
 }
