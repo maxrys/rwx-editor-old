@@ -13,7 +13,7 @@ class FinderSyncExt: FIFinderSync {
     static let URL_PREFIX = "file://"
 
     var folderURL = URL(
-        fileURLWithPath: "/Users/"
+        fileURLWithPath: "/"
     )
 
     override init() {
