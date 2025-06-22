@@ -397,25 +397,20 @@ struct PopupView: View {
 
             #if DEBUG
                 HStack {
-                    let formattedStateRights = String(format: "%@: %@", "state rights", String(self.rights))
-                    let formattedStateOwner  = String(format: "%@: %@", "state owner" , self.owner.isEmpty ? Self.NA_SIGN : self.owner)
-                    let formattedStateGroup  = String(format: "%@: %@", "state group" , self.group.isEmpty ? Self.NA_SIGN : self.group)
-                    let formatRights         = String(format: "%@: %@", "rights"      , String(self.info.rights))
-                    let formatOwner          = String(format: "%@: %@", "owner"       , self.info.owner.isEmpty ? Self.NA_SIGN : self.info.owner)
-                    let formatGroup          = String(format: "%@: %@", "group"       , self.info.group.isEmpty ? Self.NA_SIGN : self.info.group)
-                    let formattedUrl         = String(format: "%@: %@", "url"         , String(self.info.incommingUrl))
-                    let formattedWindowsId   = String(format: "%@: %@", "winId"       , String(self.windowId))
-                    Text("Debug: "                 +
-                         "\(formattedStateRights)" + " | " +
-                         "\(formattedStateOwner)"  + " | " +
-                         "\(formattedStateGroup)"  + " | " +
-                         "\(formatRights)"         + " | " +
-                         "\(formatOwner)"          + " | " +
-                         "\(formatGroup)"          + " | " +
-                         "\(formattedUrl)"         + " | " +
-                         "\(formattedWindowsId)").fixedSize(horizontal: false, vertical: true)
+                    let debugInfo: [String] = [
+                        String(format: "%@: %@", "state rights", String(self.rights)),
+                        String(format: "%@: %@", "state owner" , self.owner.isEmpty ? Self.NA_SIGN : self.owner),
+                        String(format: "%@: %@", "state group" , self.group.isEmpty ? Self.NA_SIGN : self.group),
+                        String(format: "%@: %@", "rights"      , String(self.info.rights)),
+                        String(format: "%@: %@", "owner"       , self.info.owner.isEmpty ? Self.NA_SIGN : self.info.owner),
+                        String(format: "%@: %@", "group"       , self.info.group.isEmpty ? Self.NA_SIGN : self.info.group),
+                        String(format: "%@: %@", "url"         , String(self.info.incommingUrl)),
+                        String(format: "%@: %@", "winId"       , String(self.windowId))
+                    ]
+                    Text("Debug: \(debugInfo.joined(separator: " | "))")
+                        .fixedSize(horizontal: false, vertical: true)
+                        .padding(10)
                 }
-                .padding(10)
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .foregroundPolyfill(Color(.white))
                 .background(Color.gray)
@@ -438,9 +433,11 @@ struct PopupView: View {
 
 }
 
-@available(macOS 14.0, *) #Preview {
-    let fsEntityInfo = FSEntityInfo.forDemo()
-    PopupView(
-        windowId: fsEntityInfo.incommingUrl
-    )
+#Preview {
+    VStack(spacing: 10) {
+        PopupView(windowId: "/private/etc/")
+        PopupView(windowId: "/private/etc/hosts")
+    }
+    .padding(10)
+    .background(.black)
 }
