@@ -65,6 +65,9 @@
 		50114D892E05F8CE00024326 /* FSEntityInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50114D7F2E05544E00024326 /* FSEntityInfo.swift */; };
 		50114D8A2E05F8CE00024326 /* FSEntityInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50114D7F2E05544E00024326 /* FSEntityInfo.swift */; };
 		50114D8F2E05FC6200024326 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 50114D8E2E05FC6200024326 /* Info.plist */; };
+		50114D922E0990C100024326 /* GridCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50114D912E0990B900024326 /* GridCustom.swift */; };
+		50114D932E0990C100024326 /* GridCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50114D912E0990B900024326 /* GridCustom.swift */; };
+		50114D942E0990C100024326 /* GridCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50114D912E0990B900024326 /* GridCustom.swift */; };
 		50583D5D2DFB5D2000013BD0 /* Rwx Editor Finder Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 50583D552DFB5D2000013BD0 /* Rwx Editor Finder Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		50624C6A2DE5DCD500794BC8 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50624C692DE5DCD500794BC8 /* Test.swift */; };
 /* End PBXBuildFile section */
@@ -109,6 +112,7 @@
 		50114D792E04036200024326 /* Numeric.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Numeric.swift; sourceTree = "<group>"; };
 		50114D7F2E05544E00024326 /* FSEntityInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSEntityInfo.swift; sourceTree = "<group>"; };
 		50114D8E2E05FC6200024326 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		50114D912E0990B900024326 /* GridCustom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridCustom.swift; sourceTree = "<group>"; };
 		50583D552DFB5D2000013BD0 /* Rwx Editor Finder Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Rwx Editor Finder Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		50583D632DFB5EA100013BD0 /* FinderSyncExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinderSyncExt.swift; sourceTree = "<group>"; };
 		50583D642DFB5EA100013BD0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -166,6 +170,7 @@
 			isa = PBXGroup;
 			children = (
 				50624C4B2DE5BA8200794BC8 /* PopupView.swift */,
+				50114D912E0990B900024326 /* GridCustom.swift */,
 				507318452DE71047005E26F9 /* RwxTextView.swift */,
 				507318432DE70C27005E26F9 /* ToggleRwxColored.swift */,
 				507318502DE7939D005E26F9 /* ToggleRwxNumeric.swift */,
@@ -410,6 +415,7 @@
 				50114D7C2E04036200024326 /* Numeric.swift in Sources */,
 				50114D6A2E02AC0F00024326 /* Color.swift in Sources */,
 				50114D372E01F6AF00024326 /* CaseIterable.swift in Sources */,
+				50114D932E0990C100024326 /* GridCustom.swift in Sources */,
 				50114D382E01F6AF00024326 /* Date.swift in Sources */,
 				50114D892E05F8CE00024326 /* FSEntityInfo.swift in Sources */,
 				50114D392E01F6AF00024326 /* Process.swift in Sources */,
@@ -438,6 +444,7 @@
 				50114D6E2E02AFD500024326 /* PickerCustom.swift in Sources */,
 				50114D202E01F6AF00024326 /* Date.swift in Sources */,
 				50114D212E01F6AF00024326 /* EventsDispatcherGlobal.swift in Sources */,
+				50114D942E0990C100024326 /* GridCustom.swift in Sources */,
 				50114D222E01F6AF00024326 /* FinderEvent.swift in Sources */,
 				50114D232E01F6AF00024326 /* enums.swift in Sources */,
 				50114D6B2E02AC0F00024326 /* Color.swift in Sources */,
@@ -460,6 +467,7 @@
 				50114D7A2E04036200024326 /* Numeric.swift in Sources */,
 				50114D6C2E02AC0F00024326 /* Color.swift in Sources */,
 				50114D432E01F6AF00024326 /* Process.swift in Sources */,
+				50114D922E0990C100024326 /* GridCustom.swift in Sources */,
 				50114D442E01F6AF00024326 /* enums.swift in Sources */,
 				50114D8A2E05F8CE00024326 /* FSEntityInfo.swift in Sources */,
 				50114D452E01F6AF00024326 /* ByteCountFormatter.swift in Sources */,

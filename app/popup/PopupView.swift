@@ -8,10 +8,9 @@ import SwiftUI
 struct PopupView: View {
 
     enum ColorNames: String {
-        case headTint = "color PopupView Head Tint"
-        case head     = "color PopupView Head Background"
-        case body     = "color PopupView Body Background"
-        case foot     = "color PopupView Foot Background"
+        case head = "color PopupView Head Background"
+        case body = "color PopupView Body Background"
+        case foot = "color PopupView Foot Background"
     }
 
     static let NA_SIGN = "—"
@@ -35,12 +34,6 @@ struct PopupView: View {
     @Environment(\.scenePhase)  private var scenePhase
     @Environment(\.colorScheme) private var colorScheme
 
-    static private var _isEven: Bool = true
-    private var isEven: Bool {
-        Self._isEven.toggle()
-        return Self._isEven
-    }
-
     @State private var sizeViewMode: BytesViewMode = .bytes
     @State private var createdViewMode: DateViewMode = .convenient
     @State private var updatedViewMode: DateViewMode = .convenient
@@ -52,27 +45,12 @@ struct PopupView: View {
     private let info: FSEntityInfo
 
     init(windowId: WindowInfo.ID) {
-        Self._isEven  = false
         let fsEntityInfo = FSEntityInfo(windowId)
         self.windowId = windowId
         self.rights   = fsEntityInfo.rights
         self.owner    = fsEntityInfo.owner
         self.group    = fsEntityInfo.group
         self.info     = fsEntityInfo
-    }
-
-    @ViewBuilder func gridRow(_ title: some View, _ value: some View) -> some View {
-        let background = self.isEven ? Color(Self.ColorNames.headTint.rawValue) : Color.clear
-        HStack(spacing: 0) { title }
-            .padding(.horizontal, 7)
-            .padding(.vertical  , 6)
-            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .trailing)
-            .background(background)
-        HStack(spacing: 0) { value }
-            .padding(.horizontal, 7)
-            .padding(.vertical  , 6)
-            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
-            .background(background)
     }
 
     @ViewBuilder func iconRoll<T: CaseIterable & Equatable>(value: Binding<T>) -> some View {
@@ -170,47 +148,35 @@ struct PopupView: View {
             /* MARK: head */
             /* ########## */
 
-            let columns = [
-                GridItem(.fixed(100), spacing: 0),
-                GridItem(.flexible(), spacing: 0)
-            ]
-
-            LazyVGrid(columns: columns, spacing: 0) {
+            GridCustom([
 
                 /* MARK: type */
-
-                self.gridRow(
-                    Text(NSLocalizedString("Type", comment: "")),
-                    Text(self.formattedType)
-                )
+                GridCustom.Row(
+                    title: Text(NSLocalizedString("Type", comment: "")),
+                    value: Text(self.formattedType)
+                ),
 
                 /* MARK: name */
-
-                self.gridRow(
-                    Text(NSLocalizedString("Name", comment: "")),
-                    Text(self.formattedName)
-                        .textSelection(.enabled)
-                )
+                GridCustom.Row(
+                    title: Text(NSLocalizedString("Name", comment: "")),
+                    value: Text(self.formattedName).textSelection(.enabled)
+                ),
 
                 /* MARK: path */
-
-                self.gridRow(
-                    Text(NSLocalizedString("Path", comment: "")),
-                    Text(self.formattedPath)
-                        .textSelection(.enabled)
-                )
+                GridCustom.Row(
+                    title: Text(NSLocalizedString("Path", comment: "")),
+                    value: Text(self.formattedPath).textSelection(.enabled)
+                ),
 
                 /* MARK: references */
-
-                self.gridRow(
-                    Text(NSLocalizedString("References", comment: "")),
-                    Text(self.formattedReferences)
-                )
+                GridCustom.Row(
+                    title: Text(NSLocalizedString("References", comment: "")),
+                    value: Text(self.formattedReferences)
+                ),
 
                 /* MARK: size */
-
-                self.gridRow(
-                    HStack(spacing: 5) {
+                GridCustom.Row(
+                    title: HStack(spacing: 5) {
                         Text(NSLocalizedString("Size", comment: ""))
                         if (self.info.size != nil) {
                             self.iconRoll(
@@ -218,14 +184,12 @@ struct PopupView: View {
                             )
                         }
                     },
-                    Text(self.formattedSize)
-                        .textSelection(.enabled)
-                )
+                    value: Text(self.formattedSize).textSelection(.enabled)
+                ),
 
                 /* MARK: created */
-
-                self.gridRow(
-                    HStack(spacing: 5) {
+                GridCustom.Row(
+                    title: HStack(spacing: 5) {
                         Text(NSLocalizedString("Created", comment: ""))
                         if (self.info.created != nil) {
                             self.iconRoll(
@@ -233,14 +197,12 @@ struct PopupView: View {
                             )
                         }
                     },
-                    Text(self.formattedCreated)
-                        .textSelection(.enabled)
-                )
+                    value: Text(self.formattedCreated).textSelection(.enabled)
+                ),
 
                 /* MARK: updated */
-
-                self.gridRow(
-                    HStack(spacing: 5) {
+                GridCustom.Row(
+                    title: HStack(spacing: 5) {
                         Text(NSLocalizedString("Updated", comment: ""))
                         if (self.info.updated != nil) {
                             self.iconRoll(
@@ -248,11 +210,10 @@ struct PopupView: View {
                             )
                         }
                     },
-                    Text(self.formattedUpdated)
-                        .textSelection(.enabled)
+                    value: Text(self.formattedUpdated).textSelection(.enabled)
                 )
 
-            }
+            ])
             .frame(maxWidth: .infinity)
             .background(Color(Self.ColorNames.head.rawValue))
             .font(.system(size: 12, weight: .regular))
@@ -420,11 +381,6 @@ struct PopupView: View {
         .foregroundPolyfill(Color.getCustom(.text))
         .environment(\.layoutDirection, .leftToRight)
         .frame(width: Self.FRAME_WIDTH)
-//      .onChange(of: scenePhase) { phase in
-//          if (phase == .background) {
-//              NSApplication.shared.terminate(nil)
-//          }
-//      }
     }
 
     func onApply(rights: UInt, owner: String, group: String) {
