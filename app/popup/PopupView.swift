@@ -32,8 +32,14 @@ struct PopupView: View {
         return result
     }()
 
-    @Environment(\.scenePhase) private var scenePhase
+    @Environment(\.scenePhase)  private var scenePhase
     @Environment(\.colorScheme) private var colorScheme
+
+    static private var _isEven: Bool = true
+    private var isEven: Bool {
+        Self._isEven.toggle()
+        return Self._isEven
+    }
 
     @State private var sizeViewMode: BytesViewMode = .bytes
     @State private var createdViewMode: DateViewMode = .convenient
@@ -46,12 +52,27 @@ struct PopupView: View {
     private let info: FSEntityInfo
 
     init(windowId: WindowInfo.ID) {
+        Self._isEven  = false
         let fsEntityInfo = FSEntityInfo(windowId)
         self.windowId = windowId
         self.rights   = fsEntityInfo.rights
         self.owner    = fsEntityInfo.owner
         self.group    = fsEntityInfo.group
         self.info     = fsEntityInfo
+    }
+
+    @ViewBuilder func gridRow(_ title: some View, _ value: some View) -> some View {
+        let background = self.isEven ? Color(Self.ColorNames.headTint.rawValue) : Color.clear
+        HStack(spacing: 0) { title }
+            .padding(.horizontal, 7)
+            .padding(.vertical  , 6)
+            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .trailing)
+            .background(background)
+        HStack(spacing: 0) { value }
+            .padding(.horizontal, 7)
+            .padding(.vertical  , 6)
+            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
+            .background(background)
     }
 
     @ViewBuilder func iconRoll<T: CaseIterable & Equatable>(value: Binding<T>) -> some View {
@@ -64,15 +85,6 @@ struct PopupView: View {
         }
         .buttonStyle(.plain)
         .onHoverCursor()
-    }
-
-    @ViewBuilder func gridCellWrapper(alignment: Alignment = .leading, tint: Bool = false, _ value: some View) -> some View {
-        let background = tint ? Color(Self.ColorNames.headTint.rawValue) : Color.clear
-        HStack(spacing: 0) { value }
-            .padding(.horizontal, 7)
-            .padding(.vertical  , 6)
-            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: alignment)
-            .background(background)
     }
 
     var formattedType: String {
@@ -167,45 +179,37 @@ struct PopupView: View {
 
                 /* MARK: type */
 
-                self.gridCellWrapper(alignment: .trailing, tint: true,
-                    Text(NSLocalizedString("Type", comment: ""))
-                )
-                self.gridCellWrapper(tint: true,
+                self.gridRow(
+                    Text(NSLocalizedString("Type", comment: "")),
                     Text(self.formattedType)
                 )
 
                 /* MARK: name */
 
-                self.gridCellWrapper(alignment: .trailing,
-                    Text(NSLocalizedString("Name", comment: ""))
-                )
-                self.gridCellWrapper(
+                self.gridRow(
+                    Text(NSLocalizedString("Name", comment: "")),
                     Text(self.formattedName)
                         .textSelection(.enabled)
                 )
 
                 /* MARK: path */
 
-                self.gridCellWrapper(alignment: .trailing, tint: true,
-                    Text(NSLocalizedString("Path", comment: ""))
-                )
-                self.gridCellWrapper(tint: true,
+                self.gridRow(
+                    Text(NSLocalizedString("Path", comment: "")),
                     Text(self.formattedPath)
                         .textSelection(.enabled)
                 )
 
                 /* MARK: references */
 
-                self.gridCellWrapper(alignment: .trailing,
-                    Text(NSLocalizedString("References", comment: ""))
-                )
-                self.gridCellWrapper(
+                self.gridRow(
+                    Text(NSLocalizedString("References", comment: "")),
                     Text(self.formattedReferences)
                 )
 
                 /* MARK: size */
 
-                self.gridCellWrapper(alignment: .trailing, tint: true,
+                self.gridRow(
                     HStack(spacing: 5) {
                         Text(NSLocalizedString("Size", comment: ""))
                         if (self.info.size != nil) {
@@ -213,16 +217,14 @@ struct PopupView: View {
                                 value: self.$sizeViewMode
                             )
                         }
-                    }
-                )
-                self.gridCellWrapper(tint: true,
+                    },
                     Text(self.formattedSize)
                         .textSelection(.enabled)
                 )
 
                 /* MARK: created */
 
-                self.gridCellWrapper(alignment: .trailing,
+                self.gridRow(
                     HStack(spacing: 5) {
                         Text(NSLocalizedString("Created", comment: ""))
                         if (self.info.created != nil) {
@@ -230,26 +232,22 @@ struct PopupView: View {
                                 value: self.$createdViewMode
                             )
                         }
-                    }
-                )
-                self.gridCellWrapper(
+                    },
                     Text(self.formattedCreated)
                         .textSelection(.enabled)
                 )
 
                 /* MARK: updated */
 
-                self.gridCellWrapper(alignment: .trailing, tint: true,
+                self.gridRow(
                     HStack(spacing: 5) {
                         Text(NSLocalizedString("Updated", comment: ""))
-                    if (self.info.updated != nil) {
+                        if (self.info.updated != nil) {
                             self.iconRoll(
                                 value: self.$updatedViewMode
                             )
                         }
-                    }
-                )
-                self.gridCellWrapper(tint: true,
+                    },
                     Text(self.formattedUpdated)
                         .textSelection(.enabled)
                 )

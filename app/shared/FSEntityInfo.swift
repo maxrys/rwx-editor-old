@@ -35,8 +35,8 @@ struct FSEntityInfo {
 
         /* MARK: type */
         switch attr[.type] as? FileAttributeType {
-            case .typeRegular         : self.type = .file
             case .typeDirectory       : self.type = .dirrectory
+            case .typeRegular         : self.type = .file
             case .typeSymbolicLink    : self.type = .link
             case .typeBlockSpecial    : self.type = .unknown
             case .typeCharacterSpecial: self.type = .unknown
