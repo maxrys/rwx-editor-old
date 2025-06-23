@@ -79,6 +79,7 @@ struct PopupView: View {
         switch self.info.type {
             case .dirrectory: NSLocalizedString("dirrectory", comment: "")
             case .file      : NSLocalizedString("file"      , comment: "")
+            case .alias     : NSLocalizedString("alias"     , comment: "")
             case .link      : NSLocalizedString("link"      , comment: "")
             case .unknown   : NSLocalizedString(Self.NA_SIGN, comment: "")
         }
@@ -405,7 +406,7 @@ struct PopupView: View {
                         String(format: "%@: %@", "rights"      , String(self.info.rights)),
                         String(format: "%@: %@", "owner"       , self.info.owner.isEmpty ? Self.NA_SIGN : self.info.owner),
                         String(format: "%@: %@", "group"       , self.info.group.isEmpty ? Self.NA_SIGN : self.info.group),
-                        String(format: "%@: %@", "url"         , String(self.info.absolutePath)),
+                        String(format: "%@: %@", "url"         , String(self.info.initUrl)),
                         String(format: "%@: %@", "winId"       , String(self.windowId))
                     ]
                     Text("Debug: \(debugInfo.joined(separator: " | "))")

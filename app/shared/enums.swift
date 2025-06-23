@@ -37,15 +37,6 @@ public enum Subject {
 
 }
 
-public enum FSType {
-
-    case dirrectory
-    case file
-    case link
-    case unknown
-
-}
-
 public enum Flexibility {
 
     case none
@@ -69,5 +60,15 @@ public enum DateViewMode: CaseIterable & Equatable {
     case convenient
     case iso8601withTZ
     case iso8601
+
+}
+
+public enum FSType {
+
+    case dirrectory
+    case file
+    case link
+    case alias
+    case unknown
 
 }

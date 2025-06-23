@@ -60,6 +60,22 @@
         }
       }
     },
+    "alias" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "alias"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "псевдоним"
+          }
+        }
+      }
+    },
     "apply" : {
       "localizations" : {
         "en" : {
@@ -109,7 +125,15 @@
       }
     },
     "Debug: %@" : {
-
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Debug: %@"
+          }
+        }
+      },
+      "shouldTranslate" : false
     },
     "dirrectory" : {
       "localizations" : {

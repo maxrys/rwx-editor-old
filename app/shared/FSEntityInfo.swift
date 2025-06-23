@@ -7,7 +7,7 @@ import Foundation
 
 struct FSEntityInfo {
 
-    var absolutePath: String = ""
+    var initUrl: String = ""
     var type: FSType = .unknown
     var name: String?
     var path: String?
@@ -19,19 +19,19 @@ struct FSEntityInfo {
     var owner: String = ""
     var group: String = ""
 
-    init(_ absolutePath: String) {
+    init(_ initUrl: String) {
 
-        guard absolutePath.isEmpty == false else { return }
+        guard initUrl.isEmpty == false else { return }
+
+        self.initUrl = "file://\(initUrl)"
 
         guard let url = URL(
-            string: absolutePath
+            string: self.initUrl
         ) else { return }
 
         guard let attr = try? FileManager.default.attributesOfItem(
-            atPath: absolutePath
+            atPath: initUrl
         ) else { return }
-
-        self.absolutePath = absolutePath
 
         /* MARK: type */
         switch attr[.type] as? FileAttributeType {
@@ -46,13 +46,23 @@ struct FSEntityInfo {
             case .some(_)             : self.type = .unknown
         }
 
+        if let subtype = try? url.resourceValues(forKeys: [.isAliasFileKey, .isSymbolicLinkKey, .isRegularFileKey]) {
+            switch (subtype.isRegularFile, subtype.isAliasFile, subtype.isSymbolicLink) {
+                case (true, true, false): self.type = .alias
+                case (false, true, true): self.type = .link
+                default: break
+            }
+        }
+
         if (self.type != .unknown) {
 
             /* MARK: name/path */
             self.name = url.lastPathComponent
-            if (self.type == .dirrectory) { self.path = String(url.absoluteString[0, UInt(url.absoluteString.count - self.name!.count - 2)]) }
-            if (self.type == .file      ) { self.path = String(url.absoluteString[0, UInt(url.absoluteString.count - self.name!.count - 1)]) }
-            if (self.type == .link      ) { self.path = String(url.absoluteString[0, UInt(url.absoluteString.count - self.name!.count - 1)]) }
+            if let name = self.name { let path = url.path()
+                if (self.type == .dirrectory) { self.path = String(path[0, UInt(path.count - name.count - 2)]) }
+                if (self.type == .file      ) { self.path = String(path[0, UInt(path.count - name.count - 1)]) }
+                if (self.type == .link      ) { self.path = String(path[0, UInt(path.count - name.count - 1)]) }
+            }
 
             /* MARK: size */
             if (self.type == .file || self.type == .link) {
