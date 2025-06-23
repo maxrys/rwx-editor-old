@@ -8,12 +8,14 @@ import FinderSync
 
 struct MainView: View {
 
+    @State var extensionIsEnabled: Bool = false
+
     var body: some View {
         VStack(spacing: 10) {
 
-            if (FIFinderSyncController.isExtensionEnabled) {
+            if (self.extensionIsEnabled) {
 
-                Image(systemName: "checkmark.circle")
+                Image(systemName: "checkmark.circle.fill")
                     .font(.system(size: 40, weight: .regular))
                     .foregroundPolyfill(Color.getCustom(.darkGreen))
 
@@ -38,6 +40,9 @@ struct MainView: View {
         }
         .padding(20)
         .foregroundPolyfill(Color.getCustom(.text))
+        .onReceive(NotificationCenter.default.publisher(for: NSApplication.didBecomeActiveNotification)) { _ in
+            self.extensionIsEnabled = FIFinderSyncController.isExtensionEnabled
+        }
     }
 
 }
