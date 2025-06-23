@@ -405,7 +405,7 @@ struct PopupView: View {
                         String(format: "%@: %@", "rights"      , String(self.info.rights)),
                         String(format: "%@: %@", "owner"       , self.info.owner.isEmpty ? Self.NA_SIGN : self.info.owner),
                         String(format: "%@: %@", "group"       , self.info.group.isEmpty ? Self.NA_SIGN : self.info.group),
-                        String(format: "%@: %@", "url"         , String(self.info.incommingUrl)),
+                        String(format: "%@: %@", "url"         , String(self.info.absolutePath)),
                         String(format: "%@: %@", "winId"       , String(self.windowId))
                     ]
                     Text("Debug: \(debugInfo.joined(separator: " | "))")
