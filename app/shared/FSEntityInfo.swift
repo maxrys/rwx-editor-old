@@ -9,8 +9,10 @@ struct FSEntityInfo {
 
     var initUrl: String = ""
     var type: FSType = .unknown
-    var name: String?
     var path: String?
+    var name: String?
+    var realPath: String?
+    var realName: String?
     var size: UInt?
     var created: Date?
     var updated: Date?
@@ -35,7 +37,7 @@ struct FSEntityInfo {
 
         /* MARK: type */
         switch attr[.type] as? FileAttributeType {
-            case .typeDirectory       : self.type = .dirrectory
+            case .typeDirectory       : self.type = .directory
             case .typeRegular         : self.type = .file
             case .typeSymbolicLink    : self.type = .link
             case .typeBlockSpecial    : self.type = .unknown
@@ -48,8 +50,13 @@ struct FSEntityInfo {
 
         if let subtype = try? url.resourceValues(forKeys: [.isAliasFileKey, .isSymbolicLinkKey, .isRegularFileKey]) {
             switch (subtype.isRegularFile, subtype.isAliasFile, subtype.isSymbolicLink) {
-                case (true, true, false): self.type = .alias
-                case (false, true, true): self.type = .link
+                case (true, true, false):
+                    self.type = .alias
+                case (false, true, true):
+                    self.type = .link
+                    let (realPath, realName) = url.resolvingSymlinksInPath().pathNameParts
+                    self.realPath = realPath
+                    self.realName = realName
                 default: break
             }
         }
@@ -57,12 +64,9 @@ struct FSEntityInfo {
         if (self.type != .unknown) {
 
             /* MARK: name/path */
-            self.name = url.lastPathComponent
-            if let name = self.name { let path = url.path()
-                if (self.type == .dirrectory) { self.path = String(path[0, UInt(path.count - name.count - 2)]) }
-                if (self.type == .file      ) { self.path = String(path[0, UInt(path.count - name.count - 1)]) }
-                if (self.type == .link      ) { self.path = String(path[0, UInt(path.count - name.count - 1)]) }
-            }
+            let (path, name) = url.resolvingSymlinksInPath().pathNameParts
+            self.path = path
+            self.name = name
 
             /* MARK: size */
             if (self.type == .file || self.type == .link) {

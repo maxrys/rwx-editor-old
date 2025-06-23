@@ -67,11 +67,11 @@ struct PopupView: View {
 
     var formattedType: String {
         switch self.info.type {
-            case .dirrectory: NSLocalizedString("dirrectory", comment: "")
-            case .file      : NSLocalizedString("file"      , comment: "")
-            case .alias     : NSLocalizedString("alias"     , comment: "")
-            case .link      : NSLocalizedString("link"      , comment: "")
-            case .unknown   : NSLocalizedString(Self.NA_SIGN, comment: "")
+            case .directory: NSLocalizedString("directory" , comment: "")
+            case .file     : NSLocalizedString("file"      , comment: "")
+            case .alias    : NSLocalizedString("alias"     , comment: "")
+            case .link     : NSLocalizedString("link"      , comment: "")
+            case .unknown  : NSLocalizedString(Self.NA_SIGN, comment: "")
         }
     }
 

@@ -65,7 +65,7 @@ public enum DateViewMode: CaseIterable & Equatable {
 
 public enum FSType {
 
-    case dirrectory
+    case directory
     case file
     case link
     case alias

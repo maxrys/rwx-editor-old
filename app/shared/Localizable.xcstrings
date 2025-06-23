@@ -135,12 +135,12 @@
       },
       "shouldTranslate" : false
     },
-    "dirrectory" : {
+    "directory" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "dirrectory"
+            "value" : "directory"
           }
         },
         "ru" : {

@@ -68,6 +68,9 @@
 		50114D922E0990C100024326 /* GridCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50114D912E0990B900024326 /* GridCustom.swift */; };
 		50114D932E0990C100024326 /* GridCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50114D912E0990B900024326 /* GridCustom.swift */; };
 		50114D942E0990C100024326 /* GridCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50114D912E0990B900024326 /* GridCustom.swift */; };
+		50114D962E099D0B00024326 /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50114D952E099D0B00024326 /* URL.swift */; };
+		50114D972E099D0B00024326 /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50114D952E099D0B00024326 /* URL.swift */; };
+		50114D982E099D0B00024326 /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50114D952E099D0B00024326 /* URL.swift */; };
 		50583D5D2DFB5D2000013BD0 /* Rwx Editor Finder Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 50583D552DFB5D2000013BD0 /* Rwx Editor Finder Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		50624C6A2DE5DCD500794BC8 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50624C692DE5DCD500794BC8 /* Test.swift */; };
 /* End PBXBuildFile section */
@@ -113,6 +116,7 @@
 		50114D7F2E05544E00024326 /* FSEntityInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSEntityInfo.swift; sourceTree = "<group>"; };
 		50114D8E2E05FC6200024326 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		50114D912E0990B900024326 /* GridCustom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridCustom.swift; sourceTree = "<group>"; };
+		50114D952E099D0B00024326 /* URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URL.swift; sourceTree = "<group>"; };
 		50583D552DFB5D2000013BD0 /* Rwx Editor Finder Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Rwx Editor Finder Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		50583D632DFB5EA100013BD0 /* FinderSyncExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinderSyncExt.swift; sourceTree = "<group>"; };
 		50583D642DFB5EA100013BD0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -241,6 +245,7 @@
 				50624C602DE5D6B500794BC8 /* UInt.swift */,
 				5073189B2DF1BA3D005E26F9 /* Date.swift */,
 				50114D682E02AC0D00024326 /* Color.swift */,
+				50114D952E099D0B00024326 /* URL.swift */,
 				50624C532DE5C2BA00794BC8 /* View.swift */,
 				507318A22DF3758B005E26F9 /* CaseIterable.swift */,
 				507318A52DF37FB8005E26F9 /* ByteCountFormatter.swift */,
@@ -411,6 +416,7 @@
 				50114D342E01F6AF00024326 /* enums.swift in Sources */,
 				50114D4B2E01F71900024326 /* FinderSyncExt.swift in Sources */,
 				50114D352E01F6AF00024326 /* UInt.swift in Sources */,
+				50114D972E099D0B00024326 /* URL.swift in Sources */,
 				50114D362E01F6AF00024326 /* String.swift in Sources */,
 				50114D7C2E04036200024326 /* Numeric.swift in Sources */,
 				50114D6A2E02AC0F00024326 /* Color.swift in Sources */,
@@ -441,6 +447,7 @@
 				50114D1E2E01F6AF00024326 /* View.swift in Sources */,
 				50114D6F2E02AFE400024326 /* ButtonCustom.swift in Sources */,
 				50114D1F2E01F6AF00024326 /* String.swift in Sources */,
+				50114D962E099D0B00024326 /* URL.swift in Sources */,
 				50114D6E2E02AFD500024326 /* PickerCustom.swift in Sources */,
 				50114D202E01F6AF00024326 /* Date.swift in Sources */,
 				50114D212E01F6AF00024326 /* EventsDispatcherGlobal.swift in Sources */,
@@ -463,6 +470,7 @@
 				50114D3F2E01F6AF00024326 /* View.swift in Sources */,
 				50114D402E01F6AF00024326 /* String.swift in Sources */,
 				50114D412E01F6AF00024326 /* FinderEvent.swift in Sources */,
+				50114D982E099D0B00024326 /* URL.swift in Sources */,
 				50114D422E01F6AF00024326 /* EventsDispatcherGlobal.swift in Sources */,
 				50114D7A2E04036200024326 /* Numeric.swift in Sources */,
 				50114D6C2E02AC0F00024326 /* Color.swift in Sources */,
