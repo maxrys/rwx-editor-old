@@ -9,29 +9,31 @@ import FinderSync
 struct MainView: View {
 
     var body: some View {
-        VStack(spacing: 20) {
+        VStack(spacing: 10) {
 
-            let title: String = {
-                if (FIFinderSyncController.isExtensionEnabled)
-                     { return NSLocalizedString("extension is enabled" , comment: "") }
-                else { return NSLocalizedString("extension is disabled", comment: "") }
-            }()
+            if (FIFinderSyncController.isExtensionEnabled) {
 
-            Text(title)
-                .font(.system(size: 12, weight: .regular))
-                .foregroundPolyfill(.white)
-                .padding(20)
-                .frame(maxWidth: .infinity)
-                .background(
-                    FIFinderSyncController.isExtensionEnabled ?
-                        Color.getCustom(.darkGreen) :
-                        Color.getCustom(.darkRed)
-                ).cornerRadius(5)
+                Image(systemName: "checkmark.circle")
+                    .font(.system(size: 40, weight: .regular))
+                    .foregroundPolyfill(Color.getCustom(.darkGreen))
+
+                Text(NSLocalizedString("extension is enabled", comment: ""))
+                    .font(.system(size: 14, weight: .regular))
+
+            } else {
+
+                Image(systemName: "xmark.circle.fill")
+                    .font(.system(size: 40, weight: .regular))
+                    .foregroundPolyfill(Color.getCustom(.darkRed))
+
+                Text(NSLocalizedString("extension is disabled", comment: ""))
+                    .font(.system(size: 14, weight: .regular))
+
+            }
 
             ButtonCustom(NSLocalizedString("Open Settings", comment: ""), flexibility: .size(200)) {
                 FinderSync.FIFinderSyncController.showExtensionManagementInterface()
-
-            }
+            }.padding(.top, 10)
 
         }
         .padding(20)
