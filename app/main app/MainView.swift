@@ -41,8 +41,8 @@ struct MainView: View {
         .padding(20)
         .foregroundPolyfill(Color.getCustom(.text))
         .onReceive(NotificationCenter.default.publisher(for: NSApplication.didBecomeActiveNotification)) { _ in
-            self.extensionIsEnabled = FIFinderSyncController.isExtensionEnabled
-        }
+                     self.extensionIsEnabled = FIFinderSyncController.isExtensionEnabled
+        }.onAppear { self.extensionIsEnabled = FIFinderSyncController.isExtensionEnabled }
     }
 
 }

@@ -21,7 +21,7 @@ struct WindowInfo: Identifiable {
     )!
 
     var body: some Scene {
-        WindowGroup(for: WindowInfo.ID.self) { $windowId in
+        WindowGroup("Rwx Editor", for: WindowInfo.ID.self) { $windowId in
             if let windowId {
                 /* MARK: Popup windows */
                 PopupView(
