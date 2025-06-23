@@ -87,6 +87,18 @@ struct PopupView: View {
         else { NSLocalizedString(Self.NA_SIGN, comment: "") }
     }
 
+    var formattedRealName: String {
+        if let realName = self.info.realName
+             { realName }
+        else { NSLocalizedString(Self.NA_SIGN, comment: "") }
+    }
+
+    var formattedRealPath: String {
+        if let realPath = self.info.realPath
+             { realPath }
+        else { NSLocalizedString(Self.NA_SIGN, comment: "") }
+    }
+
     var formattedSize: String {
         if let size = self.info.size {
             switch self.sizeViewMode {
@@ -167,6 +179,20 @@ struct PopupView: View {
                     title: Text(NSLocalizedString("Path", comment: "")),
                     value: Text(self.formattedPath).textSelection(.enabled)
                 ),
+
+                /* MARK: real name */
+                self.info.realName != nil ?
+                    GridCustom.Row(
+                        title: Text(NSLocalizedString("Real Name", comment: "")),
+                        value: Text(self.formattedRealName).textSelection(.enabled)
+                    ) : nil,
+
+                /* MARK: real path */
+                self.info.realPath != nil ?
+                    GridCustom.Row(
+                        title: Text(NSLocalizedString("Real Path", comment: "")),
+                        value: Text(self.formattedRealPath).textSelection(.enabled)
+                    ) : nil,
 
                 /* MARK: references */
                 GridCustom.Row(

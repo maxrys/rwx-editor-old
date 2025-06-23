@@ -343,6 +343,38 @@
         }
       }
     },
+    "Real Name" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Real Name"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Реальное название"
+          }
+        }
+      }
+    },
+    "Real Path" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Real Path"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Реальный путь"
+          }
+        }
+      }
+    },
     "References" : {
       "localizations" : {
         "en" : {

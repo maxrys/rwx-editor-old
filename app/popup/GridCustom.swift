@@ -22,8 +22,12 @@ struct GridCustom: View {
 
     var data: [Row] = []
 
-    init(_ data: [Row] = []) {
-        self.data = data
+    init(_ data: [Row?] = []) {
+        data.forEach { row in
+            if let row {
+                self.data.append(row)
+            }
+        }
     }
 
     var body: some View {
@@ -39,6 +43,7 @@ struct GridCustom: View {
                     Color(Self.ColorNames.headTint.rawValue) :
                     Color.clear
                 HStack(spacing: 0) { self.data[index].title }
+                    .multilineTextAlignment(.trailing)
                     .padding(.horizontal, 7)
                     .padding(.vertical  , 6)
                     .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .trailing)
