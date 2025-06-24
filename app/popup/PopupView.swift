@@ -41,10 +41,10 @@ struct PopupView: View {
     @State private var owner: String = ""
     @State private var group: String = ""
 
-    private let windowId: WindowInfo.ID
+    private let windowId: String
     private let info: FSEntityInfo
 
-    init(windowId: WindowInfo.ID) {
+    init(windowId: String) {
         let fsEntityInfo = FSEntityInfo(windowId)
         self.windowId = windowId
         self.rights   = fsEntityInfo.rights

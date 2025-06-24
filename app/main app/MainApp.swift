@@ -5,10 +5,6 @@
 
 import SwiftUI
 
-struct WindowInfo: Identifiable {
-    var id: String = ""
-}
-
 @main struct MainApp: App {
 
     static var owners = Process.systemUsers ().filter{ $0.first != "_" }.sorted()
@@ -17,7 +13,7 @@ struct WindowInfo: Identifiable {
     @Environment(\.openWindow) private var openWindow
 
     var body: some Scene {
-        WindowGroup("Rwx Editor", for: WindowInfo.ID.self) { $windowId in
+        WindowGroup("Rwx Editor", for: String.self) { $windowId in
             if let windowId {
                 /* MARK: Popup windows */
                 PopupView(
