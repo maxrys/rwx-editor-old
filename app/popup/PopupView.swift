@@ -409,7 +409,18 @@ struct PopupView: View {
     }
 
     func onApply(rights: UInt, owner: String, group: String) {
-        print("url: \(self.info.initUrl) | rights: \(String(rights, radix: 8)) | owner: \(owner) | group: \(group)")
+        do {
+            #if DEBUG
+                print("onApply: url = \(self.info.initUrl) | rights = \(String(rights, radix: 8)) | owner = \(owner) | group = \(group)")
+            #endif
+            let fileManager = FileManager.default
+            let fileURL = URL(fileURLWithPath: self.info.initUrl)
+            try fileManager.setAttributes([.posixPermissions: rights], ofItemAtPath: fileURL.path)
+        } catch {
+            #if DEBUG
+                print("onApply error: \(error)")
+            #endif
+        }
     }
 
 }
