@@ -9,20 +9,26 @@ struct FinderEvent: Codable {
 
     var paths: [String]
 
+    init(paths: [String]) {
+        self.paths = paths
+    }
+
+    init?(from json: String) {
+        do {
+            self = try JSONDecoder().decode(
+                Self.self,
+                from: json.data(
+                    using: .utf8
+                )!
+            )
+        } catch { return nil }
+    }
+
     func encode() -> String {
         return String(
             data: try! JSONEncoder().encode(self),
             encoding: .utf8
         )!
-    }
-
-    static func decode(_ event: String) throws -> Self {
-        return try JSONDecoder().decode(
-            Self.self,
-            from: event.data(
-                using: .utf8
-            )!
-        )
     }
 
 }

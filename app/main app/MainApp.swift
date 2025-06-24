@@ -36,14 +36,11 @@ import SwiftUI
                 )
             ) { notification in
                 do {
-                    guard let event = notification.object as? String else { return }
-                    for path in try FinderEvent.decode(event).paths {
+                    guard let json = notification.object as? String else { return }
+                    guard let finderEvent = FinderEvent(from: json) else { return }
+                    for path in finderEvent.paths {
                         openWindow(value: path)
                     }
-                } catch {
-                    #if DEBUG
-                        print("decode error \(error)")
-                    #endif
                 }
             }
     }
