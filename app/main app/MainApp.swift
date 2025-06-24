@@ -16,10 +16,6 @@ struct WindowInfo: Identifiable {
 
     @Environment(\.openWindow) private var openWindow
 
-    private let publisherForFinder = EventsDispatcherGlobal.shared.publisher(
-        FinderSyncExt.EVENT_NAME_FOR_FINDER_CONTEXT_MENU
-    )!
-
     var body: some Scene {
         WindowGroup("Rwx Editor", for: WindowInfo.ID.self) { $windowId in
             if let windowId {
@@ -31,31 +27,29 @@ struct WindowInfo: Identifiable {
                 /* MARK: Parent Window */
                 self.mainScene
             }
-        }.windowResizability(.contentSize)
+        }
+        .environment(\.layoutDirection, .leftToRight)
+        .windowResizability(.contentSize)
     }
 
     @ViewBuilder var mainScene: some View {
         MainView()
-            .environment(\.layoutDirection, .leftToRight)
-    }
-
-    init() {
-        EventsDispatcherGlobal.shared.on(
-            FinderSyncExt.EVENT_NAME_FOR_FINDER_CONTEXT_MENU,
-            handler: self.onFinderContextMenu
-        )
-    }
-
-    func onFinderContextMenu(event: String) {
-        do {
-            for path in try FinderEvent.decode(event).paths {
-                openWindow(value: path)
+            .onReceive(
+                DistributedNotificationCenter.default.publisher(
+                    for: Notification.Name(FinderSyncExt.EVENT_NAME_FOR_FINDER_CONTEXT_MENU)
+                )
+            ) { notification in
+                do {
+                    guard let event = notification.object as? String else { return }
+                    for path in try FinderEvent.decode(event).paths {
+                        openWindow(value: path)
+                    }
+                } catch {
+                    #if DEBUG
+                        print("decode error \(error)")
+                    #endif
+                }
             }
-        } catch {
-            #if DEBUG
-                print("decode error \(error)")
-            #endif
-        }
     }
 
 }

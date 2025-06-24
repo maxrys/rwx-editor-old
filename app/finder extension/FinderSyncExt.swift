@@ -8,7 +8,7 @@ import FinderSync
 
 class FinderSyncExt: FIFinderSync {
 
-    static let EVENT_NAME_FOR_FINDER_CONTEXT_MENU = "finderContextMenu"
+    static let EVENT_NAME_FOR_FINDER_CONTEXT_MENU = "RwxEditorFinderContextMenu"
     static let MENU_ITEM_TAG_RWX_EDITOR = 0
     static let URL_PREFIX = "file://"
 
@@ -57,11 +57,10 @@ class FinderSyncExt: FIFinderSync {
                 }
             }
             if (paths.isEmpty == false) {
-                EventsDispatcherGlobal.shared.send(
-                    FinderSyncExt.EVENT_NAME_FOR_FINDER_CONTEXT_MENU,
-                    object: FinderEvent(
-                        paths: paths
-                    ).encode()
+                DistributedNotificationCenter.default().postNotificationName(
+                    Notification.Name(FinderSyncExt.EVENT_NAME_FOR_FINDER_CONTEXT_MENU),
+                    object: FinderEvent(paths: paths).encode(),
+                    deliverImmediately: true
                 )
             }
         }
