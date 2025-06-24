@@ -25,10 +25,10 @@ struct FSEntityInfo {
 
         guard initUrl.isEmpty == false else { return }
 
-        self.initUrl = "file://\(initUrl)"
+        self.initUrl = initUrl
 
         guard let url = URL(
-            string: self.initUrl
+            string: "file://\(self.initUrl)"
         ) else { return }
 
         guard let attr = try? FileManager.default.attributesOfItem(
@@ -64,7 +64,7 @@ struct FSEntityInfo {
         if (self.type != .unknown) {
 
             /* MARK: name/path */
-            let (path, name) = url.resolvingSymlinksInPath().pathNameParts
+            let (path, name) = url.pathNameParts
             self.path = path
             self.name = name
 

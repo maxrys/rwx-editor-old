@@ -4,8 +4,8 @@
 <dict>
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
-	<key>CFBundleIdentifier</key>
-	<string></string>
+	<key>LSUIElement</key>
+	<false/>
 	<key>CFBundleURLTypes</key>
 	<array>
 		<dict>
