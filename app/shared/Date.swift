@@ -11,30 +11,32 @@ extension Date {
         case valueIsNil
     }
 
-    static let FORMAT_ISO8601          = "yyyy-MM-dd HH:mm:ss"
-    static let FORMAT_ISO8601_TIMEZONE = "yyyy-MM-dd HH:mm:ss Z"
-    static let FORMAT_CONVENIENT_DATE  = "d MMM yyyy"
-    static let FORMAT_CONVENIENT_TIME  = "HH:mm:ss"
+    enum format: String {
+        case iso8601         = "yyyy-MM-dd HH:mm:ss"
+        case iso8601Timezone = "yyyy-MM-dd HH:mm:ss Z"
+        case convenientDate  = "d MMM yyyy"
+        case convenientTime  = "HH:mm:ss"
+    }
 
     var convenient: String {
         let formatter = DateFormatter()
         formatter.dateFormat = String(
             format: NSLocalizedString("%@ 'at' %@", comment: ""),
-            Self.FORMAT_CONVENIENT_DATE,
-            Self.FORMAT_CONVENIENT_TIME )
+            Self.format.convenientDate.rawValue,
+            Self.format.convenientTime.rawValue )
         return formatter.string(from: self)
     }
 
     var ISO8601withTZ: String {
         let formatter = DateFormatter()
-        formatter.dateFormat = Self.FORMAT_ISO8601_TIMEZONE
+        formatter.dateFormat = Self.format.iso8601Timezone.rawValue
         formatter.locale = Locale(identifier: "en_US_POSIX")
         return formatter.string(from: self)
     }
 
     var ISO8601: String {
         let formatter = DateFormatter()
-        formatter.dateFormat = Self.FORMAT_ISO8601_TIMEZONE
+        formatter.dateFormat = Self.format.iso8601Timezone.rawValue
         formatter.locale = Locale(identifier: "en_US_POSIX")
         formatter.timeZone = TimeZone(secondsFromGMT: 0)
         return formatter.string(from: self)
@@ -42,7 +44,7 @@ extension Date {
 
     init(fromISO8601: String) throws {
         let formatter = DateFormatter()
-        formatter.dateFormat = Date.FORMAT_ISO8601_TIMEZONE
+        formatter.dateFormat = Self.format.iso8601Timezone.rawValue
         formatter.locale = Locale(identifier: "en_US_POSIX")
         formatter.timeZone = TimeZone(secondsFromGMT: 0)
         guard let date = formatter.date(from: fromISO8601) else {
