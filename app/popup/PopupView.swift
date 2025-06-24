@@ -44,7 +44,7 @@ struct PopupView: View {
     private let windowId: String
     private let info: FSEntityInfo
 
-    init(windowId: String) {
+    init(_ windowId: String) {
         let fsEntityInfo = FSEntityInfo(windowId)
         self.windowId = windowId
         self.rights   = fsEntityInfo.rights
@@ -392,7 +392,6 @@ struct PopupView: View {
                         String(format: "%@: %@", "owner"       , self.info.owner.isEmpty ? Self.NA_SIGN : self.info.owner),
                         String(format: "%@: %@", "group"       , self.info.group.isEmpty ? Self.NA_SIGN : self.info.group),
                         String(format: "%@: %@", "url"         , String(self.info.initUrl)),
-                        String(format: "%@: %@", "winId"       , String(self.windowId))
                     ]
                     Text("Debug: \(debugInfo.joined(separator: " | "))")
                         .fixedSize(horizontal: false, vertical: true)
@@ -410,15 +409,15 @@ struct PopupView: View {
     }
 
     func onApply(rights: UInt, owner: String, group: String) {
-        print("rights: \(String(rights, radix: 8)) | owner: \(owner) | group: \(group)")
+        print("url: \(self.info.initUrl) | rights: \(String(rights, radix: 8)) | owner: \(owner) | group: \(group)")
     }
 
 }
 
 #Preview {
     VStack(spacing: 10) {
-        PopupView(windowId: "/private/etc/")
-        PopupView(windowId: "/private/etc/hosts")
+        PopupView("/private/etc/")
+        PopupView("/private/etc/hosts")
     }
     .padding(10)
     .background(.black)

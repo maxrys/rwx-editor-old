@@ -17,10 +17,10 @@ import SwiftUI
             if let windowId {
                 /* MARK: Popup windows */
                 PopupView(
-                    windowId: windowId
+                    windowId
                 )
             } else {
-                /* MARK: Parent Window */
+                /* MARK: Main Window */
                 self.mainScene
             }
         }
