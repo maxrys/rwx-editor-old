@@ -129,7 +129,10 @@ struct PickerCustom<Key>: View where Key: Hashable & Comparable {
             PickerCustom<UInt>(selected: $selectedV3, values: valuesV3)
         }.padding(10)
 
-    }.frame(width: 200)
+    }
+    .padding(20)
+    .frame(width: 200)
+    .background(Color.gray)
 }
 
 @available(macOS 14.0, *) #Preview {
@@ -153,5 +156,8 @@ struct PickerCustom<Key>: View where Key: Hashable & Comparable {
             PickerCustom<UInt>(selected: $selected, values: values, flexibility: .infinity)
         }.padding(10)
 
-    }.frame(width: 200)
+    }
+    .padding(20)
+    .frame(width: 200)
+    .background(Color.gray)
 }

@@ -18,8 +18,11 @@ struct MainView: View {
                 if (self.extensionIsEnabled) {
 
                     Image(systemName: "checkmark.circle.fill")
-                        .font(.system(size: 40, weight: .regular))
+                        .frame(width: 40, height: 40)
+                        .font(.system(size: 40, weight: .bold))
                         .foregroundPolyfill(Color.getCustom(.darkGreen))
+                        .background(Color.white)
+                        .clipShape(Circle())
 
                     Text(NSLocalizedString("extension is enabled", comment: ""))
                         .font(.system(size: 14, weight: .regular))
@@ -27,8 +30,11 @@ struct MainView: View {
                 } else {
 
                     Image(systemName: "xmark.circle.fill")
-                        .font(.system(size: 40, weight: .regular))
+                        .frame(width: 40, height: 40)
+                        .font(.system(size: 40, weight: .bold))
                         .foregroundPolyfill(Color.getCustom(.darkRed))
+                        .background(Color.white)
+                        .clipShape(Circle())
 
                     Text(NSLocalizedString("extension is disabled", comment: ""))
                         .font(.system(size: 14, weight: .regular))
@@ -38,12 +44,22 @@ struct MainView: View {
             .padding(20)
             .frame(maxWidth: .infinity)
             .background(
-                self.colorScheme == .dark ?
-                Color.black.opacity(0.2) :
-                Color.white.opacity(0.7)
-            ).cornerRadius(10)
+                RoundedRectangle(cornerRadius: 15)
+                    .stroke(
+                        self.colorScheme == .dark ?
+                        Color.white.opacity(0.5) :
+                        Color.black.opacity(0.5),
+                        lineWidth: 1
+                    )
+                    .background(
+                        self.colorScheme == .dark ?
+                        Color.black.opacity(0.2) :
+                        Color.white.opacity(0.7)
+                    )
+                    .cornerRadius(15)
+            )
 
-            ButtonCustom(NSLocalizedString("Open Settings", comment: ""), flexibility: .size(200)) {
+            ButtonCustom(NSLocalizedString("Open Settings", comment: ""), flexibility: .size(230)) {
                 FinderSync.FIFinderSyncController.showExtensionManagementInterface()
             }
 
