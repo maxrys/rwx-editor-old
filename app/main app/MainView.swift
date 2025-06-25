@@ -26,7 +26,7 @@ struct MainView: View {
     var body: some View {
         VStack(spacing: 20) {
 
-            VStack(spacing: 20) {
+            VStack(spacing: 10) {
 
                 let icon  = self.extensionIsEnabled ? "checkmark.circle.fill" : "xmark.circle.fill"
                 let color = self.extensionIsEnabled ? Color.getCustom(.darkGreen) : Color.getCustom(.darkRed)
@@ -42,10 +42,12 @@ struct MainView: View {
                 Text(NSLocalizedString(text, comment: ""))
                     .font(.system(size: 14, weight: .regular))
 
-                ButtonCustom(NSLocalizedString("Open Settings", comment: ""), flexibility: .infinity) {
-                    FinderSync.FIFinderSyncController
-                        .showExtensionManagementInterface()
-                }
+                ButtonCustom(NSLocalizedString("Open Settings", comment: ""),
+                             textColor: Color(ButtonCustom.ColorNames.text.rawValue),
+                             backgroundColor: Color(ButtonCustom.ColorNames.background.rawValue),
+                             flexibility: .infinity) {
+                    FinderSync.FIFinderSyncController.showExtensionManagementInterface()
+                }.padding(.top, 10)
 
             }
             .padding(20)

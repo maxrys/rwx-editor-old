@@ -8,17 +8,24 @@ import SwiftUI
 struct ButtonCustom: View {
 
     enum ColorNames: String {
-        case text = "color ButtonCustom Text"
+        case text       = "color ButtonCustom Text"
+        case background = "color ButtonCustom Background"
     }
 
-    private let text: String
-    private let onClick: () -> Void
-    private let flexibility: Flexibility
+    @Environment(\.colorScheme) private var colorScheme
 
-    init(_ text: String = "button", flexibility: Flexibility = .none, onClick: @escaping () -> Void = { }) {
-        self.text        = text
-        self.onClick     = onClick
-        self.flexibility = flexibility
+    private let text: String
+    private let textColor: Color
+    private let backgroundColor: Color
+    private let flexibility: Flexibility
+    private let onClick: () -> Void
+
+    init(_ text: String = "button", textColor: Color = Color.white, backgroundColor: Color = Color.accentColor, flexibility: Flexibility = .none, onClick: @escaping () -> Void = { }) {
+        self.text            = text
+        self.textColor       = textColor
+        self.backgroundColor = backgroundColor
+        self.flexibility     = flexibility
+        self.onClick         = onClick
     }
 
     var body: some View {
@@ -27,13 +34,18 @@ struct ButtonCustom: View {
                 .lineLimit(1)
                 .flexibility(self.flexibility)
                 .font(.system(size: 12, weight: .regular))
-                .foregroundPolyfill(Color(Self.ColorNames.text.rawValue))
+                .foregroundPolyfill(self.textColor)
                 .padding(.init(top: 6, leading: 10, bottom: 7, trailing: 10))
                 .background(
-                    ZStack {
-                        RoundedRectangle(cornerRadius: 7)
-                            .fill(Color.accentColor.gradient)
-                    }
+                    RoundedRectangle(cornerRadius: 7)
+                        .fill(self.backgroundColor.gradient)
+                        .shadow(
+                            color: self.colorScheme == .dark ?
+                                .black.opacity(1.0) :
+                                .black.opacity(0.3),
+                            radius: 1.0,
+                            y: 1
+                        )
                 )
         }
         .buttonStyle(.plain)
@@ -48,6 +60,10 @@ struct ButtonCustom: View {
         ButtonCustom(flexibility: .none)
         ButtonCustom(flexibility: .size(100))
         ButtonCustom(flexibility: .infinity)
+        ButtonCustom(
+            textColor: Color(ButtonCustom.ColorNames.text.rawValue),
+            backgroundColor: Color(ButtonCustom.ColorNames.background.rawValue)
+        )
     }
     .frame(width: 200)
     .padding(20)
