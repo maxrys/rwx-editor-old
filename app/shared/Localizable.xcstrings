@@ -108,6 +108,22 @@
         }
       }
     },
+    "completed successfully" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "completed successfully"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "выполнено успешно"
+          }
+        }
+      }
+    },
     "Created" : {
       "localizations" : {
         "en" : {

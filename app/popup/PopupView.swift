@@ -43,6 +43,8 @@ struct PopupView: View {
 
     private let windowId: String
     private let info: FSEntityInfo
+    private let messageBox = MessageBox()
+    private let isShowDebugInfo = false
 
     init(_ windowId: String) {
         let fsEntityInfo = FSEntityInfo(windowId)
@@ -63,6 +65,12 @@ struct PopupView: View {
         }
         .buttonStyle(.plain)
         .onHoverCursor()
+    }
+
+    var isNotChangedAttributes: Bool {
+        self.rights == self.info.rights &&
+        self.owner  == self.info.owner  &&
+        self.group  == self.info.group
     }
 
     var formattedType: String {
@@ -155,6 +163,12 @@ struct PopupView: View {
 
     var body: some View {
         VStack(spacing: 0) {
+
+            /* ################# */
+            /* MARK: message box */
+            /* ################# */
+
+            self.messageBox
 
             /* ########## */
             /* MARK: head */
@@ -360,12 +374,7 @@ struct PopupView: View {
                     self.rights = self.info.rights
                     self.owner  = self.info.owner
                     self.group  = self.info.group
-                }
-                .disabled(
-                    self.rights == self.info.rights &&
-                    self.owner  == self.info.owner  &&
-                    self.group  == self.info.group
-                )
+                }.disabled(self.isNotChangedAttributes)
 
                 /* MARK: apply button */
                 ButtonCustom(NSLocalizedString("apply", comment: ""), flexibility: .size(100)) {
@@ -374,33 +383,38 @@ struct PopupView: View {
                         owner : self.owner,
                         group : self.group
                     )
-                }
-                .disabled(self.info.type == .unknown)
+                }.disabled(self.isNotChangedAttributes || self.info.type == .unknown)
 
             }
             .padding(25)
             .frame(maxWidth: .infinity)
             .background(Color(Self.ColorNames.foot.rawValue))
 
-            #if DEBUG
-                HStack {
-                    let debugInfo: [String] = [
-                        String(format: "%@: %@", "state rights", String(self.rights)),
-                        String(format: "%@: %@", "state owner" , self.owner.isEmpty ? Self.NA_SIGN : self.owner),
-                        String(format: "%@: %@", "state group" , self.group.isEmpty ? Self.NA_SIGN : self.group),
-                        String(format: "%@: %@", "rights"      , String(self.info.rights)),
-                        String(format: "%@: %@", "owner"       , self.info.owner.isEmpty ? Self.NA_SIGN : self.info.owner),
-                        String(format: "%@: %@", "group"       , self.info.group.isEmpty ? Self.NA_SIGN : self.info.group),
-                        String(format: "%@: %@", "url"         , String(self.info.initUrl)),
-                    ]
-                    Text("Debug: \(debugInfo.joined(separator: " | "))")
-                        .fixedSize(horizontal: false, vertical: true)
-                        .padding(10)
-                }
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .foregroundPolyfill(Color(.white))
-                .background(Color.gray)
-            #endif
+            /* ################ */
+            /* MARK: debug info */
+            /* ################ */
+
+            if (self.isShowDebugInfo) {
+                #if DEBUG
+                    HStack {
+                        let debugInfo: [String] = [
+                            String(format: "%@: %@", "state rights", String(self.rights)),
+                            String(format: "%@: %@", "state owner" , self.owner.isEmpty ? Self.NA_SIGN : self.owner),
+                            String(format: "%@: %@", "state group" , self.group.isEmpty ? Self.NA_SIGN : self.group),
+                            String(format: "%@: %@", "rights"      , String(self.info.rights)),
+                            String(format: "%@: %@", "owner"       , self.info.owner.isEmpty ? Self.NA_SIGN : self.info.owner),
+                            String(format: "%@: %@", "group"       , self.info.group.isEmpty ? Self.NA_SIGN : self.info.group),
+                            String(format: "%@: %@", "url"         , String(self.info.initUrl)),
+                        ]
+                        Text("Debug: \(debugInfo.joined(separator: " | "))")
+                            .fixedSize(horizontal: false, vertical: true)
+                            .padding(10)
+                    }
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .foregroundPolyfill(Color(.white))
+                    .background(Color.gray)
+                #endif
+            }
 
         }
         .foregroundPolyfill(Color.getCustom(.text))
@@ -409,17 +423,23 @@ struct PopupView: View {
     }
 
     func onApply(rights: UInt, owner: String, group: String) {
+        #if DEBUG
+            print("onApply: url = \(self.info.initUrl) | rights = \(String(rights, radix: 8)) | owner = \(owner) | group = \(group)")
+        #endif
         do {
-            #if DEBUG
-                print("onApply: url = \(self.info.initUrl) | rights = \(String(rights, radix: 8)) | owner = \(owner) | group = \(group)")
-            #endif
-            let fileManager = FileManager.default
             let fileURL = URL(fileURLWithPath: self.info.initUrl)
-            try fileManager.setAttributes([.posixPermissions: rights], ofItemAtPath: fileURL.path)
+            try FileManager.default.setAttributes([.posixPermissions: rights], ofItemAtPath: fileURL.path)
+            self.messageBox.insert(
+                type: .ok,
+                title: NSLocalizedString(
+                    "completed successfully", comment: ""
+                )
+            )
         } catch {
-            #if DEBUG
-                print("onApply error: \(error)")
-            #endif
+            self.messageBox.insert(
+                type: .error,
+                title: error.localizedDescription
+            )
         }
     }
 
