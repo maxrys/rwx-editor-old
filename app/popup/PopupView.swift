@@ -15,6 +15,7 @@ struct PopupView: View {
 
     static let NA_SIGN = "—"
     static let FRAME_WIDTH: CGFloat = 300
+    static let IS_SHOW_DEBUG_INFO = false
 
     static var owners: [String: String] = {
         var result: [String: String] = [:]
@@ -41,11 +42,10 @@ struct PopupView: View {
     @State private var rights: UInt = 0
     @State private var owner: String = ""
     @State private var group: String = ""
+    @State private var info: FSEntityInfo
 
     private let windowId: String
-    private let info: FSEntityInfo
     private let messageBox = MessageBox()
-    private let isShowDebugInfo = false
 
     init(_ windowId: String) {
         self.windowId = windowId
@@ -394,7 +394,7 @@ struct PopupView: View {
             /* MARK: debug info */
             /* ################ */
 
-            if (self.isShowDebugInfo) {
+            if (Self.IS_SHOW_DEBUG_INFO) {
                 #if DEBUG
                     HStack {
                         let debugInfo: [String] = [
@@ -428,11 +428,16 @@ struct PopupView: View {
         #endif
         do {
             let fileURL = URL(fileURLWithPath: self.info.initUrl)
-            try FileManager.default.setAttributes([.posixPermissions: rights], ofItemAtPath: fileURL.path)
-            self.info.update()
-            self.rights = self.info.rights
-            self.owner  = self.info.owner
-            self.group  = self.info.group
+            try FileManager.default.setAttributes(
+                [.posixPermissions: rights], ofItemAtPath: fileURL.path
+            )
+
+            let fsEntityInfo = FSEntityInfo(self.windowId)
+            self.rights = fsEntityInfo.rights
+            self.owner  = fsEntityInfo.owner
+            self.group  = fsEntityInfo.group
+            self.info   = fsEntityInfo
+
             self.messageBox.insert(
                 type: .ok,
                 title: NSLocalizedString(

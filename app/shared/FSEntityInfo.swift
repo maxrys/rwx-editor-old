@@ -86,20 +86,4 @@ final class FSEntityInfo {
         }
     }
 
-    func update() {
-        let newState    = Self(self.initUrl)
-        self.type       = newState.type
-        self.path       = newState.path
-        self.name       = newState.name
-        self.realPath   = newState.realPath
-        self.realName   = newState.realName
-        self.size       = newState.size
-        self.created    = newState.created
-        self.updated    = newState.updated
-        self.references = newState.references
-        self.rights     = newState.rights
-        self.owner      = newState.owner
-        self.group      = newState.group
-    }
-
 }
