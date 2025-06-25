@@ -5,7 +5,7 @@
 
 import Foundation
 
-class ValueState<T>: ObservableObject {
+final class ValueState<T>: ObservableObject {
 
     @Published var value: T
 

@@ -37,6 +37,7 @@ struct PopupView: View {
     @State private var sizeViewMode: BytesViewMode = .bytes
     @State private var createdViewMode: DateViewMode = .convenient
     @State private var updatedViewMode: DateViewMode = .convenient
+
     @State private var rights: UInt = 0
     @State private var owner: String = ""
     @State private var group: String = ""
@@ -47,12 +48,12 @@ struct PopupView: View {
     private let isShowDebugInfo = false
 
     init(_ windowId: String) {
-        let fsEntityInfo = FSEntityInfo(windowId)
         self.windowId = windowId
-        self.rights   = fsEntityInfo.rights
-        self.owner    = fsEntityInfo.owner
-        self.group    = fsEntityInfo.group
-        self.info     = fsEntityInfo
+        let fsEntityInfo = FSEntityInfo(windowId)
+        self.rights = fsEntityInfo.rights
+        self.owner  = fsEntityInfo.owner
+        self.group  = fsEntityInfo.group
+        self.info   = fsEntityInfo
     }
 
     @ViewBuilder func iconRoll<T: CaseIterable & Equatable>(value: Binding<T>) -> some View {
@@ -429,6 +430,10 @@ struct PopupView: View {
         do {
             let fileURL = URL(fileURLWithPath: self.info.initUrl)
             try FileManager.default.setAttributes([.posixPermissions: rights], ofItemAtPath: fileURL.path)
+            self.info.update()
+            self.rights = self.info.rights
+            self.owner  = self.info.owner
+            self.group  = self.info.group
             self.messageBox.insert(
                 type: .ok,
                 title: NSLocalizedString(
