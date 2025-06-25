@@ -171,45 +171,45 @@ struct PopupView: View {
 
             GridCustom([
 
-                /* MARK: type */
+                /* MARK: field: type */
                 GridCustom.Row(
                     title: Text(NSLocalizedString("Type", comment: "")),
                     value: Text(self.formattedType)
                 ),
 
-                /* MARK: name */
+                /* MARK: field: name */
                 GridCustom.Row(
                     title: Text(NSLocalizedString("Name", comment: "")),
                     value: Text(self.formattedName).textSelection(.enabled)
                 ),
 
-                /* MARK: path */
+                /* MARK: field: path */
                 GridCustom.Row(
                     title: Text(NSLocalizedString("Path", comment: "")),
                     value: Text(self.formattedPath).textSelection(.enabled)
                 ),
 
-                /* MARK: real name */
+                /* MARK: field: real name */
                 self.info.realName != nil ?
                     GridCustom.Row(
                         title: Text(NSLocalizedString("Real Name", comment: "")),
                         value: Text(self.formattedRealName).textSelection(.enabled)
                     ) : nil,
 
-                /* MARK: real path */
+                /* MARK: field: real path */
                 self.info.realPath != nil ?
                     GridCustom.Row(
                         title: Text(NSLocalizedString("Real Path", comment: "")),
                         value: Text(self.formattedRealPath).textSelection(.enabled)
                     ) : nil,
 
-                /* MARK: references */
+                /* MARK: field: references */
                 GridCustom.Row(
                     title: Text(NSLocalizedString("References", comment: "")),
                     value: Text(self.formattedReferences)
                 ),
 
-                /* MARK: size */
+                /* MARK: field: size */
                 GridCustom.Row(
                     title: HStack(spacing: 5) {
                         Text(NSLocalizedString("Size", comment: ""))
@@ -222,7 +222,7 @@ struct PopupView: View {
                     value: Text(self.formattedSize).textSelection(.enabled)
                 ),
 
-                /* MARK: created */
+                /* MARK: field: created */
                 GridCustom.Row(
                     title: HStack(spacing: 5) {
                         Text(NSLocalizedString("Created", comment: ""))
@@ -235,7 +235,7 @@ struct PopupView: View {
                     value: Text(self.formattedCreated).textSelection(.enabled)
                 ),
 
-                /* MARK: updated */
+                /* MARK: field: updated */
                 GridCustom.Row(
                     title: HStack(spacing: 5) {
                         Text(NSLocalizedString("Updated", comment: ""))
@@ -422,14 +422,22 @@ struct PopupView: View {
         .frame(width: Self.FRAME_WIDTH)
     }
 
+    /* ################### */
+    /* MARK: apply changes */
+    /* ################### */
+
     func onApply(rights: UInt, owner: String, group: String) {
         #if DEBUG
             print("onApply: url = \(self.info.initUrl) | rights = \(String(rights, radix: 8)) | owner = \(owner) | group = \(group)")
         #endif
         do {
+
             let fileURL = URL(fileURLWithPath: self.info.initUrl)
             try FileManager.default.setAttributes(
-                [.posixPermissions: rights], ofItemAtPath: fileURL.path
+                [.posixPermissions: rights,
+                 .ownerAccountName: owner,
+                 .groupOwnerAccountName: group],
+                ofItemAtPath: fileURL.path
             )
 
             let fsEntityInfo = FSEntityInfo(self.windowId)
@@ -444,6 +452,22 @@ struct PopupView: View {
                     "completed successfully", comment: ""
                 )
             )
+
+        } catch let error as NSError {
+            switch error.code {
+                case 513:
+                    self.messageBox.insert(
+                        type: .error,
+                        title: NSLocalizedString("completed unsuccessfully", comment: ""),
+                        description: NSLocalizedString("Application does not have permission to perform these actions!", comment: "")
+                    )
+                default:
+                    self.messageBox.insert(
+                        type: .error,
+                        title: NSLocalizedString("completed unsuccessfully", comment: ""),
+                        description: error.localizedDescription
+                    )
+            }
         } catch {
             self.messageBox.insert(
                 type: .error,

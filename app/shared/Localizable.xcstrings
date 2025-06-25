@@ -76,6 +76,22 @@
         }
       }
     },
+    "Application does not have permission to perform these actions!" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Application does not have permission to perform these actions!"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "У приложения нет разрешений на эти действия!"
+          }
+        }
+      }
+    },
     "apply" : {
       "localizations" : {
         "en" : {
