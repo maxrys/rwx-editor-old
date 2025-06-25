@@ -60,13 +60,6 @@ struct Message: Hashable {
 
 struct MessageBox: View {
 
-    class ValueState<T>: ObservableObject {
-        @Published var value: T
-        init(_ value: T) {
-            self.value = value
-        }
-    }
-
     enum LifeTime {
         case infinity
         case time(Double)
