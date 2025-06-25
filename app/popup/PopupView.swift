@@ -68,12 +68,6 @@ struct PopupView: View {
         .onHoverCursor()
     }
 
-    var isNotChangedAttributes: Bool {
-        self.rights == self.info.rights &&
-        self.owner  == self.info.owner  &&
-        self.group  == self.info.group
-    }
-
     var formattedType: String {
         switch self.info.type {
             case .directory: NSLocalizedString("directory" , comment: "")
@@ -370,12 +364,17 @@ struct PopupView: View {
 
             HStack(spacing: 10) {
 
+                let isNotChanged: Bool =
+                    self.rights == self.info.rights &&
+                    self.owner  == self.info.owner  &&
+                    self.group  == self.info.group
+
                 /* MARK: cancel button */
                 ButtonCustom(NSLocalizedString("cancel", comment: ""), flexibility: .size(100)) {
                     self.rights = self.info.rights
                     self.owner  = self.info.owner
                     self.group  = self.info.group
-                }.disabled(self.isNotChangedAttributes)
+                }.disabled(isNotChanged)
 
                 /* MARK: apply button */
                 ButtonCustom(NSLocalizedString("apply", comment: ""), flexibility: .size(100)) {
@@ -384,7 +383,7 @@ struct PopupView: View {
                         owner : self.owner,
                         group : self.group
                     )
-                }.disabled(self.isNotChangedAttributes || self.info.type == .unknown)
+                }.disabled(isNotChanged || self.info.type == .unknown)
 
             }
             .padding(25)
