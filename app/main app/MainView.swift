@@ -20,17 +20,17 @@ struct MainView: View {
     }
 
     @Environment(\.colorScheme) private var colorScheme
-    @State var extensionIsEnabled: Bool = false
-    @State var launchAtLoginIsOn: Bool = false
+    @State var isEnabledExtension: Bool = false
+    @State var isEnabledLaunchAtLogin: Bool = false
 
     var body: some View {
         VStack(spacing: 20) {
 
             VStack(spacing: 10) {
 
-                let icon  = self.extensionIsEnabled ? "checkmark.circle.fill" : "xmark.circle.fill"
-                let color = self.extensionIsEnabled ? Color.getCustom(.darkGreen) : Color.getCustom(.darkRed)
-                let text  = self.extensionIsEnabled ? "extension is enabled" : "extension is disabled"
+                let icon  = self.isEnabledExtension ? "checkmark.circle.fill" : "xmark.circle.fill"
+                let color = self.isEnabledExtension ? Color.getCustom(.darkGreen) : Color.getCustom(.darkRed)
+                let text  = self.isEnabledExtension ? "extension is enabled" : "extension is disabled"
 
                 Image(systemName: icon)
                     .frame(width: 40, height: 40)
@@ -67,16 +67,24 @@ struct MainView: View {
 
             ToggleCustom(
                 text: NSLocalizedString("Launch at login", comment: ""),
-                isOn: self.$launchAtLoginIsOn
+                isOn: self.$isEnabledLaunchAtLogin,
+                onChange: { value in
+                    Self.launchAtLogin = value
+                }
             )
 
         }
-        .onReceive(NotificationCenter.default.publisher(for: NSApplication.didBecomeActiveNotification)) { _ in
-                     self.extensionIsEnabled = FIFinderSyncController.isExtensionEnabled
-        }.onAppear { self.extensionIsEnabled = FIFinderSyncController.isExtensionEnabled }
         .padding(20)
         .foregroundPolyfill(Color.getCustom(.text))
         .frame(width: 300)
+        .onReceive(NotificationCenter.default.publisher(for: NSApplication.didBecomeActiveNotification)) { _ in
+                     self.updateView()
+        }.onAppear { self.updateView() }
+    }
+
+    func updateView() {
+        self.isEnabledExtension = FIFinderSyncController.isExtensionEnabled
+        self.isEnabledLaunchAtLogin = Self.launchAtLogin
     }
 
 }

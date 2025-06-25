@@ -74,8 +74,8 @@ struct ButtonCustom: View {
         ButtonCustom(flexibility: .none)
         ButtonCustom(flexibility: .size(100))
         ButtonCustom(flexibility: .infinity)
-        ButtonCustom(style: .custom)
         ButtonCustom(style: .accent)
+        ButtonCustom(style: .custom)
     }
     .frame(width: 200)
     .padding(20)
