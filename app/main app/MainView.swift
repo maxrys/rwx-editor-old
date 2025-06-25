@@ -26,32 +26,27 @@ struct MainView: View {
     var body: some View {
         VStack(spacing: 20) {
 
-            VStack(spacing: 10) {
-                if (self.extensionIsEnabled) {
+            VStack(spacing: 20) {
 
-                    Image(systemName: "checkmark.circle.fill")
-                        .frame(width: 40, height: 40)
-                        .font(.system(size: 40, weight: .bold))
-                        .foregroundPolyfill(Color.getCustom(.darkGreen))
-                        .background(Color.white)
-                        .clipShape(Circle())
+                let icon  = self.extensionIsEnabled ? "checkmark.circle.fill" : "xmark.circle.fill"
+                let color = self.extensionIsEnabled ? Color.getCustom(.darkGreen) : Color.getCustom(.darkRed)
+                let text  = self.extensionIsEnabled ? "extension is enabled" : "extension is disabled"
 
-                    Text(NSLocalizedString("extension is enabled", comment: ""))
-                        .font(.system(size: 14, weight: .regular))
+                Image(systemName: icon)
+                    .frame(width: 40, height: 40)
+                    .font(.system(size: 40, weight: .bold))
+                    .foregroundPolyfill(color)
+                    .background(Color.white)
+                    .clipShape(Circle())
 
-                } else {
+                Text(NSLocalizedString(text, comment: ""))
+                    .font(.system(size: 14, weight: .regular))
 
-                    Image(systemName: "xmark.circle.fill")
-                        .frame(width: 40, height: 40)
-                        .font(.system(size: 40, weight: .bold))
-                        .foregroundPolyfill(Color.getCustom(.darkRed))
-                        .background(Color.white)
-                        .clipShape(Circle())
-
-                    Text(NSLocalizedString("extension is disabled", comment: ""))
-                        .font(.system(size: 14, weight: .regular))
-
+                ButtonCustom(NSLocalizedString("Open Settings", comment: ""), flexibility: .infinity) {
+                    FinderSync.FIFinderSyncController
+                        .showExtensionManagementInterface()
                 }
+
             }
             .padding(20)
             .frame(maxWidth: .infinity)
@@ -71,12 +66,8 @@ struct MainView: View {
                     .cornerRadius(15)
             )
 
-            ButtonCustom(NSLocalizedString("Open Settings", comment: ""), flexibility: .size(230)) {
-                FinderSync.FIFinderSyncController.showExtensionManagementInterface()
-            }
-
             ToggleCustom(
-                text: "Launch at login",
+                text: NSLocalizedString("Launch at login", comment: ""),
                 isOn: self.$launchAtLoginIsOn
             )
 

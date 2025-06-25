@@ -27,14 +27,14 @@ struct ToggleCustom: View {
         if (self.isFlexible) {
             HStack {
                 Text(self.text)
-                    .font(.system(size: 16))
+                    .font(.system(size: 14))
                 Spacer()
                 self.switcher
             }.frame(maxWidth: .infinity)
         } else {
             HStack {
                 Text(self.text)
-                    .font(.system(size: 16))
+                    .font(.system(size: 14))
                 self.switcher
             }
         }

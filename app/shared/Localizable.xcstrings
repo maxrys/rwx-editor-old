@@ -279,6 +279,22 @@
         }
       }
     },
+    "Launch at login" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Launch at login"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Запуск при входе в систему"
+          }
+        }
+      }
+    },
     "link" : {
       "localizations" : {
         "en" : {
