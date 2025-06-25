@@ -443,7 +443,8 @@ struct PopupView: View {
         } catch {
             self.messageBox.insert(
                 type: .error,
-                title: error.localizedDescription
+                title: NSLocalizedString("completed unsuccessfully", comment: ""),
+                description: error.localizedDescription
             )
         }
     }

@@ -124,6 +124,22 @@
         }
       }
     },
+    "completed unsuccessfully" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "completed unsuccessfully"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "завершено неудачно"
+          }
+        }
+      }
+    },
     "Created" : {
       "localizations" : {
         "en" : {
