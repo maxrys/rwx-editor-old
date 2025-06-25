@@ -5,11 +5,23 @@
 
 import SwiftUI
 import FinderSync
+import ServiceManagement
 
 struct MainView: View {
 
+    static var launchAtLogin: Bool {
+        get { SMAppService.mainApp.status == .enabled }
+        set(isEnabled) {
+            do {
+                if (isEnabled) { try SMAppService.mainApp.register  () }
+                else           { try SMAppService.mainApp.unregister() }
+            } catch {}
+        }
+    }
+
     @Environment(\.colorScheme) private var colorScheme
     @State var extensionIsEnabled: Bool = false
+    @State var launchAtLoginIsOn: Bool = false
 
     var body: some View {
         VStack(spacing: 20) {
@@ -62,6 +74,11 @@ struct MainView: View {
             ButtonCustom(NSLocalizedString("Open Settings", comment: ""), flexibility: .size(230)) {
                 FinderSync.FIFinderSyncController.showExtensionManagementInterface()
             }
+
+            ToggleCustom(
+                text: "Launch at login",
+                isOn: self.$launchAtLoginIsOn
+            )
 
         }
         .onReceive(NotificationCenter.default.publisher(for: NSApplication.didBecomeActiveNotification)) { _ in

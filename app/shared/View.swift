@@ -7,12 +7,12 @@ import SwiftUI
 
 extension View {
 
-    @ViewBuilder public func foregroundPolyfill(_ color: Color) -> some View {
+    @ViewBuilder func foregroundPolyfill(_ color: Color) -> some View {
         if #available(macOS 14.0, iOS 17.0, *) { self.foregroundStyle(color) }
         else                                   { self.foregroundColor(color) }
     }
 
-    @ViewBuilder public func flexibility(_ value: Flexibility = .none) -> some View {
+    @ViewBuilder func flexibility(_ value: Flexibility = .none) -> some View {
         switch value {
             case .size(let size): self.frame(width: size)
             case .infinity      : self.frame(maxWidth: .infinity)
@@ -20,7 +20,7 @@ extension View {
         }
     }
 
-    @ViewBuilder public func onHoverCursor(isEnabled: Bool = true) -> some View {
+    @ViewBuilder func onHoverCursor(isEnabled: Bool = true) -> some View {
         self.onHover { isInView in
             if (isEnabled) {
                 if (isInView) { NSCursor.pointingHand.push() }
