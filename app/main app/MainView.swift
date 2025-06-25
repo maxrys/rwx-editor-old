@@ -42,10 +42,7 @@ struct MainView: View {
                 Text(NSLocalizedString(text, comment: ""))
                     .font(.system(size: 14, weight: .regular))
 
-                ButtonCustom(NSLocalizedString("Open Settings", comment: ""),
-                             textColor: Color(ButtonCustom.ColorNames.text.rawValue),
-                             backgroundColor: Color(ButtonCustom.ColorNames.background.rawValue),
-                             flexibility: .infinity) {
+                ButtonCustom(NSLocalizedString("Open Settings", comment: ""), style: .custom, flexibility: .infinity) {
                     FinderSync.FIFinderSyncController.showExtensionManagementInterface()
                 }.padding(.top, 10)
 
