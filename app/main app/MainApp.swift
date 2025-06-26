@@ -22,7 +22,6 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
 
     private var cancellableBag = Set<AnyCancellable>()
     private var mainWindow: NSWindow!
-    private var popupWindows: [String: NSWindow] = [:]
 
     func applicationDidFinishLaunching(_ notification: Notification) {
 
@@ -41,6 +40,10 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
         }).store(in: &self.cancellableBag)
 
         NSApp.setActivationPolicy(.accessory)
+        self.showMainWindow()
+    }
+
+    func showMainWindow() {
         let mainView = MainView()
         mainWindow = NSWindow(
             contentRect: NSRect(x: 0, y: 0, width: 400, height: 300),
