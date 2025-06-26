@@ -67,11 +67,10 @@ struct MainView: View {
 
             ToggleCustom(
                 text: NSLocalizedString("Launch at login", comment: ""),
-                isOn: self.$isEnabledLaunchAtLogin,
-                onChange: { value in
-                    Self.launchAtLogin = value
-                }
-            )
+                isOn: self.$isEnabledLaunchAtLogin
+            ).onChange(of: self.isEnabledLaunchAtLogin) { value in
+                Self.launchAtLogin = value
+            }
 
         }
         .padding(20)

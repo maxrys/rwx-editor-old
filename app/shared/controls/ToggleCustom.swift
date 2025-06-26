@@ -14,13 +14,11 @@ struct ToggleCustom: View {
     private var text: String
     private var isOn: Binding<Bool>
     private var isFlexible: Bool
-    private var onChange: (Bool) -> Void
 
-    init(text: String = "", isFlexible: Bool = false, isOn: Binding<Bool>, onChange: @escaping (Bool) -> Void = { isOn in }) {
+    init(text: String = "", isOn: Binding<Bool>, isFlexible: Bool = false) {
         self.text = text
         self.isOn = isOn
         self.isFlexible = isFlexible
-        self.onChange = onChange
     }
 
     var body: some View {
@@ -42,7 +40,6 @@ struct ToggleCustom: View {
 
     @ViewBuilder var switcher: some View {
         Button {
-            self.onChange(!self.isOn.wrappedValue)
             withAnimation(.easeInOut(duration: 0.1)) {
                 self.isOn.wrappedValue.toggle()
             }
