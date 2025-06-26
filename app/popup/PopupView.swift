@@ -159,12 +159,6 @@ struct PopupView: View {
     var body: some View {
         VStack(spacing: 0) {
 
-            /* ################# */
-            /* MARK: message box */
-            /* ################# */
-
-            self.messageBox
-
             /* ########## */
             /* MARK: head */
             /* ########## */
@@ -389,6 +383,12 @@ struct PopupView: View {
             .padding(25)
             .frame(maxWidth: .infinity)
             .background(Color(Self.ColorNames.foot.rawValue))
+
+            /* ################# */
+            /* MARK: message box */
+            /* ################# */
+
+            self.messageBox
 
             /* ################ */
             /* MARK: debug info */
