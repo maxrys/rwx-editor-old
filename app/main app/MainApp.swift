@@ -45,22 +45,25 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
 
     func showMainWindow() {
         let mainView = MainView()
-        mainWindow = NSWindow(
+        let mainHostingView = NSHostingView(rootView: mainView)
+
+        self.mainWindow = NSWindow(
             contentRect: NSRect(x: 0, y: 0, width: 400, height: 300),
             styleMask: [.titled, .closable],
             backing: .buffered,
             defer: false
         )
-        mainWindow.contentView = NSHostingView(rootView: mainView)
-        mainWindow.makeKeyAndOrderFront(nil)
-        mainWindow.delegate = self
-        mainWindow.center()
+
+        self.mainWindow.title = "Rwx Editor (Settings)"
+        self.mainWindow.contentView = mainHostingView
+        self.mainWindow.makeKeyAndOrderFront(nil)
+        self.mainWindow.delegate = self
+        self.mainWindow.center()
     }
 
     func showPopupWindow(_ path: String) {
         let popupView = PopupView(path)
         let popupHostingView = NSHostingView(rootView: popupView)
-        popupHostingView.translatesAutoresizingMaskIntoConstraints = false
 
         let popupWindow = NSWindow(
             contentRect: NSRect(x: 0, y: 0, width: PopupView.FRAME_WIDTH, height: 300),
@@ -72,14 +75,17 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
         popupWindow.title = "Rwx Editor"
         popupWindow.contentView = NSView()
         popupWindow.contentView?.addSubview(popupHostingView)
+        popupWindow.makeKeyAndOrderFront(nil)
+        popupWindow.delegate = self
+        popupWindow.center()
+
+        popupHostingView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             popupHostingView.leadingAnchor .constraint(equalTo: popupWindow.contentView!.leadingAnchor),
             popupHostingView.trailingAnchor.constraint(equalTo: popupWindow.contentView!.trailingAnchor),
             popupHostingView.topAnchor     .constraint(equalTo: popupWindow.contentView!.topAnchor),
             popupHostingView.bottomAnchor  .constraint(equalTo: popupWindow.contentView!.bottomAnchor),
         ])
-        popupWindow.makeKeyAndOrderFront(nil)
-        popupWindow.center()
     }
 
     private func windowWillClose(_ sender: NSWindow) {
