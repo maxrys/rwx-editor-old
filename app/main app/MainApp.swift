@@ -4,49 +4,85 @@
 /* ############################################################# */
 
 import SwiftUI
+import Combine
 
 @main struct MainApp: App {
 
-    static var owners = Process.systemUsers ().filter{ $0.first != "_" }.sorted()
-    static var groups = Process.systemGroups().filter{ $0.first != "_" }.sorted()
-
-    @Environment(\.openWindow) private var openWindow
+    @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
 
     var body: some Scene {
-        WindowGroup("Rwx Editor", for: String.self) { $windowId in
-            if let windowId {
-                /* MARK: Popup windows */
-                PopupView(
-                    windowId
-                )
-            } else {
-                /* MARK: Main Window */
-                self.mainScene
-            }
+        WindowGroup {
+            MainView()
         }
-        .environment(\.layoutDirection, .leftToRight)
-        .windowResizability(.contentSize)
-    }
-
-    @ViewBuilder var mainScene: some View {
-        MainView()
-            .onReceive(
-                DistributedNotificationCenter.default.publisher(
-                    for: Notification.Name(FinderSyncExt.EVENT_NAME_FOR_FINDER_CONTEXT_MENU)
-                )
-            ) { notification in
-                do {
-                    guard let json = notification.object as? String else { return }
-                    guard let finderEvent = FinderEvent(from: json) else { return }
-                    for path in finderEvent.paths {
-                        openWindow(value: path)
-                    }
-                }
-            }
     }
 
 }
 
-#Preview {
-    MainApp().mainScene
+class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
+
+    private var cancellableBag = Set<AnyCancellable>()
+    private var mainWindow: NSWindow!
+    private var popupWindows: [String: NSWindow] = [:]
+
+    func applicationDidFinishLaunching(_ notification: Notification) {
+
+        DistributedNotificationCenter.default.publisher(
+            for: Notification.Name(
+                FinderSyncExt.EVENT_NAME_FOR_FINDER_CONTEXT_MENU
+            )
+        ).sink(receiveValue: { notification in
+            do {
+                guard let json = notification.object as? String else { return }
+                guard let finderEvent = FinderEvent(from: json) else { return }
+                for path in finderEvent.paths {
+                    self.showPopupWindow(path)
+                }
+            }
+        }).store(in: &self.cancellableBag)
+
+        NSApp.setActivationPolicy(.accessory)
+        let mainView = MainView()
+        mainWindow = NSWindow(
+            contentRect: NSRect(x: 0, y: 0, width: 400, height: 300),
+            styleMask: [.titled, .closable],
+            backing: .buffered,
+            defer: false
+        )
+        mainWindow.contentView = NSHostingView(rootView: mainView)
+        mainWindow.makeKeyAndOrderFront(nil)
+        mainWindow.delegate = self
+        mainWindow.center()
+    }
+
+    func showPopupWindow(_ path: String) {
+        let popupView = PopupView(path)
+        let popupHostingView = NSHostingView(rootView: popupView)
+        popupHostingView.translatesAutoresizingMaskIntoConstraints = false
+
+        let popupWindow = NSWindow(
+            contentRect: NSRect(x: 0, y: 0, width: PopupView.FRAME_WIDTH, height: 300),
+            styleMask: [.titled, .closable],
+            backing: .buffered,
+            defer: false
+        )
+
+        popupWindow.title = "Rwx Editor"
+        popupWindow.contentView = NSView()
+        popupWindow.contentView?.addSubview(popupHostingView)
+        NSLayoutConstraint.activate([
+            popupHostingView.leadingAnchor .constraint(equalTo: popupWindow.contentView!.leadingAnchor),
+            popupHostingView.trailingAnchor.constraint(equalTo: popupWindow.contentView!.trailingAnchor),
+            popupHostingView.topAnchor     .constraint(equalTo: popupWindow.contentView!.topAnchor),
+            popupHostingView.bottomAnchor  .constraint(equalTo: popupWindow.contentView!.bottomAnchor),
+        ])
+        popupWindow.makeKeyAndOrderFront(nil)
+        popupWindow.center()
+    }
+
+    private func windowWillClose(_ sender: NSWindow) {
+        if sender == mainWindow {
+            //mainWindow.orderOut(nil)
+        }
+    }
+
 }
