@@ -39,7 +39,7 @@
 		50114D482E01F6AF00024326 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 50624C5C2DE5CD1A00794BC8 /* Localizable.xcstrings */; };
 		50114D492E01F71900024326 /* FinderSyncExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50583D632DFB5EA100013BD0 /* FinderSyncExt.swift */; };
 		50114D4B2E01F71900024326 /* FinderSyncExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50583D632DFB5EA100013BD0 /* FinderSyncExt.swift */; };
-		50114D4C2E01F76D00024326 /* MainApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50624C4D2DE5BA8200794BC8 /* MainApp.swift */; };
+		50114D4C2E01F76D00024326 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50624C4D2DE5BA8200794BC8 /* App.swift */; };
 		50114D4D2E01F77300024326 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50114D162E01F24000024326 /* MainView.swift */; };
 		50114D4E2E01F77900024326 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50624C4A2DE5BA8200794BC8 /* Assets.xcassets */; };
 		50114D642E02AB9400024326 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50114D632E02AB9400024326 /* Media.xcassets */; };
@@ -77,6 +77,7 @@
 		50114DA92E0C065D00024326 /* ValueState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50114DA72E0C065D00024326 /* ValueState.swift */; };
 		50114DAA2E0C065D00024326 /* ValueState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50114DA72E0C065D00024326 /* ValueState.swift */; };
 		50114DAC2E0C46AA00024326 /* ToggleCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50114DAB2E0C46AA00024326 /* ToggleCustom.swift */; };
+		50114E822E0DDB7D00024326 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50114E812E0DDB7D00024326 /* main.swift */; };
 		50583D5D2DFB5D2000013BD0 /* Rwx Editor Finder Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 50583D552DFB5D2000013BD0 /* Rwx Editor Finder Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		50624C6A2DE5DCD500794BC8 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50624C692DE5DCD500794BC8 /* Test.swift */; };
 /* End PBXBuildFile section */
@@ -127,6 +128,7 @@
 		50114D9E2E0AF85D00024326 /* RealTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealTimer.swift; sourceTree = "<group>"; };
 		50114DA72E0C065D00024326 /* ValueState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValueState.swift; sourceTree = "<group>"; };
 		50114DAB2E0C46AA00024326 /* ToggleCustom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleCustom.swift; sourceTree = "<group>"; };
+		50114E812E0DDB7D00024326 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		50583D552DFB5D2000013BD0 /* Rwx Editor Finder Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Rwx Editor Finder Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		50583D632DFB5EA100013BD0 /* FinderSyncExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinderSyncExt.swift; sourceTree = "<group>"; };
 		50583D642DFB5EA100013BD0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -135,7 +137,7 @@
 		50624C4A2DE5BA8200794BC8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		50624C4B2DE5BA8200794BC8 /* PopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupView.swift; sourceTree = "<group>"; };
 		50624C4C2DE5BA8200794BC8 /* app.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = app.entitlements; sourceTree = "<group>"; };
-		50624C4D2DE5BA8200794BC8 /* MainApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainApp.swift; sourceTree = "<group>"; };
+		50624C4D2DE5BA8200794BC8 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
 		50624C532DE5C2BA00794BC8 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		50624C5C2DE5CD1A00794BC8 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		50624C602DE5D6B500794BC8 /* UInt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UInt.swift; sourceTree = "<group>"; };
@@ -216,7 +218,8 @@
 		50583D692DFB608400013BD0 /* main app */ = {
 			isa = PBXGroup;
 			children = (
-				50624C4D2DE5BA8200794BC8 /* MainApp.swift */,
+				50114E812E0DDB7D00024326 /* main.swift */,
+				50624C4D2DE5BA8200794BC8 /* App.swift */,
 				50114D162E01F24000024326 /* MainView.swift */,
 				50624C4A2DE5BA8200794BC8 /* Assets.xcassets */,
 				50624C4C2DE5BA8200794BC8 /* app.entitlements */,
@@ -470,8 +473,9 @@
 				50114D232E01F6AF00024326 /* enums.swift in Sources */,
 				50114D6B2E02AC0F00024326 /* Color.swift in Sources */,
 				50114D242E01F6AF00024326 /* CaseIterable.swift in Sources */,
+				50114E822E0DDB7D00024326 /* main.swift in Sources */,
 				50114D252E01F6AF00024326 /* Process.swift in Sources */,
-				50114D4C2E01F76D00024326 /* MainApp.swift in Sources */,
+				50114D4C2E01F76D00024326 /* App.swift in Sources */,
 				50114DA82E0C065D00024326 /* ValueState.swift in Sources */,
 				50114DA02E0AF85D00024326 /* RealTimer.swift in Sources */,
 				50114D262E01F6AF00024326 /* ByteCountFormatter.swift in Sources */,

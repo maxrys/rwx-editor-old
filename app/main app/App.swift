@@ -3,28 +3,16 @@
 /* ### Copyright © 2025 Maxim Rysevets. All rights reserved. ### */
 /* ############################################################# */
 
+import Cocoa
 import SwiftUI
 import Combine
 
-@main struct MainApp: App {
-
-    @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
-
-    var body: some Scene {
-        WindowGroup {
-            MainView()
-        }
-    }
-
-}
-
-class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
+class ThisApp: NSObject, NSApplicationDelegate, NSWindowDelegate {
 
     private var cancellableBag = Set<AnyCancellable>()
     private var mainWindow: NSWindow!
 
-    func applicationDidFinishLaunching(_ notification: Notification) {
-
+    func applicationDidFinishLaunching(_ aNotification: Notification) {
         DistributedNotificationCenter.default.publisher(
             for: Notification.Name(
                 FinderSyncExt.EVENT_NAME_FOR_FINDER_CONTEXT_MENU
@@ -38,9 +26,11 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
                 }
             }
         }).store(in: &self.cancellableBag)
-
-        NSApp.setActivationPolicy(.accessory)
         self.showMainWindow()
+    }
+
+    func applicationSupportsSecureRestorableState(_ app: NSApplication) -> Bool {
+        return true
     }
 
     func showMainWindow() {
@@ -48,17 +38,27 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
         let mainHostingView = NSHostingView(rootView: mainView)
 
         self.mainWindow = NSWindow(
-            contentRect: NSRect(x: 0, y: 0, width: 400, height: 300),
-            styleMask: [.titled, .closable],
+            contentRect: NSRect(x: 0, y: 0, width: 300, height: 300),
+            styleMask: [.titled, .closable, .miniaturizable, .resizable],
             backing: .buffered,
             defer: false
         )
 
+        self.mainWindow.center()
         self.mainWindow.title = "Rwx Editor (Settings)"
-        self.mainWindow.contentView = mainHostingView
+        self.mainWindow.level = .normal
         self.mainWindow.makeKeyAndOrderFront(nil)
+        self.mainWindow.contentView = mainHostingView
         self.mainWindow.delegate = self
         self.mainWindow.center()
+
+        mainHostingView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            mainHostingView.leadingAnchor .constraint(equalTo: self.mainWindow.contentView!.leadingAnchor),
+            mainHostingView.trailingAnchor.constraint(equalTo: self.mainWindow.contentView!.trailingAnchor),
+            mainHostingView.topAnchor     .constraint(equalTo: self.mainWindow.contentView!.topAnchor),
+            mainHostingView.bottomAnchor  .constraint(equalTo: self.mainWindow.contentView!.bottomAnchor),
+        ])
     }
 
     func showPopupWindow(_ path: String) {
@@ -66,16 +66,19 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
         let popupHostingView = NSHostingView(rootView: popupView)
 
         let popupWindow = NSWindow(
-            contentRect: NSRect(x: 0, y: 0, width: PopupView.FRAME_WIDTH, height: 300),
-            styleMask: [.titled, .closable],
+            contentRect: NSRect(x: 0, y: 0, width: 300, height: 300),
+            styleMask: [.titled, .closable, .miniaturizable, .resizable],
             backing: .buffered,
             defer: false
         )
 
+        popupWindow.center()
         popupWindow.title = "Rwx Editor"
+        popupWindow.level = .normal
+        popupWindow.makeKeyAndOrderFront(nil)
         popupWindow.contentView = NSView()
         popupWindow.contentView?.addSubview(popupHostingView)
-        popupWindow.makeKeyAndOrderFront(nil)
+     // popupWindow.contentView = popupHostingView
         popupWindow.delegate = self
         popupWindow.center()
 
@@ -90,7 +93,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
 
     private func windowWillClose(_ sender: NSWindow) {
         if sender == mainWindow {
-            //mainWindow.orderOut(nil)
+            // mainWindow.orderOut(nil)
         }
     }
 
