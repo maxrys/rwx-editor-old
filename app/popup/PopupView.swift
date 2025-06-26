@@ -19,14 +19,14 @@ struct PopupView: View {
 
     static var owners: [String: String] = {
         var result: [String: String] = [:]
-        for value in MainApp.owners {
+        for value in Process.systemUsers().filter({ $0.first != "_" }).sorted() {
             result[value] = value }
         return result
     }()
 
     static var groups: [String: String] = {
         var result: [String: String] = [:]
-        for value in MainApp.groups {
+        for value in Process.systemGroups().filter({ $0.first != "_" }).sorted() {
             result[value] = value
         }
         return result

@@ -9,6 +9,8 @@ import ServiceManagement
 
 struct MainView: View {
 
+    static let FRAME_WIDTH: CGFloat = 300
+
     static var launchAtLogin: Bool {
         get { SMAppService.mainApp.status == .enabled }
         set(isEnabled) {
@@ -75,10 +77,11 @@ struct MainView: View {
         }
         .padding(20)
         .foregroundPolyfill(Color.getCustom(.text))
-        .frame(width: 300)
-        .onReceive(NotificationCenter.default.publisher(for: NSApplication.didBecomeActiveNotification)) { _ in
-                     self.updateView()
-        }.onAppear { self.updateView() }
+        .environment(\.layoutDirection, .leftToRight)
+        .frame(width: Self.FRAME_WIDTH)
+        .onReceive(NotificationCenter.default.publisher(for: NSApplication.didBecomeActiveNotification))
+             { _ in self.updateView() }
+        .onAppear { self.updateView() }
     }
 
     func updateView() {
