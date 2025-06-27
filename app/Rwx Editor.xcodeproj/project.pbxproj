@@ -78,6 +78,9 @@
 		50114DAA2E0C065D00024326 /* ValueState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50114DA72E0C065D00024326 /* ValueState.swift */; };
 		50114DAC2E0C46AA00024326 /* ToggleCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50114DAB2E0C46AA00024326 /* ToggleCustom.swift */; };
 		50114E822E0DDB7D00024326 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50114E812E0DDB7D00024326 /* main.swift */; };
+		50114E8C2E0E9BB600024326 /* Shape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50114E8B2E0E9BB600024326 /* Shape.swift */; };
+		50114E8D2E0E9BB600024326 /* Shape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50114E8B2E0E9BB600024326 /* Shape.swift */; };
+		50114E8E2E0E9BB600024326 /* Shape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50114E8B2E0E9BB600024326 /* Shape.swift */; };
 		50583D5D2DFB5D2000013BD0 /* Rwx Editor Finder Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 50583D552DFB5D2000013BD0 /* Rwx Editor Finder Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		50624C6A2DE5DCD500794BC8 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50624C692DE5DCD500794BC8 /* Test.swift */; };
 /* End PBXBuildFile section */
@@ -129,6 +132,7 @@
 		50114DA72E0C065D00024326 /* ValueState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValueState.swift; sourceTree = "<group>"; };
 		50114DAB2E0C46AA00024326 /* ToggleCustom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleCustom.swift; sourceTree = "<group>"; };
 		50114E812E0DDB7D00024326 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		50114E8B2E0E9BB600024326 /* Shape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shape.swift; sourceTree = "<group>"; };
 		50583D552DFB5D2000013BD0 /* Rwx Editor Finder Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Rwx Editor Finder Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		50583D632DFB5EA100013BD0 /* FinderSyncExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinderSyncExt.swift; sourceTree = "<group>"; };
 		50583D642DFB5EA100013BD0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -261,6 +265,7 @@
 				50114D682E02AC0D00024326 /* Color.swift */,
 				50114D952E099D0B00024326 /* URL.swift */,
 				50624C532DE5C2BA00794BC8 /* View.swift */,
+				50114E8B2E0E9BB600024326 /* Shape.swift */,
 				507318A22DF3758B005E26F9 /* CaseIterable.swift */,
 				507318A52DF37FB8005E26F9 /* ByteCountFormatter.swift */,
 				507318972DF05F60005E26F9 /* Process.swift */,
@@ -443,6 +448,7 @@
 				50114DA22E0AF89B00024326 /* MessageBox.swift in Sources */,
 				50114D3B2E01F6AF00024326 /* ByteCountFormatter.swift in Sources */,
 				50114D3C2E01F6AF00024326 /* View.swift in Sources */,
+				50114E8C2E0E9BB600024326 /* Shape.swift in Sources */,
 				50114D9F2E0AF85D00024326 /* RealTimer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -458,6 +464,7 @@
 				50114D862E05F87B00024326 /* RwxTextView.swift in Sources */,
 				50114D492E01F71900024326 /* FinderSyncExt.swift in Sources */,
 				50114D4D2E01F77300024326 /* MainView.swift in Sources */,
+				50114E8E2E0E9BB600024326 /* Shape.swift in Sources */,
 				50114D882E05F8CE00024326 /* FSEntityInfo.swift in Sources */,
 				50114D7D2E04036200024326 /* Numeric.swift in Sources */,
 				50114D1D2E01F6AF00024326 /* UInt.swift in Sources */,
@@ -503,6 +510,7 @@
 				50114DA32E0AF89B00024326 /* MessageBox.swift in Sources */,
 				50114D472E01F6AF00024326 /* UInt.swift in Sources */,
 				50624C6A2DE5DCD500794BC8 /* Test.swift in Sources */,
+				50114E8D2E0E9BB600024326 /* Shape.swift in Sources */,
 				50114DA12E0AF85D00024326 /* RealTimer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -545,7 +553,7 @@
 					"@executable_path/../Frameworks",
 					"@executable_path/../../../../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "maxrys.rwx-editor.finder-ext";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -579,7 +587,7 @@
 					"@executable_path/../Frameworks",
 					"@executable_path/../../../../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "maxrys.rwx-editor.finder-ext";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -741,7 +749,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "maxrys.rwx-editor";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -775,7 +783,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "maxrys.rwx-editor";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -794,7 +802,7 @@
 				DEVELOPMENT_TEAM = 97CZR6J379;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "";
-				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "maxrys.rwx-editor.test";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -812,7 +820,7 @@
 				DEVELOPMENT_TEAM = 97CZR6J379;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "";
-				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "maxrys.rwx-editor.test";
 				PRODUCT_NAME = "$(TARGET_NAME)";

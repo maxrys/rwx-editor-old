@@ -45,7 +45,7 @@ class ThisApp: NSObject, NSApplicationDelegate, NSWindowDelegate {
         )
 
         self.mainWindow.center()
-        self.mainWindow.title = "Rwx Editor (Settings)"
+        self.mainWindow.title = NSLocalizedString("Rwx Editor (Settings)", comment: "")
         self.mainWindow.level = .normal
         self.mainWindow.makeKeyAndOrderFront(nil)
         self.mainWindow.contentView = mainHostingView
@@ -73,7 +73,7 @@ class ThisApp: NSObject, NSApplicationDelegate, NSWindowDelegate {
         )
 
         popupWindow.center()
-        popupWindow.title = "Rwx Editor"
+        popupWindow.title = NSLocalizedString("Rwx Editor", comment: "")
         popupWindow.level = .normal
         popupWindow.makeKeyAndOrderFront(nil)
         popupWindow.contentView = NSView()

@@ -175,27 +175,27 @@ struct PopupView: View {
                 /* MARK: field: name */
                 GridCustom.Row(
                     title: Text(NSLocalizedString("Name", comment: "")),
-                    value: Text(self.formattedName).textSelection(.enabled)
+                    value: Text(self.formattedName).textSelectionPolyfill()
                 ),
 
                 /* MARK: field: path */
                 GridCustom.Row(
                     title: Text(NSLocalizedString("Path", comment: "")),
-                    value: Text(self.formattedPath).textSelection(.enabled)
+                    value: Text(self.formattedPath).textSelectionPolyfill()
                 ),
 
                 /* MARK: field: real name */
                 self.info.realName != nil ?
                     GridCustom.Row(
                         title: Text(NSLocalizedString("Real Name", comment: "")),
-                        value: Text(self.formattedRealName).textSelection(.enabled)
+                        value: Text(self.formattedRealName).textSelectionPolyfill()
                     ) : nil,
 
                 /* MARK: field: real path */
                 self.info.realPath != nil ?
                     GridCustom.Row(
                         title: Text(NSLocalizedString("Real Path", comment: "")),
-                        value: Text(self.formattedRealPath).textSelection(.enabled)
+                        value: Text(self.formattedRealPath).textSelectionPolyfill()
                     ) : nil,
 
                 /* MARK: field: references */
@@ -214,7 +214,7 @@ struct PopupView: View {
                             )
                         }
                     },
-                    value: Text(self.formattedSize).textSelection(.enabled)
+                    value: Text(self.formattedSize).textSelectionPolyfill()
                 ),
 
                 /* MARK: field: created */
@@ -227,7 +227,7 @@ struct PopupView: View {
                             )
                         }
                     },
-                    value: Text(self.formattedCreated).textSelection(.enabled)
+                    value: Text(self.formattedCreated).textSelectionPolyfill()
                 ),
 
                 /* MARK: field: updated */
@@ -240,7 +240,7 @@ struct PopupView: View {
                             )
                         }
                     },
-                    value: Text(self.formattedUpdated).textSelection(.enabled)
+                    value: Text(self.formattedUpdated).textSelectionPolyfill()
                 )
 
             ])
@@ -486,5 +486,5 @@ struct PopupView: View {
         PopupView("/private/etc/hosts")
     }
     .padding(10)
-    .background(.black)
+    .background(Color.black)
 }

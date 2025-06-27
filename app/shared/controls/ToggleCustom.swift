@@ -44,19 +44,19 @@ struct ToggleCustom: View {
                 self.isOn.wrappedValue.toggle()
             }
         } label: {
-            Capsule()
-                .fill(self.isOn.wrappedValue ? .green : .black.opacity(0.3))
-                .frame(width: self.width, height: self.height)
-                .overlay(alignment: self.isOn.wrappedValue ? .trailing : .leading) {
-                    Capsule()
-                        .fill(.white)
-                        .frame(width: (self.height * 1.5) - (self.innerPadding * 2), height: self.height - (self.innerPadding * 2))
-                        .padding(self.innerPadding)
-                        .shadow(
-                            color: .black.opacity(0.5),
-                            radius: 2.0
-                        )
-                }.contentShape(.focusEffect, Capsule())
+            ZStack(alignment: self.isOn.wrappedValue ? .trailing : .leading) {
+                Capsule()
+                    .fill(self.isOn.wrappedValue ? .green : .black.opacity(0.3))
+                    .frame(width: self.width, height: self.height)
+                Capsule()
+                    .fill(.white)
+                    .frame(width: (self.height * 1.5) - (self.innerPadding * 2), height: self.height - (self.innerPadding * 2))
+                    .padding(self.innerPadding)
+                    .shadow(
+                        color: .black.opacity(0.5),
+                        radius: 2.0
+                    )
+            }.contentShapePolyfill(Capsule())
         }.buttonStyle(.plain)
     }
 

@@ -471,6 +471,22 @@
         }
       }
     },
+    "Rwx Editor (Settings)" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rwx Editor (Settings)"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rwx Редактор (установки)"
+          }
+        }
+      }
+    },
     "Size" : {
       "localizations" : {
         "en" : {

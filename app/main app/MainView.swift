@@ -12,11 +12,17 @@ struct MainView: View {
     static let FRAME_WIDTH: CGFloat = 300
 
     static var launchAtLogin: Bool {
-        get { SMAppService.mainApp.status == .enabled }
+        get {
+            if #available(macOS 13.0, *)
+                 { return SMAppService.mainApp.status == .enabled }
+            else { return false }
+        }
         set(isEnabled) {
             do {
-                if (isEnabled) { try SMAppService.mainApp.register  () }
-                else           { try SMAppService.mainApp.unregister() }
+                if #available(macOS 13.0, *) {
+                    if (isEnabled) { try SMAppService.mainApp.register  () }
+                    else           { try SMAppService.mainApp.unregister() }
+                }
             } catch {}
         }
     }

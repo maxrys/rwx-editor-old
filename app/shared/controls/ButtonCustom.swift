@@ -52,7 +52,7 @@ struct ButtonCustom: View {
                 .padding(.init(top: 6, leading: 10, bottom: 7, trailing: 10))
                 .background(
                     RoundedRectangle(cornerRadius: 7)
-                        .fill(self.style.colorBackground.gradient)
+                        .fillGradientPolyfill(self.style.colorBackground)
                         .shadow(
                             color: self.colorScheme == .dark ?
                                 .black.opacity(1.0) :

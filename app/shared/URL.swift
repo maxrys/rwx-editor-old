@@ -8,7 +8,7 @@ import SwiftUI
 extension URL {
 
     var pathNameParts: (path: String, name: String) {
-        var path = self.path()
+        var path = self.path
         let name = self.lastPathComponent
         if (path.last == "/")
              { path = String(path[0, UInt(path.count - name.count - 2)]) }
