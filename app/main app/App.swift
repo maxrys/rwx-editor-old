@@ -14,6 +14,7 @@ class ThisApp: NSObject, NSApplicationDelegate {
     private var popupWindows: [String: NSWindow] = [:]
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
+        NSApp.setActivationPolicy(.accessory)
         DistributedNotificationCenter.default.publisher(
             for: Notification.Name(
                 FinderSyncExt.EVENT_NAME_FOR_FINDER_CONTEXT_MENU
@@ -32,6 +33,10 @@ class ThisApp: NSObject, NSApplicationDelegate {
 
     func applicationSupportsSecureRestorableState(_ app: NSApplication) -> Bool {
         return true
+    }
+
+    func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {
+        return false
     }
 
     func showMainWindow() {
