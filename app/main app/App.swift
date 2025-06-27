@@ -36,11 +36,13 @@ class ThisApp: NSObject, NSApplicationDelegate {
 
     func showMainWindow() {
         let mainView = MainView()
-        let mainHostingView = NSHostingView(rootView: mainView)
+        let mainHostingView = NSHostingView(
+            rootView: mainView
+        )
 
         self.mainWindow = NSWindow(
             contentRect: NSRect(x: 0, y: 0, width: 300, height: 300),
-            styleMask: [.titled, .closable, .miniaturizable, .resizable],
+            styleMask: [.titled, .closable],
             backing: .buffered,
             defer: false
         )
@@ -63,11 +65,13 @@ class ThisApp: NSObject, NSApplicationDelegate {
 
     func showPopupWindow(_ path: String) {
         let popupView = PopupView(path)
-        let popupHostingView = NSHostingView(rootView: popupView)
+        let popupHostingView = NSHostingView(
+            rootView: popupView
+        )
 
         self.popupWindows[path] = NSWindow(
             contentRect: NSRect(x: 0, y: 0, width: 300, height: 300),
-            styleMask: [.titled, .closable, .miniaturizable, .resizable],
+            styleMask: [.titled, .closable, .miniaturizable],
             backing: .buffered,
             defer: false
         )

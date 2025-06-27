@@ -17,7 +17,7 @@ struct PopupView: View {
     static let FRAME_WIDTH: CGFloat = 300
     static let IS_SHOW_DEBUG_INFO = false
 
-    static var owners: [String: String] = {
+    var owners: [String: String] = {
         var result: [String: String] = [:]
         Process.systemUsers().filter({ $0.first != "_" }).sorted().forEach { value in
             result[value] = value
@@ -25,7 +25,7 @@ struct PopupView: View {
         return result
     }()
 
-    static var groups: [String: String] = {
+    var groups: [String: String] = {
         var result: [String: String] = [:]
         Process.systemGroups().filter({ $0.first != "_" }).sorted().forEach { value in
             result[value] = value
@@ -316,7 +316,7 @@ struct PopupView: View {
                         Text(NSLocalizedString("Owner", comment: ""))
                         PickerCustom<String>(
                             selected: self.$owner,
-                            values: PopupView.owners,
+                            values: self.owners,
                             isPlainListStyle: true,
                             flexibility: .size(150)
                         )
@@ -327,7 +327,7 @@ struct PopupView: View {
                         Text(NSLocalizedString("Group", comment: ""))
                         PickerCustom<String>(
                             selected: self.$group,
-                            values: PopupView.groups,
+                            values: self.groups,
                             isPlainListStyle: true,
                             flexibility: .size(150)
                         )
