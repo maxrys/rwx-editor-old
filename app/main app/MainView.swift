@@ -73,11 +73,13 @@ struct MainView: View {
                     .cornerRadius(15)
             )
 
-            ToggleCustom(
-                text: NSLocalizedString("Launch at login", comment: ""),
-                isOn: self.$isEnabledLaunchAtLogin
-            ).onChange(of: self.isEnabledLaunchAtLogin) { value in
-                Self.launchAtLogin = value
+            if #available(macOS 13.0, *) {
+                ToggleCustom(
+                    text: NSLocalizedString("Launch at login", comment: ""),
+                    isOn: self.$isEnabledLaunchAtLogin
+                ).onChange(of: self.isEnabledLaunchAtLogin) { value in
+                    Self.launchAtLogin = value
+                }
             }
 
         }
