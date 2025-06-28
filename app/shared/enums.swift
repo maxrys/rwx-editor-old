@@ -45,7 +45,7 @@ public enum Flexibility {
 
 }
 
-public enum BytesViewMode: String, CaseIterable & Equatable {
+public enum BytesVisibilityMode: String, CaseIterable & Equatable {
 
     case bytes  = "Bytes"
     case kbytes = "KBytes"
@@ -55,7 +55,7 @@ public enum BytesViewMode: String, CaseIterable & Equatable {
 
 }
 
-public enum DateViewMode: CaseIterable & Equatable {
+public enum DateVisibilityMode: CaseIterable & Equatable {
 
     case convenient
     case iso8601withTZ

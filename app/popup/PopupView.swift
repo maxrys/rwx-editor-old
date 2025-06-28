@@ -36,9 +36,9 @@ struct PopupView: View {
     @Environment(\.scenePhase)  private var scenePhase
     @Environment(\.colorScheme) private var colorScheme
 
-    @State private var sizeViewMode: BytesViewMode = .bytes
-    @State private var createdViewMode: DateViewMode = .convenient
-    @State private var updatedViewMode: DateViewMode = .convenient
+    @State private var visibilityModeForSize: BytesVisibilityMode = .bytes
+    @State private var visibilityModeForCreated: DateVisibilityMode = .convenient
+    @State private var visibilityModeForUpdated: DateVisibilityMode = .convenient
 
     @State private var rights: UInt = 0
     @State private var owner: String = ""
@@ -105,7 +105,7 @@ struct PopupView: View {
 
     var formattedSize: String {
         if let size = self.info.size {
-            switch self.sizeViewMode {
+            switch self.visibilityModeForSize {
                 case  .bytes: ByteCountFormatter.format(size, unit: .useBytes)
                 case .kbytes: ByteCountFormatter.format(size, unit: .useKB)
                 case .mbytes: ByteCountFormatter.format(size, unit: .useMB)
@@ -121,7 +121,7 @@ struct PopupView: View {
 
     var formattedCreated: String {
         if let created = self.info.created {
-            switch self.createdViewMode {
+            switch self.visibilityModeForCreated {
                 case .convenient   : created.convenient
                 case .iso8601withTZ: created.ISO8601withTZ
                 case .iso8601      : created.ISO8601
@@ -135,7 +135,7 @@ struct PopupView: View {
 
     var formattedUpdated: String {
         if let updated = self.info.updated {
-            switch self.updatedViewMode {
+            switch self.visibilityModeForUpdated {
                 case .convenient   : updated.convenient
                 case .iso8601withTZ: updated.ISO8601withTZ
                 case .iso8601      : updated.ISO8601
@@ -210,7 +210,7 @@ struct PopupView: View {
                         Text(NSLocalizedString("Size", comment: ""))
                         if (self.info.size != nil) {
                             self.iconRoll(
-                                value: self.$sizeViewMode
+                                value: self.$visibilityModeForSize
                             )
                         }
                     },
@@ -223,7 +223,7 @@ struct PopupView: View {
                         Text(NSLocalizedString("Created", comment: ""))
                         if (self.info.created != nil) {
                             self.iconRoll(
-                                value: self.$createdViewMode
+                                value: self.$visibilityModeForCreated
                             )
                         }
                     },
@@ -236,7 +236,7 @@ struct PopupView: View {
                         Text(NSLocalizedString("Updated", comment: ""))
                         if (self.info.updated != nil) {
                             self.iconRoll(
-                                value: self.$updatedViewMode
+                                value: self.$visibilityModeForUpdated
                             )
                         }
                     },
