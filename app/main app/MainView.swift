@@ -27,63 +27,92 @@ struct MainView: View {
         }
     }
 
+    static var appVersion      : String { if let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String { return version } else { return "?" } }
+    static var appBundleVersion: String { if let version = Bundle.main.infoDictionary?["CFBundleVersion"           ] as? String { return version } else { return "?" } }
+    static var appCopyright    : String { if let version = Bundle.main.infoDictionary?["NSHumanReadableCopyright"  ] as? String { return version } else { return "?" } }
+
     @Environment(\.colorScheme) private var colorScheme
     @State var isEnabledExtension: Bool = false
     @State var isEnabledLaunchAtLogin: Bool = false
 
     var body: some View {
-        VStack(spacing: 20) {
+        VStack(spacing: 10) {
+
+            VStack(spacing: 20) {
+
+                /* MARK: extension status */
+
+                VStack(spacing: 10) {
+
+                    let icon  = self.isEnabledExtension ? "checkmark.circle.fill" : "xmark.circle.fill"
+                    let color = self.isEnabledExtension ? Color.getCustom(.darkGreen) : Color.getCustom(.darkRed)
+                    let text  = self.isEnabledExtension ? "extension is enabled" : "extension is disabled"
+
+                    Image(systemName: icon)
+                        .frame(width: 40, height: 40)
+                        .font(.system(size: 40, weight: .bold))
+                        .foregroundPolyfill(color)
+                        .background(Color.white)
+                        .clipShape(Circle())
+
+                    Text(NSLocalizedString(text, comment: ""))
+                        .font(.system(size: 14, weight: .regular))
+
+                    ButtonCustom(NSLocalizedString("Open Settings", comment: ""), style: .custom, flexibility: .infinity) {
+                        FinderSync.FIFinderSyncController.showExtensionManagementInterface()
+                    }.padding(.top, 10)
+
+                }
+                .padding(20)
+                .frame(maxWidth: .infinity)
+                .background(
+                    RoundedRectangle(cornerRadius: 15)
+                        .stroke(
+                            self.colorScheme == .dark ?
+                            Color.white.opacity(0.5) :
+                                Color.black.opacity(0.5),
+                            lineWidth: 1
+                        )
+                        .background(
+                            self.colorScheme == .dark ?
+                            Color.black.opacity(0.2) :
+                                Color.white.opacity(0.7)
+                        )
+                        .cornerRadius(15)
+                )
+
+                /* MARK: launch at login */
+
+                if #available(macOS 13.0, *) {
+                    ToggleCustom(
+                        text: NSLocalizedString("Launch at login", comment: ""),
+                        isOn: self.$isEnabledLaunchAtLogin
+                    ).onChange(of: self.isEnabledLaunchAtLogin) { value in
+                        Self.launchAtLogin = value
+                    }
+                }
+
+            }.padding(15)
+
+            /* MARK: version, build, copyright */
 
             VStack(spacing: 10) {
-
-                let icon  = self.isEnabledExtension ? "checkmark.circle.fill" : "xmark.circle.fill"
-                let color = self.isEnabledExtension ? Color.getCustom(.darkGreen) : Color.getCustom(.darkRed)
-                let text  = self.isEnabledExtension ? "extension is enabled" : "extension is disabled"
-
-                Image(systemName: icon)
-                    .frame(width: 40, height: 40)
-                    .font(.system(size: 40, weight: .bold))
-                    .foregroundPolyfill(color)
-                    .background(Color.white)
-                    .clipShape(Circle())
-
-                Text(NSLocalizedString(text, comment: ""))
-                    .font(.system(size: 14, weight: .regular))
-
-                ButtonCustom(NSLocalizedString("Open Settings", comment: ""), style: .custom, flexibility: .infinity) {
-                    FinderSync.FIFinderSyncController.showExtensionManagementInterface()
-                }.padding(.top, 10)
-
+                Text(String(format: NSLocalizedString("Version: %@ | Build: %@", comment: ""), Self.appVersion, Self.appBundleVersion))
+                    .font(.system(size: 13))
+                Text(Self.appCopyright)
+                    .font(.system(size: 11))
             }
-            .padding(20)
+            .multilineTextAlignment(.center)
+            .padding(15)
             .frame(maxWidth: .infinity)
+            .foregroundPolyfill(.gray)
             .background(
-                RoundedRectangle(cornerRadius: 15)
-                    .stroke(
-                        self.colorScheme == .dark ?
-                        Color.white.opacity(0.5) :
-                        Color.black.opacity(0.5),
-                        lineWidth: 1
-                    )
-                    .background(
-                        self.colorScheme == .dark ?
-                        Color.black.opacity(0.2) :
-                        Color.white.opacity(0.7)
-                    )
-                    .cornerRadius(15)
+                self.colorScheme == .dark ?
+                Color.white.opacity(0.03) :
+                Color.black.opacity(0.06)
             )
 
-            if #available(macOS 13.0, *) {
-                ToggleCustom(
-                    text: NSLocalizedString("Launch at login", comment: ""),
-                    isOn: self.$isEnabledLaunchAtLogin
-                ).onChange(of: self.isEnabledLaunchAtLogin) { value in
-                    Self.launchAtLogin = value
-                }
-            }
-
         }
-        .padding(20)
         .foregroundPolyfill(Color.getCustom(.text))
         .environment(\.layoutDirection, .leftToRight)
         .frame(width: Self.FRAME_WIDTH)
