@@ -503,6 +503,22 @@
         }
       }
     },
+    "This type is not supported!" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This type is not supported!"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Этот тип не поддерживается!"
+          }
+        }
+      }
+    },
     "Type" : {
       "localizations" : {
         "en" : {

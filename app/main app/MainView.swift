@@ -96,17 +96,33 @@ struct MainView: View {
 
             /* MARK: version, build, copyright */
 
-            VStack(spacing: 10) {
-                Text(String(format: NSLocalizedString("Version: %@ | Build: %@", comment: ""), Self.appVersion, Self.appBundleVersion))
-                    .font(.system(size: 13))
-                Text(Self.appCopyright)
-                    .font(.system(size: 11))
-            }
-            .multilineTextAlignment(.center)
-            .padding(15)
-            .frame(maxWidth: .infinity)
-            .foregroundPolyfill(.gray)
-            .background(
+            VStack(spacing: 0) {
+
+                /* shadow */
+                Rectangle()
+                    .fill(
+                        LinearGradient(
+                            colors: [
+                                Color.black.opacity(self.colorScheme == .light ? 0.1 : 0.4),
+                                Color.black.opacity(self.colorScheme == .light ? 0.0 : 0.0) ],
+                            startPoint: .top,
+                            endPoint: .bottom
+                        )
+                    ).frame(height: 6)
+
+                /* version + build + copyright */
+                VStack(spacing: 10) {
+                    Text(String(format: NSLocalizedString("Version: %@ | Build: %@", comment: ""), Self.appVersion, Self.appBundleVersion))
+                        .font(.system(size: 13))
+                    Text(Self.appCopyright)
+                        .font(.system(size: 11))
+                }
+                .multilineTextAlignment(.center)
+                .padding(.init(top: 10, leading: 15, bottom: 15, trailing: 15))
+                .frame(maxWidth: .infinity)
+                .foregroundPolyfill(.gray)
+
+            }.background(
                 self.colorScheme == .dark ?
                 Color.white.opacity(0.03) :
                 Color.black.opacity(0.06)
