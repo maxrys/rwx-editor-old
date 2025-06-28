@@ -47,7 +47,7 @@ extension Process {
 
         let (status, output, error) = Process.shell(
             path: "/usr/bin/env",
-            args: ["zsh", "-c", "dscl . list /Users"]
+            args: ["dscl", ".", "list", "/Users"]
         )
 
         switch status {
@@ -83,7 +83,7 @@ extension Process {
 
         let (status, output, error) = Process.shell(
             path: "/usr/bin/env",
-            args: ["zsh", "-c", "groups"]
+            args: ["groups"]
         )
 
         switch status {
