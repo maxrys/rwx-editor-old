@@ -195,35 +195,6 @@
         <feMergeNode in="SourceGraphic"/>
       </feMerge>
     </filter>
-    <filter id="filter-10" color-interpolation-filters="sRGB" x="-50%" y="-50%" width="200%" height="200%" bx:preset="drop-shadow 1 0 0 10 0.4 rgba(0,0,0,0.3)">
-      <feGaussianBlur in="SourceAlpha" stdDeviation="10"/>
-      <feOffset dx="0" dy="0"/>
-      <feComponentTransfer result="offsetblur">
-        <feFuncA id="feFuncA-4" type="linear" slope="0.8"/>
-      </feComponentTransfer>
-      <feFlood flood-color="rgba(0,0,0,0.3)"/>
-      <feComposite in2="offsetblur" operator="in"/>
-      <feMerge>
-        <feMergeNode/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
-    </filter>
-    <linearGradient gradientUnits="userSpaceOnUse" x1="499.617" y1="374" x2="499.617" y2="394" id="gradient-8" gradientTransform="matrix(1, 0, 0, 0.5, -0.57602, 187)">
-      <stop offset="0" style="stop-color: rgb(214, 214, 214);"/>
-      <stop offset="1" style="stop-color: rgb(236, 236, 236);"/>
-    </linearGradient>
-    <linearGradient gradientUnits="userSpaceOnUse" x1="499.617" y1="374" x2="499.617" y2="394" id="gradient-9" gradientTransform="matrix(1, 0, 0, 0.5, -0.57602, -1188.846436)">
-      <stop offset="0" style="stop-color: rgb(214, 214, 214);"/>
-      <stop offset="1" style="stop-color: rgb(236, 236, 236);"/>
-    </linearGradient>
-    <linearGradient gradientUnits="userSpaceOnUse" x1="375.117" y1="1019.9" x2="375.117" y2="1075.9" id="gradient-10" gradientTransform="matrix(1, 0, 0, 1, 0, 30.845753)">
-      <stop offset="0" style="stop-color: rgb(2, 122, 255);"/>
-      <stop offset="1" style="stop-color: rgb(2, 122, 255);"/>
-    </linearGradient>
-    <linearGradient gradientUnits="userSpaceOnUse" x1="623.617" y1="1020" x2="623.617" y2="1076" id="gradient-13" gradientTransform="matrix(1, 0, 0, 1, 0, 30.845753)">
-      <stop offset="0" style="stop-color: rgb(46, 157, 255);"/>
-      <stop offset="1" style="stop-color: rgb(2, 122, 255);"/>
-    </linearGradient>
     <filter id="filter-2" color-interpolation-filters="sRGB" x="-50%" y="-50%" width="200%" height="200%" bx:preset="drop-shadow 1 0 0 10 0.4 #000000bf">
       <feGaussianBlur in="SourceAlpha" stdDeviation="10"/>
       <feOffset dx="0" dy="0"/>
@@ -245,12 +216,93 @@
       <stop offset="0" style="stop-color: rgb(28, 27, 27);"/>
       <stop offset="1" style="stop-color: rgb(43, 43, 43);"/>
     </linearGradient>
+    <filter id="filter-11" bx:preset="drop-shadow 1 0 2 2 0.5 #000" color-interpolation-filters="sRGB" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="2"/>
+      <feOffset dx="0" dy="2"/>
+      <feComponentTransfer result="offsetblur">
+        <feFuncA id="feFuncA-2" type="linear" slope="1"/>
+      </feComponentTransfer>
+      <feFlood flood-color="#000"/>
+      <feComposite in2="offsetblur" operator="in"/>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
     <linearGradient gradientUnits="userSpaceOnUse" x1="375.117" y1="1019.9" x2="375.117" y2="1075.9" id="gradient-6" gradientTransform="matrix(1, 0, 0, 1, 0, 31)">
       <stop offset="0" style="stop-color: rgb(45, 159, 255);"/>
       <stop offset="1" style="stop-color: rgb(2, 122, 255);"/>
     </linearGradient>
+    <filter id="filter-12" bx:preset="drop-shadow 1 0 2 2 0.5 #000" color-interpolation-filters="sRGB" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="2"/>
+      <feOffset dx="0" dy="2"/>
+      <feComponentTransfer result="offsetblur">
+        <feFuncA id="feFuncA-2" type="linear" slope="1"/>
+      </feComponentTransfer>
+      <feFlood flood-color="#000"/>
+      <feComposite in2="offsetblur" operator="in"/>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
     <linearGradient gradientUnits="userSpaceOnUse" x1="623.617" y1="1020" x2="623.617" y2="1076" id="gradient-12" gradientTransform="matrix(1, 0, 0, 1, 0, 31)">
       <stop offset="0" style="stop-color: rgb(45, 159, 255);"/>
+      <stop offset="1" style="stop-color: rgb(2, 122, 255);"/>
+    </linearGradient>
+    <filter id="filter-10" color-interpolation-filters="sRGB" x="-50%" y="-50%" width="200%" height="200%" bx:preset="drop-shadow 1 0 0 10 0.4 rgba(0,0,0,0.3)">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="10"/>
+      <feOffset dx="0" dy="0"/>
+      <feComponentTransfer result="offsetblur">
+        <feFuncA id="feFuncA-4" type="linear" slope="0.8"/>
+      </feComponentTransfer>
+      <feFlood flood-color="rgba(0,0,0,0.3)"/>
+      <feComposite in2="offsetblur" operator="in"/>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <linearGradient gradientUnits="userSpaceOnUse" x1="499.617" y1="374" x2="499.617" y2="394" id="gradient-8" gradientTransform="matrix(1, 0, 0, 0.5, -0.57602, 187)">
+      <stop offset="0" style="stop-color: rgb(214, 214, 214);"/>
+      <stop offset="1" style="stop-color: rgb(236, 236, 236);"/>
+    </linearGradient>
+    <linearGradient gradientUnits="userSpaceOnUse" x1="499.617" y1="374" x2="499.617" y2="394" id="gradient-9" gradientTransform="matrix(1, 0, 0, 0.5, -0.57602, -1188.846436)">
+      <stop offset="0" style="stop-color: rgb(214, 214, 214);"/>
+      <stop offset="1" style="stop-color: rgb(236, 236, 236);"/>
+    </linearGradient>
+    <filter id="filter-13" bx:preset="drop-shadow 1 0 2 2 0.5 rgba(0,0,0,0.3)" color-interpolation-filters="sRGB" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="2"/>
+      <feOffset dx="0" dy="2"/>
+      <feComponentTransfer result="offsetblur">
+        <feFuncA id="feFuncA-4" type="linear" slope="1"/>
+      </feComponentTransfer>
+      <feFlood flood-color="rgba(0,0,0,0.3)"/>
+      <feComposite in2="offsetblur" operator="in"/>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <linearGradient gradientUnits="userSpaceOnUse" x1="375.117" y1="1019.9" x2="375.117" y2="1075.9" id="gradient-10" gradientTransform="matrix(1, 0, 0, 1, 0, 30.845753)">
+      <stop offset="0" style="stop-color: rgb(2, 122, 255);"/>
+      <stop offset="1" style="stop-color: rgb(2, 122, 255);"/>
+    </linearGradient>
+    <filter id="filter-14" bx:preset="drop-shadow 1 0 2 2 0.5 rgba(0,0,0,0.3)" color-interpolation-filters="sRGB" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="2"/>
+      <feOffset dx="0" dy="2"/>
+      <feComponentTransfer result="offsetblur">
+        <feFuncA id="feFuncA-4" type="linear" slope="1"/>
+      </feComponentTransfer>
+      <feFlood flood-color="rgba(0,0,0,0.3)"/>
+      <feComposite in2="offsetblur" operator="in"/>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <linearGradient gradientUnits="userSpaceOnUse" x1="623.617" y1="1020" x2="623.617" y2="1076" id="gradient-13" gradientTransform="matrix(1, 0, 0, 1, 0, 30.845753)">
+      <stop offset="0" style="stop-color: rgb(46, 157, 255);"/>
       <stop offset="1" style="stop-color: rgb(2, 122, 255);"/>
     </linearGradient>
   </defs>
@@ -298,7 +350,7 @@
       </g>
       <text style="fill: rgb(255, 255, 255); font-family: Arial, sans-serif; font-size: 22px; font-weight: 700; letter-spacing: 0.6px; text-anchor: middle; white-space: pre; filter: url(&quot;#drop-shadow-filter-6&quot;);" transform="matrix(1, 0, 0, 1, 63.240009, 0)"><tspan x="170.273" y="550.346">Rwx Editor</tspan><tspan x="170.273" dy="1.3em">​</tspan><tspan>.icon</tspan></text>
     </g>
-    <g style="filter: url(&quot;#filter-10&quot;);" transform="matrix(1, 0, 0, 1, 140.895035, 211.576965)">
+    <g style="filter: url(&quot;#filter-10&quot;);" transform="matrix(1, 0, 0, 1, 140.895065, 211.57695)">
       <rect style="stroke-width: 2; fill: rgb(238, 238, 238); stroke: rgb(198, 198, 198);" x="199.041" y="50.846" width="600" height="1106" rx="20" ry="20"/>
       <path d="M 199.117 98 L 208.117 98 L 208.117 165 L 199.117 165 C 199.117 148.25 176.117 139.408 176.117 131.5 C 176.117 123.556 199.117 114.75 199.117 98 Z" style="stroke-width: 2; filter: none; fill: rgb(238, 238, 238); stroke: rgb(198, 198, 198);"/>
       <g>
@@ -312,7 +364,7 @@
           <rect x="398.707" y="320" width="400.334" height="54" style="stroke-width: 1; fill: rgb(231, 231, 231);"/>
         </g>
         <g>
-          <text style="font-family: &quot;SF Pro&quot;; font-size: 27px; letter-spacing: 0.3px; white-space: pre;" transform="matrix(1, -0.000916, 0, 1, 124.392349, -624.145325)" x="206.863" y="710.918">Kind</text>
+          <text style="font-family: &quot;SF Pro&quot;; font-size: 27px; letter-spacing: 0.3px; white-space: pre;" transform="matrix(1, -0.000916, 0, 1, 120.939034, -624.145325)" x="206.863" y="710.918">Type</text>
           <text style="font-family: &quot;SF Pro&quot;; font-size: 27px; letter-spacing: 0.3px; white-space: pre;" transform="matrix(1, -0.000916, 0, 1, 207.158966, -623.667725)" x="206.863" y="710.918">file</text>
           <text style="font-family: &quot;SF Pro&quot;; font-size: 27px; letter-spacing: 0.3px; white-space: pre;" transform="matrix(1, -0.000916, 0, 1, 107.777084, -569.823303)" x="206.863" y="710.918">Name</text>
           <text style="font-family: &quot;SF Pro&quot;; font-size: 24px; letter-spacing: 0.3px; white-space: pre;" transform="matrix(1, -0.000916, 0, 1, 207.158966, -570.246338)" x="206.863" y="710.918">Rwx Editor.icns</text>
@@ -407,11 +459,11 @@
       </g>
       <g>
         <path style="stroke-width: 2; filter: none; fill: rgb(225, 225, 225);" d="M 199.117 1001.85 H 799.117 V 1136.85 A 20 20 0 0 1 779.117 1156.85 H 219.117 A 20 20 0 0 1 199.117 1136.85 V 1001.85 Z" bx:shape="rect 199.117 1001.85 600 155 0 0 20 20 1@8d73e263"/>
-        <g style="opacity: 0.5;">
+        <g style="opacity: 0.5; filter: url(&quot;#filter-13&quot;);">
           <rect x="261.117" y="1050.75" width="228" height="56" style="filter: none; stroke-width: 1; fill: url(&quot;#gradient-10&quot;);" rx="15.007" ry="15.007"/>
           <text style="fill: rgb(255, 255, 255); font-family: &quot;SF Pro&quot;; font-size: 27px; white-space: pre;" x="336.928" y="1087.44">cancel</text>
         </g>
-        <g>
+        <g style="filter: url(&quot;#filter-14&quot;);">
           <rect x="509.117" y="1050.85" width="229" height="56" style="filter: none; stroke-width: 1; fill: url(&quot;#gradient-13&quot;);" rx="14.968" ry="14.968"/>
           <text style="fill: rgb(255, 255, 255); font-family: &quot;SF Pro&quot;; font-size: 27px; white-space: pre;" x="591.755" y="1087.54">apply</text>
         </g>
@@ -476,7 +528,7 @@
           <rect x="398.617" y="320" width="400" height="54" style="stroke-width: 1; fill: rgb(34, 34, 34);"/>
         </g>
         <g>
-          <text style="fill: rgb(221, 221, 221); font-family: &quot;SF Pro&quot;; font-size: 27px; letter-spacing: 0.3px; white-space: pre;" transform="matrix(1, -0.000916, 0, 1, 124.392349, -624.145325)" x="206.863" y="710.918">Kind</text>
+          <text style="fill: rgb(221, 221, 221); font-family: &quot;SF Pro&quot;; font-size: 27px; letter-spacing: 0.3px; white-space: pre;" transform="matrix(1, -0.000916, 0, 1, 120.953316, -624.145325)" x="206.863" y="710.918">Type</text>
           <text style="fill: rgb(221, 221, 221); font-family: &quot;SF Pro&quot;; font-size: 27px; letter-spacing: 0.3px; white-space: pre;" transform="matrix(1, -0.000916, 0, 1, 207.158966, -623.667725)" x="206.863" y="710.918">file</text>
           <text style="fill: rgb(221, 221, 221); font-family: &quot;SF Pro&quot;; font-size: 27px; letter-spacing: 0.3px; white-space: pre;" transform="matrix(1, -0.000916, 0, 1, 107.777084, -569.823303)" x="206.863" y="710.918">Name</text>
           <text style="fill: rgb(221, 221, 221); font-family: &quot;SF Pro&quot;; font-size: 24px; letter-spacing: 0.3px; white-space: pre;" transform="matrix(1, -0.000916, 0, 1, 207.158966, -570.246338)" x="206.863" y="710.918">Rwx Editor.icns</text>
@@ -571,11 +623,11 @@
       </g>
       <g>
         <path style="stroke-width: 2; filter: none; fill: rgb(34, 34, 34);" d="M 199.117 1002 H 799.117 V 1136.3 A 20.7 20.7 0 0 1 778.417 1157 H 219.817 A 20.7 20.7 0 0 1 199.117 1136.3 V 1002 Z" bx:shape="rect 199.117 1002 600 155 0 0 20.7 20.7 1@e2b3b946"/>
-        <g style="opacity: 0.5;">
+        <g style="opacity: 0.5; filter: url(&quot;#filter-11&quot;);">
           <rect x="261.117" y="1050.9" width="228" height="56" style="filter: none; stroke-width: 1; fill: url(&quot;#gradient-6&quot;);" rx="15.007" ry="15.007"/>
           <text style="fill: rgb(255, 255, 255); font-family: &quot;SF Pro&quot;; font-size: 27px; white-space: pre;" x="336.924" y="1087.59">cancel</text>
         </g>
-        <g>
+        <g style="filter: url(&quot;#filter-12&quot;);">
           <rect x="509.117" y="1051" width="229" height="56" style="filter: none; stroke-width: 1; fill: url(&quot;#gradient-12&quot;);" rx="14.968" ry="14.968"/>
           <text style="fill: rgb(255, 255, 255); font-family: &quot;SF Pro&quot;; font-size: 27px; white-space: pre;" x="591.753" y="1087.69">apply</text>
         </g>
