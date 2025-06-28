@@ -103,6 +103,12 @@ struct MessageBox: View {
     }
 
     func insert(type: MessageType, title: String, description: String = "", lifeTime: Message.LifeTime = .time(Message.LIFE_TIME)) {
+        let message = Message(type: type, title: title, description: description)
+        for current in self.messages.value {
+            if (message == current.value.message) {
+                return
+            }
+        }
         self.messageCurrentID.value += 1
         let id = self.messageCurrentID.value
         let expirationTimer = RealTimer(
@@ -110,7 +116,7 @@ struct MessageBox: View {
             onTick: self.onTimerTick
         )
         self.messages.value[id] = (
-            message: Message(type: type, title: title, description: description),
+            message: message,
             expirationTimer: expirationTimer
         )
         if case .time(let time) = lifeTime {
