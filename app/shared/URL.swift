@@ -8,11 +8,11 @@ import SwiftUI
 extension URL {
 
     var pathNameParts: (path: String, name: String) {
-        var path = self.path
+        let pathWithName = self.path
         let name = self.lastPathComponent
-        if (path.last == "/")
-             { path = String(path[0, UInt(path.count - name.count - 2)]) } /* directory */
-        else { path = String(path[0, UInt(path.count - name.count - 1)]) } /* file */
+        let path = String(
+            pathWithName[0, UInt(pathWithName.count - name.count - 1)]
+        )
         return (
             path: path,
             name: name
