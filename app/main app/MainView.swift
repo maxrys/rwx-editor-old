@@ -117,8 +117,8 @@ struct MainView: View {
                     Text(Self.appCopyright)
                         .font(.system(size: 11))
                 }
-                .multilineTextAlignment(.center)
                 .padding(.init(top: 10, leading: 15, bottom: 15, trailing: 15))
+                .multilineTextAlignment(.center)
                 .frame(maxWidth: .infinity)
                 .foregroundPolyfill(.gray)
 

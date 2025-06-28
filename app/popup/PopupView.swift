@@ -45,12 +45,12 @@ struct PopupView: View {
     @State private var group: String = ""
     @State private var info: FSEntityInfo
 
-    private let windowId: String
+    private let initialPathWithName: String
     private let messageBox = MessageBox()
 
-    init(_ windowId: String) {
-        self.windowId = windowId
-        let fsEntityInfo = FSEntityInfo(windowId)
+    init(_ initialPathWithName: String) {
+        self.initialPathWithName = initialPathWithName
+        let fsEntityInfo = FSEntityInfo(initialPathWithName)
         self.rights = fsEntityInfo.rights
         self.owner  = fsEntityInfo.owner
         self.group  = fsEntityInfo.group
@@ -441,7 +441,7 @@ struct PopupView: View {
                 ofItemAtPath: fileURL.path
             )
 
-            let fsEntityInfo = FSEntityInfo(self.windowId)
+            let fsEntityInfo = FSEntityInfo(self.initialPathWithName)
             self.rights = fsEntityInfo.rights
             self.owner  = fsEntityInfo.owner
             self.group  = fsEntityInfo.group
