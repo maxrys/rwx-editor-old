@@ -42,15 +42,4 @@ extension Date {
         return formatter.string(from: self)
     }
 
-    init(fromISO8601: String) throws {
-        let formatter = DateFormatter()
-        formatter.dateFormat = Self.format.iso8601Timezone.rawValue
-        formatter.locale = Locale(identifier: "en_US_POSIX")
-        formatter.timeZone = TimeZone(secondsFromGMT: 0)
-        guard let date = formatter.date(from: fromISO8601) else {
-            throw DateError.valueIsNil
-        }
-        self = date
-    }
-
 }
