@@ -12,13 +12,11 @@ class FinderSyncExt: FIFinderSync {
     static let MENU_ITEM_TAG_RWX_EDITOR = 0
     static let URL_PREFIX = "file://"
 
-    var folderURL = URL(
-        fileURLWithPath: "/"
-    )
-
     override init() {
         super.init()
-        FIFinderSyncController.default().directoryURLs = [self.folderURL]
+        FIFinderSyncController.default().directoryURLs = [
+            URL(fileURLWithPath: "/")
+        ]
     }
 
     override func menu(for menuKind: FIMenuKind) -> NSMenu {

@@ -60,7 +60,8 @@ struct ToggleRwxNumeric: View {
 
 @available(macOS 14.0, *) #Preview {
     @Previewable @State var rights: UInt = 0o644
-    HStack {
+    VStack(spacing: 20) {
         ToggleRwxNumeric($rights)
+        Text(String(rights))
     }.padding(20)
 }

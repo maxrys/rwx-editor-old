@@ -259,8 +259,8 @@ struct PopupView: View {
                     .fill(
                         LinearGradient(
                             colors: [
-                                Color(.black).opacity(self.colorScheme == .light ? 0.1 : 0.4),
-                                Color(.black).opacity(self.colorScheme == .light ? 0.0 : 0.0) ],
+                                Color.black.opacity(self.colorScheme == .light ? 0.1 : 0.4),
+                                Color.black.opacity(self.colorScheme == .light ? 0.0 : 0.0) ],
                             startPoint: .top,
                             endPoint: .bottom
                         )
@@ -340,8 +340,8 @@ struct PopupView: View {
                     .fill(
                         LinearGradient(
                             colors: [
-                                Color(.black).opacity(self.colorScheme == .light ? 0.0 : 0.0),
-                                Color(.black).opacity(self.colorScheme == .light ? 0.1 : 0.4) ],
+                                Color.black.opacity(self.colorScheme == .light ? 0.0 : 0.0),
+                                Color.black.opacity(self.colorScheme == .light ? 0.1 : 0.4) ],
                             startPoint: .top,
                             endPoint: .bottom
                         )
