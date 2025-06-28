@@ -23,8 +23,8 @@ class ThisApp: NSObject, NSApplicationDelegate {
             do {
                 guard let json = notification.object as? String else { return }
                 guard let finderEvent = FinderEvent(from: json) else { return }
-                for path in finderEvent.paths {
-                    self.showPopupWindow(path)
+                for pathWithName in finderEvent.items {
+                    self.showPopupWindow(pathWithName)
                 }
             }
         }).store(in: &self.cancellableBag)
@@ -68,20 +68,20 @@ class ThisApp: NSObject, NSApplicationDelegate {
         ])
     }
 
-    func showPopupWindow(_ path: String) {
-        let popupView = PopupView(path)
+    func showPopupWindow(_ pathWithName: String) {
+        let popupView = PopupView(pathWithName)
         let popupHostingView = NSHostingView(
             rootView: popupView
         )
 
-        self.popupWindows[path] = NSWindow(
+        self.popupWindows[pathWithName] = NSWindow(
             contentRect: NSRect(x: 0, y: 0, width: 300, height: 300),
             styleMask: [.titled, .closable, .miniaturizable],
             backing: .buffered,
             defer: false
         )
 
-        guard let window = self.popupWindows[path] else {
+        guard let window = self.popupWindows[pathWithName] else {
             return
         }
 

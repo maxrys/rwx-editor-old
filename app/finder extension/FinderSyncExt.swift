@@ -38,12 +38,12 @@ class FinderSyncExt: FIFinderSync {
     @objc func onContextMenu(_ menuItem: NSMenuItem) {
         if (menuItem.tag == Self.MENU_ITEM_TAG_RWX_EDITOR) {
             let items = FIFinderSyncController.default().selectedItemURLs()
-            var paths: [String] = []
+            var pathWithNameCollection: [String] = []
             items?.forEach { url in
                 let absolute = url.absoluteString
                 if (absolute.isEmpty == false) {
                     if (absolute[0, UInt(Self.URL_PREFIX.count-1)] == Self.URL_PREFIX) {
-                        paths.append(
+                        pathWithNameCollection.append(
                             String(
                                 absolute[
                                     UInt(Self.URL_PREFIX.count),
@@ -54,10 +54,10 @@ class FinderSyncExt: FIFinderSync {
                     }
                 }
             }
-            if (paths.isEmpty == false) {
+            if (pathWithNameCollection.isEmpty == false) {
                 DistributedNotificationCenter.default().postNotificationName(
                     Notification.Name(FinderSyncExt.EVENT_NAME_FOR_FINDER_CONTEXT_MENU),
-                    object: FinderEvent(paths: paths).encode(),
+                    object: FinderEvent(item: pathWithNameCollection).encode(),
                     deliverImmediately: true
                 )
             }

@@ -7,10 +7,10 @@ import Foundation
 
 struct FinderEvent: Codable {
 
-    var paths: [String]
+    var items: [String]
 
-    init(paths: [String]) {
-        self.paths = paths
+    init(item: [String]) {
+        self.items = item
     }
 
     init?(from json: String) {
