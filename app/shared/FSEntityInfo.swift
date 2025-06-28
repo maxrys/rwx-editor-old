@@ -52,8 +52,8 @@ final class FSEntityInfo {
             switch (subtype.isRegularFile, subtype.isAliasFile, subtype.isSymbolicLink) {
                 case (true, true, false):
                     self.type = .alias
-                    self.realPath = "?"
-                    self.realName = "?"
+                    self.realPath = "—"
+                    self.realName = "—"
                 case (false, true, true):
                     self.type = .link
                     let (realPath, realName) = url.resolvingSymlinksInPath().pathNameParts
