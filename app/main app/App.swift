@@ -7,7 +7,7 @@ import Cocoa
 import SwiftUI
 import Combine
 
-class ThisApp: NSObject, NSApplicationDelegate {
+class ThisApp: NSObject, NSApplicationDelegate, NSWindowDelegate {
 
     private var cancellableBag = Set<AnyCancellable>()
     private var mainWindow: NSWindow!
@@ -60,11 +60,12 @@ class ThisApp: NSObject, NSApplicationDelegate {
             defer: false
         )
 
+        self.mainWindow.delegate = self
+        self.mainWindow.contentView = mainHostingView
         self.mainWindow.center()
         self.mainWindow.title = NSLocalizedString("Rwx Editor (Settings)", comment: "")
         self.mainWindow.level = .normal
         self.mainWindow.makeKeyAndOrderFront(nil)
-        self.mainWindow.contentView = mainHostingView
         self.mainWindow.center()
 
         mainHostingView.translatesAutoresizingMaskIntoConstraints = false
@@ -77,6 +78,11 @@ class ThisApp: NSObject, NSApplicationDelegate {
     }
 
     func showPopupWindow(_ pathWithName: String) {
+        if let existingWindow = self.popupWindows[pathWithName] {
+            existingWindow.makeKeyAndOrderFront(nil)
+            return
+        }
+
         let popupView = PopupView(pathWithName)
         let popupHostingView = NSHostingView(
             rootView: popupView
@@ -93,11 +99,12 @@ class ThisApp: NSObject, NSApplicationDelegate {
             return
         }
 
-        window.center()
+        window.delegate = self
+        window.contentView = popupHostingView
+        window.isReleasedWhenClosed = false
         window.title = NSLocalizedString("Rwx Editor", comment: "")
         window.level = .normal
         window.makeKeyAndOrderFront(nil)
-        window.contentView = popupHostingView
         window.center()
 
         popupHostingView.translatesAutoresizingMaskIntoConstraints = false
@@ -107,6 +114,17 @@ class ThisApp: NSObject, NSApplicationDelegate {
             popupHostingView.topAnchor     .constraint(equalTo: window.contentView!.topAnchor),
             popupHostingView.bottomAnchor  .constraint(equalTo: window.contentView!.bottomAnchor),
         ])
+    }
+
+    func windowWillClose(_ notification: Notification) {
+        let windows = notification.object as? NSWindow
+        if (windows != self.mainWindow) {
+            for (path, current) in self.popupWindows {
+                if (current == windows) {
+                    self.popupWindows[path] = nil
+                }
+            }
+        }
     }
 
 }
