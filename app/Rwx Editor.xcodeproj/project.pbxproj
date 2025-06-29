@@ -81,6 +81,9 @@
 		50114E8C2E0E9BB600024326 /* Shape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50114E8B2E0E9BB600024326 /* Shape.swift */; };
 		50114E8D2E0E9BB600024326 /* Shape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50114E8B2E0E9BB600024326 /* Shape.swift */; };
 		50114E8E2E0E9BB600024326 /* Shape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50114E8B2E0E9BB600024326 /* Shape.swift */; };
+		501939E82E116F2700711283 /* Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501939E72E116F2600711283 /* Equatable.swift */; };
+		501939E92E116F2700711283 /* Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501939E72E116F2600711283 /* Equatable.swift */; };
+		501939EA2E116F2700711283 /* Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501939E72E116F2600711283 /* Equatable.swift */; };
 		50583D5D2DFB5D2000013BD0 /* Rwx Editor Finder Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 50583D552DFB5D2000013BD0 /* Rwx Editor Finder Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		50624C6A2DE5DCD500794BC8 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50624C692DE5DCD500794BC8 /* Test.swift */; };
 /* End PBXBuildFile section */
@@ -133,6 +136,7 @@
 		50114DAB2E0C46AA00024326 /* ToggleCustom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleCustom.swift; sourceTree = "<group>"; };
 		50114E812E0DDB7D00024326 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		50114E8B2E0E9BB600024326 /* Shape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shape.swift; sourceTree = "<group>"; };
+		501939E72E116F2600711283 /* Equatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Equatable.swift; sourceTree = "<group>"; };
 		50583D552DFB5D2000013BD0 /* Rwx Editor Finder Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Rwx Editor Finder Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		50583D632DFB5EA100013BD0 /* FinderSyncExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinderSyncExt.swift; sourceTree = "<group>"; };
 		50583D642DFB5EA100013BD0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -260,6 +264,7 @@
 				5073189F2DF31F1C005E26F9 /* enums.swift */,
 				50624C722DE5E2E300794BC8 /* String.swift */,
 				50114D792E04036200024326 /* Numeric.swift */,
+				501939E72E116F2600711283 /* Equatable.swift */,
 				50624C602DE5D6B500794BC8 /* UInt.swift */,
 				5073189B2DF1BA3D005E26F9 /* Date.swift */,
 				50114D682E02AC0D00024326 /* Color.swift */,
@@ -449,6 +454,7 @@
 				50114D3B2E01F6AF00024326 /* ByteCountFormatter.swift in Sources */,
 				50114D3C2E01F6AF00024326 /* View.swift in Sources */,
 				50114E8C2E0E9BB600024326 /* Shape.swift in Sources */,
+				501939EA2E116F2700711283 /* Equatable.swift in Sources */,
 				50114D9F2E0AF85D00024326 /* RealTimer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -475,6 +481,7 @@
 				50114D962E099D0B00024326 /* URL.swift in Sources */,
 				50114D6E2E02AFD500024326 /* PickerCustom.swift in Sources */,
 				50114D202E01F6AF00024326 /* Date.swift in Sources */,
+				501939E82E116F2700711283 /* Equatable.swift in Sources */,
 				50114D942E0990C100024326 /* GridCustom.swift in Sources */,
 				50114D222E01F6AF00024326 /* FinderEvent.swift in Sources */,
 				50114D232E01F6AF00024326 /* enums.swift in Sources */,
@@ -511,6 +518,7 @@
 				50114D472E01F6AF00024326 /* UInt.swift in Sources */,
 				50624C6A2DE5DCD500794BC8 /* Test.swift in Sources */,
 				50114E8D2E0E9BB600024326 /* Shape.swift in Sources */,
+				501939E92E116F2700711283 /* Equatable.swift in Sources */,
 				50114DA12E0AF85D00024326 /* RealTimer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

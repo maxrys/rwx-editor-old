@@ -22,20 +22,7 @@ final class FSEntityInfo: Equatable {
     var group: String = ""
 
     static func == (lhs: FSEntityInfo, rhs: FSEntityInfo) -> Bool {
-        return
-            lhs.initUrl    == rhs.initUrl &&
-            lhs.type       == rhs.type &&
-            lhs.path       == rhs.path &&
-            lhs.name       == rhs.name &&
-            lhs.realPath   == rhs.realPath &&
-            lhs.realName   == rhs.realName &&
-            lhs.size       == rhs.size &&
-            lhs.created    == rhs.created &&
-            lhs.updated    == rhs.updated &&
-            lhs.references == rhs.references &&
-            lhs.rights     == rhs.rights &&
-            lhs.owner      == rhs.owner &&
-            lhs.group      == rhs.group
+        return Self.equalViaMirror(lhs: lhs, rhs: rhs)
     }
 
     init(_ initUrl: String) {
