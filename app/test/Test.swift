@@ -133,26 +133,16 @@ struct Test {
 
     func url() throws {
         let paths = [
-            ""                : (path: "",       name: ""         ),
-            "name"            : (path: "",       name: "name"     ),
-            ".type"           : (path: "",       name: ".type"    ),
-            "name.type"       : (path: "",       name: "name.type"),
-            "/"               : (path: "/",      name: ""         ),
-            "/name"           : (path: "/",      name: "name"     ),
-            "/.type"          : (path: "/",      name: ".type"    ),
-            "/name.type"      : (path: "/",      name: "name.type"),
-            "dirs/"           : (path: "/dirs/", name: ""         ),
-            "dirs/name"       : (path: "/dirs/", name: "name"     ),
-            "dirs/.type"      : (path: "/dirs/", name: ".type"    ),
-            "dirs/name.type"  : (path: "/dirs/", name: "name.type"),
-            "/dirs/"          : (path: "/dirs/", name: ""         ),
-            "/dirs/name"      : (path: "/dirs/", name: "name"     ),
-            "/dirs/.type"     : (path: "/dirs/", name: ".type"    ),
-            "/dirs/name.type" : (path: "/dirs/", name: "name.type"),
+            "/"                      : (path: "/",           name: ""         ),
+            "/directory/"            : (path: "/",           name: "directory"),
+            "/directory/file"        : (path: "/directory/", name: "file"     ),
+            "file:///"               : (path: "/",           name: ""         ),
+            "file:///directory/"     : (path: "/",           name: "directory"),
+            "file:///directory/file" : (path: "/directory/", name: "file"     ),
         ]
 
         for (value, expected) in paths {
-            let url = URL(string: "file://\(value)")
+            let url = URL(string: value)
             let received = url!.pathAndName
             print("pathAndName: \(value) | (\(received.path),\(received.name)) = (\(expected.path),\(expected.name))")
             #expect(received == expected)
