@@ -14,7 +14,6 @@ class ThisApp: NSObject, NSApplicationDelegate, NSWindowDelegate {
     private var popupWindows: [String: NSWindow] = [:]
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        NSApp.setActivationPolicy(.accessory)
         DistributedNotificationCenter.default.publisher(
             for: Notification.Name(
                 FinderSyncExt.EVENT_NAME_FOR_FINDER_CONTEXT_MENU
@@ -126,6 +125,12 @@ class ThisApp: NSObject, NSApplicationDelegate, NSWindowDelegate {
                 }
             }
         }
+    }
+
+    func applicationShouldHandleReopen(_ app: NSApplication, hasVisibleWindows flag: Bool) -> Bool {
+        self.mainWindow.makeKeyAndOrderFront(nil)
+        app.setActivationPolicy(.accessory)
+        return true
     }
 
 }
