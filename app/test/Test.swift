@@ -4,6 +4,15 @@
 /* ############################################################# */
 
 import Testing
+import Foundation
+
+extension String {
+
+    func paddingLeft(toLength: Int, withPad: String) -> String {
+        String(repeating: withPad, count: toLength - self.count) + self
+    }
+
+}
 
 struct Test {
 
@@ -15,7 +24,7 @@ struct Test {
         try? self.bitGet()
         try? self.bitSet()
         try? self.bitToggle()
-        try? self.string()
+        try? self.url()
     }
 
     func bitGet() throws {
@@ -34,7 +43,7 @@ struct Test {
             let expected = self.prettyResult(UInt(i))
             print("\(String(i).padding(toLength: 3, withPad: " ", startingAt: 0)): ", terminator: "")
             print("\(received) = \(expected)", terminator: "")
-                #expect(expected == received)
+                #expect(received == expected)
             print("")
         }
     }
@@ -47,51 +56,51 @@ struct Test {
 
         isOn = false
         print("bitSet (value: 0b000000000, isOn: \(isOn)):")
-        value = 0b000000000;  value[0] = isOn;  expected = "0b000000000";  received = self.prettyResult(value);  print("\(expected) = \(received)");  #expect(expected == received)
-        value = 0b000000000;  value[1] = isOn;  expected = "0b000000000";  received = self.prettyResult(value);  print("\(expected) = \(received)");  #expect(expected == received)
-        value = 0b000000000;  value[2] = isOn;  expected = "0b000000000";  received = self.prettyResult(value);  print("\(expected) = \(received)");  #expect(expected == received)
-        value = 0b000000000;  value[3] = isOn;  expected = "0b000000000";  received = self.prettyResult(value);  print("\(expected) = \(received)");  #expect(expected == received)
-        value = 0b000000000;  value[4] = isOn;  expected = "0b000000000";  received = self.prettyResult(value);  print("\(expected) = \(received)");  #expect(expected == received)
-        value = 0b000000000;  value[5] = isOn;  expected = "0b000000000";  received = self.prettyResult(value);  print("\(expected) = \(received)");  #expect(expected == received)
-        value = 0b000000000;  value[6] = isOn;  expected = "0b000000000";  received = self.prettyResult(value);  print("\(expected) = \(received)");  #expect(expected == received)
-        value = 0b000000000;  value[7] = isOn;  expected = "0b000000000";  received = self.prettyResult(value);  print("\(expected) = \(received)");  #expect(expected == received)
-        value = 0b000000000;  value[8] = isOn;  expected = "0b000000000";  received = self.prettyResult(value);  print("\(expected) = \(received)");  #expect(expected == received)
+        value = 0b000000000;  value[0] = isOn;  expected = "0b000000000";  received = self.prettyResult(value);  print("\(received) = \(expected)");  #expect(received == expected)
+        value = 0b000000000;  value[1] = isOn;  expected = "0b000000000";  received = self.prettyResult(value);  print("\(received) = \(expected)");  #expect(received == expected)
+        value = 0b000000000;  value[2] = isOn;  expected = "0b000000000";  received = self.prettyResult(value);  print("\(received) = \(expected)");  #expect(received == expected)
+        value = 0b000000000;  value[3] = isOn;  expected = "0b000000000";  received = self.prettyResult(value);  print("\(received) = \(expected)");  #expect(received == expected)
+        value = 0b000000000;  value[4] = isOn;  expected = "0b000000000";  received = self.prettyResult(value);  print("\(received) = \(expected)");  #expect(received == expected)
+        value = 0b000000000;  value[5] = isOn;  expected = "0b000000000";  received = self.prettyResult(value);  print("\(received) = \(expected)");  #expect(received == expected)
+        value = 0b000000000;  value[6] = isOn;  expected = "0b000000000";  received = self.prettyResult(value);  print("\(received) = \(expected)");  #expect(received == expected)
+        value = 0b000000000;  value[7] = isOn;  expected = "0b000000000";  received = self.prettyResult(value);  print("\(received) = \(expected)");  #expect(received == expected)
+        value = 0b000000000;  value[8] = isOn;  expected = "0b000000000";  received = self.prettyResult(value);  print("\(received) = \(expected)");  #expect(received == expected)
 
         isOn = true
         print("bitSet (value: 0b000000000, isOn: \(isOn)):")
-        value = 0b000000000;  value[0] = isOn;  expected = "0b000000001";  received = self.prettyResult(value);  print("\(expected) = \(received)");  #expect(expected == received)
-        value = 0b000000000;  value[1] = isOn;  expected = "0b000000010";  received = self.prettyResult(value);  print("\(expected) = \(received)");  #expect(expected == received)
-        value = 0b000000000;  value[2] = isOn;  expected = "0b000000100";  received = self.prettyResult(value);  print("\(expected) = \(received)");  #expect(expected == received)
-        value = 0b000000000;  value[3] = isOn;  expected = "0b000001000";  received = self.prettyResult(value);  print("\(expected) = \(received)");  #expect(expected == received)
-        value = 0b000000000;  value[4] = isOn;  expected = "0b000010000";  received = self.prettyResult(value);  print("\(expected) = \(received)");  #expect(expected == received)
-        value = 0b000000000;  value[5] = isOn;  expected = "0b000100000";  received = self.prettyResult(value);  print("\(expected) = \(received)");  #expect(expected == received)
-        value = 0b000000000;  value[6] = isOn;  expected = "0b001000000";  received = self.prettyResult(value);  print("\(expected) = \(received)");  #expect(expected == received)
-        value = 0b000000000;  value[7] = isOn;  expected = "0b010000000";  received = self.prettyResult(value);  print("\(expected) = \(received)");  #expect(expected == received)
-        value = 0b000000000;  value[8] = isOn;  expected = "0b100000000";  received = self.prettyResult(value);  print("\(expected) = \(received)");  #expect(expected == received)
+        value = 0b000000000;  value[0] = isOn;  expected = "0b000000001";  received = self.prettyResult(value);  print("\(received) = \(expected)");  #expect(received == expected)
+        value = 0b000000000;  value[1] = isOn;  expected = "0b000000010";  received = self.prettyResult(value);  print("\(received) = \(expected)");  #expect(received == expected)
+        value = 0b000000000;  value[2] = isOn;  expected = "0b000000100";  received = self.prettyResult(value);  print("\(received) = \(expected)");  #expect(received == expected)
+        value = 0b000000000;  value[3] = isOn;  expected = "0b000001000";  received = self.prettyResult(value);  print("\(received) = \(expected)");  #expect(received == expected)
+        value = 0b000000000;  value[4] = isOn;  expected = "0b000010000";  received = self.prettyResult(value);  print("\(received) = \(expected)");  #expect(received == expected)
+        value = 0b000000000;  value[5] = isOn;  expected = "0b000100000";  received = self.prettyResult(value);  print("\(received) = \(expected)");  #expect(received == expected)
+        value = 0b000000000;  value[6] = isOn;  expected = "0b001000000";  received = self.prettyResult(value);  print("\(received) = \(expected)");  #expect(received == expected)
+        value = 0b000000000;  value[7] = isOn;  expected = "0b010000000";  received = self.prettyResult(value);  print("\(received) = \(expected)");  #expect(received == expected)
+        value = 0b000000000;  value[8] = isOn;  expected = "0b100000000";  received = self.prettyResult(value);  print("\(received) = \(expected)");  #expect(received == expected)
 
         isOn = false
         print("bitSet (value: 0b111111111, isOn: \(isOn)):")
-        value = 0b111111111;  value[0] = isOn;  expected = "0b111111110";  received = self.prettyResult(value);  print("\(expected) = \(received)");  #expect(expected == received)
-        value = 0b111111111;  value[1] = isOn;  expected = "0b111111101";  received = self.prettyResult(value);  print("\(expected) = \(received)");  #expect(expected == received)
-        value = 0b111111111;  value[2] = isOn;  expected = "0b111111011";  received = self.prettyResult(value);  print("\(expected) = \(received)");  #expect(expected == received)
-        value = 0b111111111;  value[3] = isOn;  expected = "0b111110111";  received = self.prettyResult(value);  print("\(expected) = \(received)");  #expect(expected == received)
-        value = 0b111111111;  value[4] = isOn;  expected = "0b111101111";  received = self.prettyResult(value);  print("\(expected) = \(received)");  #expect(expected == received)
-        value = 0b111111111;  value[5] = isOn;  expected = "0b111011111";  received = self.prettyResult(value);  print("\(expected) = \(received)");  #expect(expected == received)
-        value = 0b111111111;  value[6] = isOn;  expected = "0b110111111";  received = self.prettyResult(value);  print("\(expected) = \(received)");  #expect(expected == received)
-        value = 0b111111111;  value[7] = isOn;  expected = "0b101111111";  received = self.prettyResult(value);  print("\(expected) = \(received)");  #expect(expected == received)
-        value = 0b111111111;  value[8] = isOn;  expected = "0b011111111";  received = self.prettyResult(value);  print("\(expected) = \(received)");  #expect(expected == received)
+        value = 0b111111111;  value[0] = isOn;  expected = "0b111111110";  received = self.prettyResult(value);  print("\(received) = \(expected)");  #expect(received == expected)
+        value = 0b111111111;  value[1] = isOn;  expected = "0b111111101";  received = self.prettyResult(value);  print("\(received) = \(expected)");  #expect(received == expected)
+        value = 0b111111111;  value[2] = isOn;  expected = "0b111111011";  received = self.prettyResult(value);  print("\(received) = \(expected)");  #expect(received == expected)
+        value = 0b111111111;  value[3] = isOn;  expected = "0b111110111";  received = self.prettyResult(value);  print("\(received) = \(expected)");  #expect(received == expected)
+        value = 0b111111111;  value[4] = isOn;  expected = "0b111101111";  received = self.prettyResult(value);  print("\(received) = \(expected)");  #expect(received == expected)
+        value = 0b111111111;  value[5] = isOn;  expected = "0b111011111";  received = self.prettyResult(value);  print("\(received) = \(expected)");  #expect(received == expected)
+        value = 0b111111111;  value[6] = isOn;  expected = "0b110111111";  received = self.prettyResult(value);  print("\(received) = \(expected)");  #expect(received == expected)
+        value = 0b111111111;  value[7] = isOn;  expected = "0b101111111";  received = self.prettyResult(value);  print("\(received) = \(expected)");  #expect(received == expected)
+        value = 0b111111111;  value[8] = isOn;  expected = "0b011111111";  received = self.prettyResult(value);  print("\(received) = \(expected)");  #expect(received == expected)
 
         isOn = true
         print("bitSet (value: 0b111111111, isOn: \(isOn)):")
-        value = 0b111111111;  value[0] = isOn;  expected = "0b111111111";  received = self.prettyResult(value);  print("\(expected) = \(received)");  #expect(expected == received)
-        value = 0b111111111;  value[1] = isOn;  expected = "0b111111111";  received = self.prettyResult(value);  print("\(expected) = \(received)");  #expect(expected == received)
-        value = 0b111111111;  value[2] = isOn;  expected = "0b111111111";  received = self.prettyResult(value);  print("\(expected) = \(received)");  #expect(expected == received)
-        value = 0b111111111;  value[3] = isOn;  expected = "0b111111111";  received = self.prettyResult(value);  print("\(expected) = \(received)");  #expect(expected == received)
-        value = 0b111111111;  value[4] = isOn;  expected = "0b111111111";  received = self.prettyResult(value);  print("\(expected) = \(received)");  #expect(expected == received)
-        value = 0b111111111;  value[5] = isOn;  expected = "0b111111111";  received = self.prettyResult(value);  print("\(expected) = \(received)");  #expect(expected == received)
-        value = 0b111111111;  value[6] = isOn;  expected = "0b111111111";  received = self.prettyResult(value);  print("\(expected) = \(received)");  #expect(expected == received)
-        value = 0b111111111;  value[7] = isOn;  expected = "0b111111111";  received = self.prettyResult(value);  print("\(expected) = \(received)");  #expect(expected == received)
-        value = 0b111111111;  value[8] = isOn;  expected = "0b111111111";  received = self.prettyResult(value);  print("\(expected) = \(received)");  #expect(expected == received)
+        value = 0b111111111;  value[0] = isOn;  expected = "0b111111111";  received = self.prettyResult(value);  print("\(received) = \(expected)");  #expect(received == expected)
+        value = 0b111111111;  value[1] = isOn;  expected = "0b111111111";  received = self.prettyResult(value);  print("\(received) = \(expected)");  #expect(received == expected)
+        value = 0b111111111;  value[2] = isOn;  expected = "0b111111111";  received = self.prettyResult(value);  print("\(received) = \(expected)");  #expect(received == expected)
+        value = 0b111111111;  value[3] = isOn;  expected = "0b111111111";  received = self.prettyResult(value);  print("\(received) = \(expected)");  #expect(received == expected)
+        value = 0b111111111;  value[4] = isOn;  expected = "0b111111111";  received = self.prettyResult(value);  print("\(received) = \(expected)");  #expect(received == expected)
+        value = 0b111111111;  value[5] = isOn;  expected = "0b111111111";  received = self.prettyResult(value);  print("\(received) = \(expected)");  #expect(received == expected)
+        value = 0b111111111;  value[6] = isOn;  expected = "0b111111111";  received = self.prettyResult(value);  print("\(received) = \(expected)");  #expect(received == expected)
+        value = 0b111111111;  value[7] = isOn;  expected = "0b111111111";  received = self.prettyResult(value);  print("\(received) = \(expected)");  #expect(received == expected)
+        value = 0b111111111;  value[8] = isOn;  expected = "0b111111111";  received = self.prettyResult(value);  print("\(received) = \(expected)");  #expect(received == expected)
     }
 
     func bitToggle() throws {
@@ -100,69 +109,55 @@ struct Test {
         var expected: String
 
         print("bitToggle (value: 0b000000000):")
-        value = 0b000000000;  value[0].toggle();  expected = "0b000000001";  received = self.prettyResult(value);  print("\(expected) = \(received)");  #expect(expected == received)
-        value = 0b000000000;  value[1].toggle();  expected = "0b000000010";  received = self.prettyResult(value);  print("\(expected) = \(received)");  #expect(expected == received)
-        value = 0b000000000;  value[2].toggle();  expected = "0b000000100";  received = self.prettyResult(value);  print("\(expected) = \(received)");  #expect(expected == received)
-        value = 0b000000000;  value[3].toggle();  expected = "0b000001000";  received = self.prettyResult(value);  print("\(expected) = \(received)");  #expect(expected == received)
-        value = 0b000000000;  value[4].toggle();  expected = "0b000010000";  received = self.prettyResult(value);  print("\(expected) = \(received)");  #expect(expected == received)
-        value = 0b000000000;  value[5].toggle();  expected = "0b000100000";  received = self.prettyResult(value);  print("\(expected) = \(received)");  #expect(expected == received)
-        value = 0b000000000;  value[6].toggle();  expected = "0b001000000";  received = self.prettyResult(value);  print("\(expected) = \(received)");  #expect(expected == received)
-        value = 0b000000000;  value[7].toggle();  expected = "0b010000000";  received = self.prettyResult(value);  print("\(expected) = \(received)");  #expect(expected == received)
-        value = 0b000000000;  value[8].toggle();  expected = "0b100000000";  received = self.prettyResult(value);  print("\(expected) = \(received)");  #expect(expected == received)
+        value = 0b000000000;  value[0].toggle();  expected = "0b000000001";  received = self.prettyResult(value);  print("\(received) = \(expected)");  #expect(received == expected)
+        value = 0b000000000;  value[1].toggle();  expected = "0b000000010";  received = self.prettyResult(value);  print("\(received) = \(expected)");  #expect(received == expected)
+        value = 0b000000000;  value[2].toggle();  expected = "0b000000100";  received = self.prettyResult(value);  print("\(received) = \(expected)");  #expect(received == expected)
+        value = 0b000000000;  value[3].toggle();  expected = "0b000001000";  received = self.prettyResult(value);  print("\(received) = \(expected)");  #expect(received == expected)
+        value = 0b000000000;  value[4].toggle();  expected = "0b000010000";  received = self.prettyResult(value);  print("\(received) = \(expected)");  #expect(received == expected)
+        value = 0b000000000;  value[5].toggle();  expected = "0b000100000";  received = self.prettyResult(value);  print("\(received) = \(expected)");  #expect(received == expected)
+        value = 0b000000000;  value[6].toggle();  expected = "0b001000000";  received = self.prettyResult(value);  print("\(received) = \(expected)");  #expect(received == expected)
+        value = 0b000000000;  value[7].toggle();  expected = "0b010000000";  received = self.prettyResult(value);  print("\(received) = \(expected)");  #expect(received == expected)
+        value = 0b000000000;  value[8].toggle();  expected = "0b100000000";  received = self.prettyResult(value);  print("\(received) = \(expected)");  #expect(received == expected)
 
         print("bitToggle (value: 0b111111111):")
-        value = 0b111111111;  value[0].toggle();  expected = "0b111111110";  received = self.prettyResult(value);  print("\(expected) = \(received)");  #expect(expected == received)
-        value = 0b111111111;  value[1].toggle();  expected = "0b111111101";  received = self.prettyResult(value);  print("\(expected) = \(received)");  #expect(expected == received)
-        value = 0b111111111;  value[2].toggle();  expected = "0b111111011";  received = self.prettyResult(value);  print("\(expected) = \(received)");  #expect(expected == received)
-        value = 0b111111111;  value[3].toggle();  expected = "0b111110111";  received = self.prettyResult(value);  print("\(expected) = \(received)");  #expect(expected == received)
-        value = 0b111111111;  value[4].toggle();  expected = "0b111101111";  received = self.prettyResult(value);  print("\(expected) = \(received)");  #expect(expected == received)
-        value = 0b111111111;  value[5].toggle();  expected = "0b111011111";  received = self.prettyResult(value);  print("\(expected) = \(received)");  #expect(expected == received)
-        value = 0b111111111;  value[6].toggle();  expected = "0b110111111";  received = self.prettyResult(value);  print("\(expected) = \(received)");  #expect(expected == received)
-        value = 0b111111111;  value[7].toggle();  expected = "0b101111111";  received = self.prettyResult(value);  print("\(expected) = \(received)");  #expect(expected == received)
-        value = 0b111111111;  value[8].toggle();  expected = "0b011111111";  received = self.prettyResult(value);  print("\(expected) = \(received)");  #expect(expected == received)
+        value = 0b111111111;  value[0].toggle();  expected = "0b111111110";  received = self.prettyResult(value);  print("\(received) = \(expected)");  #expect(received == expected)
+        value = 0b111111111;  value[1].toggle();  expected = "0b111111101";  received = self.prettyResult(value);  print("\(received) = \(expected)");  #expect(received == expected)
+        value = 0b111111111;  value[2].toggle();  expected = "0b111111011";  received = self.prettyResult(value);  print("\(received) = \(expected)");  #expect(received == expected)
+        value = 0b111111111;  value[3].toggle();  expected = "0b111110111";  received = self.prettyResult(value);  print("\(received) = \(expected)");  #expect(received == expected)
+        value = 0b111111111;  value[4].toggle();  expected = "0b111101111";  received = self.prettyResult(value);  print("\(received) = \(expected)");  #expect(received == expected)
+        value = 0b111111111;  value[5].toggle();  expected = "0b111011111";  received = self.prettyResult(value);  print("\(received) = \(expected)");  #expect(received == expected)
+        value = 0b111111111;  value[6].toggle();  expected = "0b110111111";  received = self.prettyResult(value);  print("\(received) = \(expected)");  #expect(received == expected)
+        value = 0b111111111;  value[7].toggle();  expected = "0b101111111";  received = self.prettyResult(value);  print("\(received) = \(expected)");  #expect(received == expected)
+        value = 0b111111111;  value[8].toggle();  expected = "0b011111111";  received = self.prettyResult(value);  print("\(received) = \(expected)");  #expect(received == expected)
     }
 
-    func string() throws {
+    func url() throws {
+        let paths = [
+            ""                : (path: "",       name: ""         ),
+            "name"            : (path: "",       name: "name"     ),
+            ".type"           : (path: "",       name: ".type"    ),
+            "name.type"       : (path: "",       name: "name.type"),
+            "/"               : (path: "/",      name: ""         ),
+            "/name"           : (path: "/",      name: "name"     ),
+            "/.type"          : (path: "/",      name: ".type"    ),
+            "/name.type"      : (path: "/",      name: "name.type"),
+            "dirs/"           : (path: "/dirs/", name: ""         ),
+            "dirs/name"       : (path: "/dirs/", name: "name"     ),
+            "dirs/.type"      : (path: "/dirs/", name: ".type"    ),
+            "dirs/name.type"  : (path: "/dirs/", name: "name.type"),
+            "/dirs/"          : (path: "/dirs/", name: ""         ),
+            "/dirs/name"      : (path: "/dirs/", name: "name"     ),
+            "/dirs/.type"     : (path: "/dirs/", name: ".type"    ),
+            "/dirs/name.type" : (path: "/dirs/", name: "name.type"),
+        ]
 
-        let string = "Привет!"
-
-        #expect(string[0] == "П")
-        #expect(string[1] == "р")
-        #expect(string[2] == "и")
-        #expect(string[3] == "в")
-        #expect(string[4] == "е")
-        #expect(string[5] == "т")
-        #expect(string[6] == "!")
-
-        #expect(string[-7] == "П")
-        #expect(string[-6] == "р")
-        #expect(string[-5] == "и")
-        #expect(string[-4] == "в")
-        #expect(string[-3] == "е")
-        #expect(string[-2] == "т")
-        #expect(string[-1] == "!")
-
-        #expect(string[0, 0] == "П")
-        #expect(string[0, 1] == "Пр")
-        #expect(string[0, 2] == "При")
-        #expect(string[0, 3] == "Прив")
-        #expect(string[0, 4] == "Приве")
-        #expect(string[0, 5] == "Привет")
-        #expect(string[0, 6] == "Привет!")
-
-        #expect(string[3, 3] == "в")
-        #expect(string[3, 4] == "ве")
-        #expect(string[3, 5] == "вет")
-        #expect(string[3, 6] == "вет!")
-
-        #expect(string[-100] == "П")
-        #expect(string[+100] == "!")
-
-        #expect(string[100,   0] == "Привет!")
-        #expect(string[  0, 100] == "Привет!")
-        #expect(string[  3,   1] == "рив")
-        #expect(string[100,   1] == "ривет!")
-
+        for (value, expected) in paths {
+            let url = URL(string: "file://\(value)")
+            let received = url!.pathAndName
+            print("pathAndName: \(value) | (\(received.path),\(received.name)) = (\(expected.path),\(expected.name))")
+            #expect(received == expected)
+        }
     }
+
 
 }

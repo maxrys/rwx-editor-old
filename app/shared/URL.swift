@@ -7,16 +7,30 @@ import SwiftUI
 
 extension URL {
 
-    var pathNameParts: (path: String, name: String) {
-        let pathWithName = self.path
-        let name = self.lastPathComponent
-        let path = String(
-            pathWithName[0, UInt(pathWithName.count - name.count - 1)]
+    static let URL_PREFIX = "file://"
+
+    var pathAndName: (path: String, name: String) {
+        var absolute = self.absoluteString
+        if (absolute.hasPrefix(Self.URL_PREFIX)) {
+            absolute = String(absolute.dropFirst(Self.URL_PREFIX.count))
+        }
+        let splitResult = absolute.split(
+            separator: "/",
+            omittingEmptySubsequences: false
         )
-        return (
-            path: path,
-            name: name
-        )
+        switch splitResult.count {
+            case 1: return (path: "", name: absolute)
+            case 2...:
+                var path = String(describing: splitResult.dropLast().joined(separator: "/"))
+                let name = String(describing: splitResult.last!)
+                if (path.first != "/") { path = "/" + path       }
+                if (path.last  != "/") { path =       path + "/" }
+                return (
+                    path: path,
+                    name: name
+                )
+            default: return (path: "", name: "")
+        }
     }
 
 }

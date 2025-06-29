@@ -60,7 +60,7 @@ final class FSEntityInfo: Equatable {
                     self.realName = "—"
                 case (false, true, true):
                     self.type = .link
-                    let (realPath, realName) = url.resolvingSymlinksInPath().pathNameParts
+                    let (realPath, realName) = url.resolvingSymlinksInPath().pathAndName
                     self.realPath = realPath
                     self.realName = realName
                 default: break
@@ -70,7 +70,7 @@ final class FSEntityInfo: Equatable {
         if (self.type != .unknown) {
 
             /* MARK: name/path */
-            let (path, name) = url.pathNameParts
+            let (path, name) = url.pathAndName
             self.path = path
             self.name = name
 
