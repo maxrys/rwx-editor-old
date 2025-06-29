@@ -422,12 +422,13 @@ struct PopupView: View {
         .environment(\.layoutDirection, .leftToRight)
         .frame(width: Self.FRAME_WIDTH)
         .onReceive(NotificationCenter.default.publisher(for: NSApplication.didBecomeActiveNotification)) { _ in
-            self.updateView()
+            self.updateView(onlyIfRequired: true)
         }
     }
 
-    func updateView() {
+    func updateView(onlyIfRequired: Bool = false) {
         let fsEntityInfo = FSEntityInfo(self.initialPathWithName)
+        if (onlyIfRequired && fsEntityInfo == self.info) { return }
         self.rights = fsEntityInfo.rights
         self.owner  = fsEntityInfo.owner
         self.group  = fsEntityInfo.group

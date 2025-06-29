@@ -5,7 +5,7 @@
 
 import Foundation
 
-final class FSEntityInfo {
+final class FSEntityInfo: Equatable {
 
     var initUrl: String = ""
     var type: FSType = .unknown
@@ -20,6 +20,23 @@ final class FSEntityInfo {
     var rights: UInt = 0
     var owner: String = ""
     var group: String = ""
+
+    static func == (lhs: FSEntityInfo, rhs: FSEntityInfo) -> Bool {
+        return
+            lhs.initUrl    == rhs.initUrl &&
+            lhs.type       == rhs.type &&
+            lhs.path       == rhs.path &&
+            lhs.name       == rhs.name &&
+            lhs.realPath   == rhs.realPath &&
+            lhs.realName   == rhs.realName &&
+            lhs.size       == rhs.size &&
+            lhs.created    == rhs.created &&
+            lhs.updated    == rhs.updated &&
+            lhs.references == rhs.references &&
+            lhs.rights     == rhs.rights &&
+            lhs.owner      == rhs.owner &&
+            lhs.group      == rhs.group
+    }
 
     init(_ initUrl: String) {
 
