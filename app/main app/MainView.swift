@@ -104,7 +104,7 @@ struct MainView: View {
                         LinearGradient(
                             colors: [
                                 Color.black.opacity(self.colorScheme == .light ? 0.1 : 0.4),
-                                Color.black.opacity(self.colorScheme == .light ? 0.0 : 0.0) ],
+                                Color.clear ],
                             startPoint: .top,
                             endPoint: .bottom
                         )
