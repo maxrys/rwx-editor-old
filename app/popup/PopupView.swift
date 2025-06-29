@@ -421,6 +421,17 @@ struct PopupView: View {
         .foregroundPolyfill(Color.getCustom(.text))
         .environment(\.layoutDirection, .leftToRight)
         .frame(width: Self.FRAME_WIDTH)
+        .onReceive(NotificationCenter.default.publisher(for: NSApplication.didBecomeActiveNotification)) { _ in
+            self.updateView()
+        }
+    }
+
+    func updateView() {
+        let fsEntityInfo = FSEntityInfo(self.initialPathWithName)
+        self.rights = fsEntityInfo.rights
+        self.owner  = fsEntityInfo.owner
+        self.group  = fsEntityInfo.group
+        self.info   = fsEntityInfo
     }
 
     /* ################### */
@@ -441,12 +452,7 @@ struct PopupView: View {
                 ofItemAtPath: fileURL.path
             )
 
-            let fsEntityInfo = FSEntityInfo(self.initialPathWithName)
-            self.rights = fsEntityInfo.rights
-            self.owner  = fsEntityInfo.owner
-            self.group  = fsEntityInfo.group
-            self.info   = fsEntityInfo
-
+            self.updateView()
             self.messageBox.insert(
                 type: .ok,
                 title: NSLocalizedString(
