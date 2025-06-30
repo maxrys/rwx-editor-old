@@ -10,6 +10,7 @@ import ServiceManagement
 struct MainView: View {
 
     static let FRAME_WIDTH: CGFloat = 300
+    static let BOOKMARK_KEY = "selectedDirectory"
 
     static var launchAtLogin: Bool {
         get {
@@ -172,6 +173,28 @@ struct MainView: View {
     }
 
     func addScope() {
+        let openPanel = NSOpenPanel()
+        openPanel.allowsMultipleSelection = false
+        openPanel.canChooseFiles = false
+        openPanel.canChooseDirectories = true
+        openPanel.canCreateDirectories = true
+        openPanel.prompt = NSLocalizedString("select a directory to grant access", comment: "")
+
+        guard openPanel.runModal() == .OK else { return }
+        guard let url = openPanel.url     else { return }
+
+        let bookmarkData = try? url.bookmarkData(
+            options: .withSecurityScope,
+            includingResourceValuesForKeys: nil,
+            relativeTo: nil
+        )
+
+        if let bookmarkData {
+            UserDefaults.standard.set(
+                bookmarkData,
+                forKey: Self.BOOKMARK_KEY
+            )
+        }
     }
 
 }

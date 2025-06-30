@@ -503,6 +503,22 @@
         }
       }
     },
+    "select a directory to grant access" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "select a directory to grant access"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "выбрать каталог для предоставления доступа"
+          }
+        }
+      }
+    },
     "Size" : {
       "localizations" : {
         "en" : {
