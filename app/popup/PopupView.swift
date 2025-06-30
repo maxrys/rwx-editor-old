@@ -38,7 +38,7 @@ struct PopupView: View {
 
             /* MARK: body */
             BodyView(
-                self.info,
+                self.$info,
                 self.$rights,
                 self.$owner,
                 self.$group
@@ -60,7 +60,7 @@ struct PopupView: View {
             /* MARK: debug info */
             if (Self.IS_SHOW_DEBUG_INFO) {
                 DebugInfoView(
-                    self.info
+                    self.$info
                 )
             }
 

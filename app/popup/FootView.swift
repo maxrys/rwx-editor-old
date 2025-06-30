@@ -67,6 +67,12 @@ struct FootView: View {
             Binding.constant(FSEntityInfo("/private/etc/").owner),
             Binding.constant(FSEntityInfo("/private/etc/").group)
         )
+        FootView(
+            Binding.constant(FSEntityInfo("/private/etc/")),
+            Binding.constant(0o644),
+            Binding.constant(""),
+            Binding.constant("")
+        )
     }
     .padding(10)
     .background(Color.black)

@@ -29,12 +29,12 @@ struct BodyView: View {
 
     @Environment(\.colorScheme) private var colorScheme
 
-    private var info: FSEntityInfo
+    private var info: Binding<FSEntityInfo>
     private var rights: Binding<UInt>
     private var owner: Binding<String>
     private var group: Binding<String>
 
-    init(_ info: FSEntityInfo, _ rights: Binding<UInt>, _ owner: Binding<String>, _ group: Binding<String>) {
+    init(_ info: Binding<FSEntityInfo>, _ rights: Binding<UInt>, _ owner: Binding<String>, _ group: Binding<String>) {
         self.info   = info
         self.rights = rights
         self.owner  = owner
@@ -102,7 +102,7 @@ struct BodyView: View {
                 }
 
                 VStack(spacing: 10) {
-                    let text = self.info.type == .file ? "Execute" : "Access"
+                    let text = self.info.type.wrappedValue == .file ? "Execute" : "Access"
                     Text(NSLocalizedString(text, comment: "")).frame(width: textW, height: textH)
                     ToggleRwxColored(.owner, self.rights, bitPosition: Subject.owner.offset + Permission.x.offset);
                     ToggleRwxColored(.group, self.rights, bitPosition: Subject.group.offset + Permission.x.offset);
@@ -153,14 +153,14 @@ struct BodyView: View {
 }
 
 @available(macOS 14.0, *) #Preview {
-    @Previewable @State var rights: UInt  = FSEntityInfo("/private/etc/").rights
-    @Previewable @State var owner: String = FSEntityInfo("/private/etc/").owner
-    @Previewable @State var group: String = FSEntityInfo("/private/etc/").group
-    let info = FSEntityInfo("/private/etc/")
+    @Previewable @State var info: FSEntityInfo = FSEntityInfo("/private/etc/")
+    @Previewable @State var rights: UInt       = FSEntityInfo("/private/etc/").rights
+    @Previewable @State var owner: String      = FSEntityInfo("/private/etc/").owner
+    @Previewable @State var group: String      = FSEntityInfo("/private/etc/").group
     VStack {
-        DebugInfoView(info)
+        DebugInfoView($info)
         BodyView(
-            info,
+            $info,
             $rights,
             $owner,
             $group
