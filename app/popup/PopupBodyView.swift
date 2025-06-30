@@ -5,7 +5,7 @@
 
 import SwiftUI
 
-struct BodyView: View {
+struct PopupBodyView: View {
 
     enum ColorNames: String {
         case body = "color PopupView Body Background"
@@ -159,7 +159,7 @@ struct BodyView: View {
     @Previewable @State var group: String      = FSEntityInfo("/private/etc/").group
     VStack {
         DebugInfoView($info)
-        BodyView(
+        PopupBodyView(
             $info,
             $rights,
             $owner,

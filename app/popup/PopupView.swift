@@ -41,12 +41,12 @@ struct PopupView: View {
         VStack(spacing: 0) {
 
             /* MARK: head */
-            HeadView(
+            PopupHeadView(
                 self.info
             )
 
             /* MARK: body */
-            BodyView(
+            PopupBodyView(
                 self.$info,
                 self.$rights,
                 self.$owner,
@@ -54,7 +54,7 @@ struct PopupView: View {
             )
 
             /* MARK: foot */
-            FootView(
+            PopupFootView(
                 self.$info,
                 self.$rights,
                 self.$owner,

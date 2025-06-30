@@ -82,10 +82,10 @@
 		50403EA92E12B0DC007F1D6B /* ScopesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50403EA82E12B0DC007F1D6B /* ScopesView.swift */; };
 		50403EAB2E12B325007F1D6B /* LaunchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50403EAA2E12B325007F1D6B /* LaunchView.swift */; };
 		50403EAF2E12B54F007F1D6B /* ExtensionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50403EAE2E12B54F007F1D6B /* ExtensionView.swift */; };
-		50403EB12E12B7FB007F1D6B /* HeadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50403EB02E12B7FB007F1D6B /* HeadView.swift */; };
-		50403EB32E12BA52007F1D6B /* BodyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50403EB22E12BA52007F1D6B /* BodyView.swift */; };
+		50403EB12E12B7FB007F1D6B /* PopupHeadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50403EB02E12B7FB007F1D6B /* PopupHeadView.swift */; };
+		50403EB32E12BA52007F1D6B /* PopupBodyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50403EB22E12BA52007F1D6B /* PopupBodyView.swift */; };
 		50403EB52E12BC52007F1D6B /* DebugInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50403EB42E12BC52007F1D6B /* DebugInfoView.swift */; };
-		50403EB72E12C247007F1D6B /* FootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50403EB62E12C242007F1D6B /* FootView.swift */; };
+		50403EB72E12C247007F1D6B /* PopupFootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50403EB62E12C242007F1D6B /* PopupFootView.swift */; };
 		50583D5D2DFB5D2000013BD0 /* Rwx Editor Finder Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 50583D552DFB5D2000013BD0 /* Rwx Editor Finder Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		50624C6A2DE5DCD500794BC8 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50624C692DE5DCD500794BC8 /* Test.swift */; };
 /* End PBXBuildFile section */
@@ -142,10 +142,10 @@
 		50403EA82E12B0DC007F1D6B /* ScopesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScopesView.swift; sourceTree = "<group>"; };
 		50403EAA2E12B325007F1D6B /* LaunchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchView.swift; sourceTree = "<group>"; };
 		50403EAE2E12B54F007F1D6B /* ExtensionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionView.swift; sourceTree = "<group>"; };
-		50403EB02E12B7FB007F1D6B /* HeadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadView.swift; sourceTree = "<group>"; };
-		50403EB22E12BA52007F1D6B /* BodyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BodyView.swift; sourceTree = "<group>"; };
+		50403EB02E12B7FB007F1D6B /* PopupHeadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupHeadView.swift; sourceTree = "<group>"; };
+		50403EB22E12BA52007F1D6B /* PopupBodyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupBodyView.swift; sourceTree = "<group>"; };
 		50403EB42E12BC52007F1D6B /* DebugInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugInfoView.swift; sourceTree = "<group>"; };
-		50403EB62E12C242007F1D6B /* FootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FootView.swift; sourceTree = "<group>"; };
+		50403EB62E12C242007F1D6B /* PopupFootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupFootView.swift; sourceTree = "<group>"; };
 		50583D552DFB5D2000013BD0 /* Rwx Editor Finder Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Rwx Editor Finder Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		50583D632DFB5EA100013BD0 /* FinderSyncExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinderSyncExt.swift; sourceTree = "<group>"; };
 		50583D642DFB5EA100013BD0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -201,9 +201,9 @@
 			isa = PBXGroup;
 			children = (
 				50624C4B2DE5BA8200794BC8 /* PopupView.swift */,
-				50403EB02E12B7FB007F1D6B /* HeadView.swift */,
-				50403EB22E12BA52007F1D6B /* BodyView.swift */,
-				50403EB62E12C242007F1D6B /* FootView.swift */,
+				50403EB02E12B7FB007F1D6B /* PopupHeadView.swift */,
+				50403EB22E12BA52007F1D6B /* PopupBodyView.swift */,
+				50403EB62E12C242007F1D6B /* PopupFootView.swift */,
 				50403EB42E12BC52007F1D6B /* DebugInfoView.swift */,
 				50114D912E0990B900024326 /* GridCustom.swift */,
 				507318452DE71047005E26F9 /* RwxTextView.swift */,
@@ -476,19 +476,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				50114D822E05F87B00024326 /* PopupView.swift in Sources */,
-				50403EB12E12B7FB007F1D6B /* HeadView.swift in Sources */,
+				50403EB12E12B7FB007F1D6B /* PopupHeadView.swift in Sources */,
 				50114D832E05F87B00024326 /* ToggleRwxNumeric.swift in Sources */,
 				50114D842E05F87B00024326 /* ToggleRwxColored.swift in Sources */,
 				50114DAC2E0C46AA00024326 /* ToggleCustom.swift in Sources */,
 				50114D862E05F87B00024326 /* RwxTextView.swift in Sources */,
 				50114D492E01F71900024326 /* FinderSyncExt.swift in Sources */,
 				50403EAB2E12B325007F1D6B /* LaunchView.swift in Sources */,
-				50403EB72E12C247007F1D6B /* FootView.swift in Sources */,
+				50403EB72E12C247007F1D6B /* PopupFootView.swift in Sources */,
 				50114D4D2E01F77300024326 /* MainView.swift in Sources */,
 				50114E8E2E0E9BB600024326 /* Shape.swift in Sources */,
 				50114D882E05F8CE00024326 /* FSEntityInfo.swift in Sources */,
 				50114D1D2E01F6AF00024326 /* UInt.swift in Sources */,
-				50403EB32E12BA52007F1D6B /* BodyView.swift in Sources */,
+				50403EB32E12BA52007F1D6B /* PopupBodyView.swift in Sources */,
 				50114D9D2E0AF78700024326 /* MessageBox.swift in Sources */,
 				50114D1E2E01F6AF00024326 /* View.swift in Sources */,
 				50114D6F2E02AFE400024326 /* ButtonCustom.swift in Sources */,

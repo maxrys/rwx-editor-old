@@ -13,6 +13,8 @@ struct PickerCustom<Key>: View where Key: Hashable & Comparable {
         case itemBackground = "color PickerCustom Item Background"
     }
 
+    private let NA_SIGN = "—"
+
     @State private var isOpened: Bool
     @State private var hovered: Key?
            private var selected: Binding<Key>
@@ -35,7 +37,7 @@ struct PickerCustom<Key>: View where Key: Hashable & Comparable {
         Button {
             self.isOpened = true
         } label: {
-            Text(self.values[self.selected.wrappedValue] ?? "—")
+            Text(self.values[self.selected.wrappedValue] ?? self.NA_SIGN)
                 .lineLimit(1)
                 .padding(.horizontal, 9)
                 .padding(.vertical  , 5)

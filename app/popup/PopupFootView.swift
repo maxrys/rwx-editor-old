@@ -5,7 +5,7 @@
 
 import SwiftUI
 
-struct FootView: View {
+struct PopupFootView: View {
 
     enum ColorNames: String {
         case foot = "color PopupView Foot Background"
@@ -61,13 +61,13 @@ struct FootView: View {
 
 @available(macOS 14.0, *) #Preview {
     VStack(spacing: 10) {
-        FootView(
+        PopupFootView(
             Binding.constant(FSEntityInfo("/private/etc/")),
             Binding.constant(FSEntityInfo("/private/etc/").rights),
             Binding.constant(FSEntityInfo("/private/etc/").owner),
             Binding.constant(FSEntityInfo("/private/etc/").group)
         )
-        FootView(
+        PopupFootView(
             Binding.constant(FSEntityInfo("/private/etc/")),
             Binding.constant(0o644),
             Binding.constant(""),

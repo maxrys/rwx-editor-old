@@ -5,7 +5,7 @@
 
 import SwiftUI
 
-struct HeadView: View {
+struct PopupHeadView: View {
 
     enum ColorNames: String {
         case head = "color PopupView Head Background"
@@ -215,8 +215,8 @@ struct HeadView: View {
 
 #Preview {
     VStack(spacing: 10) {
-        HeadView(FSEntityInfo("/private/etc/"))
-        HeadView(FSEntityInfo("/private/etc/hosts"))
+        PopupHeadView(FSEntityInfo("/private/etc/"))
+        PopupHeadView(FSEntityInfo("/private/etc/hosts"))
     }
     .padding(10)
     .background(Color.black)
