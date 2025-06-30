@@ -28,6 +28,15 @@ struct PopupView: View {
         self.group        = info.group
     }
 
+    func updateView(onlyIfRequired: Bool = false) {
+        let info = FSEntityInfo(self.initialValue)
+        if (onlyIfRequired && info == self.info) { return }
+        self.info   = info
+        self.rights = info.rights
+        self.owner  = info.owner
+        self.group  = info.group
+    }
+
     var body: some View {
         VStack(spacing: 0) {
 
@@ -71,15 +80,6 @@ struct PopupView: View {
         .onReceive(NotificationCenter.default.publisher(for: NSApplication.didBecomeActiveNotification)) { _ in
             self.updateView(onlyIfRequired: true)
         }
-    }
-
-    func updateView(onlyIfRequired: Bool = false) {
-        let info = FSEntityInfo(self.initialValue)
-        if (onlyIfRequired && info == self.info) { return }
-        self.info   = info
-        self.rights = info.rights
-        self.owner  = info.owner
-        self.group  = info.group
     }
 
     /* ############ */

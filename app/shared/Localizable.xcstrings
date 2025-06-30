@@ -172,15 +172,7 @@
         }
       }
     },
-    "Debug: %@" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Debug: %@"
-          }
-        }
-      },
+    "DEBUG INFO\n%@" : {
       "shouldTranslate" : false
     },
     "directory" : {

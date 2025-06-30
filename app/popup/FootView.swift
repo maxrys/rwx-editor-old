@@ -29,8 +29,8 @@ struct FootView: View {
 
     private var isChanged: Bool {
         self.rights.wrappedValue != self.info.rights.wrappedValue ||
-        self.owner.wrappedValue  != self.info.owner.wrappedValue  ||
-        self.group.wrappedValue  != self.info.group.wrappedValue
+        self.owner .wrappedValue != self.info.owner .wrappedValue ||
+        self.group .wrappedValue != self.info.group .wrappedValue
     }
 
     var body: some View {

@@ -35,8 +35,7 @@ struct DebugInfoView: View {
 }
 
 @available(macOS 14.0, *) #Preview {
-    @Previewable @State var info = FSEntityInfo("/private/etc/")
     DebugInfoView(
-        $info
+        Binding.constant(FSEntityInfo("/private/etc/"))
     ).frame(width: 200)
 }
