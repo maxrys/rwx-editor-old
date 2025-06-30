@@ -5,31 +5,13 @@
 
 import SwiftUI
 import FinderSync
-import ServiceManagement
 
 struct MainView: View {
 
     static let FRAME_WIDTH: CGFloat = 300
 
-    static var launchAtLogin: Bool {
-        get {
-            if #available(macOS 13.0, *)
-                 { return SMAppService.mainApp.status == .enabled }
-            else { return false }
-        }
-        set(isEnabled) {
-            do {
-                if #available(macOS 13.0, *) {
-                    if (isEnabled) { try SMAppService.mainApp.register  () }
-                    else           { try SMAppService.mainApp.unregister() }
-                }
-            } catch {}
-        }
-    }
-
     @Environment(\.colorScheme) private var colorScheme
     @State var isEnabledExtension: Bool = false
-    @State var isEnabledLaunchAtLogin: Bool = false
 
     @ViewBuilder var groupBackground: some View {
         RoundedRectangle(cornerRadius: 15)
@@ -89,12 +71,7 @@ struct MainView: View {
                 /* MARK: launch at login */
 
                 if #available(macOS 13.0, *) {
-                    ToggleCustom(
-                        text: NSLocalizedString("Launch at login", comment: ""),
-                        isOn: self.$isEnabledLaunchAtLogin
-                    ).onChange(of: self.isEnabledLaunchAtLogin) { value in
-                        Self.launchAtLogin = value
-                    }
+                    LaunchView()
                 }
 
             }.padding(15)
@@ -135,7 +112,6 @@ struct MainView: View {
 
     func updateView() {
         self.isEnabledExtension = FIFinderSyncController.isExtensionEnabled
-        self.isEnabledLaunchAtLogin = Self.launchAtLogin
     }
 
 }

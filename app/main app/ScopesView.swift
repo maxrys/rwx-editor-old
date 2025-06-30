@@ -54,11 +54,11 @@ struct ScopesView: View {
 
     func addScope() {
         let openPanel = NSOpenPanel()
-        openPanel.allowsMultipleSelection = false
-        openPanel.canChooseFiles = false
-        openPanel.canChooseDirectories = true
-        openPanel.canCreateDirectories = true
-        openPanel.prompt = NSLocalizedString("select a directory to grant access", comment: "")
+            openPanel.allowsMultipleSelection = false
+            openPanel.canChooseFiles = false
+            openPanel.canChooseDirectories = true
+            openPanel.canCreateDirectories = true
+            openPanel.prompt = NSLocalizedString("select a directory to grant access", comment: "")
 
         guard openPanel.runModal() == .OK else { return }
         guard let url = openPanel.url     else { return }
@@ -82,4 +82,5 @@ struct ScopesView: View {
 
 #Preview {
     ScopesView()
+        .frame(width: 200)
 }

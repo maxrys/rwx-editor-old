@@ -80,6 +80,7 @@
 		501939EA2E116F2700711283 /* Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501939E72E116F2600711283 /* Equatable.swift */; };
 		50403EA52E12AF09007F1D6B /* AppInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50403EA42E12AF09007F1D6B /* AppInfoView.swift */; };
 		50403EA92E12B0DC007F1D6B /* ScopesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50403EA82E12B0DC007F1D6B /* ScopesView.swift */; };
+		50403EAB2E12B325007F1D6B /* LaunchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50403EAA2E12B325007F1D6B /* LaunchView.swift */; };
 		50583D5D2DFB5D2000013BD0 /* Rwx Editor Finder Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 50583D552DFB5D2000013BD0 /* Rwx Editor Finder Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		50624C6A2DE5DCD500794BC8 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50624C692DE5DCD500794BC8 /* Test.swift */; };
 /* End PBXBuildFile section */
@@ -134,6 +135,7 @@
 		501939E72E116F2600711283 /* Equatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Equatable.swift; sourceTree = "<group>"; };
 		50403EA42E12AF09007F1D6B /* AppInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInfoView.swift; sourceTree = "<group>"; };
 		50403EA82E12B0DC007F1D6B /* ScopesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScopesView.swift; sourceTree = "<group>"; };
+		50403EAA2E12B325007F1D6B /* LaunchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchView.swift; sourceTree = "<group>"; };
 		50583D552DFB5D2000013BD0 /* Rwx Editor Finder Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Rwx Editor Finder Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		50583D632DFB5EA100013BD0 /* FinderSyncExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinderSyncExt.swift; sourceTree = "<group>"; };
 		50583D642DFB5EA100013BD0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -226,6 +228,7 @@
 				50624C4D2DE5BA8200794BC8 /* App.swift */,
 				50114D162E01F24000024326 /* MainView.swift */,
 				50403EA82E12B0DC007F1D6B /* ScopesView.swift */,
+				50403EAA2E12B325007F1D6B /* LaunchView.swift */,
 				50403EA42E12AF09007F1D6B /* AppInfoView.swift */,
 				50624C4A2DE5BA8200794BC8 /* Assets.xcassets */,
 				50624C4C2DE5BA8200794BC8 /* app.entitlements */,
@@ -463,6 +466,7 @@
 				50114DAC2E0C46AA00024326 /* ToggleCustom.swift in Sources */,
 				50114D862E05F87B00024326 /* RwxTextView.swift in Sources */,
 				50114D492E01F71900024326 /* FinderSyncExt.swift in Sources */,
+				50403EAB2E12B325007F1D6B /* LaunchView.swift in Sources */,
 				50114D4D2E01F77300024326 /* MainView.swift in Sources */,
 				50114E8E2E0E9BB600024326 /* Shape.swift in Sources */,
 				50114D882E05F8CE00024326 /* FSEntityInfo.swift in Sources */,
