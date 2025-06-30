@@ -48,11 +48,13 @@ class FinderSyncExt: FIFinderSync {
                 }
             }
             if (pathWithNameCollection.isEmpty == false) {
-                DistributedNotificationCenter.default().postNotificationName(
-                    Notification.Name(FinderSyncExt.EVENT_NAME_FOR_FINDER_CONTEXT_MENU),
-                    object: FinderEvent(item: pathWithNameCollection).encode(),
-                    deliverImmediately: true
-                )
+                if let object = FinderEvent(items: pathWithNameCollection).encode() {
+                    DistributedNotificationCenter.default().postNotificationName(
+                        Notification.Name(FinderSyncExt.EVENT_NAME_FOR_FINDER_CONTEXT_MENU),
+                        object: object,
+                        deliverImmediately: true
+                    )
+                }
             }
         }
     }
