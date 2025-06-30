@@ -10,7 +10,6 @@ import ServiceManagement
 struct MainView: View {
 
     static let FRAME_WIDTH: CGFloat = 300
-    static let BOOKMARK_KEY = "selectedDirectory"
 
     static var launchAtLogin: Bool {
         get {
@@ -31,23 +30,6 @@ struct MainView: View {
     @Environment(\.colorScheme) private var colorScheme
     @State var isEnabledExtension: Bool = false
     @State var isEnabledLaunchAtLogin: Bool = false
-
-    init() {
-        if let bookmark = UserDefaults.standard.data(forKey: Self.BOOKMARK_KEY) {
-            var isExpired = false
-            if let url = try? URL(
-                resolvingBookmarkData: bookmark,
-                options: [.withSecurityScope],
-                relativeTo: nil,
-                bookmarkDataIsStale: &isExpired
-            ) {
-                if (isExpired == false) {
-                    let _ = url.startAccessingSecurityScopedResource()
-                    print("access for \(url.absoluteString) was granted")
-                }
-            }
-        }
-    }
 
     @ViewBuilder var groupBackground: some View {
         RoundedRectangle(cornerRadius: 15)
@@ -99,30 +81,10 @@ struct MainView: View {
 
                 /* MARK: scopes */
 
-                VStack(spacing: 10) {
-
-                    Text(NSLocalizedString("disk access", comment: ""))
-                        .font(.system(size: 11))
-                        .padding(7)
-                        .frame(maxWidth: .infinity)
-                        .background(
-                            self.colorScheme == .dark ?
-                                Color.white.opacity(0.07) :
-                                Color.black.opacity(0.07)
-                        )
-
-                    Button { self.addScope() } label: {
-                        Image(systemName: "folder.badge.plus")
-                            .font(.system(size: 30))
-                    }
-                    .buttonStyle(.plain)
-                    .onHoverCursor()
-                    .padding(20)
-
-                }
-                .frame(maxWidth: .infinity)
-                .clipShape(RoundedRectangle(cornerRadius: 15))
-                .background(self.groupBackground)
+                ScopesView()
+                    .frame(maxWidth: .infinity)
+                    .clipShape(RoundedRectangle(cornerRadius: 15))
+                    .background(self.groupBackground)
 
                 /* MARK: launch at login */
 
@@ -174,32 +136,6 @@ struct MainView: View {
     func updateView() {
         self.isEnabledExtension = FIFinderSyncController.isExtensionEnabled
         self.isEnabledLaunchAtLogin = Self.launchAtLogin
-    }
-
-    func addScope() {
-        let openPanel = NSOpenPanel()
-        openPanel.allowsMultipleSelection = false
-        openPanel.canChooseFiles = false
-        openPanel.canChooseDirectories = true
-        openPanel.canCreateDirectories = true
-        openPanel.prompt = NSLocalizedString("select a directory to grant access", comment: "")
-
-        guard openPanel.runModal() == .OK else { return }
-        guard let url = openPanel.url     else { return }
-
-        if let bookmarkData = try? url.bookmarkData(
-            options: .withSecurityScope,
-            includingResourceValuesForKeys: nil,
-            relativeTo: nil
-        ) {
-            UserDefaults.standard.set(
-                bookmarkData,
-                forKey: Self.BOOKMARK_KEY
-            )
-            if url.startAccessingSecurityScopedResource() {
-                print("access for \(url.absoluteString) was granted")
-            }
-        }
     }
 
 }
