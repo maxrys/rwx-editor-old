@@ -4,14 +4,12 @@
 /* ############################################################# */
 
 import SwiftUI
-import FinderSync
 
 struct MainView: View {
 
     static let FRAME_WIDTH: CGFloat = 300
 
     @Environment(\.colorScheme) private var colorScheme
-    @State var isEnabledExtension: Bool = false
 
     @ViewBuilder var groupBackground: some View {
         RoundedRectangle(cornerRadius: 15)
@@ -28,48 +26,38 @@ struct MainView: View {
             )
     }
 
+    @ViewBuilder var shadow: some View {
+        Rectangle()
+            .fill(
+                LinearGradient(
+                    colors: [
+                        Color.black.opacity(self.colorScheme == .light ? 0.1 : 0.4),
+                        Color.clear ],
+                    startPoint: .top,
+                    endPoint: .bottom
+                )
+            ).frame(height: 6)
+    }
+
     var body: some View {
         VStack(spacing: 10) {
 
             VStack(spacing: 20) {
 
                 /* MARK: extension status */
-
-                VStack(spacing: 10) {
-
-                    let icon  = self.isEnabledExtension ? "checkmark.circle.fill" : "xmark.circle.fill"
-                    let color = self.isEnabledExtension ? Color.getCustom(.darkGreen) : Color.getCustom(.darkRed)
-                    let text  = self.isEnabledExtension ? "extension is enabled" : "extension is disabled"
-
-                    Image(systemName: icon)
-                        .frame(width: 40, height: 40)
-                        .font(.system(size: 40, weight: .bold))
-                        .foregroundPolyfill(color)
-                        .background(Color.white)
-                        .clipShape(Circle())
-
-                    Text(NSLocalizedString(text, comment: ""))
-                        .font(.system(size: 14, weight: .regular))
-
-                    ButtonCustom(NSLocalizedString("Open Settings", comment: ""), style: .custom, flexibility: .infinity) {
-                        FinderSync.FIFinderSyncController.showExtensionManagementInterface()
-                    }.padding(.top, 10)
-
-                }
-                .padding(20)
-                .frame(maxWidth: .infinity)
-                .clipShape(RoundedRectangle(cornerRadius: 15))
-                .background(self.groupBackground)
+                ExtensionView()
+                    .padding(20)
+                    .frame(maxWidth: .infinity)
+                    .clipShape(RoundedRectangle(cornerRadius: 15))
+                    .background(self.groupBackground)
 
                 /* MARK: scopes */
-
                 ScopesView()
                     .frame(maxWidth: .infinity)
                     .clipShape(RoundedRectangle(cornerRadius: 15))
                     .background(self.groupBackground)
 
                 /* MARK: launch at login */
-
                 if #available(macOS 13.0, *) {
                     LaunchView()
                 }
@@ -77,20 +65,10 @@ struct MainView: View {
             }.padding(15)
 
             /* MARK: version, build, copyright */
-
             VStack(spacing: 0) {
 
                 /* shadow */
-                Rectangle()
-                    .fill(
-                        LinearGradient(
-                            colors: [
-                                Color.black.opacity(self.colorScheme == .light ? 0.1 : 0.4),
-                                Color.clear ],
-                            startPoint: .top,
-                            endPoint: .bottom
-                        )
-                    ).frame(height: 6)
+                self.shadow
 
                 /* version + build + copyright */
                 AppInfoView()
@@ -105,13 +83,6 @@ struct MainView: View {
         .foregroundPolyfill(Color.getCustom(.text))
         .environment(\.layoutDirection, .leftToRight)
         .frame(width: Self.FRAME_WIDTH)
-        .onReceive(NotificationCenter.default.publisher(for: NSApplication.didBecomeActiveNotification))
-             { _ in self.updateView() }
-        .onAppear { self.updateView() }
-    }
-
-    func updateView() {
-        self.isEnabledExtension = FIFinderSyncController.isExtensionEnabled
     }
 
 }
