@@ -24,7 +24,11 @@ struct LaunchView: View {
         }
     }
 
-    @State var isOn: Bool = false
+    @State private var isOn: Bool
+
+    init() {
+        self.isOn = false
+    }
 
     var body: some View {
         VStack(spacing: 0) {
