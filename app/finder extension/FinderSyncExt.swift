@@ -48,7 +48,7 @@ class FinderSyncExt: FIFinderSync {
                 }
             }
             if (pathWithNameCollection.isEmpty == false) {
-                if let object = FinderEvent(items: pathWithNameCollection).encode() {
+                if let object = FinderEvent(items: pathWithNameCollection).toJSON() {
                     DistributedNotificationCenter.default().postNotificationName(
                         Notification.Name(FinderSyncExt.EVENT_NAME_FOR_FINDER_CONTEXT_MENU),
                         object: object,

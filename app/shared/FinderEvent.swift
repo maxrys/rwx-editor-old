@@ -13,7 +13,7 @@ struct FinderEvent: Codable {
         self.items = items
     }
 
-    init?(from json: String) {
+    init?(json: String) {
         do {
             guard let data = json.data(using: .utf8) else {
                 return nil
@@ -27,7 +27,7 @@ struct FinderEvent: Codable {
         }
     }
 
-    func encode() -> String? {
+    func toJSON() -> String? {
         guard let data = try? JSONEncoder().encode(self) else {
             return nil
         }

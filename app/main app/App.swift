@@ -21,7 +21,7 @@ class ThisApp: NSObject, NSApplicationDelegate, NSWindowDelegate {
         ).sink(receiveValue: { notification in
             do {
                 guard let json = notification.object as? String else { return }
-                guard let finderEvent = FinderEvent(from: json) else { return }
+                guard let finderEvent = FinderEvent(json: json) else { return }
                 for pathWithName in finderEvent.items {
                     let info = FSEntityInfo(pathWithName)
                     if (info.type != .unknown) {
