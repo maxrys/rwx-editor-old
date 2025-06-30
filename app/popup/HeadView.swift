@@ -13,12 +13,15 @@ struct HeadView: View {
 
     static let NA_SIGN = "—"
 
-    @State private var visibilityModeForSize: BytesVisibilityMode = .bytes
-    @State private var visibilityModeForCreated: DateVisibilityMode = .convenient
-    @State private var visibilityModeForUpdated: DateVisibilityMode = .convenient
+    @State private var visibilityModeForSize: BytesVisibilityMode
+    @State private var visibilityModeForCreated: DateVisibilityMode
+    @State private var visibilityModeForUpdated: DateVisibilityMode
     @State private var info: FSEntityInfo
 
     init(_ info: FSEntityInfo) {
+        self.visibilityModeForSize = .bytes
+        self.visibilityModeForCreated = .convenient
+        self.visibilityModeForUpdated = .convenient
         self.info = info
     }
 
