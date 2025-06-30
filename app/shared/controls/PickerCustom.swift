@@ -13,7 +13,7 @@ struct PickerCustom<Key>: View where Key: Hashable & Comparable {
         case itemBackground = "color PickerCustom Item Background"
     }
 
-    @State private var isOpened: Bool = false
+    @State private var isOpened: Bool
     @State private var hovered: Key?
            private var selected: Binding<Key>
 
@@ -26,6 +26,7 @@ struct PickerCustom<Key>: View where Key: Hashable & Comparable {
         self.values           = values
         self.isPlainListStyle = isPlainListStyle
         self.flexibility      = flexibility
+        self.isOpened         = false
     }
 
     var body: some View {
