@@ -35,6 +35,21 @@ struct MainView: View {
     @State var isEnabledExtension: Bool = false
     @State var isEnabledLaunchAtLogin: Bool = false
 
+    @ViewBuilder var groupBackground: some View {
+        RoundedRectangle(cornerRadius: 15)
+            .stroke(
+                self.colorScheme == .dark ?
+                    Color.white.opacity(0.5) :
+                    Color.black.opacity(0.5),
+                lineWidth: 1
+            )
+            .background(
+                self.colorScheme == .dark ?
+                    Color.black.opacity(0.2) :
+                    Color.white.opacity(0.7)
+            )
+    }
+
     var body: some View {
         VStack(spacing: 10) {
 
@@ -65,21 +80,35 @@ struct MainView: View {
                 }
                 .padding(20)
                 .frame(maxWidth: .infinity)
-                .background(
-                    RoundedRectangle(cornerRadius: 15)
-                        .stroke(
-                            self.colorScheme == .dark ?
-                            Color.white.opacity(0.5) :
-                                Color.black.opacity(0.5),
-                            lineWidth: 1
-                        )
+                .clipShape(RoundedRectangle(cornerRadius: 15))
+                .background(self.groupBackground)
+
+                /* MARK: scopes */
+
+                VStack(spacing: 10) {
+
+                    Text(NSLocalizedString("disk access", comment: ""))
+                        .font(.system(size: 11))
+                        .padding(7)
+                        .frame(maxWidth: .infinity)
                         .background(
                             self.colorScheme == .dark ?
-                            Color.black.opacity(0.2) :
-                                Color.white.opacity(0.7)
+                                Color.white.opacity(0.07) :
+                                Color.black.opacity(0.07)
                         )
-                        .cornerRadius(15)
-                )
+
+                    Button { self.addScope() } label: {
+                        Image(systemName: "folder.badge.plus")
+                            .font(.system(size: 30))
+                    }
+                    .buttonStyle(.plain)
+                    .onHoverCursor()
+                    .padding(20)
+
+                }
+                .frame(maxWidth: .infinity)
+                .clipShape(RoundedRectangle(cornerRadius: 15))
+                .background(self.groupBackground)
 
                 /* MARK: launch at login */
 
@@ -140,6 +169,9 @@ struct MainView: View {
     func updateView() {
         self.isEnabledExtension = FIFinderSyncController.isExtensionEnabled
         self.isEnabledLaunchAtLogin = Self.launchAtLogin
+    }
+
+    func addScope() {
     }
 
 }

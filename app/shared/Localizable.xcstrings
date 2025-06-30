@@ -199,6 +199,22 @@
         }
       }
     },
+    "disk access" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "disk access"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "доступ к диску"
+          }
+        }
+      }
+    },
     "Execute" : {
       "localizations" : {
         "en" : {
