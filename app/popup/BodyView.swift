@@ -154,7 +154,7 @@ struct BodyView: View {
 
 @available(macOS 14.0, *) #Preview {
     @Previewable @State var rights: UInt  = FSEntityInfo("/private/etc/").rights
-    @Previewable @State var ovner: String = FSEntityInfo("/private/etc/").owner
+    @Previewable @State var owner: String = FSEntityInfo("/private/etc/").owner
     @Previewable @State var group: String = FSEntityInfo("/private/etc/").group
     let info = FSEntityInfo("/private/etc/")
     VStack {
@@ -162,7 +162,7 @@ struct BodyView: View {
         BodyView(
             info,
             $rights,
-            $ovner,
+            $owner,
             $group
         ).frame(width: 300)
     }

@@ -46,7 +46,7 @@ struct PopupView: View {
 
             /* MARK: foot */
             FootView(
-                self.info,
+                self.$info,
                 self.$rights,
                 self.$owner,
                 self.$group,
@@ -87,9 +87,7 @@ struct PopupView: View {
     /* ############ */
 
     func onCancel() {
-        self.rights = self.info.rights
-        self.owner  = self.info.owner
-        self.group  = self.info.group
+        self.updateView()
     }
 
     func onApply() {
