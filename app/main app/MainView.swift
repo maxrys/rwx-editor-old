@@ -36,6 +36,23 @@ struct MainView: View {
     @State var isEnabledExtension: Bool = false
     @State var isEnabledLaunchAtLogin: Bool = false
 
+    init() {
+        if let bookmark = UserDefaults.standard.data(forKey: Self.BOOKMARK_KEY) {
+            var isExpired = false
+            if let url = try? URL(
+                resolvingBookmarkData: bookmark,
+                options: [.withSecurityScope],
+                relativeTo: nil,
+                bookmarkDataIsStale: &isExpired
+            ) {
+                if (isExpired == false) {
+                    let _ = url.startAccessingSecurityScopedResource()
+                    print("access for \(url.absoluteString) was granted")
+                }
+            }
+        }
+    }
+
     @ViewBuilder var groupBackground: some View {
         RoundedRectangle(cornerRadius: 15)
             .stroke(
@@ -183,17 +200,18 @@ struct MainView: View {
         guard openPanel.runModal() == .OK else { return }
         guard let url = openPanel.url     else { return }
 
-        let bookmarkData = try? url.bookmarkData(
+        if let bookmarkData = try? url.bookmarkData(
             options: .withSecurityScope,
             includingResourceValuesForKeys: nil,
             relativeTo: nil
-        )
-
-        if let bookmarkData {
+        ) {
             UserDefaults.standard.set(
                 bookmarkData,
                 forKey: Self.BOOKMARK_KEY
             )
+            if url.startAccessingSecurityScopedResource() {
+                print("access for \(url.absoluteString) was granted")
+            }
         }
     }
 
