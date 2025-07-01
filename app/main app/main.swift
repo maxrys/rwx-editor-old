@@ -6,7 +6,7 @@
 import Cocoa
 
 let app = NSApplication.shared
-let delegate = ThisApp()
+let delegate = App()
 app.setActivationPolicy(.accessory)
 app.delegate = delegate
 app.run()

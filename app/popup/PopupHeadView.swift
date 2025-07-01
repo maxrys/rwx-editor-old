@@ -11,8 +11,6 @@ struct PopupHeadView: View {
         case head = "color PopupView Head Background"
     }
 
-    static let NA_SIGN = "—"
-
     @State private var visibilityModeForSize: BytesVisibilityMode
     @State private var visibilityModeForCreated: DateVisibilityMode
     @State private var visibilityModeForUpdated: DateVisibilityMode
@@ -27,36 +25,36 @@ struct PopupHeadView: View {
 
     var formattedType: String {
         switch self.info.type {
-            case .directory: NSLocalizedString("directory" , comment: "")
-            case .file     : NSLocalizedString("file"      , comment: "")
-            case .alias    : NSLocalizedString("alias"     , comment: "")
-            case .link     : NSLocalizedString("link"      , comment: "")
-            case .unknown  : NSLocalizedString(Self.NA_SIGN, comment: "")
+            case .directory: NSLocalizedString("directory", comment: "")
+            case .file     : NSLocalizedString("file"     , comment: "")
+            case .alias    : NSLocalizedString("alias"    , comment: "")
+            case .link     : NSLocalizedString("link"     , comment: "")
+            case .unknown  : NSLocalizedString(App.NA_SIGN, comment: "")
         }
     }
 
     var formattedName: String {
         if let name = self.info.name
              { name }
-        else { NSLocalizedString(Self.NA_SIGN, comment: "") }
+        else { NSLocalizedString(App.NA_SIGN, comment: "") }
     }
 
     var formattedPath: String {
         if let path = self.info.path
              { path }
-        else { NSLocalizedString(Self.NA_SIGN, comment: "") }
+        else { NSLocalizedString(App.NA_SIGN, comment: "") }
     }
 
     var formattedRealName: String {
         if let realName = self.info.realName
              { realName }
-        else { NSLocalizedString(Self.NA_SIGN, comment: "") }
+        else { NSLocalizedString(App.NA_SIGN, comment: "") }
     }
 
     var formattedRealPath: String {
         if let realPath = self.info.realPath
              { realPath }
-        else { NSLocalizedString(Self.NA_SIGN, comment: "") }
+        else { NSLocalizedString(App.NA_SIGN, comment: "") }
     }
 
     var formattedSize: String {
@@ -70,7 +68,7 @@ struct PopupHeadView: View {
             }
         } else {
             NSLocalizedString(
-                Self.NA_SIGN, comment: ""
+                App.NA_SIGN, comment: ""
             )
         }
     }
@@ -84,7 +82,7 @@ struct PopupHeadView: View {
             }
         } else {
             NSLocalizedString(
-                Self.NA_SIGN, comment: ""
+                App.NA_SIGN, comment: ""
             )
         }
     }
@@ -98,7 +96,7 @@ struct PopupHeadView: View {
             }
         } else {
             NSLocalizedString(
-                Self.NA_SIGN, comment: ""
+                App.NA_SIGN, comment: ""
             )
         }
     }
@@ -108,7 +106,7 @@ struct PopupHeadView: View {
             String(format: NSLocalizedString("%@ pcs.", comment: ""), String(references))
         } else {
             NSLocalizedString(
-                Self.NA_SIGN, comment: ""
+                App.NA_SIGN, comment: ""
             )
         }
     }

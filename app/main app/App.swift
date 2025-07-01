@@ -7,7 +7,10 @@ import Cocoa
 import SwiftUI
 import Combine
 
-class ThisApp: NSObject, NSApplicationDelegate, NSWindowDelegate {
+class App: NSObject, NSApplicationDelegate, NSWindowDelegate {
+
+    static let GROUP_NAME = "group.maxrys.rwx-editor"
+    static let NA_SIGN = "—"
 
     private var cancellableBag = Set<AnyCancellable>()
     private var mainWindow: NSWindow!
