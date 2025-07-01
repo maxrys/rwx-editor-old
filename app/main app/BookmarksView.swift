@@ -55,14 +55,19 @@ struct BookmarksView: View {
                 ScrollView(.vertical) {
                     LazyVGrid(columns: columns, spacing: 0) {
                         ForEach(self.urls.value.indices, id: \.self) { index in
-                            let background = index % 2 == 0 ?
-                                Color.clear :
-                                Color.black.opacity(0.05)
-                            HStack(spacing: 0) { Text(self.urls.value[index].path) }
-                                .padding(.horizontal, 9)
-                                .padding(.vertical  , 6)
-                                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
-                                .background(background)
+
+                            let rowBackground = Color.black.opacity(
+                                index % 2 != 0 ? 0 : (self.colorScheme == .dark ? 0.20 : 0.04)
+                            )
+
+                            HStack(spacing: 0) {
+                                Text(self.urls.value[index].path)
+                            }
+                            .padding(.horizontal, 9)
+                            .padding(.vertical  , 6)
+                            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
+                            .background(rowBackground)
+
                             HStack(spacing: 0) {
                                 Button {
                                     print("delete \(index)")
@@ -76,16 +81,22 @@ struct BookmarksView: View {
                             .padding(.horizontal, 9)
                             .padding(.vertical  , 6)
                             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
-                            .background(background)
+                            .background(rowBackground)
+
                         }
                     }
                 }
                 .background(
                     self.colorScheme == .dark ?
-                    Color.black :
+                    Color.black.opacity(0.1) :
                     Color.white
                 )
-                .border(.black.opacity(0.2), width: 1)
+                .border(
+                    self.colorScheme == .dark ?
+                        .black.opacity(0.5) :
+                        .black.opacity(0.2),
+                    width: 1
+                )
                 .padding(15)
             }
 
@@ -99,7 +110,7 @@ struct BookmarksView: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
         .background(
             self.colorScheme == .dark ?
-            Color.black.opacity(0.4) :
+            Color.black.opacity(0.2) :
             Color.white.opacity(0.7)
         )
     }
