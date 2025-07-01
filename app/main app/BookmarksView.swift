@@ -47,11 +47,38 @@ struct BookmarksView: View {
             if (self.urls.value.isEmpty) {
                 Text("no bookmarks")
             } else {
-                VStack(spacing: 0) {
-                    ForEach(self.urls.value.indices, id: \.self) { id in
-                        Text(self.urls.value[id].absoluteString)
+                let columns = [
+                    GridItem(.flexible(), spacing: 0),
+                    GridItem(.fixed (32), spacing: 0)
+                ]
+                LazyVGrid(columns: columns, spacing: 0) {
+                    ForEach(self.urls.value.indices, id: \.self) { index in
+                        let background = index % 2 == 0 ?
+                            Color.clear :
+                            Color.black.opacity(0.05)
+                        HStack(spacing: 0) { Text(self.urls.value[index].path) }
+                            .padding(.horizontal, 9)
+                            .padding(.vertical  , 6)
+                            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
+                            .background(background)
+                        HStack(spacing: 0) {
+                            Button {
+                                print("delete \(index)")
+                            } label: {
+                                Image(systemName: "xmark.circle.fill")
+                                    .foregroundPolyfill(Color.getCustom(.softRed))
+                            }
+                            .buttonStyle(.plain)
+                            .onHoverCursor()
+                        }
+                        .padding(.horizontal, 9)
+                        .padding(.vertical  , 6)
+                        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
+                        .background(background)
                     }
                 }
+                .background(Color.white)
+                .border(.black.opacity(0.2), width: 1)
             }
 
             ButtonCustom(NSLocalizedString("add directory", comment: ""), style: .custom, flexibility: .infinity) {
