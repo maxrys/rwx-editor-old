@@ -11,8 +11,8 @@ struct BookmarksView: View {
         UserDefaults(suiteName: App.GROUP_NAME)
     }
 
-    static var bookmarksStore: Data? {
-        get { Self.userDefaults?.data(forKey: "bookmarks") ?? nil }
+    static var bookmarksStore: [Data] {
+        get { Self.userDefaults?.array(forKey: "bookmarks") as? [Data] ?? [] }
         set { Self.userDefaults?.set(newValue, forKey: "bookmarks") }
     }
 
@@ -25,7 +25,7 @@ struct BookmarksView: View {
                 self.urls.value.append(url)
             }
         } else {
-            if let url = self.getBookmarkURLs() {
+            for url in self.getBookmarkURLs() {
                 self.urls.value.append(url)
             }
         }
@@ -61,22 +61,22 @@ struct BookmarksView: View {
         }
     }
 
-    func getBookmarkURLs() -> URL? {
-        if let bookmark = Self.bookmarksStore {
+    func getBookmarkURLs() -> [URL] {
+        var result: [URL] = []
+        for bookmark in Self.bookmarksStore {
             var isExpired = false
-            if let url = try? URL(
+            let url = try? URL(
                 resolvingBookmarkData: bookmark,
                 options: [.withSecurityScope],
                 relativeTo: nil,
                 bookmarkDataIsStale: &isExpired
-            ) {
-                if (isExpired == false) {
-                    let _ = url.startAccessingSecurityScopedResource()
-                    return url
-                }
+            )
+            if let url, !isExpired {
+                result.append(url)
+                let _ = url.startAccessingSecurityScopedResource()
             }
         }
-        return nil
+        return result
     }
 
     func addBookmark() {
@@ -90,14 +90,18 @@ struct BookmarksView: View {
         guard openPanel.runModal() == .OK else { return }
         guard let url = openPanel.url     else { return }
 
-        if let bookmarkData = try? url.bookmarkData(
+        let bookmark = try? url.bookmarkData(
             options: .withSecurityScope,
             includingResourceValuesForKeys: nil,
             relativeTo: nil
-        ) {
-            Self.bookmarksStore = bookmarkData
-            if url.startAccessingSecurityScopedResource() {
-                print("access for \(url.absoluteString) was granted")
+        )
+
+        if let bookmark {
+            Self.bookmarksStore.append(bookmark)
+            let _ = url.startAccessingSecurityScopedResource()
+            self.urls.value = []
+            for url in self.getBookmarkURLs() {
+                self.urls.value.append(url)
             }
         }
     }
