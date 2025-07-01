@@ -7,82 +7,42 @@ import SwiftUI
 
 struct MainView: View {
 
-    static let FRAME_WIDTH: CGFloat = 300
-
-    @Environment(\.colorScheme) private var colorScheme
-
-    @ViewBuilder var groupBackground: some View {
-        RoundedRectangle(cornerRadius: 15)
-            .stroke(
-                self.colorScheme == .dark ?
-                    Color.white.opacity(0.5) :
-                    Color.black.opacity(0.5),
-                lineWidth: 1
-            )
-            .background(
-                self.colorScheme == .dark ?
-                    Color.black.opacity(0.2) :
-                    Color.white.opacity(0.7)
-            )
-    }
-
-    @ViewBuilder var shadow: some View {
-        Rectangle()
-            .fill(
-                LinearGradient(
-                    colors: [
-                        Color.black.opacity(self.colorScheme == .light ? 0.1 : 0.4),
-                        Color.clear ],
-                    startPoint: .top,
-                    endPoint: .bottom
-                )
-            ).frame(height: 6)
-    }
+    static let FRAME_WIDTH : CGFloat = 700
+    static let FRAME_HEIGHT: CGFloat = 400
 
     var body: some View {
-        VStack(spacing: 10) {
+        VStack(spacing: 0) {
+            HStack(spacing: 0) {
 
-            VStack(spacing: 20) {
+                VStack(spacing: 20) {
 
-                /* MARK: extension status */
-                ExtensionView()
-                    .padding(20)
-                    .frame(maxWidth: .infinity)
-                    .clipShape(RoundedRectangle(cornerRadius: 15))
-                    .background(self.groupBackground)
+                    /* MARK: extension status */
+                    ExtensionView()
+                        .padding(.top, 30)
 
-                /* MARK: scopes */
-                BookmarksView()
-                    .frame(maxWidth: .infinity)
-                    .clipShape(RoundedRectangle(cornerRadius: 15))
-                    .background(self.groupBackground)
+                    /* MARK: launch at login */
+                    if #available(macOS 13.0, *) {
+                        LaunchView()
+                    }
 
-                /* MARK: launch at login */
-                if #available(macOS 13.0, *) {
-                    LaunchView()
                 }
+                .padding(15)
+                .frame(maxWidth: 300, maxHeight: .infinity, alignment: .top)
 
-            }.padding(15)
+                /* MARK: bookmarks */
+                VStack(spacing: 0) {
+                    BookmarksView()
+                }.frame(maxHeight: .infinity, alignment: .top)
+
+            }
 
             /* MARK: version, build, copyright */
-            VStack(spacing: 0) {
-
-                /* shadow */
-                self.shadow
-
-                /* version + build + copyright */
-                AppInfoView()
-
-            }.background(
-                self.colorScheme == .dark ?
-                Color.white.opacity(0.03) :
-                Color.black.opacity(0.06)
-            )
+            AppInfoView()
 
         }
         .foregroundPolyfill(Color.getCustom(.text))
         .environment(\.layoutDirection, .leftToRight)
-        .frame(width: Self.FRAME_WIDTH)
+        .frame(width: Self.FRAME_WIDTH, height: Self.FRAME_HEIGHT)
     }
 
 }
