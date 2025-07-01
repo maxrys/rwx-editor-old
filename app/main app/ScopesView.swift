@@ -7,12 +7,22 @@ import SwiftUI
 
 struct ScopesView: View {
 
-    static let BOOKMARK_KEY = "selectedDirectory"
+    static var userDefaults: UserDefaults? {
+        UserDefaults(suiteName: App.GROUP_NAME)
+    }
+
+    static var bookmarksStore: Data? {
+        get { Self.userDefaults?.data(forKey: "bookmarks") ?? nil }
+        set { Self.userDefaults?.set(newValue, forKey: "bookmarks") }
+    }
 
     @Environment(\.colorScheme) private var colorScheme
 
     init() {
-        if let bookmark = UserDefaults.standard.data(forKey: Self.BOOKMARK_KEY) {
+    }
+
+    func getValidURLs() -> URL? {
+        if let bookmark = Self.bookmarksStore {
             var isExpired = false
             if let url = try? URL(
                 resolvingBookmarkData: bookmark,
@@ -22,14 +32,15 @@ struct ScopesView: View {
             ) {
                 if (isExpired == false) {
                     let _ = url.startAccessingSecurityScopedResource()
-                    print("access for \(url.absoluteString) was granted")
+                    return url
                 }
             }
         }
+        return nil
     }
 
     var body: some View {
-        VStack(spacing: 0) {
+        VStack(spacing: 10) {
 
             Text(NSLocalizedString("disk access", comment: ""))
                 .font(.system(size: 11))
@@ -41,13 +52,13 @@ struct ScopesView: View {
                         Color.black.opacity(0.07)
                 )
 
-            Button { self.addScope() } label: {
-                Image(systemName: "folder.badge.plus")
-                    .font(.system(size: 30))
-            }
-            .buttonStyle(.plain)
-            .onHoverCursor()
-            .padding(20)
+            if let url = self.getValidURLs()
+                 { Text("URL: \(url.absoluteString)") }
+            else { Text("URL: \(App.NA_SIGN)") }
+
+            ButtonCustom(NSLocalizedString("add directory", comment: ""), style: .custom, flexibility: .infinity) {
+                self.addScope()
+            }.padding(.init(top: 0, leading: 20, bottom: 20, trailing: 20))
 
         }
     }
@@ -68,10 +79,7 @@ struct ScopesView: View {
             includingResourceValuesForKeys: nil,
             relativeTo: nil
         ) {
-            UserDefaults.standard.set(
-                bookmarkData,
-                forKey: Self.BOOKMARK_KEY
-            )
+            Self.bookmarksStore = bookmarkData
             if url.startAccessingSecurityScopedResource() {
                 print("access for \(url.absoluteString) was granted")
             }

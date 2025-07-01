@@ -60,6 +60,22 @@
         }
       }
     },
+    "add directory" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "add directory"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "добавить каталог"
+          }
+        }
+      }
+    },
     "alias" : {
       "localizations" : {
         "en" : {
@@ -574,6 +590,9 @@
           }
         }
       }
+    },
+    "URL: %@" : {
+      "shouldTranslate" : false
     },
     "Version: %@ | Build: %@" : {
       "localizations" : {
