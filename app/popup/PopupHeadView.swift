@@ -124,48 +124,48 @@ struct PopupHeadView: View {
     }
 
     var body: some View {
-        GridCustom([
+        PopupHeadGrid([
 
             /* MARK: field: type */
-            GridCustom.Row(
+            PopupHeadGrid.Row(
                 title: Text(NSLocalizedString("Type", comment: "")),
                 value: Text(self.formattedType)
             ),
 
             /* MARK: field: name */
-            GridCustom.Row(
+            PopupHeadGrid.Row(
                 title: Text(NSLocalizedString("Name", comment: "")),
                 value: Text(self.formattedName).textSelectionPolyfill()
             ),
 
             /* MARK: field: path */
-            GridCustom.Row(
+            PopupHeadGrid.Row(
                 title: Text(NSLocalizedString("Path", comment: "")),
                 value: Text(self.formattedPath).textSelectionPolyfill()
             ),
 
             /* MARK: field: real name */
             self.info.realName != nil ?
-                GridCustom.Row(
+                PopupHeadGrid.Row(
                     title: Text(NSLocalizedString("Real Name", comment: "")),
                     value: Text(self.formattedRealName).textSelectionPolyfill()
                 ) : nil,
 
             /* MARK: field: real path */
             self.info.realPath != nil ?
-                GridCustom.Row(
+                PopupHeadGrid.Row(
                     title: Text(NSLocalizedString("Real Path", comment: "")),
                     value: Text(self.formattedRealPath).textSelectionPolyfill()
                 ) : nil,
 
             /* MARK: field: references */
-            GridCustom.Row(
+            PopupHeadGrid.Row(
                 title: Text(NSLocalizedString("References", comment: "")),
                 value: Text(self.formattedReferences)
             ),
 
             /* MARK: field: size */
-            GridCustom.Row(
+            PopupHeadGrid.Row(
                 title: HStack(spacing: 5) {
                     Text(NSLocalizedString("Size", comment: ""))
                     if (self.info.size != nil) {
@@ -178,7 +178,7 @@ struct PopupHeadView: View {
             ),
 
             /* MARK: field: created */
-            GridCustom.Row(
+            PopupHeadGrid.Row(
                 title: HStack(spacing: 5) {
                     Text(NSLocalizedString("Created", comment: ""))
                     if (self.info.created != nil) {
@@ -191,7 +191,7 @@ struct PopupHeadView: View {
             ),
 
             /* MARK: field: updated */
-            GridCustom.Row(
+            PopupHeadGrid.Row(
                 title: HStack(spacing: 5) {
                     Text(NSLocalizedString("Updated", comment: ""))
                     if (self.info.updated != nil) {

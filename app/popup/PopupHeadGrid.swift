@@ -5,7 +5,7 @@
 
 import SwiftUI
 
-struct GridCustom: View {
+struct PopupHeadGrid: View {
 
     enum ColorNames: String {
         case headTint = "color GridCustom Tint"
