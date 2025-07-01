@@ -5,7 +5,7 @@
 
 import SwiftUI
 
-struct ScopesView: View {
+struct BookmarksView: View {
 
     static var userDefaults: UserDefaults? {
         UserDefaults(suiteName: App.GROUP_NAME)
@@ -106,8 +106,8 @@ struct ScopesView: View {
 
 #Preview {
     VStack(spacing: 10) {
-        ScopesView(demoURLs: []).frame(width: 200)
-        ScopesView(demoURLs: [
+        BookmarksView(demoURLs: []).frame(width: 200)
+        BookmarksView(demoURLs: [
             URL("/private/etc/")!,
             URL("/private/etc/hosts")!
         ]).frame(width: 200)

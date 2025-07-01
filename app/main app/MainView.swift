@@ -52,7 +52,7 @@ struct MainView: View {
                     .background(self.groupBackground)
 
                 /* MARK: scopes */
-                ScopesView()
+                BookmarksView()
                     .frame(maxWidth: .infinity)
                     .clipShape(RoundedRectangle(cornerRadius: 15))
                     .background(self.groupBackground)
