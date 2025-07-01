@@ -8,7 +8,17 @@ import SwiftUI
 struct PopupHeadView: View {
 
     enum ColorNames: String {
-        case head = "color PopupView Head Background"
+        case head     = "color PopupView Head Background"
+        case gridTint = "color PopupView Head Grid Tint"
+    }
+
+    struct GridRow {
+        var title: AnyView
+        var value: AnyView
+        init(title: some View, value: some View) {
+            self.title = AnyView(title)
+            self.value = AnyView(value)
+        }
     }
 
     @State private var visibilityModeForSize: BytesVisibilityMode
@@ -124,48 +134,52 @@ struct PopupHeadView: View {
     }
 
     var body: some View {
-        PopupHeadGrid([
+
+        var gridRows: [GridRow] {
+            var result: [GridRow] = []
 
             /* MARK: field: type */
-            PopupHeadGrid.Row(
+            result.append(GridRow(
                 title: Text(NSLocalizedString("Type", comment: "")),
                 value: Text(self.formattedType)
-            ),
+            ))
 
             /* MARK: field: name */
-            PopupHeadGrid.Row(
+            result.append(GridRow(
                 title: Text(NSLocalizedString("Name", comment: "")),
                 value: Text(self.formattedName).textSelectionPolyfill()
-            ),
+            ))
 
             /* MARK: field: path */
-            PopupHeadGrid.Row(
+            result.append(GridRow(
                 title: Text(NSLocalizedString("Path", comment: "")),
                 value: Text(self.formattedPath).textSelectionPolyfill()
-            ),
+            ))
 
             /* MARK: field: real name */
-            self.info.realName != nil ?
-                PopupHeadGrid.Row(
+            if (self.info.realName != nil) {
+                result.append(GridRow(
                     title: Text(NSLocalizedString("Real Name", comment: "")),
                     value: Text(self.formattedRealName).textSelectionPolyfill()
-                ) : nil,
+                ))
+            }
 
             /* MARK: field: real path */
-            self.info.realPath != nil ?
-                PopupHeadGrid.Row(
+            if (self.info.realPath != nil) {
+                result.append(GridRow(
                     title: Text(NSLocalizedString("Real Path", comment: "")),
                     value: Text(self.formattedRealPath).textSelectionPolyfill()
-                ) : nil,
+                ))
+            }
 
             /* MARK: field: references */
-            PopupHeadGrid.Row(
+            result.append(GridRow(
                 title: Text(NSLocalizedString("References", comment: "")),
                 value: Text(self.formattedReferences)
-            ),
+            ))
 
             /* MARK: field: size */
-            PopupHeadGrid.Row(
+            result.append(GridRow(
                 title: HStack(spacing: 5) {
                     Text(NSLocalizedString("Size", comment: ""))
                     if (self.info.size != nil) {
@@ -175,10 +189,10 @@ struct PopupHeadView: View {
                     }
                 },
                 value: Text(self.formattedSize).textSelectionPolyfill()
-            ),
+            ))
 
             /* MARK: field: created */
-            PopupHeadGrid.Row(
+            result.append(GridRow(
                 title: HStack(spacing: 5) {
                     Text(NSLocalizedString("Created", comment: ""))
                     if (self.info.created != nil) {
@@ -188,10 +202,10 @@ struct PopupHeadView: View {
                     }
                 },
                 value: Text(self.formattedCreated).textSelectionPolyfill()
-            ),
+            ))
 
             /* MARK: field: updated */
-            PopupHeadGrid.Row(
+            result.append(GridRow(
                 title: HStack(spacing: 5) {
                     Text(NSLocalizedString("Updated", comment: ""))
                     if (self.info.updated != nil) {
@@ -201,9 +215,34 @@ struct PopupHeadView: View {
                     }
                 },
                 value: Text(self.formattedUpdated).textSelectionPolyfill()
-            )
+            ))
 
-        ])
+            return result
+        }
+
+        let columns = [
+            GridItem(.fixed(100), spacing: 0),
+            GridItem(.flexible(), spacing: 0)
+        ]
+
+        LazyVGrid(columns: columns, spacing: 0) {
+            ForEach(gridRows.indices, id: \.self) { index in
+                let background = index % 2 == 0 ?
+                    Color(Self.ColorNames.gridTint.rawValue) :
+                    Color.clear
+                HStack(spacing: 0) { gridRows[index].title }
+                    .multilineTextAlignment(.trailing)
+                    .padding(.horizontal, 7)
+                    .padding(.vertical  , 6)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .trailing)
+                    .background(background)
+                HStack(spacing: 0) { gridRows[index].value }
+                    .padding(.horizontal, 7)
+                    .padding(.vertical  , 6)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
+                    .background(background)
+            }
+        }
         .frame(maxWidth: .infinity)
         .background(Color(Self.ColorNames.head.rawValue))
         .font(.system(size: 12, weight: .regular))
