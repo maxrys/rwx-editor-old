@@ -27,29 +27,30 @@ struct AppInfoView: View {
     }
 
     var body: some View {
-        VStack(spacing: 0) {
-            self.shadow
-            HStack(spacing: 10) {
+        HStack(spacing: 10) {
 
-                Text(String(format: NSLocalizedString("Version: %@ | Build: %@", comment: ""),
-                    Self.appVersion,
-                    Self.appBundleVersion
-                )).font(.system(size: 13))
+            Text(String(format: NSLocalizedString("Version: %@ | Build: %@", comment: ""),
+                Self.appVersion,
+                Self.appBundleVersion
+            )).font(.system(size: 13))
 
-                Spacer()
+            Spacer()
 
-                Text(
-                    Self.appCopyright
-                ).font(.system(size: 11))
+            Text(Self.appCopyright)
+                .font(.system(size: 11))
+                .opacity(0.5)
 
-            }.padding(.init(top: 10, leading: 15, bottom: 15, trailing: 15))
         }
-        .frame(maxWidth: .infinity)
+        .padding(.horizontal, 20)
+        .padding(.vertical  , 15)
         .foregroundPolyfill(.gray)
         .background(
-            self.colorScheme == .dark ?
-            Color.white.opacity(0.03) :
-            Color.black.opacity(0.06)
+            ZStack(alignment: .top) {
+                self.shadow
+                self.colorScheme == .dark ?
+                Color.white.opacity(0.03) :
+                Color.black.opacity(0.06)
+            }
         )
     }
 }
