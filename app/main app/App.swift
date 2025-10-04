@@ -65,7 +65,6 @@ class App: NSObject, NSApplicationDelegate, NSWindowDelegate {
         self.mainWindow.delegate = self
         self.mainWindow.contentView = mainHostingView
         self.mainWindow.isReleasedWhenClosed = false
-        self.mainWindow.center()
         self.mainWindow.title = NSLocalizedString("Rwx Editor (Settings)", comment: "")
         self.mainWindow.level = .normal
         self.mainWindow.makeKeyAndOrderFront(nil)

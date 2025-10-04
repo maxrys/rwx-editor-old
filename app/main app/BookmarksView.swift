@@ -138,7 +138,7 @@ struct BookmarksView: View {
             openPanel.allowsMultipleSelection = false
             openPanel.canChooseFiles = false
             openPanel.canChooseDirectories = true
-            openPanel.canCreateDirectories = true
+            openPanel.canCreateDirectories = false
             openPanel.prompt = NSLocalizedString("select a directory to grant access", comment: "")
 
         guard openPanel.runModal() == .OK else { return }

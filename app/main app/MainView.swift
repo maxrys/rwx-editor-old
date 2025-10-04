@@ -30,9 +30,7 @@ struct MainView: View {
                 .frame(maxWidth: 300, maxHeight: .infinity, alignment: .top)
 
                 /* MARK: bookmarks */
-                VStack(spacing: 0) {
-                    BookmarksView()
-                }.frame(maxHeight: .infinity, alignment: .top)
+                BookmarksView()
 
             }
 
