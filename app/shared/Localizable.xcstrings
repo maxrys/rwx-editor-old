@@ -351,6 +351,9 @@
         }
       }
     },
+    "no bookmarks" : {
+
+    },
     "Open Settings" : {
       "localizations" : {
         "en" : {
@@ -590,9 +593,6 @@
           }
         }
       }
-    },
-    "URL: %@" : {
-      "shouldTranslate" : false
     },
     "Version: %@ | Build: %@" : {
       "localizations" : {

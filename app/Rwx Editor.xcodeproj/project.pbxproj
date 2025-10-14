@@ -39,9 +39,9 @@
 		50114D4C2E01F76D00024326 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50624C4D2DE5BA8200794BC8 /* App.swift */; };
 		50114D4D2E01F77300024326 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50114D162E01F24000024326 /* MainView.swift */; };
 		50114D4E2E01F77900024326 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50624C4A2DE5BA8200794BC8 /* Assets.xcassets */; };
-		50114D642E02AB9400024326 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50114D632E02AB9400024326 /* Media.xcassets */; };
-		50114D652E02AB9400024326 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50114D632E02AB9400024326 /* Media.xcassets */; };
-		50114D672E02AB9400024326 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50114D632E02AB9400024326 /* Media.xcassets */; };
+		50114D642E02AB9400024326 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50114D632E02AB9400024326 /* Assets.xcassets */; };
+		50114D652E02AB9400024326 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50114D632E02AB9400024326 /* Assets.xcassets */; };
+		50114D672E02AB9400024326 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50114D632E02AB9400024326 /* Assets.xcassets */; };
 		50114D6A2E02AC0F00024326 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50114D682E02AC0D00024326 /* Color.swift */; };
 		50114D6B2E02AC0F00024326 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50114D682E02AC0D00024326 /* Color.swift */; };
 		50114D6C2E02AC0F00024326 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50114D682E02AC0D00024326 /* Color.swift */; };
@@ -122,7 +122,7 @@
 		50114C812E017BD400024326 /* FinderEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinderEvent.swift; sourceTree = "<group>"; };
 		50114D152E01F24000024326 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		50114D162E01F24000024326 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
-		50114D632E02AB9400024326 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
+		50114D632E02AB9400024326 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		50114D682E02AC0D00024326 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		50114D7F2E05544E00024326 /* FSEntityInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSEntityInfo.swift; sourceTree = "<group>"; };
 		50114D8E2E05FC6200024326 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -288,7 +288,7 @@
 				50114D9E2E0AF85D00024326 /* RealTimer.swift */,
 				50114DA72E0C065D00024326 /* ValueState.swift */,
 				50114D6D2E02AF8700024326 /* controls */,
-				50114D632E02AB9400024326 /* Media.xcassets */,
+				50114D632E02AB9400024326 /* Assets.xcassets */,
 				50624C5C2DE5CD1A00794BC8 /* Localizable.xcstrings */,
 			);
 			path = shared;
@@ -413,7 +413,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				50114D672E02AB9400024326 /* Media.xcassets in Resources */,
+				50114D672E02AB9400024326 /* Assets.xcassets in Resources */,
 				50114D3D2E01F6AF00024326 /* Localizable.xcstrings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -423,7 +423,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				50114D4E2E01F77900024326 /* Assets.xcassets in Resources */,
-				50114D642E02AB9400024326 /* Media.xcassets in Resources */,
+				50114D642E02AB9400024326 /* Assets.xcassets in Resources */,
 				50114D872E05F87B00024326 /* Assets.xcassets in Resources */,
 				50114D272E01F6AF00024326 /* Localizable.xcstrings in Resources */,
 			);
@@ -433,7 +433,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				50114D652E02AB9400024326 /* Media.xcassets in Resources */,
+				50114D652E02AB9400024326 /* Assets.xcassets in Resources */,
 				50114D482E01F6AF00024326 /* Localizable.xcstrings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
