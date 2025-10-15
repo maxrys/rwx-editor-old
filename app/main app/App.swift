@@ -7,7 +7,7 @@ import Cocoa
 import SwiftUI
 import Combine
 
-class App: NSObject, NSApplicationDelegate, NSWindowDelegate {
+class ThisApp: NSObject, NSApplicationDelegate, NSWindowDelegate {
 
     static let GROUP_NAME = "group.maxrys.rwx-editor"
     static let NA_SIGN = "—"
