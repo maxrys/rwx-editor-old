@@ -30,29 +30,34 @@ struct PickerCustom<Key>: View where Key: Hashable & Comparable {
     }
 
     var body: some View {
+        if (self.values.isEmpty) {
+            self.main
+                .disabled(true)
+        } else {
+            self.main
+                .popover(isPresented: self.$isOpened) {
+                    if (self.values.count <= 10) { self.list }
+                    else { ScrollView(.vertical) { self.list }.frame(maxHeight: 370) }
+                }
+        }
+    }
 
-        /* MARK: selected value */
+    @ViewBuilder var main: some View {
         Button {
             self.isOpened = true
         } label: {
-            Text(self.values[self.selected.wrappedValue] ?? App.NA_SIGN)
+            Text(self.values[self.selected.wrappedValue] ?? ThisApp.NA_SIGN)
                 .lineLimit(1)
                 .padding(.horizontal, 9)
                 .padding(.vertical  , 5)
                 .flexibility(self.flexibility)
                 .background(Color(Self.ColorNames.background.rawValue))
                 .foregroundPolyfill(Color(Self.ColorNames.text.rawValue))
+             // .contentShape(.focusEffect, RoundedRectangle(cornerRadius: 10))
                 .cornerRadius(10)
         }
         .buttonStyle(.plain)
         .onHoverCursor()
-
-        /* MARK: value list */
-        .popover(isPresented: self.$isOpened) {
-            if (self.values.count <= 10) { self.list }
-            else { ScrollView(.vertical) { self.list }.frame(maxHeight: 370) }
-        }
-
     }
 
     @ViewBuilder var list: some View {
@@ -76,6 +81,7 @@ struct PickerCustom<Key>: View where Key: Hashable & Comparable {
                         .frame(maxWidth: .infinity, alignment: self.isPlainListStyle ? .leading : .center)
                         .foregroundPolyfill(Color(Self.ColorNames.text.rawValue))
                         .background(backgroundColor)
+                     // .contentShape(.focusEffect, RoundedRectangle(cornerRadius: 10))
                         .cornerRadius(10)
                         .onHover { isHovered in
                             self.hovered = isHovered ? key : nil
@@ -92,16 +98,17 @@ struct PickerCustom<Key>: View where Key: Hashable & Comparable {
     @Previewable @State var selectedV2: UInt = 0
     @Previewable @State var selectedV3: UInt = 0
 
-    VStack {
+    VStack(spacing: 20) {
 
-        /* n/a */
+        /* no value */
 
         let valuesV1: [UInt: String] = [:]
 
         VStack {
+            Text("No value:")
             PickerCustom<UInt>(selected: $selectedV1, values: valuesV1, isPlainListStyle: true)
             PickerCustom<UInt>(selected: $selectedV1, values: valuesV1)
-        }.padding(10)
+        }
 
         /* single value */
 
@@ -110,25 +117,25 @@ struct PickerCustom<Key>: View where Key: Hashable & Comparable {
         ]
 
         VStack {
+            Text("Single value:")
             PickerCustom<UInt>(selected: $selectedV2, values: valuesV2, isPlainListStyle: true)
             PickerCustom<UInt>(selected: $selectedV2, values: valuesV2)
-        }.padding(10)
+        }
 
         /* multiple values */
 
         let valuesV3 = {
-            var result: [UInt: String] = [:]
-            for i in 0 ..< 100 {
+            (0 ..< 100).reduce(into: [UInt: String]()) { result, i in
                 if (i == 5) { result[UInt(i)] = "Value \(i) long long long long long long" }
                 else        { result[UInt(i)] = "Value \(i)" }
             }
-            return result
         }()
 
         VStack {
+            Text("Multiple values:")
             PickerCustom<UInt>(selected: $selectedV3, values: valuesV3, isPlainListStyle: true)
             PickerCustom<UInt>(selected: $selectedV3, values: valuesV3)
-        }.padding(10)
+        }
 
     }
     .padding(20)
@@ -139,24 +146,19 @@ struct PickerCustom<Key>: View where Key: Hashable & Comparable {
 @available(macOS 14.0, *) #Preview {
     @Previewable @State var selected: UInt = 0
 
+    let values = {
+        (0 ..< 100).reduce(into: [UInt: String]()) { result, i in
+            if (i == 5) { result[UInt(i)] = "Value \(i) long long long long long long" }
+            else        { result[UInt(i)] = "Value \(i)" }
+        }
+    }()
+
     VStack {
-
-        let values = {
-            var result: [UInt: String] = [:]
-            for i in 0 ..< 10 {
-                if (i == 5) { result[UInt(i)] = "Value \(i) long long long long long long" }
-                else        { result[UInt(i)] = "Value \(i)" }
-            }
-            return result
-        }()
-
-        VStack {
-            PickerCustom<UInt>(selected: $selected, values: values)
-            PickerCustom<UInt>(selected: $selected, values: values, flexibility: .none)
-            PickerCustom<UInt>(selected: $selected, values: values, flexibility: .size(100))
-            PickerCustom<UInt>(selected: $selected, values: values, flexibility: .infinity)
-        }.padding(10)
-
+        Text("Flexibility:")
+        PickerCustom<UInt>(selected: $selected, values: values)
+        PickerCustom<UInt>(selected: $selected, values: values, flexibility: .none)
+        PickerCustom<UInt>(selected: $selected, values: values, flexibility: .size(100))
+        PickerCustom<UInt>(selected: $selected, values: values, flexibility: .infinity)
     }
     .padding(20)
     .frame(width: 200)
