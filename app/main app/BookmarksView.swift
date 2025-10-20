@@ -40,8 +40,8 @@ struct BookmarksView: View {
                 .frame(maxWidth: .infinity)
                 .background(
                     self.colorScheme == .dark ?
-                    Color.white.opacity(0.10) :
-                    Color.black.opacity(0.12)
+                        Color.white.opacity(0.10) :
+                        Color.black.opacity(0.12)
                 )
 
             if (self.urls.value.isEmpty) {
@@ -73,7 +73,7 @@ struct BookmarksView: View {
                                     print("delete \(index)")
                                 } label: {
                                     Image(systemName: "xmark.circle.fill")
-                                        .foregroundPolyfill(Color.getCustom(.softRed))
+                                        .foregroundPolyfill(Color.custom.softRed)
                                 }
                                 .buttonStyle(.plain)
                                 .onHoverCursor()
@@ -88,8 +88,8 @@ struct BookmarksView: View {
                 }
                 .background(
                     self.colorScheme == .dark ?
-                    Color.black.opacity(0.1) :
-                    Color.white
+                        Color.black.opacity(0.1) :
+                        Color.white
                 )
                 .border(
                     self.colorScheme == .dark ?
@@ -110,8 +110,8 @@ struct BookmarksView: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
         .background(
             self.colorScheme == .dark ?
-            Color.black.opacity(0.2) :
-            Color.white.opacity(0.7)
+                Color.black.opacity(0.2) :
+                Color.white.opacity(0.7)
         )
     }
 

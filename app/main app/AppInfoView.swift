@@ -48,8 +48,8 @@ struct AppInfoView: View {
             ZStack(alignment: .top) {
                 self.shadow
                 self.colorScheme == .dark ?
-                Color.white.opacity(0.03) :
-                Color.black.opacity(0.06)
+                    Color.white.opacity(0.03) :
+                    Color.black.opacity(0.06)
             }
         )
     }

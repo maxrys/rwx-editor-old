@@ -7,19 +7,25 @@ import SwiftUI
 
 extension Color {
 
-    enum ColorNames: String {
-        case text       = "color Text"
-        case softGreen  = "color Soft Green"
-        case softOrange = "color Soft Orange"
-        case softRed    = "color Soft Red"
-        case darkGreen  = "color Dark Green"
-        case darkOrange = "color Dark Orange"
-        case darkRed    = "color Dark Red"
-    }
+    typealias _CustomPropSignature = (
+        text      : Self,
+        softGreen : Self,
+        softOrange: Self,
+        softRed   : Self,
+        darkGreen : Self,
+        darkOrange: Self,
+        darkRed   : Self,
+    )
 
-    static func getCustom(_ name: ColorNames = .text) -> Self {
-        Self(name.rawValue)
-    }
+    static var custom: (_CustomPropSignature) {(
+        text      : Self("color Text"),
+        softGreen : Self("color Soft Green"),
+        softOrange: Self("color Soft Orange"),
+        softRed   : Self("color Soft Red"),
+        darkGreen : Self("color Dark Green"),
+        darkOrange: Self("color Dark Orange"),
+        darkRed   : Self("color Dark Red"),
+    )}
 
 }
 

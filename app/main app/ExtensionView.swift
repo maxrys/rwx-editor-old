@@ -36,9 +36,9 @@ struct ExtensionView: View {
             let icon = self.isOn ? "checkmark.circle.fill" : "xmark.circle.fill"
             let text = self.isOn ? "extension is enabled" : "extension is disabled"
 
-            let color = Color.getCustom(
-                self.isOn ? .darkGreen : .darkRed
-            )
+            let color = self.isOn ?
+                Color.custom.darkGreen :
+                Color.custom.darkRed
 
             Image(systemName: icon)
                 .frame(width: 40, height: 40)

@@ -74,7 +74,7 @@ struct PopupView: View {
             }
 
         }
-        .foregroundPolyfill(Color.getCustom(.text))
+        .foregroundPolyfill(Color.custom.text)
         .environment(\.layoutDirection, .leftToRight)
         .frame(width: Self.FRAME_WIDTH)
         .onReceive(NotificationCenter.default.publisher(for: NSApplication.didBecomeActiveNotification)) { _ in
