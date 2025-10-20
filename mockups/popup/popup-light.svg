@@ -37,7 +37,7 @@
       <feGaussianBlur in="SourceAlpha" stdDeviation="2"/>
       <feOffset dx="0" dy="2"/>
       <feComponentTransfer result="offsetblur">
-        <feFuncA id="spread-ctrl" type="linear" slope="1"/>
+        <feFuncA id="spread-ctrl-2" type="linear" slope="1"/>
       </feComponentTransfer>
       <feFlood flood-color="rgba(0,0,0,0.3)"/>
       <feComposite in2="offsetblur" operator="in"/>
@@ -50,7 +50,7 @@
       <feGaussianBlur in="SourceAlpha" stdDeviation="2"/>
       <feOffset dx="0" dy="2"/>
       <feComponentTransfer result="offsetblur">
-        <feFuncA id="spread-ctrl" type="linear" slope="1"/>
+        <feFuncA id="spread-ctrl-3" type="linear" slope="1"/>
       </feComponentTransfer>
       <feFlood flood-color="rgba(0,0,0,0.3)"/>
       <feComposite in2="offsetblur" operator="in"/>
@@ -108,11 +108,11 @@
         </g>
         <g>
           <g>
-            <ellipse style="fill: color(display-p3 0.196 0.663 0.054); stroke-width: 1;" cx="439.67" cy="510.133" rx="25" ry="25"/>
-            <path style="stroke-linecap: round; stroke-linejoin: round; stroke-width: 4; stroke: rgb(255, 255, 255); fill: none;" d="M 429.9 510.992 L 437.1 519.441 L 449.05 500.825"/>
+            <ellipse style="fill: color(display-p3 0.254 0.572 0.158);" cx="439.67" cy="510.133" rx="25" ry="25"/>
+            <path style="stroke-linecap: round; stroke-linejoin: round; stroke-width: 4; stroke: rgb(255, 255, 255); fill: color(display-p3 0.254 0.572 0.158);" d="M 429.9 510.992 L 437.1 519.441 L 449.05 500.825"/>
           </g>
           <g>
-            <ellipse style="fill: color(display-p3 0.196 0.663 0.054); stroke-width: 1;" cx="559.6" cy="510.133" rx="25" ry="25"/>
+            <ellipse style="fill: color(display-p3 0.254 0.572 0.158);" cx="559.6" cy="510.133" rx="25" ry="25"/>
             <path style="stroke-linecap: round; stroke-linejoin: round; stroke-width: 4; stroke: rgb(255, 255, 255); fill: none;" d="M 549.83 510.992 L 557.03 519.441 L 568.98 500.825"/>
           </g>
           <ellipse style="stroke-width: 1; filter: none; fill: color(display-p3 0.866 0.866 0.866);" cx="679.99" cy="510.133" rx="25" ry="25"/>

@@ -7,25 +7,17 @@ import SwiftUI
 
 extension Color {
 
-    typealias _CustomPropSignature = (
-        text      : Self,
-        softGreen : Self,
-        softOrange: Self,
-        softRed   : Self,
-        darkGreen : Self,
-        darkOrange: Self,
-        darkRed   : Self,
-    )
+    struct CustomColorSet {
+        let text       = Color("color Text")
+        let softGreen  = Color("color Soft Green")
+        let softOrange = Color("color Soft Orange")
+        let softRed    = Color("color Soft Red")
+        let darkGreen  = Color("color Dark Green")
+        let darkOrange = Color("color Dark Orange")
+        let darkRed    = Color("color Dark Red")
+    }
 
-    static var custom: (_CustomPropSignature) {(
-        text      : Self("color Text"),
-        softGreen : Self("color Soft Green"),
-        softOrange: Self("color Soft Orange"),
-        softRed   : Self("color Soft Red"),
-        darkGreen : Self("color Dark Green"),
-        darkOrange: Self("color Dark Orange"),
-        darkRed   : Self("color Dark Red"),
-    )}
+    static let custom = CustomColorSet()
 
 }
 
@@ -33,20 +25,14 @@ extension Color {
 
 extension Color {
 
-    typealias _PickerPropSignature = (
-        text          : Self,
-        border        : Self,
-        background    : Self,
-        itemText      : Self,
-        itemBackground: Self,
-    )
+    struct PickerColorSet {
+        let text           = Color("color PickerCustom Text")
+        let border         = Color("color PickerCustom Border")
+        let background     = Color("color PickerCustom Background")
+        let itemText       = Color("color PickerCustom Item Text")
+        let itemBackground = Color("color PickerCustom Item Background")
+    }
 
-    static var picker: (_PickerPropSignature) {(
-        text          : Self("color PickerCustom Text"),
-        border        : Self("color PickerCustom Border"),
-        background    : Self("color PickerCustom Background"),
-        itemText      : Self("color PickerCustom Item Text"),
-        itemBackground: Self("color PickerCustom Item Background"),
-    )}
+    static let picker = PickerColorSet()
 
 }
