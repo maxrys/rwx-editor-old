@@ -76,7 +76,7 @@ struct BookmarksView: View {
                                         .foregroundPolyfill(Color.custom.softRed)
                                 }
                                 .buttonStyle(.plain)
-                                .onHoverCursor()
+                                .pointerStyleLinkPolyfill()
                             }
                             .padding(.horizontal, 9)
                             .padding(.vertical  , 6)
