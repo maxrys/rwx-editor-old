@@ -61,7 +61,7 @@ struct ToggleRwxColored: View {
             }
         }
         .buttonStyle(.plain)
-        .onHoverCursor()
+        .pointerStyleLinkPolyfill()
     }
 
 }

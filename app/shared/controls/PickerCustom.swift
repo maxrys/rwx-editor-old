@@ -51,7 +51,7 @@ struct PickerCustom<Key>: View where Key: Hashable & Comparable {
                 .contentShapePolyfill(RoundedRectangle(cornerRadius: 10))
         }
         .buttonStyle(.plain)
-        .onHoverCursor()
+        .pointerStyleLinkPolyfill()
     }
 
     @ViewBuilder var list: some View {

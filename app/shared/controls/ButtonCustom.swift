@@ -63,7 +63,7 @@ struct ButtonCustom: View {
                 )
         }
         .buttonStyle(.plain)
-        .onHoverCursor()
+        .pointerStyleLinkPolyfill()
     }
 
 }

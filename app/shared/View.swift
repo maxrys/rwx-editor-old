@@ -7,6 +7,14 @@ import SwiftUI
 
 extension View {
 
+    @ViewBuilder func flexibility(_ value: Flexibility = .none) -> some View {
+        switch value {
+            case .size(let size): self.frame(width: size)
+            case .infinity      : self.frame(maxWidth: .infinity)
+            case .none          : self
+        }
+    }
+
     @ViewBuilder func foregroundPolyfill(_ color: Color) -> some View {
         if #available(macOS 14.0, iOS 17.0, *) { self.foregroundStyle(color) }
         else                                   { self.foregroundColor(color) }
@@ -24,20 +32,18 @@ extension View {
         else                         { self }
     }
 
-    @ViewBuilder func flexibility(_ value: Flexibility = .none) -> some View {
-        switch value {
-            case .size(let size): self.frame(width: size)
-            case .infinity      : self.frame(maxWidth: .infinity)
-            case .none          : self
-        }
-    }
-
-    @ViewBuilder func onHoverCursor(isEnabled: Bool = true) -> some View {
-        self.onHover { isInView in
-            if (isEnabled) {
-                if (isInView) { NSCursor.pointingHand.push() }
-                else          { NSCursor.pop() }
-            }   else          { NSCursor.pop() }
+    @ViewBuilder func pointerStyleLinkPolyfill(isEnabled: Bool = true) -> some View {
+        if (isEnabled) {
+            if #available(macOS 15.0, *) {
+                self.pointerStyle(.link)
+            } else {
+                self.onHover { isInView in
+                    if (isInView) { NSCursor.pointingHand.push() }
+                    else          { NSCursor.pop() }
+                }
+            }
+        } else {
+            self
         }
     }
 

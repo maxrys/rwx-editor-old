@@ -130,7 +130,7 @@ struct PopupHeadView: View {
                 .font(.system(size: 10, weight: .regular))
         }
         .buttonStyle(.plain)
-        .onHoverCursor()
+        .pointerStyleLinkPolyfill()
     }
 
     var body: some View {
