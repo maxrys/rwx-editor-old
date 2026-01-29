@@ -7,13 +7,13 @@ import Foundation
 
 struct FinderEvent: Codable {
 
-    var items: [String]
+    let paths: [String]
 
-    init(items: [String]) {
-        self.items = items
+    init(paths: [String]) {
+        self.paths = paths
     }
 
-    init?(json: String) {
+    init?(decode json: String) {
         do {
             guard let data = json.data(using: .utf8) else {
                 return nil
@@ -27,7 +27,7 @@ struct FinderEvent: Codable {
         }
     }
 
-    func toJSON() -> String? {
+    func encode() -> String? {
         guard let data = try? JSONEncoder().encode(self) else {
             return nil
         }

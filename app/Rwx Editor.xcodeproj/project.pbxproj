@@ -212,12 +212,30 @@
 		50114D6D2E02AF8700024326 /* controls */ = {
 			isa = PBXGroup;
 			children = (
-				507318522DE82BDB005E26F9 /* PickerCustom.swift */,
 				507318752DE9EB32005E26F9 /* ButtonCustom.swift */,
-				50114DAB2E0C46AA00024326 /* ToggleCustom.swift */,
 				50114D9C2E0AF78700024326 /* MessageBox.swift */,
+				507318522DE82BDB005E26F9 /* PickerCustom.swift */,
+				50114DAB2E0C46AA00024326 /* ToggleCustom.swift */,
 			);
 			path = controls;
+			sourceTree = "<group>";
+		};
+		503D1A9B2F2C073E005B8A98 /* extensions */ = {
+			isa = PBXGroup;
+			children = (
+				507318A52DF37FB8005E26F9 /* ByteCountFormatter.swift */,
+				507318A22DF3758B005E26F9 /* CaseIterable.swift */,
+				50114D682E02AC0D00024326 /* Color.swift */,
+				5073189B2DF1BA3D005E26F9 /* Date.swift */,
+				501939E72E116F2600711283 /* Equatable.swift */,
+				507318972DF05F60005E26F9 /* Process.swift */,
+				50114D9E2E0AF85D00024326 /* RealTimer.swift */,
+				50114E8B2E0E9BB600024326 /* Shape.swift */,
+				50624C602DE5D6B500794BC8 /* UInt.swift */,
+				50114D952E099D0B00024326 /* URL.swift */,
+				50624C532DE5C2BA00794BC8 /* View.swift */,
+			);
+			path = extensions;
 			sourceTree = "<group>";
 		};
 		50583D682DFB5EA500013BD0 /* finder extension */ = {
@@ -250,7 +268,11 @@
 		50624C2B2DE5B96100794BC8 = {
 			isa = PBXGroup;
 			children = (
-				50624C552DE5C2BF00794BC8 /* shared */,
+				50114D632E02AB9400024326 /* Assets.xcassets */,
+				50624C5C2DE5CD1A00794BC8 /* Localizable.xcstrings */,
+				50624C552DE5C2BF00794BC8 /* types */,
+				503D1A9B2F2C073E005B8A98 /* extensions */,
+				50114D6D2E02AF8700024326 /* controls */,
 				50583D692DFB608400013BD0 /* main app */,
 				50114D1C2E01F50F00024326 /* popup */,
 				50583D682DFB5EA500013BD0 /* finder extension */,
@@ -269,29 +291,15 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		50624C552DE5C2BF00794BC8 /* shared */ = {
+		50624C552DE5C2BF00794BC8 /* types */ = {
 			isa = PBXGroup;
 			children = (
 				5073189F2DF31F1C005E26F9 /* enums.swift */,
-				50624C602DE5D6B500794BC8 /* UInt.swift */,
-				5073189B2DF1BA3D005E26F9 /* Date.swift */,
-				50114D682E02AC0D00024326 /* Color.swift */,
-				50114D952E099D0B00024326 /* URL.swift */,
-				50624C532DE5C2BA00794BC8 /* View.swift */,
-				50114E8B2E0E9BB600024326 /* Shape.swift */,
-				501939E72E116F2600711283 /* Equatable.swift */,
-				507318A22DF3758B005E26F9 /* CaseIterable.swift */,
-				507318A52DF37FB8005E26F9 /* ByteCountFormatter.swift */,
-				507318972DF05F60005E26F9 /* Process.swift */,
 				50114C812E017BD400024326 /* FinderEvent.swift */,
 				50114D7F2E05544E00024326 /* FSEntityInfo.swift */,
-				50114D9E2E0AF85D00024326 /* RealTimer.swift */,
 				50114DA72E0C065D00024326 /* ValueState.swift */,
-				50114D6D2E02AF8700024326 /* controls */,
-				50114D632E02AB9400024326 /* Assets.xcassets */,
-				50624C5C2DE5CD1A00794BC8 /* Localizable.xcstrings */,
 			);
-			path = shared;
+			path = types;
 			sourceTree = "<group>";
 		};
 		50624C712DE5DD8300794BC8 /* test */ = {

@@ -37,23 +37,19 @@ class FinderSyncExt: FIFinderSync {
 
     @objc func onContextMenu(_ menuItem: NSMenuItem) {
         if (menuItem.tag == Self.MENU_ITEM_TAG_RWX_EDITOR) {
-            let items = FIFinderSyncController.default().selectedItemURLs()
-            var pathWithNameCollection: [String] = []
-            items?.forEach { url in
-                let absolute = url.absoluteString
-                if (absolute.isEmpty == false) {
-                    pathWithNameCollection.append(
-                        absolute.hasPrefix(Self.URL_PREFIX) ? String(absolute.dropFirst(Self.URL_PREFIX.count)) : absolute
-                    )
+            if let urls = FIFinderSyncController.default().selectedItemURLs() {
+                let paths: [String] = urls.map { url in
+                    let path = url.absoluteString
+                    return path.hasPrefix(Self.URL_PREFIX) ? String(path.dropFirst(Self.URL_PREFIX.count)) : path
                 }
-            }
-            if (pathWithNameCollection.isEmpty == false) {
-                if let object = FinderEvent(items: pathWithNameCollection).toJSON() {
-                    DistributedNotificationCenter.default().postNotificationName(
-                        Notification.Name(FinderSyncExt.EVENT_NAME_FOR_FINDER_CONTEXT_MENU),
-                        object: object,
-                        deliverImmediately: true
-                    )
+                if (!paths.isEmpty) {
+                    if let object = FinderEvent(paths: paths).encode() {
+                        DistributedNotificationCenter.default().postNotificationName(
+                            Notification.Name(FinderSyncExt.EVENT_NAME_FOR_FINDER_CONTEXT_MENU),
+                            object: object,
+                            deliverImmediately: true
+                        )
+                    }
                 }
             }
         }
