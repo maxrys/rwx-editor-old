@@ -287,6 +287,9 @@
         }
       }
     },
+    "Flexibility:" : {
+
+    },
     "Group" : {
       "localizations" : {
         "en" : {
@@ -335,6 +338,9 @@
         }
       }
     },
+    "Multiple values:" : {
+
+    },
     "Name" : {
       "localizations" : {
         "en" : {
@@ -352,6 +358,9 @@
       }
     },
     "no bookmarks" : {
+
+    },
+    "No value:" : {
 
     },
     "Open Settings" : {
@@ -529,6 +538,9 @@
           }
         }
       }
+    },
+    "Single value:" : {
+
     },
     "Size" : {
       "localizations" : {

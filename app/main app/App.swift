@@ -41,12 +41,18 @@ class ThisApp: NSObject, NSApplicationDelegate, NSWindowDelegate {
         self.showMainWindow()
     }
 
-    func applicationSupportsSecureRestorableState(_ app: NSApplication) -> Bool {
+    func applicationShouldHandleReopen(_ app: NSApplication, hasVisibleWindows flag: Bool) -> Bool {
+        self.mainWindow.makeKeyAndOrderFront(nil)
+        app.setActivationPolicy(.accessory)
         return true
     }
 
+    func applicationSupportsSecureRestorableState(_ app: NSApplication) -> Bool {
+        true
+    }
+
     func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {
-        return false
+        false
     }
 
     func showMainWindow() {
@@ -85,9 +91,8 @@ class ThisApp: NSObject, NSApplicationDelegate, NSWindowDelegate {
             return
         }
 
-        let popupView = PopupView(pathWithName)
         let popupHostingView = NSHostingView(
-            rootView: popupView
+            rootView: PopupView(pathWithName)
         )
 
         self.popupWindows[pathWithName] = NSWindow(
@@ -127,12 +132,6 @@ class ThisApp: NSObject, NSApplicationDelegate, NSWindowDelegate {
                 }
             }
         }
-    }
-
-    func applicationShouldHandleReopen(_ app: NSApplication, hasVisibleWindows flag: Bool) -> Bool {
-        self.mainWindow.makeKeyAndOrderFront(nil)
-        app.setActivationPolicy(.accessory)
-        return true
     }
 
 }
