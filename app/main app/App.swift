@@ -23,10 +23,10 @@ class ThisApp: NSObject, NSApplicationDelegate, NSWindowDelegate {
             do {
                 guard let json = notification.object as? String else { return }
                 guard let finderEvent = FinderEvent(decode: json) else { return }
-                for pathWithName in finderEvent.paths {
-                    let info = FSEntityInfo(pathWithName)
+                for path in finderEvent.paths {
+                    let info = FSEntityInfo(path)
                     if (info.type != .unknown) {
-                        self.showPopupWindow(pathWithName)
+                        self.showPopupWindow(path)
                     } else {
                         let alert: NSAlert = NSAlert()
                         alert.messageText = NSLocalizedString("This type is not supported!", comment: "")
