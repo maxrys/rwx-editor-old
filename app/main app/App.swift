@@ -1,6 +1,6 @@
 
 /* ############################################################# */
-/* ### Copyright © 2025 Maxim Rysevets. All rights reserved. ### */
+/* ### Copyright © 2026 Maxim Rysevets. All rights reserved. ### */
 /* ############################################################# */
 
 import Cocoa
@@ -18,9 +18,7 @@ class ThisApp: NSObject, NSApplicationDelegate, NSWindowDelegate {
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         DistributedNotificationCenter.default.publisher(
-            for: Notification.Name(
-                FinderSyncExt.EVENT_NAME
-            )
+            for: Notification.Name(FinderSyncExt.EVENT_NAME)
         ).sink(receiveValue: { notification in
             do {
                 guard let json = notification.object as? String else { return }
