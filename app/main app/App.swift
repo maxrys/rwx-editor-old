@@ -19,7 +19,7 @@ class ThisApp: NSObject, NSApplicationDelegate, NSWindowDelegate {
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         DistributedNotificationCenter.default.publisher(
             for: Notification.Name(
-                FinderSyncExt.EVENT_NAME_FOR_FINDER_CONTEXT_MENU
+                FinderSyncExt.EVENT_NAME
             )
         ).sink(receiveValue: { notification in
             do {

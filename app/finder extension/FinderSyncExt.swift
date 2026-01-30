@@ -1,6 +1,6 @@
 
 /* ############################################################# */
-/* ### Copyright © 2025 Maxim Rysevets. All rights reserved. ### */
+/* ### Copyright © 2026 Maxim Rysevets. All rights reserved. ### */
 /* ############################################################# */
 
 import Cocoa
@@ -8,8 +8,8 @@ import FinderSync
 
 class FinderSyncExt: FIFinderSync {
 
-    static let EVENT_NAME_FOR_FINDER_CONTEXT_MENU = "RwxEditorFinderContextMenu"
-    static let MENU_ITEM_TAG_RWX_EDITOR = 0
+    static let EVENT_NAME = "RWXEditorFinderContextMenu"
+    static let MENU_ITEM_TAG = 0
     static let URL_PREFIX = "file://"
 
     override init() {
@@ -27,7 +27,7 @@ class FinderSyncExt: FIFinderSync {
                     menuItem.title = String(NSLocalizedString("Rwx Editor", comment: ""))
                     menuItem.image = NSImage(systemSymbolName: "folder.badge.person.crop", accessibilityDescription: "")!
                     menuItem.action = #selector(onContextMenu(_:))
-                    menuItem.tag = Self.MENU_ITEM_TAG_RWX_EDITOR
+                    menuItem.tag = Self.MENU_ITEM_TAG
                     menuItem.target = self
                 menu.addItem(menuItem)
             default: break
@@ -36,7 +36,7 @@ class FinderSyncExt: FIFinderSync {
     }
 
     @objc func onContextMenu(_ menuItem: NSMenuItem) {
-        if (menuItem.tag == Self.MENU_ITEM_TAG_RWX_EDITOR) {
+        if (menuItem.tag == Self.MENU_ITEM_TAG) {
             if let urls = FIFinderSyncController.default().selectedItemURLs() {
                 let paths: [String] = urls.map { url in
                     let path = url.absoluteString
@@ -45,7 +45,7 @@ class FinderSyncExt: FIFinderSync {
                 if (!paths.isEmpty) {
                     if let object = FinderEvent(paths: paths).encode() {
                         DistributedNotificationCenter.default().postNotificationName(
-                            Notification.Name(FinderSyncExt.EVENT_NAME_FOR_FINDER_CONTEXT_MENU),
+                            Notification.Name(FinderSyncExt.EVENT_NAME),
                             object: object,
                             deliverImmediately: true
                         )
