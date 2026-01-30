@@ -507,6 +507,16 @@
         }
       }
     },
+    "RWX Editor" : {
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "RWX Редактор"
+          }
+        }
+      }
+    },
     "Rwx Editor (Settings)" : {
       "localizations" : {
         "en" : {

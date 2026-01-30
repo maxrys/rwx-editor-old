@@ -18,7 +18,7 @@ class ThisApp: NSObject, NSApplicationDelegate, NSWindowDelegate {
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         DistributedNotificationCenter.default.publisher(
-            for: Notification.Name(FinderSyncExt.EVENT_NAME)
+            for: Notification.Name(FINDER_EXT_MENU_ITEMS[0].eventName)
         ).sink(receiveValue: { notification in
             do {
                 guard let json = notification.object as? String else { return }

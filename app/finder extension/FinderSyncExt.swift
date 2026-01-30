@@ -8,44 +8,38 @@ import FinderSync
 
 class FinderSyncExt: FIFinderSync {
 
-    static let EVENT_NAME = "RWXEditorFinderContextMenu"
-    static let MENU_ITEM_TAG = 0
     static let URL_PREFIX = "file://"
 
     override init() {
         super.init()
-        FIFinderSyncController.default().directoryURLs = [
-            URL(fileURLWithPath: "/")
-        ]
+        FIFinderSyncController.default().directoryURLs = FINDER_EXT_DIRECTORY_URLS
     }
 
     override func menu(for menuKind: FIMenuKind) -> NSMenu {
-        let menu = NSMenu(title: "Rwx Editor Menu")
+        let menu = NSMenu(title: FINDER_EXT_MENU_TITLE)
         switch menuKind {
             case .contextualMenuForItems, .contextualMenuForContainer:
-                let menuItem = NSMenuItem()
-                    menuItem.title = String(NSLocalizedString("Rwx Editor", comment: ""))
-                    menuItem.image = NSImage(systemSymbolName: "folder.badge.person.crop", accessibilityDescription: "")!
-                    menuItem.action = #selector(onContextMenu(_:))
-                    menuItem.tag = Self.MENU_ITEM_TAG
-                    menuItem.target = self
-                menu.addItem(menuItem)
+                for (index, item) in FINDER_EXT_MENU_ITEMS.enumerated() {
+                    let menuItem = NSMenuItem()
+                        menuItem.title = item.titleLocalized
+                        menuItem.image = NSImage(systemSymbolName: item.iconName, accessibilityDescription: "")!
+                        menuItem.action = #selector(onContextMenu(_:))
+                        menuItem.tag = index
+                        menuItem.target = self
+                    menu.addItem(menuItem)
+                }
             default: break
         }
         return menu
     }
 
     @objc func onContextMenu(_ menuItem: NSMenuItem) {
-        if (menuItem.tag == Self.MENU_ITEM_TAG) {
-            if let urls = FIFinderSyncController.default().selectedItemURLs() {
-                let paths: [String] = urls.map { url in
-                    let path = url.absoluteString
-                    return path.hasPrefix(Self.URL_PREFIX) ? String(path.dropFirst(Self.URL_PREFIX.count)) : path
-                }
-                if (!paths.isEmpty) {
-                    if let object = FinderEvent(paths: paths).encode() {
+        for (index, item) in FINDER_EXT_MENU_ITEMS.enumerated() {
+            if (menuItem.tag == index) {
+                if let urls = FIFinderSyncController.default().selectedItemURLs() {
+                    if let object = FinderEvent(paths: urls.map { $0.absoluteString.trimPrefix(Self.URL_PREFIX) }).encode() {
                         DistributedNotificationCenter.default().postNotificationName(
-                            Notification.Name(FinderSyncExt.EVENT_NAME),
+                            Notification.Name(item.eventName),
                             object: object,
                             deliverImmediately: true
                         )

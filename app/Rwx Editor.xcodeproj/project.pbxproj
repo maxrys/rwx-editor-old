@@ -75,6 +75,12 @@
 		501939E82E116F2700711283 /* Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501939E72E116F2600711283 /* Equatable.swift */; };
 		501939E92E116F2700711283 /* Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501939E72E116F2600711283 /* Equatable.swift */; };
 		501939EA2E116F2700711283 /* Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501939E72E116F2600711283 /* Equatable.swift */; };
+		503D1AAD2F2CB8FB005B8A98 /* const.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503D1AAC2F2CB8FB005B8A98 /* const.swift */; };
+		503D1AAE2F2CB8FB005B8A98 /* const.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503D1AAC2F2CB8FB005B8A98 /* const.swift */; };
+		503D1AAF2F2CB8FB005B8A98 /* const.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503D1AAC2F2CB8FB005B8A98 /* const.swift */; };
+		503D1AB12F2CB902005B8A98 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503D1AB02F2CB902005B8A98 /* String.swift */; };
+		503D1AB22F2CB902005B8A98 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503D1AB02F2CB902005B8A98 /* String.swift */; };
+		503D1AB32F2CB902005B8A98 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503D1AB02F2CB902005B8A98 /* String.swift */; };
 		50403EA52E12AF09007F1D6B /* AppInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50403EA42E12AF09007F1D6B /* AppInfoView.swift */; };
 		50403EA92E12B0DC007F1D6B /* BookmarksView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50403EA82E12B0DC007F1D6B /* BookmarksView.swift */; };
 		50403EAB2E12B325007F1D6B /* LaunchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50403EAA2E12B325007F1D6B /* LaunchView.swift */; };
@@ -134,6 +140,8 @@
 		50114E812E0DDB7D00024326 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		50114E8B2E0E9BB600024326 /* Shape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shape.swift; sourceTree = "<group>"; };
 		501939E72E116F2600711283 /* Equatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Equatable.swift; sourceTree = "<group>"; };
+		503D1AAC2F2CB8FB005B8A98 /* const.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = const.swift; sourceTree = "<group>"; };
+		503D1AB02F2CB902005B8A98 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		50403EA42E12AF09007F1D6B /* AppInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInfoView.swift; sourceTree = "<group>"; };
 		50403EA82E12B0DC007F1D6B /* BookmarksView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookmarksView.swift; sourceTree = "<group>"; };
 		50403EAA2E12B325007F1D6B /* LaunchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchView.swift; sourceTree = "<group>"; };
@@ -231,6 +239,7 @@
 				507318972DF05F60005E26F9 /* Process.swift */,
 				50114D9E2E0AF85D00024326 /* RealTimer.swift */,
 				50114E8B2E0E9BB600024326 /* Shape.swift */,
+				503D1AB02F2CB902005B8A98 /* String.swift */,
 				50624C602DE5D6B500794BC8 /* UInt.swift */,
 				50114D952E099D0B00024326 /* URL.swift */,
 				50624C532DE5C2BA00794BC8 /* View.swift */,
@@ -294,6 +303,7 @@
 		50624C552DE5C2BF00794BC8 /* types */ = {
 			isa = PBXGroup;
 			children = (
+				503D1AAC2F2CB8FB005B8A98 /* const.swift */,
 				5073189F2DF31F1C005E26F9 /* enums.swift */,
 				50114C812E017BD400024326 /* FinderEvent.swift */,
 				50114D7F2E05544E00024326 /* FSEntityInfo.swift */,
@@ -381,7 +391,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1640;
-				LastUpgradeCheck = 1640;
+				LastUpgradeCheck = 2600;
 				TargetAttributes = {
 					50583D542DFB5D2000013BD0 = {
 						CreatedOnToolsVersion = 16.4;
@@ -453,6 +463,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				503D1AB12F2CB902005B8A98 /* String.swift in Sources */,
 				50114D332E01F6AF00024326 /* FinderEvent.swift in Sources */,
 				50114D342E01F6AF00024326 /* enums.swift in Sources */,
 				50114D4B2E01F71900024326 /* FinderSyncExt.swift in Sources */,
@@ -468,6 +479,7 @@
 				50114D3B2E01F6AF00024326 /* ByteCountFormatter.swift in Sources */,
 				50114D3C2E01F6AF00024326 /* View.swift in Sources */,
 				50114E8C2E0E9BB600024326 /* Shape.swift in Sources */,
+				503D1AAD2F2CB8FB005B8A98 /* const.swift in Sources */,
 				501939EA2E116F2700711283 /* Equatable.swift in Sources */,
 				50114D9F2E0AF85D00024326 /* RealTimer.swift in Sources */,
 			);
@@ -504,12 +516,14 @@
 				50403EAF2E12B54F007F1D6B /* ExtensionView.swift in Sources */,
 				50114D242E01F6AF00024326 /* CaseIterable.swift in Sources */,
 				50114E822E0DDB7D00024326 /* main.swift in Sources */,
+				503D1AB32F2CB902005B8A98 /* String.swift in Sources */,
 				50114D252E01F6AF00024326 /* Process.swift in Sources */,
 				50114D4C2E01F76D00024326 /* App.swift in Sources */,
 				50403EA92E12B0DC007F1D6B /* BookmarksView.swift in Sources */,
 				50403EB52E12BC52007F1D6B /* DebugInfoView.swift in Sources */,
 				50114DA82E0C065D00024326 /* ValueState.swift in Sources */,
 				50114DA02E0AF85D00024326 /* RealTimer.swift in Sources */,
+				503D1AAF2F2CB8FB005B8A98 /* const.swift in Sources */,
 				50114D262E01F6AF00024326 /* ByteCountFormatter.swift in Sources */,
 				50403EA52E12AF09007F1D6B /* AppInfoView.swift in Sources */,
 			);
@@ -519,6 +533,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				503D1AB22F2CB902005B8A98 /* String.swift in Sources */,
 				50114D3E2E01F6AF00024326 /* Date.swift in Sources */,
 				50114D3F2E01F6AF00024326 /* View.swift in Sources */,
 				50114D412E01F6AF00024326 /* FinderEvent.swift in Sources */,
@@ -534,6 +549,7 @@
 				50114D472E01F6AF00024326 /* UInt.swift in Sources */,
 				50624C6A2DE5DCD500794BC8 /* Test.swift in Sources */,
 				50114E8D2E0E9BB600024326 /* Shape.swift in Sources */,
+				503D1AAE2F2CB8FB005B8A98 /* const.swift in Sources */,
 				501939E92E116F2700711283 /* Equatable.swift in Sources */,
 				50114DA12E0AF85D00024326 /* RealTimer.swift in Sources */,
 			);
@@ -684,6 +700,7 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -744,6 +761,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 			};
@@ -761,8 +779,10 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 97CZR6J379;
+				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SELECTED_FILES = readwrite;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "main app/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Rwx Editor";
@@ -795,8 +815,10 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 97CZR6J379;
+				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SELECTED_FILES = readwrite;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "main app/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Rwx Editor";
