@@ -492,6 +492,7 @@
       }
     },
     "Rwx Editor" : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {

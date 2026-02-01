@@ -12,31 +12,31 @@ class ThisApp: NSObject, NSApplicationDelegate, NSWindowDelegate {
     static let GROUP_NAME = "group.maxrys.rwx-editor"
     static let NA_SIGN = "—"
 
-    private var cancellableBag = Set<AnyCancellable>()
     private var mainWindow: NSWindow!
-    private var popupWindows: [String: NSWindow] = [:]
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        DistributedNotificationCenter.default.publisher(
-            for: Notification.Name(FINDER_EXT_MENU_ITEMS[0].eventName)
-        ).sink(receiveValue: { notification in
-            do {
-                guard let json = notification.object as? String else { return }
-                guard let finderEvent = FinderEvent(decode: json) else { return }
-                for path in finderEvent.paths {
-                    let info = FSEntityInfo(path)
-                    if (info.type != .unknown) {
-                        self.showPopupWindow(path)
-                    } else {
-                        let alert: NSAlert = NSAlert()
-                        alert.messageText = NSLocalizedString("This type is not supported!", comment: "")
-                        alert.alertStyle = .critical
-                        alert.runModal()
-                    }
-                }
-            }
-        }).store(in: &self.cancellableBag)
         self.showMainWindow()
+    }
+
+    func application(_ sender: NSApplication, open urls: [URL]) {
+        for url in urls {
+            let path = url.absoluteString.trimPrefix(URL_PREFIX_THIS_APP)
+            let info = FSEntityInfo(path)
+            if (info.type != .unknown) {
+                NSWindow.makeAndShowFromSwiftUIView(
+                    ID: path,
+                    title: "RWX Editor",
+                    isVisible: true,
+                    delegate: self,
+                    view: PopupView(path)
+                )
+            } else {
+                let alert: NSAlert = NSAlert()
+                alert.messageText = NSLocalizedString("This type is not supported!", comment: "")
+                alert.alertStyle = .critical
+                alert.runModal()
+            }
+        }
     }
 
     func applicationShouldHandleReopen(_ app: NSApplication, hasVisibleWindows flag: Bool) -> Bool {
@@ -83,50 +83,12 @@ class ThisApp: NSObject, NSApplicationDelegate, NSWindowDelegate {
         ])
     }
 
-    func showPopupWindow(_ pathWithName: String) {
-        if let existingWindow = self.popupWindows[pathWithName] {
-            existingWindow.makeKeyAndOrderFront(nil)
-            return
-        }
-
-        let popupHostingView = NSHostingView(
-            rootView: PopupView(pathWithName)
-        )
-
-        self.popupWindows[pathWithName] = NSWindow(
-            contentRect: NSRect(x: 0, y: 0, width: 300, height: 300),
-            styleMask: [.titled, .closable, .miniaturizable],
-            backing: .buffered,
-            defer: false
-        )
-
-        guard let window = self.popupWindows[pathWithName] else {
-            return
-        }
-
-        window.delegate = self
-        window.contentView = popupHostingView
-        window.isReleasedWhenClosed = false
-        window.title = NSLocalizedString("Rwx Editor", comment: "")
-        window.level = .normal
-        window.makeKeyAndOrderFront(nil)
-        window.center()
-
-        popupHostingView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            popupHostingView.leadingAnchor .constraint(equalTo: window.contentView!.leadingAnchor),
-            popupHostingView.trailingAnchor.constraint(equalTo: window.contentView!.trailingAnchor),
-            popupHostingView.topAnchor     .constraint(equalTo: window.contentView!.topAnchor),
-            popupHostingView.bottomAnchor  .constraint(equalTo: window.contentView!.bottomAnchor),
-        ])
-    }
-
     func windowWillClose(_ notification: Notification) {
         let windows = notification.object as? NSWindow
         if (windows != self.mainWindow) {
-            for (path, current) in self.popupWindows {
+            for (path, current) in NSWindow.customWindows {
                 if (current == windows) {
-                    self.popupWindows[path] = nil
+                    NSWindow.customWindows[path] = nil
                 }
             }
         }

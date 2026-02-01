@@ -5,6 +5,9 @@
 
 import Foundation
 
+let URL_PREFIX_FILE = "file://"
+let URL_PREFIX_THIS_APP = "rwxEditor://"
+
 let FINDER_EXT_DIRECTORY_URLS: Set<URL> = [
     URL(fileURLWithPath: "/")
 ]

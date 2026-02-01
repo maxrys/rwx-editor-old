@@ -8,8 +8,6 @@ import FinderSync
 
 class FinderSyncExt: FIFinderSync {
 
-    static let URL_PREFIX = "file://"
-
     override init() {
         super.init()
         FIFinderSyncController.default().directoryURLs = FINDER_EXT_DIRECTORY_URLS
@@ -34,14 +32,14 @@ class FinderSyncExt: FIFinderSync {
     }
 
     @objc func onContextMenu(_ menuItem: NSMenuItem) {
-        for (index, item) in FINDER_EXT_MENU_ITEMS.enumerated() {
+        for (index, _) in FINDER_EXT_MENU_ITEMS.enumerated() {
             if (menuItem.tag == index) {
                 if let urls = FIFinderSyncController.default().selectedItemURLs() {
-                    if let object = FinderEvent(paths: urls.map { $0.absoluteString.trimPrefix(Self.URL_PREFIX) }).encode() {
-                        DistributedNotificationCenter.default().postNotificationName(
-                            Notification.Name(item.eventName),
-                            object: object,
-                            deliverImmediately: true
+                    for url in urls {
+                        NSWorkspace.shared.open(
+                            URL(string:
+                                URL_PREFIX_THIS_APP + url.absoluteString.trimPrefix(URL_PREFIX_FILE)
+                            )!
                         )
                     }
                 }
