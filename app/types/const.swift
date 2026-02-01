@@ -5,6 +5,8 @@
 
 import Foundation
 
+let NA_SIGN = "—"
+let APP_GROUP_NAME = "group.maxrys.rwx-editor"
 let URL_PREFIX_FILE = "file://"
 let URL_PREFIX_THIS_APP = "rwxEditor://"
 

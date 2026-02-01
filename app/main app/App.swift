@@ -9,13 +9,17 @@ import Combine
 
 class ThisApp: NSObject, NSApplicationDelegate, NSWindowDelegate {
 
-    static let GROUP_NAME = "group.maxrys.rwx-editor"
-    static let NA_SIGN = "—"
-
     private var mainWindow: NSWindow!
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        self.showMainWindow()
+        NSWindow.makeAndShowFromSwiftUIView(
+            ID: "main",
+            title: "Rwx Editor (Settings)",
+            styleMask: [.titled, .closable],
+            isVisible: true,
+            delegate: self,
+            view: MainView()
+        )
     }
 
     func application(_ sender: NSApplication, open urls: [URL]) {
@@ -51,36 +55,6 @@ class ThisApp: NSObject, NSApplicationDelegate, NSWindowDelegate {
 
     func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {
         false
-    }
-
-    func showMainWindow() {
-        let mainView = MainView()
-        let mainHostingView = NSHostingView(
-            rootView: mainView
-        )
-
-        self.mainWindow = NSWindow(
-            contentRect: NSRect(x: 0, y: 0, width: 300, height: 300),
-            styleMask: [.titled, .closable],
-            backing: .buffered,
-            defer: false
-        )
-
-        self.mainWindow.delegate = self
-        self.mainWindow.contentView = mainHostingView
-        self.mainWindow.isReleasedWhenClosed = false
-        self.mainWindow.title = NSLocalizedString("Rwx Editor (Settings)", comment: "")
-        self.mainWindow.level = .normal
-        self.mainWindow.makeKeyAndOrderFront(nil)
-        self.mainWindow.center()
-
-        mainHostingView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            mainHostingView.leadingAnchor .constraint(equalTo: self.mainWindow.contentView!.leadingAnchor),
-            mainHostingView.trailingAnchor.constraint(equalTo: self.mainWindow.contentView!.trailingAnchor),
-            mainHostingView.topAnchor     .constraint(equalTo: self.mainWindow.contentView!.topAnchor),
-            mainHostingView.bottomAnchor  .constraint(equalTo: self.mainWindow.contentView!.bottomAnchor),
-        ])
     }
 
     func windowWillClose(_ notification: Notification) {

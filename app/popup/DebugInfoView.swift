@@ -18,8 +18,8 @@ struct DebugInfoView: View {
             let debugInfo: [String] = [
                 String(format: "%@: %@", "url"   , String(self.info.wrappedValue.initUrl)),
                 String(format: "%@: %@", "rights", String(self.info.wrappedValue.rights)),
-                String(format: "%@: %@", "owner" , self.info.wrappedValue.owner.isEmpty ? ThisApp.NA_SIGN : self.info.wrappedValue.owner),
-                String(format: "%@: %@", "group" , self.info.wrappedValue.group.isEmpty ? ThisApp.NA_SIGN : self.info.wrappedValue.group),
+                String(format: "%@: %@", "owner" , self.info.wrappedValue.owner.isEmpty ? NA_SIGN : self.info.wrappedValue.owner),
+                String(format: "%@: %@", "group" , self.info.wrappedValue.group.isEmpty ? NA_SIGN : self.info.wrappedValue.group),
             ]
             Text("DEBUG INFO\n\(debugInfo.joined(separator: "\n"))")
                 .fixedSize(horizontal: false, vertical: true)

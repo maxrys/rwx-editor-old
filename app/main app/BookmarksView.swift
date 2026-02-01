@@ -8,7 +8,7 @@ import SwiftUI
 struct BookmarksView: View {
 
     static var userDefaults: UserDefaults? {
-        UserDefaults(suiteName: ThisApp.GROUP_NAME)
+        UserDefaults(suiteName: APP_GROUP_NAME)
     }
 
     static var bookmarksStore: [Data] {
