@@ -14,7 +14,7 @@ class ThisApp: NSObject, NSApplicationDelegate, NSWindowDelegate {
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         NSWindow.makeAndShowFromSwiftUIView(
             ID: "main",
-            title: "Rwx Editor (Settings)",
+            title: NSLocalizedString("RWX Editor (Settings)", comment: ""),
             styleMask: [.titled, .closable],
             isVisible: true,
             delegate: self,
@@ -29,7 +29,7 @@ class ThisApp: NSObject, NSApplicationDelegate, NSWindowDelegate {
             if (info.type != .unknown) {
                 NSWindow.makeAndShowFromSwiftUIView(
                     ID: path,
-                    title: "RWX Editor",
+                    title: NSLocalizedString("RWX Editor", comment: ""),
                     isVisible: true,
                     delegate: self,
                     view: PopupView(path)

@@ -33,31 +33,8 @@
         }
       }
     },
-    "Access" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Access"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Доступ"
-          }
-        }
-      }
-    },
     "add directory" : {
       "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "add directory"
-          }
-        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -213,57 +190,6 @@
         }
       }
     },
-    "Execute" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Execute"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Запуск"
-          }
-        }
-      }
-    },
-    "extension is disabled" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "extension is disabled"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "расширение выключено"
-          }
-        }
-      }
-    },
-    "extension is enabled" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "extension is enabled"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "расширение включено"
-          }
-        }
-      }
-    },
     "file" : {
       "localizations" : {
         "en" : {
@@ -281,7 +207,7 @@
       }
     },
     "Flexibility:" : {
-
+      "shouldTranslate" : false
     },
     "Group" : {
       "localizations" : {
@@ -332,7 +258,7 @@
       }
     },
     "Multiple values:" : {
-
+      "shouldTranslate" : false
     },
     "Name" : {
       "localizations" : {
@@ -351,10 +277,17 @@
       }
     },
     "no bookmarks" : {
-
+      "localizations" : {
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "нет закладок"
+          }
+        }
+      }
     },
     "No value:" : {
-
+      "shouldTranslate" : false
     },
     "Open Settings" : {
       "localizations" : {
@@ -484,23 +417,6 @@
         }
       }
     },
-    "Rwx Editor" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Rwx Editor"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Rwx Редактор"
-          }
-        }
-      }
-    },
     "RWX Editor" : {
       "localizations" : {
         "ru" : {
@@ -511,18 +427,12 @@
         }
       }
     },
-    "Rwx Editor (Settings)" : {
+    "RWX Editor (Settings)" : {
       "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Rwx Editor (Settings)"
-          }
-        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Rwx Редактор (установки)"
+            "value" : "RWX Редактор (Установки)"
           }
         }
       }
@@ -544,7 +454,7 @@
       }
     },
     "Single value:" : {
-
+      "shouldTranslate" : false
     },
     "Size" : {
       "localizations" : {

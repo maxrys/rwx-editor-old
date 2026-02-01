@@ -11,21 +11,20 @@ extension URL {
     static let URL_SUFFIX = "/"
 
     var pathAndName: (path: String, name: String) {
-        var absolute = self.absoluteString
+        let absolute = self.absoluteString
+           .trimPrefix(Self.URL_PREFIX)
+           .trimSuffix(Self.URL_SUFFIX)
 
-        if (absolute.hasPrefix(Self.URL_PREFIX)) { absolute = String(absolute.dropFirst(Self.URL_PREFIX.count)) }
-        if (absolute.hasSuffix(Self.URL_SUFFIX)) { absolute = String(absolute.dropLast (Self.URL_SUFFIX.count)) }
-
-        let splitResult = absolute.split(
+        let components = absolute.split(
             separator: "/",
             omittingEmptySubsequences: false
         )
 
-        if (splitResult.count >= 2) {
-            let path = String(describing: splitResult.dropLast().joined(separator: "/"))
-            let name = String(describing: splitResult.last!)
+        if (components.count >= 2) {
+            let path = String(describing: components.dropLast().joined(separator: "/"))
+            let name = String(describing: components.last!)
             return (
-                path: path.hasSuffix("/") == false ? path + "/" : path,
+                path: path.hasSuffix("/") ? path : path + "/",
                 name: name
             )
         }

@@ -38,7 +38,7 @@ class FinderSyncExt: FIFinderSync {
                     for url in urls {
                         NSWorkspace.shared.open(
                             URL(string:
-                                URL_PREFIX_THIS_APP + url.absoluteString.trimPrefix(URL_PREFIX_FILE)
+                                URL_PREFIX_THIS_APP + url.absoluteString.trimPrefix(URL.URL_PREFIX)
                             )!
                         )
                     }
