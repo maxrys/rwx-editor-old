@@ -134,6 +134,7 @@ struct Test {
     func url() throws {
         let paths = [
             "/"                      : (path: "/",           name: ""         ),
+            "/file"                  : (path: "/",           name: "file"     ),
             "/directory/"            : (path: "/",           name: "directory"),
             "/directory/file"        : (path: "/directory/", name: "file"     ),
             "file:///"               : (path: "/",           name: ""         ),

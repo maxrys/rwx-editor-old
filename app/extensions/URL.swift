@@ -28,6 +28,7 @@ extension URL {
                 name: name
             )
         }
+
         return (path: "/", name: "")
     }
 
