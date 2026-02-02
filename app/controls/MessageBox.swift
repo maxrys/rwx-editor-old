@@ -51,7 +51,7 @@ struct Message: Hashable {
         case time(Double)
     }
 
-    static var LIFE_TIME: Double = 3.0
+    static let LIFE_TIME: Double = 3.0
 
     let type: MessageType
     let title: String
