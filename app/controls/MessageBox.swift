@@ -69,7 +69,7 @@ struct MessageBox: View {
 
     typealias MessageCollection = [UInt: (
         message: Message,
-        expirationTimer: RealTimer?
+        expirationTimer: Timer.Custom?
     )]
 
     @ObservedObject private var messages = ValueState<MessageCollection>([:])
@@ -111,7 +111,7 @@ struct MessageBox: View {
         }
         self.messageCurrentID.value += 1
         let id = self.messageCurrentID.value
-        let expirationTimer = RealTimer(
+        let expirationTimer = Timer.Custom(
             tag: id,
             onTick: self.onTimerTick
         )
@@ -126,7 +126,7 @@ struct MessageBox: View {
         }
     }
 
-    func onTimerTick(offset: Double, timer: RealTimer) {
+    func onTimerTick(offset: Double, timer: Timer.Custom) {
         timer.stopAndReset()
         self.messages.value[timer.tag] = nil
     }

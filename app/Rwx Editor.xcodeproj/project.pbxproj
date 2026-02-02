@@ -56,9 +56,9 @@
 		50114D972E099D0B00024326 /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50114D952E099D0B00024326 /* URL.swift */; };
 		50114D982E099D0B00024326 /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50114D952E099D0B00024326 /* URL.swift */; };
 		50114D9D2E0AF78700024326 /* MessageBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50114D9C2E0AF78700024326 /* MessageBox.swift */; };
-		50114D9F2E0AF85D00024326 /* RealTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50114D9E2E0AF85D00024326 /* RealTimer.swift */; };
-		50114DA02E0AF85D00024326 /* RealTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50114D9E2E0AF85D00024326 /* RealTimer.swift */; };
-		50114DA12E0AF85D00024326 /* RealTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50114D9E2E0AF85D00024326 /* RealTimer.swift */; };
+		50114D9F2E0AF85D00024326 /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50114D9E2E0AF85D00024326 /* Timer.swift */; };
+		50114DA02E0AF85D00024326 /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50114D9E2E0AF85D00024326 /* Timer.swift */; };
+		50114DA12E0AF85D00024326 /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50114D9E2E0AF85D00024326 /* Timer.swift */; };
 		50114DA22E0AF89B00024326 /* MessageBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50114D9C2E0AF78700024326 /* MessageBox.swift */; };
 		50114DA32E0AF89B00024326 /* MessageBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50114D9C2E0AF78700024326 /* MessageBox.swift */; };
 		50114DA82E0C065D00024326 /* ValueState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50114DA72E0C065D00024326 /* ValueState.swift */; };
@@ -133,7 +133,7 @@
 		50114D8E2E05FC6200024326 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		50114D952E099D0B00024326 /* URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URL.swift; sourceTree = "<group>"; };
 		50114D9C2E0AF78700024326 /* MessageBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageBox.swift; sourceTree = "<group>"; };
-		50114D9E2E0AF85D00024326 /* RealTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealTimer.swift; sourceTree = "<group>"; };
+		50114D9E2E0AF85D00024326 /* Timer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
 		50114DA72E0C065D00024326 /* ValueState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValueState.swift; sourceTree = "<group>"; };
 		50114DAB2E0C46AA00024326 /* ToggleCustom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleCustom.swift; sourceTree = "<group>"; };
 		50114E812E0DDB7D00024326 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
@@ -238,9 +238,9 @@
 				501939E72E116F2600711283 /* Equatable.swift */,
 				503D1AE22F2F53BC005B8A98 /* NSWindow.swift */,
 				507318972DF05F60005E26F9 /* Process.swift */,
-				50114D9E2E0AF85D00024326 /* RealTimer.swift */,
 				50114E8B2E0E9BB600024326 /* Shape.swift */,
 				503D1AB02F2CB902005B8A98 /* String.swift */,
+				50114D9E2E0AF85D00024326 /* Timer.swift */,
 				50624C602DE5D6B500794BC8 /* UInt.swift */,
 				50114D952E099D0B00024326 /* URL.swift */,
 				50624C532DE5C2BA00794BC8 /* View.swift */,
@@ -481,7 +481,7 @@
 				50114E8C2E0E9BB600024326 /* Shape.swift in Sources */,
 				503D1AAD2F2CB8FB005B8A98 /* const.swift in Sources */,
 				501939EA2E116F2700711283 /* Equatable.swift in Sources */,
-				50114D9F2E0AF85D00024326 /* RealTimer.swift in Sources */,
+				50114D9F2E0AF85D00024326 /* Timer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -522,7 +522,7 @@
 				50403EA92E12B0DC007F1D6B /* BookmarksView.swift in Sources */,
 				50403EB52E12BC52007F1D6B /* DebugInfoView.swift in Sources */,
 				50114DA82E0C065D00024326 /* ValueState.swift in Sources */,
-				50114DA02E0AF85D00024326 /* RealTimer.swift in Sources */,
+				50114DA02E0AF85D00024326 /* Timer.swift in Sources */,
 				503D1AAF2F2CB8FB005B8A98 /* const.swift in Sources */,
 				50114D262E01F6AF00024326 /* ByteCountFormatter.swift in Sources */,
 				50403EA52E12AF09007F1D6B /* AppInfoView.swift in Sources */,
@@ -551,7 +551,7 @@
 				50114E8D2E0E9BB600024326 /* Shape.swift in Sources */,
 				503D1AAE2F2CB8FB005B8A98 /* const.swift in Sources */,
 				501939E92E116F2700711283 /* Equatable.swift in Sources */,
-				50114DA12E0AF85D00024326 /* RealTimer.swift in Sources */,
+				50114DA12E0AF85D00024326 /* Timer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
