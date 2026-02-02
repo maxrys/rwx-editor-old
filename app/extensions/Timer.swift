@@ -10,14 +10,14 @@ extension Timer {
 
     final class Custom {
 
-        enum Duration {
-            case fixed(UInt)
+        enum Repeats {
+            case count(UInt)
             case infinity
         }
 
         public let tag: UInt
-        public let duration: Duration
-        public let interval: Double
+        public let repeats: Repeats
+        public let delay: Double
         public private(set) var i: UInt = 0
 
         private let onTick: (Timer.Custom) -> Void
@@ -27,14 +27,14 @@ extension Timer {
         init(
             tag: UInt = 0,
             immediately: Bool = true,
-            duration: Duration,
-            interval: Double,
+            repeats: Repeats,
+            delay: Double,
             onTick  : @escaping (Timer.Custom) -> Void = { _ in },
             onExpire: @escaping (Timer.Custom) -> Void = { _ in }
         ) {
             self.tag = tag
-            self.duration = duration
-            self.interval = interval
+            self.repeats = repeats
+            self.delay = delay
             self.onTick = onTick
             self.onExpire = onExpire
             if (immediately) {
@@ -46,14 +46,14 @@ extension Timer {
             self.i = 0
             self.timer?.cancel()
             self.timer = Timer.publish(
-                every: self.interval,
+                every: self.delay,
                 tolerance: 0.0,
                 on: RunLoop.main,
                 in: RunLoop.Mode.common,
                 options: nil
             ).autoconnect().sink(receiveValue: { _ in
-                switch self.duration {
-                    case .fixed(let count):
+                switch self.repeats {
+                    case .count(let count):
                         if (self.i < UInt.max) {
                             self.onTick(self)
                             self.i += 1
