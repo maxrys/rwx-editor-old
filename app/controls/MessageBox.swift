@@ -124,7 +124,7 @@ struct MessageBox: View {
                     message: message,
                     expirationTimer: Timer.Custom(
                         tag: id,
-                        count: 1,
+                        duration: .fixed(1),
                         interval: time,
                         onExpire: { _ in
                             self.messages.value[id] = nil

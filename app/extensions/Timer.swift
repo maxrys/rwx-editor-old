@@ -10,10 +10,15 @@ extension Timer {
 
     final class Custom {
 
+        enum Duration {
+            case fixed(UInt)
+            case infinity
+        }
+
         public let tag: UInt
-        public let count: UInt16
+        public let duration: Duration
         public let interval: Double
-        public private(set) var i: UInt16 = 0
+        public private(set) var i: UInt = 0
 
         private let onTick: (Timer.Custom) -> Void
         private let onExpire: (Timer.Custom) -> Void
@@ -22,13 +27,13 @@ extension Timer {
         init(
             tag: UInt = 0,
             immediately: Bool = true,
-            count: UInt16,
+            duration: Duration,
             interval: Double,
             onTick  : @escaping (Timer.Custom) -> Void = { _ in },
             onExpire: @escaping (Timer.Custom) -> Void = { _ in }
         ) {
             self.tag = tag
-            self.count = count
+            self.duration = duration
             self.interval = interval
             self.onTick = onTick
             self.onExpire = onExpire
@@ -47,11 +52,21 @@ extension Timer {
                 in: RunLoop.Mode.common,
                 options: nil
             ).autoconnect().sink(receiveValue: { _ in
-                self.onTick(self)
-                self.i += 1
-                if (self.i > self.count - 1) {
-                    self.stopAndReset()
-                    self.onExpire(self)
+                switch self.duration {
+                    case .fixed(let count):
+                        if (self.i < UInt.max) {
+                            self.onTick(self)
+                            self.i += 1
+                            if (self.i > count - 1) {
+                                self.stopAndReset()
+                                self.onExpire(self)
+                            }
+                        }
+                    case .infinity:
+                        if (self.i < UInt.max) {
+                            self.onTick(self)
+                            self.i += 1
+                        }
                 }
             })
         }
