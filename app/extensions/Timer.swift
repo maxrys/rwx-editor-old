@@ -47,12 +47,11 @@ extension Timer {
                 in: RunLoop.Mode.common,
                 options: nil
             ).autoconnect().sink(receiveValue: { _ in
+                self.onTick(self)
                 self.i += 1
                 if (self.i > self.count - 1) {
                     self.stopAndReset()
                     self.onExpire(self)
-                } else {
-                    self.onTick(self)
                 }
             })
         }
