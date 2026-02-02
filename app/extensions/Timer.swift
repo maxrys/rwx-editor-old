@@ -10,31 +10,50 @@ extension Timer {
 
     final class Custom {
 
-        var tag: UInt
+        public let tag: UInt
+        public let count: UInt16
+        public let interval: Double
+        public private(set) var i: UInt16 = 0
 
+        private let onTick: (Timer.Custom) -> Void
+        private let onExpire: (Timer.Custom) -> Void
         private var timer: Cancellable?
-        private var startedAt: Double = 0
-        private var onTick: (Double, Timer.Custom) -> Void
 
-        init(tag: UInt = 0, onTick: @escaping (Double, Timer.Custom) -> Void = { _,_  in }) {
-            self.tag    = tag
+        init(
+            tag: UInt = 0,
+            immediately: Bool = true,
+            count: UInt16,
+            interval: Double,
+            onTick  : @escaping (Timer.Custom) -> Void = { _ in },
+            onExpire: @escaping (Timer.Custom) -> Void = { _ in }
+        ) {
+            self.tag = tag
+            self.count = count
+            self.interval = interval
             self.onTick = onTick
+            self.onExpire = onExpire
+            if (immediately) {
+                self.startOrRenew()
+            }
         }
 
-        func start(tickInterval: Double = 1.0 / 24, from offset: Double = 0) {
+        func startOrRenew() {
+            self.i = 0
             self.timer?.cancel()
-            self.startedAt = CACurrentMediaTime() - offset
             self.timer = Timer.publish(
-                every: tickInterval,
+                every: self.interval,
                 tolerance: 0.0,
                 on: RunLoop.main,
                 in: RunLoop.Mode.common,
                 options: nil
             ).autoconnect().sink(receiveValue: { _ in
-                self.onTick(
-                    CACurrentMediaTime() - self.startedAt,
-                    self
-                )
+                self.i += 1
+                if (self.i > self.count - 1) {
+                    self.stopAndReset()
+                    self.onExpire(self)
+                } else {
+                    self.onTick(self)
+                }
             })
         }
 

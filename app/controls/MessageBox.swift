@@ -109,26 +109,29 @@ struct MessageBox: View {
                 return
             }
         }
+
         self.messageCurrentID.value += 1
         let id = self.messageCurrentID.value
-        let expirationTimer = Timer.Custom(
-            tag: id,
-            onTick: self.onTimerTick
-        )
-        self.messages.value[id] = (
-            message: message,
-            expirationTimer: expirationTimer
-        )
-        if case .time(let time) = lifeTime {
-            expirationTimer.start(
-                tickInterval: time
-            )
-        }
-    }
 
-    func onTimerTick(offset: Double, timer: Timer.Custom) {
-        timer.stopAndReset()
-        self.messages.value[timer.tag] = nil
+        switch lifeTime {
+            case .infinity:
+                self.messages.value[id] = (
+                    message: message,
+                    expirationTimer: nil
+                )
+            case .time(let time):
+                self.messages.value[id] = (
+                    message: message,
+                    expirationTimer: Timer.Custom(
+                        tag: id,
+                        count: 1,
+                        interval: time,
+                        onExpire: { _ in
+                            self.messages.value[id] = nil
+                        }
+                    )
+                )
+        }
     }
 
 }
