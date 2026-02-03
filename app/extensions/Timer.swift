@@ -54,19 +54,15 @@ extension Timer {
             ).autoconnect().sink(receiveValue: { _ in
                 switch self.repeats {
                     case .count(let count):
-                        if (self.i < UInt.max) {
-                            self.onTick(self)
-                            self.i += 1
-                            if (self.i > count - 1) {
-                                self.stopAndReset()
-                                self.onExpire(self)
-                            }
+                        self.onTick(self)
+                        if (self.i < UInt.max) { self.i += 1 }
+                        if (self.i > count - 1) {
+                            self.stopAndReset()
+                            self.onExpire(self)
                         }
                     case .infinity:
-                        if (self.i < UInt.max) {
-                            self.onTick(self)
-                            self.i += 1
-                        }
+                        self.onTick(self)
+                        if (self.i < UInt.max) { self.i += 1 }
                 }
             })
         }
