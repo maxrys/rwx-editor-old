@@ -58,11 +58,12 @@ class ThisApp: NSObject, NSApplicationDelegate, NSWindowDelegate {
     }
 
     func windowWillClose(_ notification: Notification) {
-        let windows = notification.object as? NSWindow
-        if (windows != self.mainWindow) {
-            for (path, current) in NSWindow.customWindows {
-                if (current == windows) {
-                    NSWindow.customWindows[path] = nil
+        if let windows = notification.object as? NSWindow {
+            if (windows != self.mainWindow) {
+                for (path, current) in NSWindow.customWindows {
+                    if (current == windows) {
+                        NSWindow.customWindows[path] = nil
+                    }
                 }
             }
         }
