@@ -21,40 +21,6 @@ struct PopupHeadView: View {
         }
     }
 
-    @State private var visibilityModeForSize: BytesVisibilityMode
-    @State private var visibilityModeForCreated: DateVisibilityMode
-    @State private var visibilityModeForUpdated: DateVisibilityMode
-    @State private var info: FSEntityInfo
-
-    init(_ info: FSEntityInfo) {
-        self.visibilityModeForSize = .bytes
-        self.visibilityModeForCreated = .convenient
-        self.visibilityModeForUpdated = .convenient
-        self.info = info
-    }
-
-    var formattedType: String {
-        switch self.info.type {
-            case .directory: NSLocalizedString("directory", comment: "")
-            case .file     : NSLocalizedString("file"     , comment: "")
-            case .alias    : NSLocalizedString("alias"    , comment: "")
-            case .link     : NSLocalizedString("link"     , comment: "")
-            case .unknown  : NSLocalizedString(NA_SIGN    , comment: "")
-        }
-    }
-
-    var formattedName: String {
-        if let name = self.info.name
-             { name }
-        else { NSLocalizedString(NA_SIGN, comment: "") }
-    }
-
-    var formattedPath: String {
-        if let path = self.info.path
-             { path }
-        else { NSLocalizedString(NA_SIGN, comment: "") }
-    }
-
     var formattedRealName: String {
         if let realName = self.info.realName
              { realName }
@@ -65,60 +31,6 @@ struct PopupHeadView: View {
         if let realPath = self.info.realPath
              { realPath }
         else { NSLocalizedString(NA_SIGN, comment: "") }
-    }
-
-    var formattedSize: String {
-        if let size = self.info.size {
-            switch self.visibilityModeForSize {
-                case  .bytes: ByteCountFormatter.format(size, unit: .useBytes)
-                case .kbytes: ByteCountFormatter.format(size, unit: .useKB)
-                case .mbytes: ByteCountFormatter.format(size, unit: .useMB)
-                case .gbytes: ByteCountFormatter.format(size, unit: .useGB)
-                case .tbytes: ByteCountFormatter.format(size, unit: .useTB)
-            }
-        } else {
-            NSLocalizedString(
-                NA_SIGN, comment: ""
-            )
-        }
-    }
-
-    var formattedCreated: String {
-        if let created = self.info.created {
-            switch self.visibilityModeForCreated {
-                case .convenient   : created.convenient
-                case .iso8601withTZ: created.ISO8601withTZ
-                case .iso8601      : created.ISO8601
-            }
-        } else {
-            NSLocalizedString(
-                NA_SIGN, comment: ""
-            )
-        }
-    }
-
-    var formattedUpdated: String {
-        if let updated = self.info.updated {
-            switch self.visibilityModeForUpdated {
-                case .convenient   : updated.convenient
-                case .iso8601withTZ: updated.ISO8601withTZ
-                case .iso8601      : updated.ISO8601
-            }
-        } else {
-            NSLocalizedString(
-                NA_SIGN, comment: ""
-            )
-        }
-    }
-
-    var formattedReferences: String {
-        if let references = self.info.references {
-            String(format: NSLocalizedString("%@ pcs.", comment: ""), String(references))
-        } else {
-            NSLocalizedString(
-                NA_SIGN, comment: ""
-            )
-        }
     }
 
     @ViewBuilder func iconRoll<T: CaseIterable & Equatable>(value: Binding<T>) -> some View {
@@ -220,10 +132,7 @@ struct PopupHeadView: View {
             return result
         }
 
-        let columns = [
-            GridItem(.fixed(100), spacing: 0),
-            GridItem(.flexible(), spacing: 0)
-        ]
+
 
         LazyVGrid(columns: columns, spacing: 0) {
             ForEach(gridRows.indices, id: \.self) { index in
@@ -250,12 +159,3 @@ struct PopupHeadView: View {
 
 }
 
-#Preview {
-    VStack(spacing: 10) {
-        PopupHeadView(FSEntityInfo("/private/etc/"))
-        PopupHeadView(FSEntityInfo("/private/etc/hosts"))
-    }
-    .padding(10)
-    .background(Color.black)
-    .frame(width: 300)
-}

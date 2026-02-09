@@ -8,24 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		50114D1E2E01F6AF00024326 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50624C532DE5C2BA00794BC8 /* View.swift */; };
-		50114D202E01F6AF00024326 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5073189B2DF1BA3D005E26F9 /* Date.swift */; };
 		50114D232E01F6AF00024326 /* enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5073189F2DF31F1C005E26F9 /* enums.swift */; };
 		50114D242E01F6AF00024326 /* CaseIterable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507318A22DF3758B005E26F9 /* CaseIterable.swift */; };
 		50114D252E01F6AF00024326 /* Process.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507318972DF05F60005E26F9 /* Process.swift */; };
-		50114D262E01F6AF00024326 /* ByteCountFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507318A52DF37FB8005E26F9 /* ByteCountFormatter.swift */; };
 		50114D272E01F6AF00024326 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 50624C5C2DE5CD1A00794BC8 /* Localizable.xcstrings */; };
 		50114D342E01F6AF00024326 /* enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5073189F2DF31F1C005E26F9 /* enums.swift */; };
 		50114D372E01F6AF00024326 /* CaseIterable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507318A22DF3758B005E26F9 /* CaseIterable.swift */; };
-		50114D382E01F6AF00024326 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5073189B2DF1BA3D005E26F9 /* Date.swift */; };
 		50114D392E01F6AF00024326 /* Process.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507318972DF05F60005E26F9 /* Process.swift */; };
-		50114D3B2E01F6AF00024326 /* ByteCountFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507318A52DF37FB8005E26F9 /* ByteCountFormatter.swift */; };
 		50114D3C2E01F6AF00024326 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50624C532DE5C2BA00794BC8 /* View.swift */; };
 		50114D3D2E01F6AF00024326 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 50624C5C2DE5CD1A00794BC8 /* Localizable.xcstrings */; };
-		50114D3E2E01F6AF00024326 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5073189B2DF1BA3D005E26F9 /* Date.swift */; };
 		50114D3F2E01F6AF00024326 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50624C532DE5C2BA00794BC8 /* View.swift */; };
 		50114D432E01F6AF00024326 /* Process.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507318972DF05F60005E26F9 /* Process.swift */; };
 		50114D442E01F6AF00024326 /* enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5073189F2DF31F1C005E26F9 /* enums.swift */; };
-		50114D452E01F6AF00024326 /* ByteCountFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507318A52DF37FB8005E26F9 /* ByteCountFormatter.swift */; };
 		50114D462E01F6AF00024326 /* CaseIterable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507318A22DF3758B005E26F9 /* CaseIterable.swift */; };
 		50114D482E01F6AF00024326 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 50624C5C2DE5CD1A00794BC8 /* Localizable.xcstrings */; };
 		50114D4C2E01F76D00024326 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50624C4D2DE5BA8200794BC8 /* App.swift */; };
@@ -145,10 +139,8 @@
 		507318522DE82BDB005E26F9 /* PickerCustom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerCustom.swift; sourceTree = "<group>"; };
 		507318752DE9EB32005E26F9 /* ButtonCustom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCustom.swift; sourceTree = "<group>"; };
 		507318972DF05F60005E26F9 /* Process.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Process.swift; sourceTree = "<group>"; };
-		5073189B2DF1BA3D005E26F9 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		5073189F2DF31F1C005E26F9 /* enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = enums.swift; sourceTree = "<group>"; };
 		507318A22DF3758B005E26F9 /* CaseIterable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaseIterable.swift; sourceTree = "<group>"; };
-		507318A52DF37FB8005E26F9 /* ByteCountFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ByteCountFormatter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -206,10 +198,8 @@
 		503D1A9B2F2C073E005B8A98 /* extensions */ = {
 			isa = PBXGroup;
 			children = (
-				507318A52DF37FB8005E26F9 /* ByteCountFormatter.swift */,
 				507318A22DF3758B005E26F9 /* CaseIterable.swift */,
 				50114D682E02AC0D00024326 /* Color.swift */,
-				5073189B2DF1BA3D005E26F9 /* Date.swift */,
 				501939E72E116F2600711283 /* Equatable.swift */,
 				503D1AE22F2F53BC005B8A98 /* NSWindow.swift */,
 				507318972DF05F60005E26F9 /* Process.swift */,
@@ -414,11 +404,9 @@
 				50114DA92E0C065D00024326 /* ValueState.swift in Sources */,
 				50114D6A2E02AC0F00024326 /* Color.swift in Sources */,
 				50114D372E01F6AF00024326 /* CaseIterable.swift in Sources */,
-				50114D382E01F6AF00024326 /* Date.swift in Sources */,
 				50114D892E05F8CE00024326 /* FSEntityInfo.swift in Sources */,
 				50114D392E01F6AF00024326 /* Process.swift in Sources */,
 				50114DA22E0AF89B00024326 /* MessageBox.swift in Sources */,
-				50114D3B2E01F6AF00024326 /* ByteCountFormatter.swift in Sources */,
 				503D1AE52F2F53BC005B8A98 /* NSWindow.swift in Sources */,
 				50114D3C2E01F6AF00024326 /* View.swift in Sources */,
 				50114E8C2E0E9BB600024326 /* Shape.swift in Sources */,
@@ -449,7 +437,6 @@
 				503D1AE42F2F53BC005B8A98 /* NSWindow.swift in Sources */,
 				50114D6F2E02AFE400024326 /* ButtonCustom.swift in Sources */,
 				50114D6E2E02AFD500024326 /* PickerCustom.swift in Sources */,
-				50114D202E01F6AF00024326 /* Date.swift in Sources */,
 				501939E82E116F2700711283 /* Equatable.swift in Sources */,
 				50114D232E01F6AF00024326 /* enums.swift in Sources */,
 				50114D6B2E02AC0F00024326 /* Color.swift in Sources */,
@@ -462,7 +449,6 @@
 				50114DA82E0C065D00024326 /* ValueState.swift in Sources */,
 				50114DA02E0AF85D00024326 /* Timer.swift in Sources */,
 				503D1AAF2F2CB8FB005B8A98 /* const.swift in Sources */,
-				50114D262E01F6AF00024326 /* ByteCountFormatter.swift in Sources */,
 				50403EA52E12AF09007F1D6B /* AppInfoView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -471,14 +457,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				50114D3E2E01F6AF00024326 /* Date.swift in Sources */,
 				50114D3F2E01F6AF00024326 /* View.swift in Sources */,
 				50114D6C2E02AC0F00024326 /* Color.swift in Sources */,
 				50114DAA2E0C065D00024326 /* ValueState.swift in Sources */,
 				50114D432E01F6AF00024326 /* Process.swift in Sources */,
 				50114D442E01F6AF00024326 /* enums.swift in Sources */,
 				50114D8A2E05F8CE00024326 /* FSEntityInfo.swift in Sources */,
-				50114D452E01F6AF00024326 /* ByteCountFormatter.swift in Sources */,
 				50114D462E01F6AF00024326 /* CaseIterable.swift in Sources */,
 				50114DA32E0AF89B00024326 /* MessageBox.swift in Sources */,
 				503D1AE32F2F53BC005B8A98 /* NSWindow.swift in Sources */,
