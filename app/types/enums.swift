@@ -63,12 +63,4 @@ public enum DateVisibilityMode: CaseIterable & Equatable {
 
 }
 
-public enum FSType {
 
-    case directory
-    case file
-    case link
-    case alias
-    case unknown
-
-}
