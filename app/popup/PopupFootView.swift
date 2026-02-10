@@ -7,10 +7,6 @@ import SwiftUI
 
 struct PopupFootView: View {
 
-    enum ColorNames: String {
-        case foot = "color PopupView Foot Background"
-    }
-
     private var info: Binding<FSEntityInfo>
     private var rights: Binding<UInt>
     private var owner: Binding<String>
@@ -53,8 +49,6 @@ struct PopupFootView: View {
 
         }
         .padding(25)
-        .frame(maxWidth: .infinity)
-        .background(Color(Self.ColorNames.foot.rawValue))
     }
 
 }

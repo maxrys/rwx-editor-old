@@ -7,10 +7,6 @@ import SwiftUI
 
 struct PopupBodyView: View {
 
-    enum ColorNames: String {
-        case body = "color PopupView Body Background"
-    }
-
     var owners: [String: String] = {
         var result: [String: String] = [:]
         Process.systemUsers().filter({ $0.first != "_" }).sorted().forEach { value in
@@ -147,7 +143,7 @@ struct PopupBodyView: View {
 
         }
         .frame(maxWidth: .infinity)
-        .background(Color(Self.ColorNames.body.rawValue))
+        
     }
 
 }

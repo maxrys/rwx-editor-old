@@ -349,14 +349,7 @@
 
     },
     "RWX Editor (Settings)" : {
-      "localizations" : {
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "RWX Редактор (Установки)"
-          }
-        }
-      }
+
     },
     "select a directory to grant access" : {
       "localizations" : {
