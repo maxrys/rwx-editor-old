@@ -8,12 +8,6 @@
             "state" : "new",
             "value" : "%1$@ 'at' %2$@"
           }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%1$@ 'в' %2$@"
-          }
         }
       }
     },
@@ -23,12 +17,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "%@ pcs."
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%@ шт."
           }
         }
       }
@@ -49,12 +37,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "alias"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "псевдоним"
           }
         }
       }
@@ -146,12 +128,6 @@
             "state" : "translated",
             "value" : "Created"
           }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Создано"
-          }
         }
       }
     },
@@ -164,12 +140,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "directory"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "директория"
           }
         }
       }
@@ -196,12 +166,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "file"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "файл"
           }
         }
       }
@@ -248,12 +212,6 @@
             "state" : "translated",
             "value" : "link"
           }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "ссылка"
-          }
         }
       }
     },
@@ -266,12 +224,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Name"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Название"
           }
         }
       }
@@ -344,12 +296,6 @@
             "state" : "translated",
             "value" : "Path"
           }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Путь"
-          }
         }
       }
     },
@@ -376,12 +322,6 @@
             "state" : "translated",
             "value" : "Real Name"
           }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Реальное название"
-          }
         }
       }
     },
@@ -391,12 +331,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Real Path"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Реальный путь"
           }
         }
       }
@@ -408,24 +342,11 @@
             "state" : "translated",
             "value" : "References"
           }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ссылки"
-          }
         }
       }
     },
     "RWX Editor" : {
-      "localizations" : {
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "RWX Редактор"
-          }
-        }
-      }
+
     },
     "RWX Editor (Settings)" : {
       "localizations" : {
@@ -463,12 +384,6 @@
             "state" : "translated",
             "value" : "Size"
           }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Размер"
-          }
         }
       }
     },
@@ -495,12 +410,6 @@
             "state" : "translated",
             "value" : "Type"
           }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Тип"
-          }
         }
       }
     },
@@ -510,12 +419,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Updated"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Обновлено"
           }
         }
       }
