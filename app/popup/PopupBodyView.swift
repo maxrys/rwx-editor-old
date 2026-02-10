@@ -73,38 +73,6 @@ struct PopupBodyView: View {
             /* MARK: rules via toggles */
             HStack(spacing: 0) {
 
-                let textW: CGFloat = 60
-                let textH: CGFloat = 25
-
-                VStack(spacing: 10) {
-                    Color.clear.frame(width: textW, height: textH)
-                    Text(NSLocalizedString("Owner", comment: "")).frame(width: textW, height: textH)
-                    Text(NSLocalizedString("Group", comment: "")).frame(width: textW, height: textH)
-                    Text(NSLocalizedString("Other", comment: "")).frame(width: textW, height: textH)
-                }
-
-                VStack(spacing: 10) {
-                    Text(NSLocalizedString("Read", comment: "")).frame(width: textW, height: textH)
-                    ToggleRwxColored(.owner, self.rights, bitPosition: Subject.owner.offset + Permission.r.offset)
-                    ToggleRwxColored(.group, self.rights, bitPosition: Subject.group.offset + Permission.r.offset)
-                    ToggleRwxColored(.other, self.rights, bitPosition: Subject.other.offset + Permission.r.offset)
-                }
-
-                VStack(spacing: 10) {
-                    Text(NSLocalizedString("Write", comment: "")).frame(width: textW, height: textH)
-                    ToggleRwxColored(.owner, self.rights, bitPosition: Subject.owner.offset + Permission.w.offset)
-                    ToggleRwxColored(.group, self.rights, bitPosition: Subject.group.offset + Permission.w.offset)
-                    ToggleRwxColored(.other, self.rights, bitPosition: Subject.other.offset + Permission.w.offset)
-                }
-
-                VStack(spacing: 10) {
-                    let text = self.info.type.wrappedValue == .file ? "Execute" : "Access"
-                    Text(NSLocalizedString(text, comment: "")).frame(width: textW, height: textH)
-                    ToggleRwxColored(.owner, self.rights, bitPosition: Subject.owner.offset + Permission.x.offset);
-                    ToggleRwxColored(.group, self.rights, bitPosition: Subject.group.offset + Permission.x.offset);
-                    ToggleRwxColored(.other, self.rights, bitPosition: Subject.other.offset + Permission.x.offset);
-                }
-
             }
 
             /* MARK: rules via text/numeric */
