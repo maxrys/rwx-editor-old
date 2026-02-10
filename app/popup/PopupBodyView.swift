@@ -25,18 +25,6 @@ struct PopupBodyView: View {
 
     @Environment(\.colorScheme) private var colorScheme
 
-    private var info: Binding<FSEntityInfo>
-    private var rights: Binding<UInt>
-    private var owner: Binding<String>
-    private var group: Binding<String>
-
-    init(_ info: Binding<FSEntityInfo>, _ rights: Binding<UInt>, _ owner: Binding<String>, _ group: Binding<String>) {
-        self.info   = info
-        self.rights = rights
-        self.owner  = owner
-        self.group  = group
-    }
-
     @ViewBuilder var shadowTop: some View {
         Rectangle()
             .fill(
@@ -114,23 +102,4 @@ struct PopupBodyView: View {
         
     }
 
-}
-
-@available(macOS 14.0, *) #Preview {
-    @Previewable @State var info: FSEntityInfo = FSEntityInfo("/private/etc/")
-    @Previewable @State var rights: UInt       = FSEntityInfo("/private/etc/").rights
-    @Previewable @State var owner: String      = FSEntityInfo("/private/etc/").owner
-    @Previewable @State var group: String      = FSEntityInfo("/private/etc/").group
-    VStack {
-        DebugInfoView($info)
-        PopupBodyView(
-            $info,
-            $rights,
-            $owner,
-            $group
-        ).frame(width: 300)
-    }
-    .padding(10)
-    .background(Color.black)
-    .frame(width: 320)
 }

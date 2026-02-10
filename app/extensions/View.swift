@@ -5,6 +5,14 @@
 
 import SwiftUI
 
+public enum Flexibility {
+
+    case none
+    case size(CGFloat)
+    case infinity
+
+}
+
 extension View {
 
     @ViewBuilder func flexibility(_ value: Flexibility = .none) -> some View {

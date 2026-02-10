@@ -13,19 +13,10 @@ struct PopupView: View {
     private let messageBox: MessageBox
     private let initialValue: String
 
-    @State private var info: FSEntityInfo
-    @State private var rights: UInt
-    @State private var owner: String
-    @State private var group: String
-
     init(_ initialValue: String) {
         let info = FSEntityInfo(initialValue)
         self.messageBox   = MessageBox()
         self.initialValue = initialValue
-        self.info         = info
-        self.rights       = info.rights
-        self.owner        = info.owner
-        self.group        = info.group
     }
 
     func updateView(onlyIfRequired: Bool = false) {

@@ -8,16 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		50114D1E2E01F6AF00024326 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50624C532DE5C2BA00794BC8 /* View.swift */; };
-		50114D232E01F6AF00024326 /* enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5073189F2DF31F1C005E26F9 /* enums.swift */; };
 		50114D252E01F6AF00024326 /* Process.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507318972DF05F60005E26F9 /* Process.swift */; };
 		50114D272E01F6AF00024326 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 50624C5C2DE5CD1A00794BC8 /* Localizable.xcstrings */; };
-		50114D342E01F6AF00024326 /* enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5073189F2DF31F1C005E26F9 /* enums.swift */; };
 		50114D392E01F6AF00024326 /* Process.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507318972DF05F60005E26F9 /* Process.swift */; };
 		50114D3C2E01F6AF00024326 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50624C532DE5C2BA00794BC8 /* View.swift */; };
 		50114D3D2E01F6AF00024326 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 50624C5C2DE5CD1A00794BC8 /* Localizable.xcstrings */; };
 		50114D3F2E01F6AF00024326 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50624C532DE5C2BA00794BC8 /* View.swift */; };
 		50114D432E01F6AF00024326 /* Process.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507318972DF05F60005E26F9 /* Process.swift */; };
-		50114D442E01F6AF00024326 /* enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5073189F2DF31F1C005E26F9 /* enums.swift */; };
 		50114D482E01F6AF00024326 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 50624C5C2DE5CD1A00794BC8 /* Localizable.xcstrings */; };
 		50114D4C2E01F76D00024326 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50624C4D2DE5BA8200794BC8 /* App.swift */; };
 		50114D4D2E01F77300024326 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50114D162E01F24000024326 /* MainView.swift */; };
@@ -132,7 +129,6 @@
 		507318522DE82BDB005E26F9 /* PickerCustom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerCustom.swift; sourceTree = "<group>"; };
 		507318752DE9EB32005E26F9 /* ButtonCustom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCustom.swift; sourceTree = "<group>"; };
 		507318972DF05F60005E26F9 /* Process.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Process.swift; sourceTree = "<group>"; };
-		5073189F2DF31F1C005E26F9 /* enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = enums.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -240,7 +236,6 @@
 			isa = PBXGroup;
 			children = (
 				503D1AAC2F2CB8FB005B8A98 /* const.swift */,
-				5073189F2DF31F1C005E26F9 /* enums.swift */,
 				50114D7F2E05544E00024326 /* FSEntityInfo.swift */,
 				50114DA72E0C065D00024326 /* ValueState.swift */,
 			);
@@ -389,7 +384,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				50114D342E01F6AF00024326 /* enums.swift in Sources */,
 				50114DA92E0C065D00024326 /* ValueState.swift in Sources */,
 				50114D6A2E02AC0F00024326 /* Color.swift in Sources */,
 				50114D892E05F8CE00024326 /* FSEntityInfo.swift in Sources */,
@@ -424,7 +418,6 @@
 				50114D6F2E02AFE400024326 /* ButtonCustom.swift in Sources */,
 				50114D6E2E02AFD500024326 /* PickerCustom.swift in Sources */,
 				501939E82E116F2700711283 /* Equatable.swift in Sources */,
-				50114D232E01F6AF00024326 /* enums.swift in Sources */,
 				50114D6B2E02AC0F00024326 /* Color.swift in Sources */,
 				50403EAF2E12B54F007F1D6B /* ExtensionView.swift in Sources */,
 				50114D252E01F6AF00024326 /* Process.swift in Sources */,
@@ -446,7 +439,6 @@
 				50114D6C2E02AC0F00024326 /* Color.swift in Sources */,
 				50114DAA2E0C065D00024326 /* ValueState.swift in Sources */,
 				50114D432E01F6AF00024326 /* Process.swift in Sources */,
-				50114D442E01F6AF00024326 /* enums.swift in Sources */,
 				50114D8A2E05F8CE00024326 /* FSEntityInfo.swift in Sources */,
 				50114DA32E0AF89B00024326 /* MessageBox.swift in Sources */,
 				503D1AE32F2F53BC005B8A98 /* NSWindow.swift in Sources */,
