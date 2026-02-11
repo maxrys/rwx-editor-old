@@ -39,7 +39,6 @@ struct MainView: View {
 
         }
         .foregroundPolyfill(Color.custom.text)
-        .environment(\.layoutDirection, .leftToRight)
         .frame(width: Self.FRAME_WIDTH, height: Self.FRAME_HEIGHT)
     }
 

@@ -31,20 +31,6 @@ struct PopupView: View {
     var body: some View {
         VStack(spacing: 0) {
 
-            /* MARK: head */
-            PopupHeadView(
-                self.info
-            )
-
-            /* MARK: body */
-            PopupBodyView(
-                self.$info,
-                self.$rights,
-                self.$owner,
-                self.$group
-            )
-
-            /* MARK: foot */
             PopupFootView(
                 self.$info,
                 self.$rights,
@@ -127,13 +113,4 @@ struct PopupView: View {
         }
     }
 
-}
-
-#Preview {
-    VStack(spacing: 10) {
-        PopupView("/private/etc/")
-        PopupView("/private/etc/hosts")
-    }
-    .padding(10)
-    .background(Color.black)
 }
