@@ -180,12 +180,6 @@
             "state" : "translated",
             "value" : "Group"
           }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Группа"
-          }
         }
       }
     },
@@ -264,12 +258,6 @@
             "state" : "translated",
             "value" : "Other"
           }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Другие"
-          }
         }
       }
     },
@@ -279,12 +267,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Owner"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Владелец"
           }
         }
       }
@@ -305,12 +287,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Read"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Чтение"
           }
         }
       }
@@ -438,12 +414,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Write"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Запись"
           }
         }
       }

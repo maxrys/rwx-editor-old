@@ -5,22 +5,6 @@
 
 import SwiftUI
 
-extension Color {
-
-    struct CustomColorSet {
-        let text       = Color("color Text")
-        let softGreen  = Color("color Soft Green")
-        let softOrange = Color("color Soft Orange")
-        let softRed    = Color("color Soft Red")
-        let darkGreen  = Color("color Dark Green")
-        let darkOrange = Color("color Dark Orange")
-        let darkRed    = Color("color Dark Red")
-    }
-
-    static let custom = CustomColorSet()
-
-}
-
 /* Picker Custom */
 
 extension Color {
