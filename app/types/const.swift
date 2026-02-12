@@ -5,5 +5,5 @@
 
 import Foundation
 
-let NA_SIGN = "—"
+
 let APP_GROUP_NAME = "group.maxrys.rwx-editor"
