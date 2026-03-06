@@ -7,6 +7,14 @@ import Foundation
 
 final class FSEntityInfo: Equatable {
 
+    public enum FSType {
+        case directory
+        case file
+        case link
+        case alias
+        case unknown
+    }
+
     var initUrl: String = ""
     var type: FSType = .unknown
     var path: String?

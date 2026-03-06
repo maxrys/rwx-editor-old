@@ -155,9 +155,6 @@
         }
       }
     },
-    "DEBUG INFO\n%@" : {
-      "shouldTranslate" : false
-    },
     "directory" : {
       "localizations" : {
         "en" : {

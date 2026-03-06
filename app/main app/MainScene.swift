@@ -5,7 +5,7 @@
 
 import SwiftUI
 
-struct MainView: View {
+struct MainScene: View {
 
     static let FRAME_WIDTH : CGFloat = 700
     static let FRAME_HEIGHT: CGFloat = 400
@@ -38,7 +38,6 @@ struct MainView: View {
             AppInfoView()
 
         }
-        .foregroundPolyfill(Color.custom.text)
         .environment(\.layoutDirection, .leftToRight)
         .frame(width: Self.FRAME_WIDTH, height: Self.FRAME_HEIGHT)
     }
@@ -46,5 +45,5 @@ struct MainView: View {
 }
 
 #Preview {
-    MainView()
+    MainScene()
 }

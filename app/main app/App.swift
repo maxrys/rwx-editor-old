@@ -18,7 +18,7 @@ class ThisApp: NSObject, NSApplicationDelegate, NSWindowDelegate {
             styleMask: [.titled, .closable],
             isVisible: true,
             delegate: self,
-            view: MainView()
+            view: MainScene()
         )
     }
 

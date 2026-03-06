@@ -36,39 +36,3 @@ public enum Subject {
     }
 
 }
-
-public enum Flexibility {
-
-    case none
-    case size(CGFloat)
-    case infinity
-
-}
-
-public enum BytesVisibilityMode: String, CaseIterable & Equatable {
-
-    case bytes  = "Bytes"
-    case kbytes = "KBytes"
-    case mbytes = "MBytes"
-    case gbytes = "GBytes"
-    case tbytes = "TBytes"
-
-}
-
-public enum DateVisibilityMode: CaseIterable & Equatable {
-
-    case convenient
-    case iso8601withTZ
-    case iso8601
-
-}
-
-public enum FSType {
-
-    case directory
-    case file
-    case link
-    case alias
-    case unknown
-
-}

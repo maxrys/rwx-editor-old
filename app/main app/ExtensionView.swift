@@ -37,8 +37,8 @@ struct ExtensionView: View {
             let text = self.isOn ? "extension is enabled" : "extension is disabled"
 
             let color = self.isOn ?
-                Color.custom.darkGreen :
-                Color.custom.darkRed
+                Color.toggleRWXColored.darkGreen :
+                Color.toggleRWXColored.darkRed
 
             Image(systemName: icon)
                 .frame(width: 40, height: 40)

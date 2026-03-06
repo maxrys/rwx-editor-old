@@ -5,7 +5,7 @@
 
 import SwiftUI
 
-struct RwxTextView: View {
+struct PanelRwxText: View {
 
     enum ColorNames: String {
         case text       = "color RwxTextView Text"
@@ -47,6 +47,6 @@ struct RwxTextView: View {
 @available(macOS 14.0, *) #Preview {
     @Previewable @State var rights: UInt = 0o644
     HStack {
-        RwxTextView($rights)
+        PanelRwxText($rights)
     }.padding(20)
 }

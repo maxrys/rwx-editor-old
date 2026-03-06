@@ -21,9 +21,9 @@ struct PopupHeadView: View {
         }
     }
 
-    @State private var visibilityModeForSize: BytesVisibilityMode
-    @State private var visibilityModeForCreated: DateVisibilityMode
-    @State private var visibilityModeForUpdated: DateVisibilityMode
+    @State private var visibilityModeForSize: ByteCountFormatter.VisibilityMode
+    @State private var visibilityModeForCreated: Date.VisibilityMode
+    @State private var visibilityModeForUpdated: Date.VisibilityMode
     @State private var info: FSEntityInfo
 
     init(_ info: FSEntityInfo) {

@@ -73,7 +73,7 @@ struct BookmarksView: View {
                                     print("delete \(index)")
                                 } label: {
                                     Image(systemName: "xmark.circle.fill")
-                                        .foregroundPolyfill(Color.custom.softRed)
+                                        .foregroundPolyfill(Color.toggleRWXColored.softRed)
                                 }
                                 .buttonStyle(.plain)
                                 .pointerStyleLinkPolyfill()

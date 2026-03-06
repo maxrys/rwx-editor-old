@@ -35,9 +35,9 @@ struct ToggleRwxColored: View {
 
     var background: Color {
         switch self.kind {
-            case .owner: Color.custom.softGreen
-            case .group: Color.custom.softOrange
-            case .other: Color.custom.softRed
+            case .owner: Color.toggleRWXColored.softGreen
+            case .group: Color.toggleRWXColored.softOrange
+            case .other: Color.toggleRWXColored.softRed
         }
     }
 

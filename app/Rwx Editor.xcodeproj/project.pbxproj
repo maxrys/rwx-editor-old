@@ -34,20 +34,19 @@
 		50114D492E01F71900024326 /* FinderSyncExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50583D632DFB5EA100013BD0 /* FinderSyncExt.swift */; };
 		50114D4B2E01F71900024326 /* FinderSyncExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50583D632DFB5EA100013BD0 /* FinderSyncExt.swift */; };
 		50114D4C2E01F76D00024326 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50624C4D2DE5BA8200794BC8 /* App.swift */; };
-		50114D4D2E01F77300024326 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50114D162E01F24000024326 /* MainView.swift */; };
-		50114D4E2E01F77900024326 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50624C4A2DE5BA8200794BC8 /* Assets.xcassets */; };
+		50114D4D2E01F77300024326 /* MainScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50114D162E01F24000024326 /* MainScene.swift */; };
 		50114D642E02AB9400024326 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50114D632E02AB9400024326 /* Assets.xcassets */; };
 		50114D652E02AB9400024326 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50114D632E02AB9400024326 /* Assets.xcassets */; };
 		50114D672E02AB9400024326 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50114D632E02AB9400024326 /* Assets.xcassets */; };
-		50114D6A2E02AC0F00024326 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50114D682E02AC0D00024326 /* Color.swift */; };
-		50114D6B2E02AC0F00024326 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50114D682E02AC0D00024326 /* Color.swift */; };
-		50114D6C2E02AC0F00024326 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50114D682E02AC0D00024326 /* Color.swift */; };
+		50114D6A2E02AC0F00024326 /* ToggleRwxColoredColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50114D682E02AC0D00024326 /* ToggleRwxColoredColor.swift */; };
+		50114D6B2E02AC0F00024326 /* ToggleRwxColoredColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50114D682E02AC0D00024326 /* ToggleRwxColoredColor.swift */; };
+		50114D6C2E02AC0F00024326 /* ToggleRwxColoredColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50114D682E02AC0D00024326 /* ToggleRwxColoredColor.swift */; };
 		50114D6E2E02AFD500024326 /* PickerCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507318522DE82BDB005E26F9 /* PickerCustom.swift */; };
 		50114D6F2E02AFE400024326 /* ButtonCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507318752DE9EB32005E26F9 /* ButtonCustom.swift */; };
 		50114D822E05F87B00024326 /* PopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50624C4B2DE5BA8200794BC8 /* PopupView.swift */; };
 		50114D832E05F87B00024326 /* ToggleRwxNumeric.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507318502DE7939D005E26F9 /* ToggleRwxNumeric.swift */; };
 		50114D842E05F87B00024326 /* ToggleRwxColored.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507318432DE70C27005E26F9 /* ToggleRwxColored.swift */; };
-		50114D862E05F87B00024326 /* RwxTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507318452DE71047005E26F9 /* RwxTextView.swift */; };
+		50114D862E05F87B00024326 /* PanelRwxText.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507318452DE71047005E26F9 /* PanelRwxText.swift */; };
 		50114D872E05F87B00024326 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50114D152E01F24000024326 /* Assets.xcassets */; };
 		50114D882E05F8CE00024326 /* FSEntityInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50114D7F2E05544E00024326 /* FSEntityInfo.swift */; };
 		50114D892E05F8CE00024326 /* FSEntityInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50114D7F2E05544E00024326 /* FSEntityInfo.swift */; };
@@ -72,6 +71,13 @@
 		501939E82E116F2700711283 /* Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501939E72E116F2600711283 /* Equatable.swift */; };
 		501939E92E116F2700711283 /* Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501939E72E116F2600711283 /* Equatable.swift */; };
 		501939EA2E116F2700711283 /* Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501939E72E116F2600711283 /* Equatable.swift */; };
+		50309B202F5B75FC008CA064 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50309B1F2F5B75FC008CA064 /* Assets.xcassets */; };
+		50309B212F5B75FC008CA064 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50309B1F2F5B75FC008CA064 /* Assets.xcassets */; };
+		50309B222F5B75FC008CA064 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50309B1F2F5B75FC008CA064 /* Assets.xcassets */; };
+		50309B242F5B762F008CA064 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50309B232F5B762F008CA064 /* Assets.xcassets */; };
+		50309B262F5B764A008CA064 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50309B252F5B764A008CA064 /* Assets.xcassets */; };
+		50309B282F5B7694008CA064 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 50309B272F5B7694008CA064 /* Assets.xcassets */; };
+		50309B2A2F5B7783008CA064 /* PickerCustomColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50309B292F5B7783008CA064 /* PickerCustomColor.swift */; };
 		503D1AAD2F2CB8FB005B8A98 /* const.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503D1AAC2F2CB8FB005B8A98 /* const.swift */; };
 		503D1AAE2F2CB8FB005B8A98 /* const.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503D1AAC2F2CB8FB005B8A98 /* const.swift */; };
 		503D1AAF2F2CB8FB005B8A98 /* const.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503D1AAC2F2CB8FB005B8A98 /* const.swift */; };
@@ -87,7 +93,6 @@
 		50403EAF2E12B54F007F1D6B /* ExtensionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50403EAE2E12B54F007F1D6B /* ExtensionView.swift */; };
 		50403EB12E12B7FB007F1D6B /* PopupHeadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50403EB02E12B7FB007F1D6B /* PopupHeadView.swift */; };
 		50403EB32E12BA52007F1D6B /* PopupBodyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50403EB22E12BA52007F1D6B /* PopupBodyView.swift */; };
-		50403EB52E12BC52007F1D6B /* DebugInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50403EB42E12BC52007F1D6B /* DebugInfoView.swift */; };
 		50403EB72E12C247007F1D6B /* PopupFootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50403EB62E12C242007F1D6B /* PopupFootView.swift */; };
 		50583D5D2DFB5D2000013BD0 /* Rwx Editor Finder Extension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 50583D552DFB5D2000013BD0 /* Rwx Editor Finder Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		50624C6A2DE5DCD500794BC8 /* Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50624C692DE5DCD500794BC8 /* Test.swift */; };
@@ -126,9 +131,9 @@
 
 /* Begin PBXFileReference section */
 		50114D152E01F24000024326 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		50114D162E01F24000024326 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		50114D162E01F24000024326 /* MainScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScene.swift; sourceTree = "<group>"; };
 		50114D632E02AB9400024326 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		50114D682E02AC0D00024326 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		50114D682E02AC0D00024326 /* ToggleRwxColoredColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleRwxColoredColor.swift; sourceTree = "<group>"; };
 		50114D7F2E05544E00024326 /* FSEntityInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FSEntityInfo.swift; sourceTree = "<group>"; };
 		50114D8E2E05FC6200024326 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		50114D952E099D0B00024326 /* URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URL.swift; sourceTree = "<group>"; };
@@ -139,6 +144,11 @@
 		50114E812E0DDB7D00024326 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		50114E8B2E0E9BB600024326 /* Shape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shape.swift; sourceTree = "<group>"; };
 		501939E72E116F2600711283 /* Equatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Equatable.swift; sourceTree = "<group>"; };
+		50309B1F2F5B75FC008CA064 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		50309B232F5B762F008CA064 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		50309B252F5B764A008CA064 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		50309B272F5B7694008CA064 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		50309B292F5B7783008CA064 /* PickerCustomColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerCustomColor.swift; sourceTree = "<group>"; };
 		503D1AAC2F2CB8FB005B8A98 /* const.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = const.swift; sourceTree = "<group>"; };
 		503D1AB02F2CB902005B8A98 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		503D1AE22F2F53BC005B8A98 /* NSWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSWindow.swift; sourceTree = "<group>"; };
@@ -148,14 +158,12 @@
 		50403EAE2E12B54F007F1D6B /* ExtensionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionView.swift; sourceTree = "<group>"; };
 		50403EB02E12B7FB007F1D6B /* PopupHeadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupHeadView.swift; sourceTree = "<group>"; };
 		50403EB22E12BA52007F1D6B /* PopupBodyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupBodyView.swift; sourceTree = "<group>"; };
-		50403EB42E12BC52007F1D6B /* DebugInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugInfoView.swift; sourceTree = "<group>"; };
 		50403EB62E12C242007F1D6B /* PopupFootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupFootView.swift; sourceTree = "<group>"; };
 		50583D552DFB5D2000013BD0 /* Rwx Editor Finder Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Rwx Editor Finder Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		50583D632DFB5EA100013BD0 /* FinderSyncExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinderSyncExt.swift; sourceTree = "<group>"; };
 		50583D642DFB5EA100013BD0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		50583D652DFB5EA100013BD0 /* FinderSyncExt.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FinderSyncExt.entitlements; sourceTree = "<group>"; };
 		50624C342DE5B96100794BC8 /* Rwx Editor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Rwx Editor.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		50624C4A2DE5BA8200794BC8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		50624C4B2DE5BA8200794BC8 /* PopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupView.swift; sourceTree = "<group>"; };
 		50624C4C2DE5BA8200794BC8 /* app.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = app.entitlements; sourceTree = "<group>"; };
 		50624C4D2DE5BA8200794BC8 /* App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
@@ -165,7 +173,7 @@
 		50624C672DE5DCD500794BC8 /* Rwx Editor Test.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Rwx Editor Test.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		50624C692DE5DCD500794BC8 /* Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test.swift; sourceTree = "<group>"; };
 		507318432DE70C27005E26F9 /* ToggleRwxColored.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleRwxColored.swift; sourceTree = "<group>"; };
-		507318452DE71047005E26F9 /* RwxTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RwxTextView.swift; sourceTree = "<group>"; };
+		507318452DE71047005E26F9 /* PanelRwxText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PanelRwxText.swift; sourceTree = "<group>"; };
 		507318502DE7939D005E26F9 /* ToggleRwxNumeric.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleRwxNumeric.swift; sourceTree = "<group>"; };
 		507318522DE82BDB005E26F9 /* PickerCustom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerCustom.swift; sourceTree = "<group>"; };
 		507318752DE9EB32005E26F9 /* ButtonCustom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCustom.swift; sourceTree = "<group>"; };
@@ -208,10 +216,6 @@
 				50403EB02E12B7FB007F1D6B /* PopupHeadView.swift */,
 				50403EB22E12BA52007F1D6B /* PopupBodyView.swift */,
 				50403EB62E12C242007F1D6B /* PopupFootView.swift */,
-				50403EB42E12BC52007F1D6B /* DebugInfoView.swift */,
-				507318452DE71047005E26F9 /* RwxTextView.swift */,
-				507318432DE70C27005E26F9 /* ToggleRwxColored.swift */,
-				507318502DE7939D005E26F9 /* ToggleRwxNumeric.swift */,
 				50114D152E01F24000024326 /* Assets.xcassets */,
 			);
 			path = popup;
@@ -220,12 +224,61 @@
 		50114D6D2E02AF8700024326 /* controls */ = {
 			isa = PBXGroup;
 			children = (
-				507318752DE9EB32005E26F9 /* ButtonCustom.swift */,
-				50114D9C2E0AF78700024326 /* MessageBox.swift */,
-				507318522DE82BDB005E26F9 /* PickerCustom.swift */,
+				50309B1A2F5B74CC008CA064 /* ButtonCustom */,
+				50309B1B2F5B74D6008CA064 /* MessageBox */,
+				50309B1C2F5B74E9008CA064 /* PanelRwxText */,
+				50309B1D2F5B74FA008CA064 /* PickerCustom */,
+				50309B1E2F5B7521008CA064 /* ToggleRwxColored */,
+				507318502DE7939D005E26F9 /* ToggleRwxNumeric.swift */,
 				50114DAB2E0C46AA00024326 /* ToggleCustom.swift */,
 			);
 			path = controls;
+			sourceTree = "<group>";
+		};
+		50309B1A2F5B74CC008CA064 /* ButtonCustom */ = {
+			isa = PBXGroup;
+			children = (
+				507318752DE9EB32005E26F9 /* ButtonCustom.swift */,
+				50309B252F5B764A008CA064 /* Assets.xcassets */,
+			);
+			path = ButtonCustom;
+			sourceTree = "<group>";
+		};
+		50309B1B2F5B74D6008CA064 /* MessageBox */ = {
+			isa = PBXGroup;
+			children = (
+				50114D9C2E0AF78700024326 /* MessageBox.swift */,
+				50309B1F2F5B75FC008CA064 /* Assets.xcassets */,
+			);
+			path = MessageBox;
+			sourceTree = "<group>";
+		};
+		50309B1C2F5B74E9008CA064 /* PanelRwxText */ = {
+			isa = PBXGroup;
+			children = (
+				507318452DE71047005E26F9 /* PanelRwxText.swift */,
+			);
+			path = PanelRwxText;
+			sourceTree = "<group>";
+		};
+		50309B1D2F5B74FA008CA064 /* PickerCustom */ = {
+			isa = PBXGroup;
+			children = (
+				507318522DE82BDB005E26F9 /* PickerCustom.swift */,
+				50309B292F5B7783008CA064 /* PickerCustomColor.swift */,
+				50309B232F5B762F008CA064 /* Assets.xcassets */,
+			);
+			path = PickerCustom;
+			sourceTree = "<group>";
+		};
+		50309B1E2F5B7521008CA064 /* ToggleRwxColored */ = {
+			isa = PBXGroup;
+			children = (
+				507318432DE70C27005E26F9 /* ToggleRwxColored.swift */,
+				50114D682E02AC0D00024326 /* ToggleRwxColoredColor.swift */,
+				50309B272F5B7694008CA064 /* Assets.xcassets */,
+			);
+			path = ToggleRwxColored;
 			sourceTree = "<group>";
 		};
 		503D1A9B2F2C073E005B8A98 /* extensions */ = {
@@ -233,7 +286,6 @@
 			children = (
 				507318A52DF37FB8005E26F9 /* ByteCountFormatter.swift */,
 				507318A22DF3758B005E26F9 /* CaseIterable.swift */,
-				50114D682E02AC0D00024326 /* Color.swift */,
 				5073189B2DF1BA3D005E26F9 /* Date.swift */,
 				501939E72E116F2600711283 /* Equatable.swift */,
 				503D1AE22F2F53BC005B8A98 /* NSWindow.swift */,
@@ -263,12 +315,11 @@
 			children = (
 				50114E812E0DDB7D00024326 /* main.swift */,
 				50624C4D2DE5BA8200794BC8 /* App.swift */,
-				50114D162E01F24000024326 /* MainView.swift */,
+				50114D162E01F24000024326 /* MainScene.swift */,
 				50403EAE2E12B54F007F1D6B /* ExtensionView.swift */,
 				50403EA82E12B0DC007F1D6B /* BookmarksView.swift */,
 				50403EAA2E12B325007F1D6B /* LaunchView.swift */,
 				50403EA42E12AF09007F1D6B /* AppInfoView.swift */,
-				50624C4A2DE5BA8200794BC8 /* Assets.xcassets */,
 				50624C4C2DE5BA8200794BC8 /* app.entitlements */,
 				50114D8E2E05FC6200024326 /* Info.plist */,
 			);
@@ -432,6 +483,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				50114D672E02AB9400024326 /* Assets.xcassets in Resources */,
+				50309B212F5B75FC008CA064 /* Assets.xcassets in Resources */,
 				50114D3D2E01F6AF00024326 /* Localizable.xcstrings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -440,10 +492,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				50114D4E2E01F77900024326 /* Assets.xcassets in Resources */,
 				50114D642E02AB9400024326 /* Assets.xcassets in Resources */,
 				50114D872E05F87B00024326 /* Assets.xcassets in Resources */,
+				50309B222F5B75FC008CA064 /* Assets.xcassets in Resources */,
 				50114D272E01F6AF00024326 /* Localizable.xcstrings in Resources */,
+				50309B282F5B7694008CA064 /* Assets.xcassets in Resources */,
+				50309B262F5B764A008CA064 /* Assets.xcassets in Resources */,
+				50309B242F5B762F008CA064 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -452,6 +507,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				50114D652E02AB9400024326 /* Assets.xcassets in Resources */,
+				50309B202F5B75FC008CA064 /* Assets.xcassets in Resources */,
 				50114D482E01F6AF00024326 /* Localizable.xcstrings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -469,7 +525,7 @@
 				50114D352E01F6AF00024326 /* UInt.swift in Sources */,
 				50114D972E099D0B00024326 /* URL.swift in Sources */,
 				50114DA92E0C065D00024326 /* ValueState.swift in Sources */,
-				50114D6A2E02AC0F00024326 /* Color.swift in Sources */,
+				50114D6A2E02AC0F00024326 /* ToggleRwxColoredColor.swift in Sources */,
 				50114D372E01F6AF00024326 /* CaseIterable.swift in Sources */,
 				50114D382E01F6AF00024326 /* Date.swift in Sources */,
 				50114D892E05F8CE00024326 /* FSEntityInfo.swift in Sources */,
@@ -494,11 +550,12 @@
 				50114D832E05F87B00024326 /* ToggleRwxNumeric.swift in Sources */,
 				50114D842E05F87B00024326 /* ToggleRwxColored.swift in Sources */,
 				50114DAC2E0C46AA00024326 /* ToggleCustom.swift in Sources */,
-				50114D862E05F87B00024326 /* RwxTextView.swift in Sources */,
+				50114D862E05F87B00024326 /* PanelRwxText.swift in Sources */,
 				50114D492E01F71900024326 /* FinderSyncExt.swift in Sources */,
 				50403EAB2E12B325007F1D6B /* LaunchView.swift in Sources */,
 				50403EB72E12C247007F1D6B /* PopupFootView.swift in Sources */,
-				50114D4D2E01F77300024326 /* MainView.swift in Sources */,
+				50114D4D2E01F77300024326 /* MainScene.swift in Sources */,
+				50309B2A2F5B7783008CA064 /* PickerCustomColor.swift in Sources */,
 				50114E8E2E0E9BB600024326 /* Shape.swift in Sources */,
 				50114D882E05F8CE00024326 /* FSEntityInfo.swift in Sources */,
 				50114D1D2E01F6AF00024326 /* UInt.swift in Sources */,
@@ -512,7 +569,7 @@
 				50114D202E01F6AF00024326 /* Date.swift in Sources */,
 				501939E82E116F2700711283 /* Equatable.swift in Sources */,
 				50114D232E01F6AF00024326 /* enums.swift in Sources */,
-				50114D6B2E02AC0F00024326 /* Color.swift in Sources */,
+				50114D6B2E02AC0F00024326 /* ToggleRwxColoredColor.swift in Sources */,
 				50403EAF2E12B54F007F1D6B /* ExtensionView.swift in Sources */,
 				50114D242E01F6AF00024326 /* CaseIterable.swift in Sources */,
 				50114E822E0DDB7D00024326 /* main.swift in Sources */,
@@ -520,7 +577,6 @@
 				50114D252E01F6AF00024326 /* Process.swift in Sources */,
 				50114D4C2E01F76D00024326 /* App.swift in Sources */,
 				50403EA92E12B0DC007F1D6B /* BookmarksView.swift in Sources */,
-				50403EB52E12BC52007F1D6B /* DebugInfoView.swift in Sources */,
 				50114DA82E0C065D00024326 /* ValueState.swift in Sources */,
 				50114DA02E0AF85D00024326 /* Timer.swift in Sources */,
 				503D1AAF2F2CB8FB005B8A98 /* const.swift in Sources */,
@@ -537,7 +593,7 @@
 				50114D3E2E01F6AF00024326 /* Date.swift in Sources */,
 				50114D3F2E01F6AF00024326 /* View.swift in Sources */,
 				50114D982E099D0B00024326 /* URL.swift in Sources */,
-				50114D6C2E02AC0F00024326 /* Color.swift in Sources */,
+				50114D6C2E02AC0F00024326 /* ToggleRwxColoredColor.swift in Sources */,
 				50114DAA2E0C065D00024326 /* ValueState.swift in Sources */,
 				50114D432E01F6AF00024326 /* Process.swift in Sources */,
 				50114D442E01F6AF00024326 /* enums.swift in Sources */,

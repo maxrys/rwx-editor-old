@@ -7,6 +7,12 @@ import Foundation
 
 extension Date {
 
+    public enum VisibilityMode: CaseIterable & Equatable {
+        case convenient
+        case iso8601withTZ
+        case iso8601
+    }
+
     enum DateError: Error {
         case valueIsNil
     }

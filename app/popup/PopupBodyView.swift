@@ -113,7 +113,7 @@ struct PopupBodyView: View {
 
             /* MARK: rules via text/numeric */
             HStack(spacing: 20) {
-                RwxTextView(self.rights)
+                PanelRwxText(self.rights)
                 ToggleRwxNumeric(self.rights)
             }
 
@@ -158,7 +158,6 @@ struct PopupBodyView: View {
     @Previewable @State var owner: String      = FSEntityInfo("/private/etc/").owner
     @Previewable @State var group: String      = FSEntityInfo("/private/etc/").group
     VStack {
-        DebugInfoView($info)
         PopupBodyView(
             $info,
             $rights,

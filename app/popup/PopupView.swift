@@ -8,7 +8,6 @@ import SwiftUI
 struct PopupView: View {
 
     static let FRAME_WIDTH: CGFloat = 300
-    static let IS_SHOW_DEBUG_INFO = false
 
     private let messageBox: MessageBox
     private let initialValue: String
@@ -66,15 +65,7 @@ struct PopupView: View {
             /* MARK: message box */
             self.messageBox
 
-            /* MARK: debug info */
-            if (Self.IS_SHOW_DEBUG_INFO) {
-                DebugInfoView(
-                    self.$info
-                )
-            }
-
         }
-        .foregroundPolyfill(Color.custom.text)
         .environment(\.layoutDirection, .leftToRight)
         .frame(width: Self.FRAME_WIDTH)
         .onReceive(NotificationCenter.default.publisher(for: NSApplication.didBecomeActiveNotification)) { _ in
