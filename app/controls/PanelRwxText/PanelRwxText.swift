@@ -29,9 +29,9 @@ struct PanelRwxText: View {
         let symbolX = Permission.x.rawValue
         let symbolE = "-"
         let text = String(
-            "\( self.isOn(rightsValue, Subject.owner.offset + Permission.r.offset) ? symbolR : symbolE )\( self.isOn(rightsValue, Subject.owner.offset + Permission.w.offset) ? symbolW : symbolE )\( self.isOn(rightsValue, Subject.owner.offset + Permission.x.offset) ? symbolX : symbolE )" +
-            "\( self.isOn(rightsValue, Subject.group.offset + Permission.r.offset) ? symbolR : symbolE )\( self.isOn(rightsValue, Subject.group.offset + Permission.w.offset) ? symbolW : symbolE )\( self.isOn(rightsValue, Subject.group.offset + Permission.x.offset) ? symbolX : symbolE )" +
-            "\( self.isOn(rightsValue, Subject.other.offset + Permission.r.offset) ? symbolR : symbolE )\( self.isOn(rightsValue, Subject.other.offset + Permission.w.offset) ? symbolW : symbolE )\( self.isOn(rightsValue, Subject.other.offset + Permission.x.offset) ? symbolX : symbolE )"
+            "\( self.isOn(rightsValue, PermissionSubject.owner.offset + Permission.r.offset) ? symbolR : symbolE )\( self.isOn(rightsValue, PermissionSubject.owner.offset + Permission.w.offset) ? symbolW : symbolE )\( self.isOn(rightsValue, PermissionSubject.owner.offset + Permission.x.offset) ? symbolX : symbolE )" +
+            "\( self.isOn(rightsValue, PermissionSubject.group.offset + Permission.r.offset) ? symbolR : symbolE )\( self.isOn(rightsValue, PermissionSubject.group.offset + Permission.w.offset) ? symbolW : symbolE )\( self.isOn(rightsValue, PermissionSubject.group.offset + Permission.x.offset) ? symbolX : symbolE )" +
+            "\( self.isOn(rightsValue, PermissionSubject.other.offset + Permission.r.offset) ? symbolR : symbolE )\( self.isOn(rightsValue, PermissionSubject.other.offset + Permission.w.offset) ? symbolW : symbolE )\( self.isOn(rightsValue, PermissionSubject.other.offset + Permission.x.offset) ? symbolX : symbolE )"
         )
         Text(text)
             .font(.system(size: 13, weight: .regular, design: .monospaced))

@@ -23,7 +23,7 @@ struct ToggleRwxNumeric: View {
         self.rights = rights
     }
 
-    let valueUnpack: (UInt, Subject) -> UInt = { rightsValue, subject in
+    let valueUnpack: (UInt, PermissionSubject) -> UInt = { rightsValue, subject in
         let bitR = rightsValue[subject.offset + Permission.r.offset]
         let bitW = rightsValue[subject.offset + Permission.w.offset]
         let bitX = rightsValue[subject.offset + Permission.x.offset]
@@ -34,7 +34,7 @@ struct ToggleRwxNumeric: View {
         return result
     }
 
-    let valuePack: (UInt, UInt, Subject) -> UInt = { value, rightsValue, subject in
+    let valuePack: (UInt, UInt, PermissionSubject) -> UInt = { value, rightsValue, subject in
         let bitR = value[Permission.r.offset]
         let bitW = value[Permission.w.offset]
         let bitX = value[Permission.x.offset]

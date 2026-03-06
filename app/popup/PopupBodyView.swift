@@ -89,24 +89,24 @@ struct PopupBodyView: View {
 
                 VStack(spacing: 10) {
                     Text(NSLocalizedString("Read", comment: "")).frame(width: textW, height: textH)
-                    ToggleRwxColored(.owner, self.rights, bitPosition: Subject.owner.offset + Permission.r.offset)
-                    ToggleRwxColored(.group, self.rights, bitPosition: Subject.group.offset + Permission.r.offset)
-                    ToggleRwxColored(.other, self.rights, bitPosition: Subject.other.offset + Permission.r.offset)
+                    ToggleRwxColored(.owner, self.rights, bitPosition: PermissionSubject.owner.offset + Permission.r.offset)
+                    ToggleRwxColored(.group, self.rights, bitPosition: PermissionSubject.group.offset + Permission.r.offset)
+                    ToggleRwxColored(.other, self.rights, bitPosition: PermissionSubject.other.offset + Permission.r.offset)
                 }
 
                 VStack(spacing: 10) {
                     Text(NSLocalizedString("Write", comment: "")).frame(width: textW, height: textH)
-                    ToggleRwxColored(.owner, self.rights, bitPosition: Subject.owner.offset + Permission.w.offset)
-                    ToggleRwxColored(.group, self.rights, bitPosition: Subject.group.offset + Permission.w.offset)
-                    ToggleRwxColored(.other, self.rights, bitPosition: Subject.other.offset + Permission.w.offset)
+                    ToggleRwxColored(.owner, self.rights, bitPosition: PermissionSubject.owner.offset + Permission.w.offset)
+                    ToggleRwxColored(.group, self.rights, bitPosition: PermissionSubject.group.offset + Permission.w.offset)
+                    ToggleRwxColored(.other, self.rights, bitPosition: PermissionSubject.other.offset + Permission.w.offset)
                 }
 
                 VStack(spacing: 10) {
                     let text = self.info.type.wrappedValue == .file ? "Execute" : "Access"
                     Text(NSLocalizedString(text, comment: "")).frame(width: textW, height: textH)
-                    ToggleRwxColored(.owner, self.rights, bitPosition: Subject.owner.offset + Permission.x.offset);
-                    ToggleRwxColored(.group, self.rights, bitPosition: Subject.group.offset + Permission.x.offset);
-                    ToggleRwxColored(.other, self.rights, bitPosition: Subject.other.offset + Permission.x.offset);
+                    ToggleRwxColored(.owner, self.rights, bitPosition: PermissionSubject.owner.offset + Permission.x.offset);
+                    ToggleRwxColored(.group, self.rights, bitPosition: PermissionSubject.group.offset + Permission.x.offset);
+                    ToggleRwxColored(.other, self.rights, bitPosition: PermissionSubject.other.offset + Permission.x.offset);
                 }
 
             }
